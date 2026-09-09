@@ -1,0 +1,19 @@
+{
+  "module": "export_fig_4_2_mechanism_observed",
+  "snapshot": "2025-06-09",
+  "run_id": "ch4_v2_fix01_final_freeze",
+  "timestamp_utc": "2026-02-20T19:23:21.448091+00:00",
+  "config_path": "src/analysis/chapter4/config/ch4_v2_fix01.yaml",
+  "inputs": {
+    "mechanism_summary_csv": "artifacts/ch4/v2_fix01/2025-06-09/m6_6/mechanism_interdiction_summary_observed.csv",
+    "mechanism_summary_sha256": "4a189126d13778d8a927ea0beafc72d3bcf98ef1e9b8bafd9fe85dfe1bd88e44",
+    "k_target_requested": 25
+  },
+  "outputs": {
+    "pdf": "figs/chapter4/v2_fix01/main_text/fig_4_2_mechanism_observed.pdf",
+    "svg": "figs/chapter4/v2_fix01/main_text/fig_4_2_mechanism_observed.svg",
+    "png": "figs/chapter4/v2_fix01/main_text/fig_4_2_mechanism_observed.png",
+    "plot_data_csv": "figs/chapter4/v2_fix01/main_text/fig_4_2_mechanism_observed_plot_data.csv",
+    "spec_json": "figs/chapter4/v2_fix01/main_text/fig_4_2_mechanism_observed_spec.json"
+  }
+}

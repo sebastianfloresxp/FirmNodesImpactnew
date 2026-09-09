@@ -1,0 +1,153 @@
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+src = ["src", "scripts"]
+extend-exclude = [
+    "data",
+    "artifacts",
+    "results",
+    "predictions",
+    "logs",
+    "figs",
+    "report",
+    "docs",
+    "presentation",
+    "research",
+    ".venv-arch",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+    "SIM", # flake8-simplify
+    "N",   # pep8-naming
+    "C4",  # flake8-comprehensions
+    "PIE", # flake8-pie
+    "RUF", # ruff-specific
+]
+ignore = [
+    "E501",    # line too long (handled by formatter)
+    "N806",    # non-lowercase variable in function (common in ML: X, Y, W)
+    "N803",    # argument name should be lowercase (common in ML)
+    "N812",    # lowercase imported as non-lowercase — `torch.nn.functional as F` is the PyTorch convention
+    "N999",    # invalid module name — pipeline scripts are deliberately prefixed `00_`, `01_`, etc.
+    "B008",    # function calls in default args (common for argparse / pathlib)
+    "SIM108",  # ternary may hurt readability in research code
+    "RUF001",  # ambiguous unicode in strings — en-dashes/quotes appear in paper text
+    "RUF002",  # ambiguous unicode in docstrings
+    "RUF003",  # ambiguous unicode in comments
+]
+
+[tool.ruff.lint.per-file-ignores]
+"**/__init__.py" = ["F401"]  # re-exports
+"scripts/*" = ["T201"]        # print() is fine in scripts
+# Pipeline scripts often do sys.path manipulation before imports
+"src/**/0[0-9]_*.py" = ["E402"]
+"src/**/run_*.py" = ["E402"]
+# Analysis/reporting scripts also require sys.path setup before local imports
+"src/**/tab_*.py" = ["E402"]
+"src/**/evaluate_*.py" = ["E402"]
+"src/**/backtest_*.py" = ["E402"]
+"src/**/diagnose_*.py" = ["E402"]
+"src/**/score_*.py" = ["E402"]
+"src/**/m[0-9]_*.py" = ["E402"]
+"src/**/m[0-9][0-9]_*.py" = ["E402"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+# ---------------------------------------------------------------------------
+# Pyright (type checking)
+# ---------------------------------------------------------------------------
+[tool.pyright]
+include = ["src", "scripts"]
+exclude = [
+    "**/__pycache__",
+    "data",
+    "artifacts",
+    "results",
+    "predictions",
+    "logs",
+    "report",
+    "research",
+    ".venv-arch",
+    "src/analysis",
+    "src/ch3",
+]
+pythonVersion = "3.10"
+typeCheckingMode = "basic"
+reportMissingImports = "warning"
+reportMissingTypeStubs = "none"
+reportGeneralTypeIssues = "warning"
+reportOptionalMemberAccess = "warning"
+reportPrivateImportUsage = "none"
+
+# ---------------------------------------------------------------------------
+# Vulture (dead code)
+# ---------------------------------------------------------------------------
+[tool.vulture]
+paths = ["src", "scripts"]
+exclude = [
+    "*/__init__.py",
+    "data/*",
+    "artifacts/*",
+    "results/*",
+    "report/*",
+]
+min_confidence = 80
+sort_by_size = true
+ignore_decorators = ["@app.route", "@pytest.fixture", "@property"]
+
+# ---------------------------------------------------------------------------
+# Bandit (security — code)
+# ---------------------------------------------------------------------------
+[tool.bandit]
+targets = ["src", "scripts"]
+exclude_dirs = [
+    "data",
+    "artifacts",
+    "results",
+    "predictions",
+    "logs",
+    "report",
+    "docs",
+    "research",
+    ".venv-arch",
+]
+# B101: assert_used — common in ML/research; B404/B603: subprocess use is legitimate in pipeline wrappers
+# B608: hardcoded SQL — all DuckDB/FactSet queries use controlled internal paths (no user input)
+skips = ["B101", "B404", "B603", "B608"]
+
+# ---------------------------------------------------------------------------
+# Codespell (spell checking — code + docs)
+# ---------------------------------------------------------------------------
+# codespell's skip uses fnmatch (no **), so nested paths need explicit patterns
+[tool.codespell]
+skip = "*.lock,*.csv,*.json,*.svg,*.ipynb,*.pdf,*.tex,*.bib,*.bbl,./data,./data/*,./artifacts,./artifacts/*,./results,./results/*,./predictions,./predictions/*,./logs,./logs/*,./report,./report/*,./figs,./figs/*,./research,./research/*,./.git,./.git/*,./.venv-arch,./.venv-arch/*,./presentation,./presentation/*,./checksums.json"
+# Project-specific terms / acronyms that aren't real misspellings
+ignore-words-list = "nd,te,ba,hist,optin,thirdparty,som,ser,fo,parms,fpr,tpr,ot,pease,brin,disjointness,sme"
+check-filenames = ""
+check-hidden = ""
+quiet-level = 3
+
+# ---------------------------------------------------------------------------
+# PyMarkdown (markdown linting)
+# ---------------------------------------------------------------------------
+[tool.pymarkdown]
+# Relax rules that are noisy in research/technical docs
+plugins.line-length.line_length = 800
+plugins.line-length.code_block_line_length = 800
+plugins.line-length.heading_line_length = 800
+plugins.no-inline-html.enabled = false            # MD033 — HTML snippets allowed (tables, details)
+plugins.no-duplicate-heading.enabled = false      # MD024 — repeated section headings OK
+plugins.first-line-heading.enabled = false        # MD041 — not every doc starts with H1
+plugins.no-emphasis-as-heading.enabled = false    # MD036 — bolded pseudo-headings allowed
+plugins.no-trailing-punctuation.enabled = false   # MD026 — trailing colons in headings allowed
+plugins.proper-names.enabled = false              # MD044 — noisy for project-specific terms
+extensions.front-matter.enabled = true

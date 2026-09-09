@@ -1,0 +1,53 @@
+snapshot: "2025-06-09"
+run_id: "ch4_v2_fix03_effective_extensions"
+
+paths:
+  nodes: "artifacts/ch3/network_upstream/dod_semiconductor_nodes_top5_d99_shipping_strict.parquet"
+  edges: "artifacts/ch3/network_upstream/dod_semiconductor_edges_top5_d99_shipping_strict.parquet"
+  prime_weights: "artifacts/ch4/inputs/prime_weights.parquet"
+  out_root: "artifacts/ch4/v2_fix01"
+  tables_root: "tables/chapter4/v2_fix01"
+  figs_root: "figs/chapter4/v2_fix01"
+
+graph:
+  identity_mode: "collapse"
+  dedup_key: ["src_uid", "dst_uid"]
+  include_contract_seed_in_views: false
+  use_unweighted_fallback: true
+
+views:
+  disclosed:
+    include_any: ["is_disclosed"]
+  observed:
+    include_any: ["is_disclosed", "is_observed_ship"]
+  full:
+    include_any: ["is_disclosed", "is_observed_ship", "is_predicted"]
+
+m2_3:
+  views: ["disclosed", "observed", "full"]
+  top_n_export: 100
+  top_n_mincut_primes: 25
+
+m3_2:
+  views: ["disclosed", "observed", "full"]
+  hop_caps: [3, 5, 7, 10]
+  cost_caps: [5, 10, 15, 20]
+  predicted_only_edge_cost: 3.0
+  chunk_size: 128
+
+m6_4:
+  views: ["disclosed", "observed", "full"]
+  candidate_pool_n: 10000
+  deep_eval_n: 1500
+  random_repeats: 30
+  removal_fracs: [0.001, 0.005, 0.01, 0.02, 0.05]
+  interdiction_k: [5, 10, 25]
+  interdiction_shortlist_n: 100
+  predicted_only_edge_cost: 3.0
+  cost_cap_primary: 10.0
+  hop_cap_primary: 5.0
+
+random:
+  global_seed: 7
+  numpy_seed: 7
+  python_seed: 7

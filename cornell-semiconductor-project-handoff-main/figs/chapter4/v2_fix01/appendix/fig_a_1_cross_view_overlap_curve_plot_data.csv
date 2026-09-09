@@ -1,0 +1,16 @@
+pair_id,pair_label,top_n,set_a_size,set_b_size,overlap_count,union_count,jaccard_overlap,jaccard_pct
+disclosed_observed,Disclosed vs Observed,10,10,10,8,12,0.6666666666666666,66.66666666666666
+observed_full,Observed vs Full,10,10,10,1,19,0.05263157894736842,5.263157894736842
+disclosed_full,Disclosed vs Full,10,10,10,0,20,0.0,0.0
+disclosed_observed,Disclosed vs Observed,25,25,25,22,28,0.7857142857142857,78.57142857142857
+observed_full,Observed vs Full,25,25,25,3,47,0.06382978723404255,6.382978723404255
+disclosed_full,Disclosed vs Full,25,25,25,0,50,0.0,0.0
+disclosed_observed,Disclosed vs Observed,50,50,50,43,57,0.7543859649122807,75.43859649122807
+observed_full,Observed vs Full,50,50,50,4,96,0.041666666666666664,4.166666666666666
+disclosed_full,Disclosed vs Full,50,50,50,0,100,0.0,0.0
+disclosed_observed,Disclosed vs Observed,100,52,63,49,66,0.7424242424242424,74.24242424242425
+observed_full,Observed vs Full,100,63,51,14,100,0.14,14.000000000000002
+disclosed_full,Disclosed vs Full,100,52,51,1,102,0.00980392156862745,0.9803921568627451
+disclosed_observed,Disclosed vs Observed,250,53,80,51,82,0.6219512195121951,62.19512195121951
+observed_full,Observed vs Full,250,80,55,34,101,0.33663366336633666,33.663366336633665
+disclosed_full,Disclosed vs Full,250,53,55,5,103,0.04854368932038835,4.854368932038835

@@ -1,0 +1,51 @@
+# Global Configuration for Semiconductor Supply Chain Analysis
+
+# Data paths
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  
+# Model paths
+models:
+  heuristics: "src/heuristics"
+  node2vec: "src/node2vec"
+  graphsage: "src/graphsage"
+  # tgn, evolvegcn, dygformer removed — not used in production pipeline
+  ensemble: "src/ensemble"
+
+# Output paths
+outputs:
+  artifacts_dir: "artifacts"
+  results_dir: "results"
+  logs_dir: "logs"
+  configs_dir: "configs"
+
+# Database configuration
+database:
+  host: "localhost"
+  port: 5432
+  database: "supplychain"
+  username: "${DB_USERNAME}"
+  password: "${DB_PASSWORD}"
+
+# Training configuration
+training:
+  random_seed: 42
+  num_epochs: 100
+  batch_size: 64
+  learning_rate: 0.001
+  early_stopping_patience: 10
+
+# Evaluation configuration
+evaluation:
+  metrics: ["auc", "ap", "precision@k", "recall@k"]
+  k_values: [10, 50, 100]
+  test_size: 0.2
+  val_size: 0.1
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_rotation: "1 day"
+  max_files: 30 

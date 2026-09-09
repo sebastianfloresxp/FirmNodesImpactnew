@@ -1,0 +1,44 @@
+name: supplychain_env_cpu
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11.7
+  - pip
+  - numpy=1.26.4
+  - pandas=2.1.4
+  - pyarrow=14.0.2
+  - duckdb=1.4.0
+  - scipy=1.11.4
+  - networkx=3.1
+  - pyyaml=6.0.1
+  - matplotlib
+  - jupyterlab
+  - scikit-learn
+  - pygraphviz
+  - sqlalchemy
+  - python-dotenv
+  - tqdm
+  - seaborn
+  - ipykernel
+  - pycountry
+  - joblib
+  - pip:
+      - torch==2.7.1+cpu
+      - torchvision==0.18.1+cpu
+      - torchaudio==2.7.1+cpu
+      - --extra-index-url https://download.pytorch.org/whl/cpu
+      - pyg_lib==0.4.0+pt27cpu
+      - torch_scatter==2.1.2+pt27cpu
+      - torch_sparse==0.6.18+pt27cpu
+      - torch_cluster==1.6.3+pt27cpu
+      - torch_spline_conv==1.2.2+pt27cpu
+      - torch_geometric==2.5.3
+      - --find-links https://data.pyg.org/whl/torch-2.7.0+cpu.html
+      - pyodbc
+      - igraph
+      - pyvis
+      - optuna
+      - faiss-cpu
+      - fuzzywuzzy
+      - python-Levenshtein
+      - plotly

@@ -1,0 +1,26 @@
+% Validation global scorecard - Appendix
+\begin{tabular}{@{}l
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=3.1]@{}}
+\toprule
+\multicolumn{1}{c}{Model} &
+\multicolumn{1}{c}{nDCG@100} &
+\multicolumn{1}{c}{Hit@10} &
+\multicolumn{1}{c}{Hit@50} &
+\multicolumn{1}{c}{MRR} &
+\multicolumn{1}{c}{MAP@100} &
+\multicolumn{1}{c}{Lift ($\times$ base)} \\
+\midrule
+Ensemble & \bfseries 1.000 & \bfseries 1.000 & \bfseries 1.000 & \bfseries 1.000 & \bfseries 1.000 & 821.0 \\
+TGNN & 0.129 & 0.241 & 0.409 & 0.126 & 0.062 & \multicolumn{1}{c}{\NA} \\
+Node2Vec-Temporal & 0.096 & 0.156 & 0.334 & 0.078 & 0.038 & \multicolumn{1}{c}{\NA} \\
+Node2Vec & 0.112 & 0.218 & 0.324 & 0.127 & 0.064 & \multicolumn{1}{c}{\NA} \\
+Two-Tower & 0.082 & 0.099 & 0.315 & 0.046 & 0.027 & \multicolumn{1}{c}{\NA} \\
+GraphSAGE & 0.024 & 0.049 & 0.124 & 0.026 & 0.010 & \multicolumn{1}{c}{\NA} \\
+Heuristics (PA/CN/AA mean) & 0.041 & 0.083 & 0.186 & 0.041 & 0.015 & \multicolumn{1}{c}{\NA} \\
+\bottomrule
+\end{tabular}

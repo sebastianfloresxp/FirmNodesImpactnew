@@ -1,0 +1,21 @@
+{
+  "figure_name": "fig_4_5_schematic_corridor_vs_upstream",
+  "type": "abstract_schematic",
+  "counts": {
+    "n_upstream": 16,
+    "n_semis": 6,
+    "n_corridor": 14,
+    "n_prime_adjacent_corridor": 9,
+    "n_primes": 7,
+    "n_dod": 1,
+    "n_edges": 96,
+    "n_highlight_edges": 8
+  },
+  "output_files": {
+    "pdf": "figs/chapter4/v2_fix01/main_text/fig_4_5_schematic_corridor_vs_upstream.pdf",
+    "svg": "figs/chapter4/v2_fix01/main_text/fig_4_5_schematic_corridor_vs_upstream.svg",
+    "png": "figs/chapter4/v2_fix01/main_text/fig_4_5_schematic_corridor_vs_upstream.png",
+    "nodes_csv": "figs/chapter4/v2_fix01/main_text/fig_4_5_schematic_corridor_vs_upstream_nodes.csv",
+    "edges_csv": "figs/chapter4/v2_fix01/main_text/fig_4_5_schematic_corridor_vs_upstream_edges.csv"
+  }
+}

@@ -1,0 +1,212 @@
+# =============================================================================
+# Academic GitHub Repository .gitignore
+# Properly ordered: global ignores -> directories -> Python/Dev -> exceptions
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# SECTION 1: Global File Type Ignores
+# -----------------------------------------------------------------------------
+# Model files and checkpoints
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Data serialization formats
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+
+# Data files (exceptions added later if needed)
+*.parquet
+*.npz
+*.npy
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Log files
+*.log
+*.out
+
+# Training output files
+nohup_training.out
+nohup_*.out
+
+# -----------------------------------------------------------------------------
+# SECTION 2: Large Output Directories (Exclude from GitHub)
+# -----------------------------------------------------------------------------
+# Model artifacts and checkpoints
+artifacts/
+
+# Prediction outputs
+predictions/
+
+# Experiment results (all results excluded per user preference)
+results/
+
+# Training and execution logs
+logs/
+
+# Raw data files
+data/raw/
+
+# Processed datasets (bulk data)
+data/processed/
+
+# Large table outputs
+/tables/
+
+# -----------------------------------------------------------------------------
+# SECTION 3: Python and Development Ignores
+# -----------------------------------------------------------------------------
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# mypy / Pyre
+.mypy_cache/
+.dmypy.json
+.pyre/
+
+# Code-quality tool caches
+.ruff_cache/
+.pyright/
+.pytype/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment variables
+.env
+.env.local
+
+# Claude Code — personal overrides (shared settings go in .claude/settings.json)
+.claude/settings.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# -----------------------------------------------------------------------------
+# SECTION 4: Specific Exceptions (if any small curated files needed)
+# -----------------------------------------------------------------------------
+# Note: Exceptions must come AFTER the general rules they override
+# Currently no exceptions needed - all results/data excluded per user preference
+
+# -----------------------------------------------------------------------------
+# SECTION 5: Temporary/Local Files
+# -----------------------------------------------------------------------------
+# Local test attempts
+/test attempt/
+
+# Miniconda installer
+Miniconda3-latest-Linux-x86_64.sh
+
+# LaTeX build artifacts
+*.aux
+*.toc
+*.bbl
+*.bcf
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.run.xml
+
+# =============================================================================
+# Internal / Non-Deliverable Files
+# =============================================================================
+BILLING.md
+TODO.md
+PROSE_FIX.md
+invoice_m1-3.*
+PO_*.pdf
+scope_of_work*.docx
+STYLE_REFERENCE_GUIDE.md
+research/
+TODO_M1_M3.md
+QA_REPORT.md
+.venv-arch/
+.venv/
+venv/
+env/
+TODO.md
+ISSUES.md
+
+# Profiling output
+*.prof
+*.cprofile
+pip-wheel-metadata/
+TODO_M4.md
+report/qa/
+DEAD_CODE.md
+
+# M6 presentation deck and build artifacts
+presentation/
+docs/superpowers/
+PROSE_FIX.md

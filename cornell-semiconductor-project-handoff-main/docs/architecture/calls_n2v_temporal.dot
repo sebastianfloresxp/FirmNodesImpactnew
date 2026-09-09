@@ -1,0 +1,275 @@
+digraph G {
+    graph [rankdir=TB, ranksep=0.5, layout=dot, clusterrank="local"];
+    subgraph "cluster_G" {
+
+        graph [style="filled,rounded", fillcolor="#80808018", label=""];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna" [label="src.n2v_temporal.01_n2v_temporal_hpo_optuna\n(src/n2v_temporal/01_n2v_temporal_hpo_optuna.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0", tooltip="src.n2v_temporal.01_n2v_temporal_hpo_optuna\nsrc/n2v_temporal/01_n2v_temporal_hpo_optuna.py"];
+        "src__n2v_temporal__02_n2v_temporal_finalize_hpo" [label="src.n2v_temporal.02_n2v_temporal_finalize_hpo\n(src/n2v_temporal/02_n2v_temporal_finalize_hpo.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="1", tooltip="src.n2v_temporal.02_n2v_temporal_finalize_hpo\nsrc/n2v_temporal/02_n2v_temporal_finalize_hpo.py"];
+        "src__n2v_temporal__03_n2v_temporal_train_eval" [label="src.n2v_temporal.03_n2v_temporal_train_eval\n(src/n2v_temporal/03_n2v_temporal_train_eval.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="2", tooltip="src.n2v_temporal.03_n2v_temporal_train_eval\nsrc/n2v_temporal/03_n2v_temporal_train_eval.py"];
+        "src__n2v_temporal__04_build_n2v_embeddings" [label="src.n2v_temporal.04_build_n2v_embeddings\n(src/n2v_temporal/04_build_n2v_embeddings.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="3", tooltip="src.n2v_temporal.04_build_n2v_embeddings\nsrc/n2v_temporal/04_build_n2v_embeddings.py"];
+        "src__n2v_temporal__model" [label="src.n2v_temporal.model\n(src/n2v_temporal/model.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model\nsrc/n2v_temporal/model.py"];
+        "src__n2v_temporal__run_n2v_temporal_eval" [label="src.n2v_temporal.run_n2v_temporal_eval\n(src/n2v_temporal/run_n2v_temporal_eval.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval\nsrc/n2v_temporal/run_n2v_temporal_eval.py"];
+        subgraph "cluster_src__n2v_temporal__01_n2v_temporal_hpo_optuna" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.n2v_temporal.01_n2v_temporal_hpo_optuna"];
+            "src__n2v_temporal__01_n2v_temporal_hpo_optuna__main" [label="main\n(src/n2v_temporal/01_n2v_temporal_hpo_optuna.py:282)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.n2v_temporal.01_n2v_temporal_hpo_optuna.main\nsrc/n2v_temporal/01_n2v_temporal_hpo_optuna.py:282\nfunction in src.n2v_temporal.01_n2v_temporal_hpo_optuna"];
+            "src__n2v_temporal__01_n2v_temporal_hpo_optuna__objective" [label="objective\n(src/n2v_temporal/01_n2v_temporal_hpo_optuna.py:97)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.n2v_temporal.01_n2v_temporal_hpo_optuna.objective\nsrc/n2v_temporal/01_n2v_temporal_hpo_optuna.py:97\nfunction in src.n2v_temporal.01_n2v_temporal_hpo_optuna"];
+            "src__n2v_temporal__01_n2v_temporal_hpo_optuna__parse_args" [label="parse_args\n(src/n2v_temporal/01_n2v_temporal_hpo_optuna.py:43)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.n2v_temporal.01_n2v_temporal_hpo_optuna.parse_args\nsrc/n2v_temporal/01_n2v_temporal_hpo_optuna.py:43\nfunction in src.n2v_temporal.01_n2v_temporal_hpo_optuna"];
+        }
+        subgraph "cluster_src__n2v_temporal__02_n2v_temporal_finalize_hpo" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.n2v_temporal.02_n2v_temporal_finalize_hpo"];
+            "src__n2v_temporal__02_n2v_temporal_finalize_hpo__TrialConfig" [label="TrialConfig\n(src/n2v_temporal/02_n2v_temporal_finalize_hpo.py:28)", style="filled", fillcolor="#ffe965b2", fontcolor="#000000", group="1", tooltip="src.n2v_temporal.02_n2v_temporal_finalize_hpo.TrialConfig\nsrc/n2v_temporal/02_n2v_temporal_finalize_hpo.py:28\nclass in src.n2v_temporal.02_n2v_temporal_finalize_hpo"];
+            "src__n2v_temporal__02_n2v_temporal_finalize_hpo__aggregate_seeds" [label="aggregate_seeds\n(src/n2v_temporal/02_n2v_temporal_finalize_hpo.py:357)", style="filled", fillcolor="#ffe965b2", fontcolor="#000000", group="1", tooltip="src.n2v_temporal.02_n2v_temporal_finalize_hpo.aggregate_seeds\nsrc/n2v_temporal/02_n2v_temporal_finalize_hpo.py:357\nfunction in src.n2v_temporal.02_n2v_temporal_finalize_hpo"];
+            "src__n2v_temporal__02_n2v_temporal_finalize_hpo__load_top_configs" [label="load_top_configs\n(src/n2v_temporal/02_n2v_temporal_finalize_hpo.py:119)", style="filled", fillcolor="#ffe965b2", fontcolor="#000000", group="1", tooltip="src.n2v_temporal.02_n2v_temporal_finalize_hpo.load_top_configs\nsrc/n2v_temporal/02_n2v_temporal_finalize_hpo.py:119\nfunction in src.n2v_temporal.02_n2v_temporal_finalize_hpo"];
+            "src__n2v_temporal__02_n2v_temporal_finalize_hpo__main" [label="main\n(src/n2v_temporal/02_n2v_temporal_finalize_hpo.py:385)", style="filled", fillcolor="#ffe965b2", fontcolor="#000000", group="1", tooltip="src.n2v_temporal.02_n2v_temporal_finalize_hpo.main\nsrc/n2v_temporal/02_n2v_temporal_finalize_hpo.py:385\nfunction in src.n2v_temporal.02_n2v_temporal_finalize_hpo"];
+            "src__n2v_temporal__02_n2v_temporal_finalize_hpo__parse_args" [label="parse_args\n(src/n2v_temporal/02_n2v_temporal_finalize_hpo.py:57)", style="filled", fillcolor="#ffe965b2", fontcolor="#000000", group="1", tooltip="src.n2v_temporal.02_n2v_temporal_finalize_hpo.parse_args\nsrc/n2v_temporal/02_n2v_temporal_finalize_hpo.py:57\nfunction in src.n2v_temporal.02_n2v_temporal_finalize_hpo"];
+            "src__n2v_temporal__02_n2v_temporal_finalize_hpo__run_single_seed" [label="run_single_seed\n(src/n2v_temporal/02_n2v_temporal_finalize_hpo.py:246)", style="filled", fillcolor="#ffe965b2", fontcolor="#000000", group="1", tooltip="src.n2v_temporal.02_n2v_temporal_finalize_hpo.run_single_seed\nsrc/n2v_temporal/02_n2v_temporal_finalize_hpo.py:246\nfunction in src.n2v_temporal.02_n2v_temporal_finalize_hpo"];
+        }
+        subgraph "cluster_src__n2v_temporal__02_n2v_temporal_finalize_hpo__TrialConfig" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.n2v_temporal.02_n2v_temporal_finalize_hpo.TrialConfig"];
+            "src__n2v_temporal__02_n2v_temporal_finalize_hpo__TrialConfig__to_params_dict" [label="to_params_dict\n(src/n2v_temporal/02_n2v_temporal_finalize_hpo.py:42)", style="filled", fillcolor="#ffe132b2", fontcolor="#000000", group="1", tooltip="src.n2v_temporal.02_n2v_temporal_finalize_hpo.TrialConfig.to_params_dict\nsrc/n2v_temporal/02_n2v_temporal_finalize_hpo.py:42\nmethod in src.n2v_temporal.02_n2v_temporal_finalize_hpo.TrialConfig"];
+        }
+        subgraph "cluster_src__n2v_temporal__04_build_n2v_embeddings" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.n2v_temporal.04_build_n2v_embeddings"];
+            "src__n2v_temporal__04_build_n2v_embeddings___ensure_dir" [label="_ensure_dir\n(src/n2v_temporal/04_build_n2v_embeddings.py:116)", style="filled", fillcolor="#65ffbdb2", fontcolor="#000000", group="3", tooltip="src.n2v_temporal.04_build_n2v_embeddings._ensure_dir\nsrc/n2v_temporal/04_build_n2v_embeddings.py:116\nfunction in src.n2v_temporal.04_build_n2v_embeddings"];
+            "src__n2v_temporal__04_build_n2v_embeddings___init_device" [label="_init_device\n(src/n2v_temporal/04_build_n2v_embeddings.py:110)", style="filled", fillcolor="#65ffbdb2", fontcolor="#000000", group="3", tooltip="src.n2v_temporal.04_build_n2v_embeddings._init_device\nsrc/n2v_temporal/04_build_n2v_embeddings.py:110\nfunction in src.n2v_temporal.04_build_n2v_embeddings"];
+            "src__n2v_temporal__04_build_n2v_embeddings___parse_args" [label="_parse_args\n(src/n2v_temporal/04_build_n2v_embeddings.py:23)", style="filled", fillcolor="#65ffbdb2", fontcolor="#000000", group="3", tooltip="src.n2v_temporal.04_build_n2v_embeddings._parse_args\nsrc/n2v_temporal/04_build_n2v_embeddings.py:23\nfunction in src.n2v_temporal.04_build_n2v_embeddings"];
+            "src__n2v_temporal__04_build_n2v_embeddings___prepare_edge_index" [label="_prepare_edge_index\n(src/n2v_temporal/04_build_n2v_embeddings.py:120)", style="filled", fillcolor="#65ffbdb2", fontcolor="#000000", group="3", tooltip="src.n2v_temporal.04_build_n2v_embeddings._prepare_edge_index\nsrc/n2v_temporal/04_build_n2v_embeddings.py:120\nfunction in src.n2v_temporal.04_build_n2v_embeddings"];
+            "src__n2v_temporal__04_build_n2v_embeddings___set_seed" [label="_set_seed\n(src/n2v_temporal/04_build_n2v_embeddings.py:102)", style="filled", fillcolor="#65ffbdb2", fontcolor="#000000", group="3", tooltip="src.n2v_temporal.04_build_n2v_embeddings._set_seed\nsrc/n2v_temporal/04_build_n2v_embeddings.py:102\nfunction in src.n2v_temporal.04_build_n2v_embeddings"];
+            "src__n2v_temporal__04_build_n2v_embeddings___train_nodeX2vec" [label="_train_node2vec\n(src/n2v_temporal/04_build_n2v_embeddings.py:133)", style="filled", fillcolor="#65ffbdb2", fontcolor="#000000", group="3", tooltip="src.n2v_temporal.04_build_n2v_embeddings._train_node2vec\nsrc/n2v_temporal/04_build_n2v_embeddings.py:133\nfunction in src.n2v_temporal.04_build_n2v_embeddings"];
+            "src__n2v_temporal__04_build_n2v_embeddings__main" [label="main\n(src/n2v_temporal/04_build_n2v_embeddings.py:193)", style="filled", fillcolor="#65ffbdb2", fontcolor="#000000", group="3", tooltip="src.n2v_temporal.04_build_n2v_embeddings.main\nsrc/n2v_temporal/04_build_n2v_embeddings.py:193\nfunction in src.n2v_temporal.04_build_n2v_embeddings"];
+        }
+        subgraph "cluster_src__n2v_temporal__model" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.n2v_temporal.model"];
+            "src__n2v_temporal__model__TemporalGNN" [label="TemporalGNN\n(src/n2v_temporal/model.py:34)", style="filled", fillcolor="#65bdffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNN\nsrc/n2v_temporal/model.py:34\nclass in src.n2v_temporal.model"];
+            "src__n2v_temporal__model__TemporalGNNIncremental" [label="TemporalGNNIncremental\n(src/n2v_temporal/model.py:513)", style="filled", fillcolor="#65bdffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNNIncremental\nsrc/n2v_temporal/model.py:513\nclass in src.n2v_temporal.model"];
+        }
+        subgraph "cluster_src__n2v_temporal__model__TemporalGNN" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.n2v_temporal.model.TemporalGNN"];
+            "src__n2v_temporal__model__TemporalGNN____init__" [label="__init__\n(src/n2v_temporal/model.py:43)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNN.__init__\nsrc/n2v_temporal/model.py:43\nmethod in src.n2v_temporal.model.TemporalGNN"];
+            "src__n2v_temporal__model__TemporalGNN___encode_snapshot" [label="_encode_snapshot\n(src/n2v_temporal/model.py:277)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNN._encode_snapshot\nsrc/n2v_temporal/model.py:277\nmethod in src.n2v_temporal.model.TemporalGNN"];
+            "src__n2v_temporal__model__TemporalGNN___forward_from_n2v" [label="_forward_from_n2v\n(src/n2v_temporal/model.py:261)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNN._forward_from_n2v\nsrc/n2v_temporal/model.py:261\nmethod in src.n2v_temporal.model.TemporalGNN"];
+            "src__n2v_temporal__model__TemporalGNN___run_gcn" [label="_run_gcn\n(src/n2v_temporal/model.py:244)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNN._run_gcn\nsrc/n2v_temporal/model.py:244\nmethod in src.n2v_temporal.model.TemporalGNN"];
+            "src__n2v_temporal__model__TemporalGNN___should_checkpoint" [label="_should_checkpoint\n(src/n2v_temporal/model.py:241)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNN._should_checkpoint\nsrc/n2v_temporal/model.py:241\nmethod in src.n2v_temporal.model.TemporalGNN"];
+            "src__n2v_temporal__model__TemporalGNN__forward" [label="forward\n(src/n2v_temporal/model.py:291)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNN.forward\nsrc/n2v_temporal/model.py:291\nmethod in src.n2v_temporal.model.TemporalGNN"];
+            "src__n2v_temporal__model__TemporalGNN__gcn_forward" [label="gcn_forward\n(src/n2v_temporal/model.py:200)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNN.gcn_forward\nsrc/n2v_temporal/model.py:200\nmethod in src.n2v_temporal.model.TemporalGNN"];
+            "src__n2v_temporal__model__TemporalGNN__normalize_adjacency" [label="normalize_adjacency\n(src/n2v_temporal/model.py:173)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNN.normalize_adjacency\nsrc/n2v_temporal/model.py:173\nstaticmethod in src.n2v_temporal.model.TemporalGNN"];
+            "src__n2v_temporal__model__TemporalGNN__project_heads" [label="project_heads\n(src/n2v_temporal/model.py:509)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNN.project_heads\nsrc/n2v_temporal/model.py:509\nmethod in src.n2v_temporal.model.TemporalGNN"];
+            "src__n2v_temporal__model__TemporalGNN__reset_parameters" [label="reset_parameters\n(src/n2v_temporal/model.py:475)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNN.reset_parameters\nsrc/n2v_temporal/model.py:475\nmethod in src.n2v_temporal.model.TemporalGNN"];
+        }
+        subgraph "cluster_src__n2v_temporal__model__TemporalGNNIncremental" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.n2v_temporal.model.TemporalGNNIncremental"];
+            "src__n2v_temporal__model__TemporalGNNIncremental____init__" [label="__init__\n(src/n2v_temporal/model.py:521)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNNIncremental.__init__\nsrc/n2v_temporal/model.py:521\nmethod in src.n2v_temporal.model.TemporalGNNIncremental"];
+            "src__n2v_temporal__model__TemporalGNNIncremental__forward_incremental" [label="forward_incremental\n(src/n2v_temporal/model.py:577)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNNIncremental.forward_incremental\nsrc/n2v_temporal/model.py:577\nmethod in src.n2v_temporal.model.TemporalGNNIncremental"];
+            "src__n2v_temporal__model__TemporalGNNIncremental__gcn_forward" [label="gcn_forward\n(src/n2v_temporal/model.py:564)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.n2v_temporal.model.TemporalGNNIncremental.gcn_forward\nsrc/n2v_temporal/model.py:564\nmethod in src.n2v_temporal.model.TemporalGNNIncremental"];
+        }
+        subgraph "cluster_src__n2v_temporal__run_n2v_temporal_eval" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer" [label="CandidateStreamer\n(src/n2v_temporal/run_n2v_temporal_eval.py:874)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.CandidateStreamer\nsrc/n2v_temporal/run_n2v_temporal_eval.py:874\nclass in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__Graph" [label="Graph\n(src/n2v_temporal/run_n2v_temporal_eval.py:108)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.Graph\nsrc/n2v_temporal/run_n2v_temporal_eval.py:108\nclass in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__KM" [label="KM\n(src/n2v_temporal/run_n2v_temporal_eval.py:937)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.KM\nsrc/n2v_temporal/run_n2v_temporal_eval.py:937\nclass in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter" [label="ScoreWriter\n(src/n2v_temporal/run_n2v_temporal_eval.py:368)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.ScoreWriter\nsrc/n2v_temporal/run_n2v_temporal_eval.py:368\nclass in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache" [label="TwoHopCache\n(src/n2v_temporal/run_n2v_temporal_eval.py:419)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.TwoHopCache\nsrc/n2v_temporal/run_n2v_temporal_eval.py:419\nclass in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval___bool" [label="_bool\n(src/n2v_temporal/run_n2v_temporal_eval.py:75)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval._bool\nsrc/n2v_temporal/run_n2v_temporal_eval.py:75\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval___encode_edges" [label="_encode_edges\n(src/n2v_temporal/run_n2v_temporal_eval.py:584)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval._encode_edges\nsrc/n2v_temporal/run_n2v_temporal_eval.py:584\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval___ensure_dir" [label="_ensure_dir\n(src/n2v_temporal/run_n2v_temporal_eval.py:84)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval._ensure_dir\nsrc/n2v_temporal/run_n2v_temporal_eval.py:84\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval___is_edge" [label="_is_edge\n(src/n2v_temporal/run_n2v_temporal_eval.py:458)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval._is_edge\nsrc/n2v_temporal/run_n2v_temporal_eval.py:458\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval___load_t0" [label="_load_t0\n(src/n2v_temporal/run_n2v_temporal_eval.py:92)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval._load_t0\nsrc/n2v_temporal/run_n2v_temporal_eval.py:92\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval___now_iso" [label="_now_iso\n(src/n2v_temporal/run_n2v_temporal_eval.py:88)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval._now_iso\nsrc/n2v_temporal/run_n2v_temporal_eval.py:88\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval___prepare_temporal_tasks" [label="_prepare_temporal_tasks\n(src/n2v_temporal/run_n2v_temporal_eval.py:588)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval._prepare_temporal_tasks\nsrc/n2v_temporal/run_n2v_temporal_eval.py:588\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__align_nodeX2vec_embeddings" [label="align_node2vec_embeddings\n(src/n2v_temporal/run_n2v_temporal_eval.py:273)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.align_node2vec_embeddings\nsrc/n2v_temporal/run_n2v_temporal_eval.py:273\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__build_snapshots" [label="build_snapshots\n(src/n2v_temporal/run_n2v_temporal_eval.py:155)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.build_snapshots\nsrc/n2v_temporal/run_n2v_temporal_eval.py:155\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" [label="evaluate_split\n(src/n2v_temporal/run_n2v_temporal_eval.py:1010)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.evaluate_split\nsrc/n2v_temporal/run_n2v_temporal_eval.py:1010\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__load_features" [label="load_features\n(src/n2v_temporal/run_n2v_temporal_eval.py:140)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.load_features\nsrc/n2v_temporal/run_n2v_temporal_eval.py:140\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__load_graphX" [label="load_graph\n(src/n2v_temporal/run_n2v_temporal_eval.py:116)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.load_graph\nsrc/n2v_temporal/run_n2v_temporal_eval.py:116\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__load_n2v_embeddings" [label="load_n2v_embeddings\n(src/n2v_temporal/run_n2v_temporal_eval.py:240)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.load_n2v_embeddings\nsrc/n2v_temporal/run_n2v_temporal_eval.py:240\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__main" [label="main\n(src/n2v_temporal/run_n2v_temporal_eval.py:1265)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.main\nsrc/n2v_temporal/run_n2v_temporal_eval.py:1265\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__project_nodeX2vec_embeddings" [label="project_node2vec_embeddings\n(src/n2v_temporal/run_n2v_temporal_eval.py:316)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.project_node2vec_embeddings\nsrc/n2v_temporal/run_n2v_temporal_eval.py:316\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__sample_degree_negatives" [label="sample_degree_negatives\n(src/n2v_temporal/run_n2v_temporal_eval.py:401)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.sample_degree_negatives\nsrc/n2v_temporal/run_n2v_temporal_eval.py:401\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__sample_negatives_mix_v3" [label="sample_negatives_mix_v3\n(src/n2v_temporal/run_n2v_temporal_eval.py:464)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.sample_negatives_mix_v3\nsrc/n2v_temporal/run_n2v_temporal_eval.py:464\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__sample_negatives_uniform" [label="sample_negatives_uniform\n(src/n2v_temporal/run_n2v_temporal_eval.py:348)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.sample_negatives_uniform\nsrc/n2v_temporal/run_n2v_temporal_eval.py:348\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+            "src__n2v_temporal__run_n2v_temporal_eval__train_temporal" [label="train_temporal\n(src/n2v_temporal/run_n2v_temporal_eval.py:622)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.train_temporal\nsrc/n2v_temporal/run_n2v_temporal_eval.py:622\nfunction in src.n2v_temporal.run_n2v_temporal_eval"];
+        }
+        subgraph "cluster_src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.n2v_temporal.run_n2v_temporal_eval.CandidateStreamer"];
+            "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____init__" [label="__init__\n(src/n2v_temporal/run_n2v_temporal_eval.py:877)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.CandidateStreamer.__init__\nsrc/n2v_temporal/run_n2v_temporal_eval.py:877\nmethod in src.n2v_temporal.run_n2v_temporal_eval.CandidateStreamer"];
+            "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [label="__iter__\n(src/n2v_temporal/run_n2v_temporal_eval.py:887)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.CandidateStreamer.__iter__\nsrc/n2v_temporal/run_n2v_temporal_eval.py:887\nmethod in src.n2v_temporal.run_n2v_temporal_eval.CandidateStreamer"];
+        }
+        subgraph "cluster_src__n2v_temporal__run_n2v_temporal_eval__KM" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.n2v_temporal.run_n2v_temporal_eval.KM"];
+            "src__n2v_temporal__run_n2v_temporal_eval__KM____post_init__" [label="__post_init__\n(src/n2v_temporal/run_n2v_temporal_eval.py:951)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.KM.__post_init__\nsrc/n2v_temporal/run_n2v_temporal_eval.py:951\nmethod in src.n2v_temporal.run_n2v_temporal_eval.KM"];
+            "src__n2v_temporal__run_n2v_temporal_eval__KM__row" [label="row\n(src/n2v_temporal/run_n2v_temporal_eval.py:994)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.KM.row\nsrc/n2v_temporal/run_n2v_temporal_eval.py:994\nmethod in src.n2v_temporal.run_n2v_temporal_eval.KM"];
+            "src__n2v_temporal__run_n2v_temporal_eval__KM__upd" [label="upd\n(src/n2v_temporal/run_n2v_temporal_eval.py:957)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.KM.upd\nsrc/n2v_temporal/run_n2v_temporal_eval.py:957\nmethod in src.n2v_temporal.run_n2v_temporal_eval.KM"];
+        }
+        subgraph "cluster_src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.n2v_temporal.run_n2v_temporal_eval.ScoreWriter"];
+            "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter____init__" [label="__init__\n(src/n2v_temporal/run_n2v_temporal_eval.py:371)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.ScoreWriter.__init__\nsrc/n2v_temporal/run_n2v_temporal_eval.py:371\nmethod in src.n2v_temporal.run_n2v_temporal_eval.ScoreWriter"];
+            "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter__close" [label="close\n(src/n2v_temporal/run_n2v_temporal_eval.py:395)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.ScoreWriter.close\nsrc/n2v_temporal/run_n2v_temporal_eval.py:395\nmethod in src.n2v_temporal.run_n2v_temporal_eval.ScoreWriter"];
+            "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter__write" [label="write\n(src/n2v_temporal/run_n2v_temporal_eval.py:376)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.ScoreWriter.write\nsrc/n2v_temporal/run_n2v_temporal_eval.py:376\nmethod in src.n2v_temporal.run_n2v_temporal_eval.ScoreWriter"];
+        }
+        subgraph "cluster_src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.n2v_temporal.run_n2v_temporal_eval.TwoHopCache"];
+            "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache____init__" [label="__init__\n(src/n2v_temporal/run_n2v_temporal_eval.py:420)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.TwoHopCache.__init__\nsrc/n2v_temporal/run_n2v_temporal_eval.py:420\nmethod in src.n2v_temporal.run_n2v_temporal_eval.TwoHopCache"];
+            "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache__get" [label="get\n(src/n2v_temporal/run_n2v_temporal_eval.py:427)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.TwoHopCache.get\nsrc/n2v_temporal/run_n2v_temporal_eval.py:427\nmethod in src.n2v_temporal.run_n2v_temporal_eval.TwoHopCache"];
+        }
+        subgraph "cluster_src__n2v_temporal__run_n2v_temporal_eval__train_temporal" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.n2v_temporal.run_n2v_temporal_eval.train_temporal"];
+            "src__n2v_temporal__run_n2v_temporal_eval__train_temporal___get_normalized_adj" [label="_get_normalized_adj\n(src/n2v_temporal/run_n2v_temporal_eval.py:761)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.train_temporal._get_normalized_adj\nsrc/n2v_temporal/run_n2v_temporal_eval.py:761\nfunction in src.n2v_temporal.run_n2v_temporal_eval.train_temporal"];
+            "src__n2v_temporal__run_n2v_temporal_eval__train_temporal__lr_lambda" [label="lr_lambda\n(src/n2v_temporal/run_n2v_temporal_eval.py:702)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.n2v_temporal.run_n2v_temporal_eval.train_temporal.lr_lambda\nsrc/n2v_temporal/run_n2v_temporal_eval.py:702\nfunction in src.n2v_temporal.run_n2v_temporal_eval.train_temporal"];
+        }
+    }
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna" -> "src__n2v_temporal__01_n2v_temporal_hpo_optuna__main" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna" -> "src__n2v_temporal__run_n2v_temporal_eval__build_snapshots" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna" -> "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna" -> "src__n2v_temporal__run_n2v_temporal_eval__load_features" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna" -> "src__n2v_temporal__run_n2v_temporal_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna" -> "src__n2v_temporal__run_n2v_temporal_eval__load_n2v_embeddings" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna" -> "src__n2v_temporal__run_n2v_temporal_eval__train_temporal" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna__main" -> "src__n2v_temporal__01_n2v_temporal_hpo_optuna__objective" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna__main" -> "src__n2v_temporal__01_n2v_temporal_hpo_optuna__parse_args" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna__main" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna__objective" -> "src__n2v_temporal__01_n2v_temporal_hpo_optuna__objective" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna__objective" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna__objective" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna__objective" -> "src__n2v_temporal__run_n2v_temporal_eval__build_snapshots" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna__objective" -> "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna__objective" -> "src__n2v_temporal__run_n2v_temporal_eval__load_features" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna__objective" -> "src__n2v_temporal__run_n2v_temporal_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna__objective" -> "src__n2v_temporal__run_n2v_temporal_eval__load_n2v_embeddings" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna__objective" -> "src__n2v_temporal__run_n2v_temporal_eval__train_temporal" [style="solid",  color="#000000"];
+        "src__n2v_temporal__01_n2v_temporal_hpo_optuna__parse_args" -> "src__n2v_temporal__01_n2v_temporal_hpo_optuna__parse_args" [style="solid",  color="#000000"];
+        "src__n2v_temporal__02_n2v_temporal_finalize_hpo" -> "src__n2v_temporal__02_n2v_temporal_finalize_hpo__main" [style="solid",  color="#000000"];
+        "src__n2v_temporal__02_n2v_temporal_finalize_hpo__TrialConfig__to_params_dict" -> "src__n2v_temporal__02_n2v_temporal_finalize_hpo__TrialConfig" [style="solid",  color="#000000"];
+        "src__n2v_temporal__02_n2v_temporal_finalize_hpo__load_top_configs" -> "src__n2v_temporal__02_n2v_temporal_finalize_hpo__TrialConfig" [style="solid",  color="#000000"];
+        "src__n2v_temporal__02_n2v_temporal_finalize_hpo__main" -> "src__n2v_temporal__02_n2v_temporal_finalize_hpo__TrialConfig__to_params_dict" [style="solid",  color="#000000"];
+        "src__n2v_temporal__02_n2v_temporal_finalize_hpo__main" -> "src__n2v_temporal__02_n2v_temporal_finalize_hpo__aggregate_seeds" [style="solid",  color="#000000"];
+        "src__n2v_temporal__02_n2v_temporal_finalize_hpo__main" -> "src__n2v_temporal__02_n2v_temporal_finalize_hpo__load_top_configs" [style="solid",  color="#000000"];
+        "src__n2v_temporal__02_n2v_temporal_finalize_hpo__main" -> "src__n2v_temporal__02_n2v_temporal_finalize_hpo__parse_args" [style="solid",  color="#000000"];
+        "src__n2v_temporal__02_n2v_temporal_finalize_hpo__main" -> "src__n2v_temporal__02_n2v_temporal_finalize_hpo__run_single_seed" [style="solid",  color="#000000"];
+        "src__n2v_temporal__02_n2v_temporal_finalize_hpo__parse_args" -> "src__n2v_temporal__02_n2v_temporal_finalize_hpo__parse_args" [style="solid",  color="#000000"];
+        "src__n2v_temporal__02_n2v_temporal_finalize_hpo__run_single_seed" -> "src__n2v_temporal__02_n2v_temporal_finalize_hpo__TrialConfig" [style="solid",  color="#000000"];
+        "src__n2v_temporal__03_n2v_temporal_train_eval" -> "src__n2v_temporal__run_n2v_temporal_eval__main" [style="solid",  color="#000000"];
+        "src__n2v_temporal__04_build_n2v_embeddings" -> "src__n2v_temporal__04_build_n2v_embeddings__main" [style="solid",  color="#000000"];
+        "src__n2v_temporal__04_build_n2v_embeddings" -> "src__n2v_temporal__run_n2v_temporal_eval__build_snapshots" [style="solid",  color="#000000"];
+        "src__n2v_temporal__04_build_n2v_embeddings___train_nodeX2vec" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__04_build_n2v_embeddings__main" -> "src__n2v_temporal__04_build_n2v_embeddings___ensure_dir" [style="solid",  color="#000000"];
+        "src__n2v_temporal__04_build_n2v_embeddings__main" -> "src__n2v_temporal__04_build_n2v_embeddings___init_device" [style="solid",  color="#000000"];
+        "src__n2v_temporal__04_build_n2v_embeddings__main" -> "src__n2v_temporal__04_build_n2v_embeddings___parse_args" [style="solid",  color="#000000"];
+        "src__n2v_temporal__04_build_n2v_embeddings__main" -> "src__n2v_temporal__04_build_n2v_embeddings___prepare_edge_index" [style="solid",  color="#000000"];
+        "src__n2v_temporal__04_build_n2v_embeddings__main" -> "src__n2v_temporal__04_build_n2v_embeddings___set_seed" [style="solid",  color="#000000"];
+        "src__n2v_temporal__04_build_n2v_embeddings__main" -> "src__n2v_temporal__04_build_n2v_embeddings___train_nodeX2vec" [style="solid",  color="#000000"];
+        "src__n2v_temporal__04_build_n2v_embeddings__main" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__04_build_n2v_embeddings__main" -> "src__n2v_temporal__run_n2v_temporal_eval__build_snapshots" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model" -> "src__n2v_temporal__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model" -> "src__n2v_temporal__model__TemporalGNN____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNNIncremental__forward_incremental" -> "src__n2v_temporal__model__TemporalGNNIncremental" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNNIncremental__forward_incremental" -> "src__n2v_temporal__model__TemporalGNNIncremental__gcn_forward" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNNIncremental__gcn_forward" -> "src__n2v_temporal__model__TemporalGNNIncremental" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN____init__" -> "src__n2v_temporal__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN___encode_snapshot" -> "src__n2v_temporal__model__TemporalGNN___forward_from_n2v" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN___encode_snapshot" -> "src__n2v_temporal__model__TemporalGNN___run_gcn" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN___forward_from_n2v" -> "src__n2v_temporal__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN___run_gcn" -> "src__n2v_temporal__model__TemporalGNN___should_checkpoint" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN___run_gcn" -> "src__n2v_temporal__model__TemporalGNN__gcn_forward" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN___should_checkpoint" -> "src__n2v_temporal__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN__forward" -> "src__n2v_temporal__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN__forward" -> "src__n2v_temporal__model__TemporalGNN___encode_snapshot" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN__forward" -> "src__n2v_temporal__model__TemporalGNN__normalize_adjacency" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN__gcn_forward" -> "src__n2v_temporal__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN__gcn_forward" -> "src__n2v_temporal__model__TemporalGNN____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN__project_heads" -> "src__n2v_temporal__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN__reset_parameters" -> "src__n2v_temporal__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__n2v_temporal__model__TemporalGNN__reset_parameters" -> "src__n2v_temporal__model__TemporalGNN__reset_parameters" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval" -> "src__n2v_temporal__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval" -> "src__n2v_temporal__run_n2v_temporal_eval__main" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__KM____post_init__" -> "src__n2v_temporal__run_n2v_temporal_eval__KM" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__KM__row" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__KM__row" -> "src__n2v_temporal__run_n2v_temporal_eval__KM" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__KM__upd" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__KM__upd" -> "src__n2v_temporal__run_n2v_temporal_eval__KM" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter__close" -> "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter__close" -> "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter__close" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter__write" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter__write" -> "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache__get" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache__get" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval___load_t0" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval___prepare_temporal_tasks" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval___prepare_temporal_tasks" -> "src__n2v_temporal__run_n2v_temporal_eval___encode_edges" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__align_nodeX2vec_embeddings" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__build_snapshots" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__model__TemporalGNNIncremental____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__model__TemporalGNN____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__run_n2v_temporal_eval__Graph" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__run_n2v_temporal_eval__KM" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__run_n2v_temporal_eval__KM__row" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__run_n2v_temporal_eval__KM__upd" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter__write" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" -> "src__n2v_temporal__run_n2v_temporal_eval___load_t0" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__load_graphX" -> "src__n2v_temporal__model__TemporalGNNIncremental____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__load_graphX" -> "src__n2v_temporal__model__TemporalGNN____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__load_graphX" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__load_graphX" -> "src__n2v_temporal__run_n2v_temporal_eval__Graph" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__load_graphX" -> "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__load_graphX" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__load_n2v_embeddings" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__model__TemporalGNN__normalize_adjacency" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__model__TemporalGNN__project_heads" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__ScoreWriter__close" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval___bool" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval___ensure_dir" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__align_nodeX2vec_embeddings" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__build_snapshots" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__load_features" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__load_n2v_embeddings" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__project_nodeX2vec_embeddings" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__main" -> "src__n2v_temporal__run_n2v_temporal_eval__train_temporal" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__project_nodeX2vec_embeddings" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__sample_negatives_mix_v3" -> "src__n2v_temporal__run_n2v_temporal_eval__Graph" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__sample_negatives_mix_v3" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__sample_negatives_mix_v3" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__sample_negatives_mix_v3" -> "src__n2v_temporal__run_n2v_temporal_eval___is_edge" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__sample_negatives_mix_v3" -> "src__n2v_temporal__run_n2v_temporal_eval__sample_degree_negatives" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__sample_negatives_mix_v3" -> "src__n2v_temporal__run_n2v_temporal_eval__sample_negatives_mix_v3" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__train_temporal" -> "src__n2v_temporal__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__train_temporal" -> "src__n2v_temporal__model__TemporalGNN__project_heads" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__train_temporal" -> "src__n2v_temporal__run_n2v_temporal_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__train_temporal" -> "src__n2v_temporal__run_n2v_temporal_eval__Graph" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__train_temporal" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__train_temporal" -> "src__n2v_temporal__run_n2v_temporal_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__train_temporal" -> "src__n2v_temporal__run_n2v_temporal_eval___prepare_temporal_tasks" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__train_temporal" -> "src__n2v_temporal__run_n2v_temporal_eval__sample_negatives_mix_v3" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__train_temporal" -> "src__n2v_temporal__run_n2v_temporal_eval__train_temporal___get_normalized_adj" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__train_temporal" -> "src__n2v_temporal__run_n2v_temporal_eval__train_temporal__lr_lambda" [style="solid",  color="#000000"];
+        "src__n2v_temporal__run_n2v_temporal_eval__train_temporal___get_normalized_adj" -> "src__n2v_temporal__model__TemporalGNN__normalize_adjacency" [style="solid",  color="#000000"];
+    }

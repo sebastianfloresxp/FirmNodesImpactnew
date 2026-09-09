@@ -1,0 +1,16 @@
+# rclone filter rules for silicon-backbone sync
+# Lines are processed top-to-bottom; first match wins.
+
+- .git/**
+- PROSE_FIX.md
+- CHANGELOG.md
+- .env
+- .env.*
+- .venv/**
+- .venv-arch/**
+- .ruff_cache/**
+- __pycache__/**
+- *.pyc
+- .mypy_cache/**
+- .pytest_cache/**
+- node_modules/**

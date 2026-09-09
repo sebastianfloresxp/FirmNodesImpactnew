@@ -1,0 +1,29 @@
+{
+  "module": "export_fig_4_4_case_study_network",
+  "snapshot": "2025-06-09",
+  "run_id": "ch4_v2_fix01_final_freeze",
+  "timestamp_utc": "2026-02-20T20:44:19.045032+00:00",
+  "config_path": "src/analysis/chapter4/config/ch4_v2_fix01.yaml",
+  "inputs": {
+    "edges_parquet": "artifacts/ch4/v2_fix01/2025-06-09/m0/edge_table_contract.parquet",
+    "edges_sha256": "5998c2e8c2868b95416d37bcbbf21f138404f85654240e0c51e3eaf617b4adec",
+    "corridor_nodes_parquet": "artifacts/ch4/v2_fix01/2025-06-09/m4/corridor_nodes_observed.parquet",
+    "corridor_nodes_sha256": "ea49fe4b3e4c286127383854841c5dc87e635b6c2162831caab1ae6a2ae3af63",
+    "strata_parquet": "artifacts/ch4/v2_fix01/2025-06-09/m6_2/node_impacts_stratified_observed.parquet",
+    "strata_sha256": "83b78983e89904e02dc72f31d19a9cb00ea83d1c54575feb0bb967c2f09a4c47",
+    "names_csv": "artifacts/ch4/v2_fix01/2025-06-09/m0_7/node_semiconductor_lens_decisions.csv",
+    "names_sha256": "870e21c20d821aa89a42877304c5a7709b52a8ef7fa088236e872e22fa644a01",
+    "top25_csv": "artifacts/ch4/v2_fix01/2025-06-09/m0_7/top25_high_impact_semiconductor_value_chain_strict_observed.csv",
+    "top25_sha256": "df8df476326900755ea4865bd32453336b4a1bbad7ba3c23852e1c7eaf7bdc15",
+    "prime_weights_parquet": "artifacts/ch4/inputs/prime_weights.parquet",
+    "prime_weights_sha256": "29b7953a605448e8dcaaae4d3daf4b1d7b198a85f7e019d06238b7407a5523be"
+  },
+  "outputs": {
+    "pdf": "figs/chapter4/v2_fix01/main_text/fig_4_4_case_study_network_observed.pdf",
+    "svg": "figs/chapter4/v2_fix01/main_text/fig_4_4_case_study_network_observed.svg",
+    "png": "figs/chapter4/v2_fix01/main_text/fig_4_4_case_study_network_observed.png",
+    "nodes_csv": "figs/chapter4/v2_fix01/main_text/fig_4_4_case_study_network_nodes.csv",
+    "edges_csv": "figs/chapter4/v2_fix01/main_text/fig_4_4_case_study_network_edges.csv",
+    "spec_json": "figs/chapter4/v2_fix01/main_text/fig_4_4_case_study_network_observed_spec.json"
+  }
+}

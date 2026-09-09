@@ -1,0 +1,539 @@
+digraph G {
+    graph [rankdir=TB, ranksep=0.5, layout=dot, clusterrank="local"];
+    subgraph "cluster_G" {
+
+        graph [style="filled,rounded", fillcolor="#80808018", label=""];
+        "src__ch3__analysis__backtest_twotower_cold_v2" [label="src.ch3.analysis.backtest_twotower_cold_v2\n(src/ch3/analysis/backtest_twotower_cold_v2.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.backtest_twotower_cold_v2\nsrc/ch3/analysis/backtest_twotower_cold_v2.py"];
+        "src__ch3__analysis__build_ch3_tables" [label="src.ch3.analysis.build_ch3_tables\n(src/ch3/analysis/build_ch3_tables.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="1", tooltip="src.ch3.analysis.build_ch3_tables\nsrc/ch3/analysis/build_ch3_tables.py"];
+        "src__ch3__analysis__build_dod_network_baseline_table" [label="src.ch3.analysis.build_dod_network_baseline_table\n(src/ch3/analysis/build_dod_network_baseline_table.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="2", tooltip="src.ch3.analysis.build_dod_network_baseline_table\nsrc/ch3/analysis/build_dod_network_baseline_table.py"];
+        "src__ch3__analysis__build_evidence_overlap_delta_table" [label="src.ch3.analysis.build_evidence_overlap_delta_table\n(src/ch3/analysis/build_evidence_overlap_delta_table.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="3", tooltip="src.ch3.analysis.build_evidence_overlap_delta_table\nsrc/ch3/analysis/build_evidence_overlap_delta_table.py"];
+        "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table" [label="src.ch3.analysis.build_semiconductor_codes_rbics_l4_table\n(src/ch3/analysis/build_semiconductor_codes_rbics_l4_table.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="4", tooltip="src.ch3.analysis.build_semiconductor_codes_rbics_l4_table\nsrc/ch3/analysis/build_semiconductor_codes_rbics_l4_table.py"];
+        "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table" [label="src.ch3.analysis.build_semiconductor_codes_sic_fallback_table\n(src/ch3/analysis/build_semiconductor_codes_sic_fallback_table.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="5", tooltip="src.ch3.analysis.build_semiconductor_codes_sic_fallback_table\nsrc/ch3/analysis/build_semiconductor_codes_sic_fallback_table.py"];
+        "src__ch3__analysis__build_semis_network_summary_table" [label="src.ch3.analysis.build_semis_network_summary_table\n(src/ch3/analysis/build_semis_network_summary_table.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="6", tooltip="src.ch3.analysis.build_semis_network_summary_table\nsrc/ch3/analysis/build_semis_network_summary_table.py"];
+        "src__ch3__analysis__diagnose_twotower_cold" [label="src.ch3.analysis.diagnose_twotower_cold\n(src/ch3/analysis/diagnose_twotower_cold.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="7", tooltip="src.ch3.analysis.diagnose_twotower_cold\nsrc/ch3/analysis/diagnose_twotower_cold.py"];
+        "src__ch3__analysis__fig_hairball_dla_ego" [label="src.ch3.analysis.fig_hairball_dla_ego\n(src/ch3/analysis/fig_hairball_dla_ego.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="8", tooltip="src.ch3.analysis.fig_hairball_dla_ego\nsrc/ch3/analysis/fig_hairball_dla_ego.py"];
+        "src__ch3__analysis__fig_hairball_semis" [label="src.ch3.analysis.fig_hairball_semis\n(src/ch3/analysis/fig_hairball_semis.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="9", tooltip="src.ch3.analysis.fig_hairball_semis\nsrc/ch3/analysis/fig_hairball_semis.py"];
+        "src__ch3__analysis__fig_tier_depth_ecdf" [label="src.ch3.analysis.fig_tier_depth_ecdf\n(src/ch3/analysis/fig_tier_depth_ecdf.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="10", tooltip="src.ch3.analysis.fig_tier_depth_ecdf\nsrc/ch3/analysis/fig_tier_depth_ecdf.py"];
+        "src__ch3__matching__match_primes" [label="src.ch3.matching.match_primes\n(src/ch3/matching/match_primes.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="11", tooltip="src.ch3.matching.match_primes\nsrc/ch3/matching/match_primes.py"];
+        "src__ch3__network__build_disclosed_baseline" [label="src.ch3.network.build_disclosed_baseline\n(src/ch3/network/build_disclosed_baseline.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="12", tooltip="src.ch3.network.build_disclosed_baseline\nsrc/ch3/network/build_disclosed_baseline.py"];
+        "src__ch3__network__build_semiconductor_subgraphXX" [label="src.ch3.network.build_semiconductor_subgraph\n(src/ch3/network/build_semiconductor_subgraph.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="13", tooltip="src.ch3.network.build_semiconductor_subgraph\nsrc/ch3/network/build_semiconductor_subgraph.py"];
+        "src__ch3__network__build_shipping_observed_layer" [label="src.ch3.network.build_shipping_observed_layer\n(src/ch3/network/build_shipping_observed_layer.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="14", tooltip="src.ch3.network.build_shipping_observed_layer\nsrc/ch3/network/build_shipping_observed_layer.py"];
+        "src__ch3__network__compute_tiers" [label="src.ch3.network.compute_tiers\n(src/ch3/network/compute_tiers.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="15", tooltip="src.ch3.network.compute_tiers\nsrc/ch3/network/compute_tiers.py"];
+        "src__ch3__network__package_dod_contract_layer" [label="src.ch3.network.package_dod_contract_layer\n(src/ch3/network/package_dod_contract_layer.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="16", tooltip="src.ch3.network.package_dod_contract_layer\nsrc/ch3/network/package_dod_contract_layer.py"];
+        "src__ch3__network__package_dod_network_d99" [label="src.ch3.network.package_dod_network_d99\n(src/ch3/network/package_dod_network_d99.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="17", tooltip="src.ch3.network.package_dod_network_d99\nsrc/ch3/network/package_dod_network_d99.py"];
+        "src__ch3__network__package_dod_network_with_shipping" [label="src.ch3.network.package_dod_network_with_shipping\n(src/ch3/network/package_dod_network_with_shipping.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="18", tooltip="src.ch3.network.package_dod_network_with_shipping\nsrc/ch3/network/package_dod_network_with_shipping.py"];
+        "src__ch3__network__package_scr_layers" [label="src.ch3.network.package_scr_layers\n(src/ch3/network/package_scr_layers.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="19", tooltip="src.ch3.network.package_scr_layers\nsrc/ch3/network/package_scr_layers.py"];
+        "src__ch3__prediction__build_candidate_pool" [label="src.ch3.prediction.build_candidate_pool\n(src/ch3/prediction/build_candidate_pool.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="20", tooltip="src.ch3.prediction.build_candidate_pool\nsrc/ch3/prediction/build_candidate_pool.py"];
+        "src__ch3__prediction__build_meta_and_select" [label="src.ch3.prediction.build_meta_and_select\n(src/ch3/prediction/build_meta_and_select.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="21", tooltip="src.ch3.prediction.build_meta_and_select\nsrc/ch3/prediction/build_meta_and_select.py"];
+        "src__ch3__prediction__build_meta_zero_slices" [label="src.ch3.prediction.build_meta_zero_slices\n(src/ch3/prediction/build_meta_zero_slices.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="22", tooltip="src.ch3.prediction.build_meta_zero_slices\nsrc/ch3/prediction/build_meta_zero_slices.py"];
+        "src__ch3__prediction__build_semis_catalog_strict" [label="src.ch3.prediction.build_semis_catalog_strict\n(src/ch3/prediction/build_semis_catalog_strict.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="23", tooltip="src.ch3.prediction.build_semis_catalog_strict\nsrc/ch3/prediction/build_semis_catalog_strict.py"];
+        "src__ch3__prediction__flip_candidates" [label="src.ch3.prediction.flip_candidates\n(src/ch3/prediction/flip_candidates.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="24", tooltip="src.ch3.prediction.flip_candidates\nsrc/ch3/prediction/flip_candidates.py"];
+        "src__ch3__prediction__join_meta" [label="src.ch3.prediction.join_meta\n(src/ch3/prediction/join_meta.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="25", tooltip="src.ch3.prediction.join_meta\nsrc/ch3/prediction/join_meta.py"];
+        "src__ch3__prediction__join_meta_with_slices" [label="src.ch3.prediction.join_meta_with_slices\n(src/ch3/prediction/join_meta_with_slices.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="26", tooltip="src.ch3.prediction.join_meta_with_slices\nsrc/ch3/prediction/join_meta_with_slices.py"];
+        "src__ch3__prediction__score_twotower_cold_primes" [label="src.ch3.prediction.score_twotower_cold_primes\n(src/ch3/prediction/score_twotower_cold_primes.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes\nsrc/ch3/prediction/score_twotower_cold_primes.py"];
+        "src__ch3__prediction__select_topk" [label="src.ch3.prediction.select_topk\n(src/ch3/prediction/select_topk.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="28", tooltip="src.ch3.prediction.select_topk\nsrc/ch3/prediction/select_topk.py"];
+        "src__ch3__prediction__tag_semis" [label="src.ch3.prediction.tag_semis\n(src/ch3/prediction/tag_semis.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="29", tooltip="src.ch3.prediction.tag_semis\nsrc/ch3/prediction/tag_semis.py"];
+        "src__ch3__usaspending__01_build_dod_transactions" [label="src.ch3.usaspending.01_build_dod_transactions\n(src/ch3/usaspending/01_build_dod_transactions.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="30", tooltip="src.ch3.usaspending.01_build_dod_transactions\nsrc/ch3/usaspending/01_build_dod_transactions.py"];
+        "src__ch3__usaspending__02_aggregate_primes" [label="src.ch3.usaspending.02_aggregate_primes\n(src/ch3/usaspending/02_aggregate_primes.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="31", tooltip="src.ch3.usaspending.02_aggregate_primes\nsrc/ch3/usaspending/02_aggregate_primes.py"];
+        "src__ch3__usaspending__03_report_usaspending_summary" [label="src.ch3.usaspending.03_report_usaspending_summary\n(src/ch3/usaspending/03_report_usaspending_summary.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="32", tooltip="src.ch3.usaspending.03_report_usaspending_summary\nsrc/ch3/usaspending/03_report_usaspending_summary.py"];
+        subgraph "cluster_src__ch3__analysis__backtest_twotower_cold_v2" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis.backtest_twotower_cold_v2"];
+            "src__ch3__analysis__backtest_twotower_cold_v2___now_iso" [label="_now_iso\n(src/ch3/analysis/backtest_twotower_cold_v2.py:33)", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.backtest_twotower_cold_v2._now_iso\nsrc/ch3/analysis/backtest_twotower_cold_v2.py:33\nfunction in src.ch3.analysis.backtest_twotower_cold_v2"];
+            "src__ch3__analysis__backtest_twotower_cold_v2__compute_embeddings_side" [label="compute_embeddings_side\n(src/ch3/analysis/backtest_twotower_cold_v2.py:37)", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.backtest_twotower_cold_v2.compute_embeddings_side\nsrc/ch3/analysis/backtest_twotower_cold_v2.py:37\nfunction in src.ch3.analysis.backtest_twotower_cold_v2"];
+            "src__ch3__analysis__backtest_twotower_cold_v2__format_latex" [label="format_latex\n(src/ch3/analysis/backtest_twotower_cold_v2.py:61)", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.backtest_twotower_cold_v2.format_latex\nsrc/ch3/analysis/backtest_twotower_cold_v2.py:61\nfunction in src.ch3.analysis.backtest_twotower_cold_v2"];
+            "src__ch3__analysis__backtest_twotower_cold_v2__main" [label="main\n(src/ch3/analysis/backtest_twotower_cold_v2.py:69)", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.backtest_twotower_cold_v2.main\nsrc/ch3/analysis/backtest_twotower_cold_v2.py:69\nfunction in src.ch3.analysis.backtest_twotower_cold_v2"];
+        }
+        subgraph "cluster_src__ch3__analysis__backtest_twotower_cold_v2__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis.backtest_twotower_cold_v2.main"];
+            "src__ch3__analysis__backtest_twotower_cold_v2__main___geo_index" [label="_geo_index\n(src/ch3/analysis/backtest_twotower_cold_v2.py:239)", style="filled", fillcolor="#ff0000b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.backtest_twotower_cold_v2.main._geo_index\nsrc/ch3/analysis/backtest_twotower_cold_v2.py:239\nfunction in src.ch3.analysis.backtest_twotower_cold_v2.main"];
+        }
+        subgraph "cluster_src__ch3__analysis__build_ch3_tables" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis.build_ch3_tables"];
+            "src__ch3__analysis__build_ch3_tables__build_agreement_table" [label="build_agreement_table\n(src/ch3/analysis/build_ch3_tables.py:143)", style="filled", fillcolor="#ff5632b2", fontcolor="#000000", group="1", tooltip="src.ch3.analysis.build_ch3_tables.build_agreement_table\nsrc/ch3/analysis/build_ch3_tables.py:143\nfunction in src.ch3.analysis.build_ch3_tables"];
+            "src__ch3__analysis__build_ch3_tables__build_decile_table" [label="build_decile_table\n(src/ch3/analysis/build_ch3_tables.py:103)", style="filled", fillcolor="#ff5632b2", fontcolor="#000000", group="1", tooltip="src.ch3.analysis.build_ch3_tables.build_decile_table\nsrc/ch3/analysis/build_ch3_tables.py:103\nfunction in src.ch3.analysis.build_ch3_tables"];
+            "src__ch3__analysis__build_ch3_tables__build_topk_table" [label="build_topk_table\n(src/ch3/analysis/build_ch3_tables.py:75)", style="filled", fillcolor="#ff5632b2", fontcolor="#000000", group="1", tooltip="src.ch3.analysis.build_ch3_tables.build_topk_table\nsrc/ch3/analysis/build_ch3_tables.py:75\nfunction in src.ch3.analysis.build_ch3_tables"];
+            "src__ch3__analysis__build_ch3_tables__compute_base_rate" [label="compute_base_rate\n(src/ch3/analysis/build_ch3_tables.py:49)", style="filled", fillcolor="#ff5632b2", fontcolor="#000000", group="1", tooltip="src.ch3.analysis.build_ch3_tables.compute_base_rate\nsrc/ch3/analysis/build_ch3_tables.py:49\nfunction in src.ch3.analysis.build_ch3_tables"];
+            "src__ch3__analysis__build_ch3_tables__ensure_dirs" [label="ensure_dirs\n(src/ch3/analysis/build_ch3_tables.py:45)", style="filled", fillcolor="#ff5632b2", fontcolor="#000000", group="1", tooltip="src.ch3.analysis.build_ch3_tables.ensure_dirs\nsrc/ch3/analysis/build_ch3_tables.py:45\nfunction in src.ch3.analysis.build_ch3_tables"];
+            "src__ch3__analysis__build_ch3_tables__fmt_float" [label="fmt_float\n(src/ch3/analysis/build_ch3_tables.py:185)", style="filled", fillcolor="#ff5632b2", fontcolor="#000000", group="1", tooltip="src.ch3.analysis.build_ch3_tables.fmt_float\nsrc/ch3/analysis/build_ch3_tables.py:185\nfunction in src.ch3.analysis.build_ch3_tables"];
+            "src__ch3__analysis__build_ch3_tables__main" [label="main\n(src/ch3/analysis/build_ch3_tables.py:244)", style="filled", fillcolor="#ff5632b2", fontcolor="#000000", group="1", tooltip="src.ch3.analysis.build_ch3_tables.main\nsrc/ch3/analysis/build_ch3_tables.py:244\nfunction in src.ch3.analysis.build_ch3_tables"];
+            "src__ch3__analysis__build_ch3_tables__parse_args" [label="parse_args\n(src/ch3/analysis/build_ch3_tables.py:30)", style="filled", fillcolor="#ff5632b2", fontcolor="#000000", group="1", tooltip="src.ch3.analysis.build_ch3_tables.parse_args\nsrc/ch3/analysis/build_ch3_tables.py:30\nfunction in src.ch3.analysis.build_ch3_tables"];
+            "src__ch3__analysis__build_ch3_tables__write_agreement_tabular" [label="write_agreement_tabular\n(src/ch3/analysis/build_ch3_tables.py:227)", style="filled", fillcolor="#ff5632b2", fontcolor="#000000", group="1", tooltip="src.ch3.analysis.build_ch3_tables.write_agreement_tabular\nsrc/ch3/analysis/build_ch3_tables.py:227\nfunction in src.ch3.analysis.build_ch3_tables"];
+            "src__ch3__analysis__build_ch3_tables__write_deciles_tabular" [label="write_deciles_tabular\n(src/ch3/analysis/build_ch3_tables.py:206)", style="filled", fillcolor="#ff5632b2", fontcolor="#000000", group="1", tooltip="src.ch3.analysis.build_ch3_tables.write_deciles_tabular\nsrc/ch3/analysis/build_ch3_tables.py:206\nfunction in src.ch3.analysis.build_ch3_tables"];
+            "src__ch3__analysis__build_ch3_tables__write_topk_tabular" [label="write_topk_tabular\n(src/ch3/analysis/build_ch3_tables.py:189)", style="filled", fillcolor="#ff5632b2", fontcolor="#000000", group="1", tooltip="src.ch3.analysis.build_ch3_tables.write_topk_tabular\nsrc/ch3/analysis/build_ch3_tables.py:189\nfunction in src.ch3.analysis.build_ch3_tables"];
+        }
+        subgraph "cluster_src__ch3__analysis__build_dod_network_baseline_table" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis.build_dod_network_baseline_table"];
+            "src__ch3__analysis__build_dod_network_baseline_table__main" [label="main\n(src/ch3/analysis/build_dod_network_baseline_table.py:21)", style="filled", fillcolor="#ff7a32b2", fontcolor="#000000", group="2", tooltip="src.ch3.analysis.build_dod_network_baseline_table.main\nsrc/ch3/analysis/build_dod_network_baseline_table.py:21\nfunction in src.ch3.analysis.build_dod_network_baseline_table"];
+        }
+        subgraph "cluster_src__ch3__analysis__build_evidence_overlap_delta_table" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis.build_evidence_overlap_delta_table"];
+            "src__ch3__analysis__build_evidence_overlap_delta_table__main" [label="main\n(src/ch3/analysis/build_evidence_overlap_delta_table.py:44)", style="filled", fillcolor="#ff9f32b2", fontcolor="#000000", group="3", tooltip="src.ch3.analysis.build_evidence_overlap_delta_table.main\nsrc/ch3/analysis/build_evidence_overlap_delta_table.py:44\nfunction in src.ch3.analysis.build_evidence_overlap_delta_table"];
+            "src__ch3__analysis__build_evidence_overlap_delta_table__parse_args" [label="parse_args\n(src/ch3/analysis/build_evidence_overlap_delta_table.py:29)", style="filled", fillcolor="#ff9f32b2", fontcolor="#000000", group="3", tooltip="src.ch3.analysis.build_evidence_overlap_delta_table.parse_args\nsrc/ch3/analysis/build_evidence_overlap_delta_table.py:29\nfunction in src.ch3.analysis.build_evidence_overlap_delta_table"];
+        }
+        subgraph "cluster_src__ch3__analysis__build_semiconductor_codes_rbics_l4_table" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis.build_semiconductor_codes_rbics_l4_table"];
+            "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__count_entities_by_l4" [label="count_entities_by_l4\n(src/ch3/analysis/build_semiconductor_codes_rbics_l4_table.py:79)", style="filled", fillcolor="#ffc332b2", fontcolor="#000000", group="4", tooltip="src.ch3.analysis.build_semiconductor_codes_rbics_l4_table.count_entities_by_l4\nsrc/ch3/analysis/build_semiconductor_codes_rbics_l4_table.py:79\nfunction in src.ch3.analysis.build_semiconductor_codes_rbics_l4_table"];
+            "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__get_entity_ids_in_network" [label="get_entity_ids_in_network\n(src/ch3/analysis/build_semiconductor_codes_rbics_l4_table.py:63)", style="filled", fillcolor="#ffc332b2", fontcolor="#000000", group="4", tooltip="src.ch3.analysis.build_semiconductor_codes_rbics_l4_table.get_entity_ids_in_network\nsrc/ch3/analysis/build_semiconductor_codes_rbics_l4_table.py:63\nfunction in src.ch3.analysis.build_semiconductor_codes_rbics_l4_table"];
+            "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__l4_name_lookup" [label="l4_name_lookup\n(src/ch3/analysis/build_semiconductor_codes_rbics_l4_table.py:97)", style="filled", fillcolor="#ffc332b2", fontcolor="#000000", group="4", tooltip="src.ch3.analysis.build_semiconductor_codes_rbics_l4_table.l4_name_lookup\nsrc/ch3/analysis/build_semiconductor_codes_rbics_l4_table.py:97\nfunction in src.ch3.analysis.build_semiconductor_codes_rbics_l4_table"];
+            "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__load_codes" [label="load_codes\n(src/ch3/analysis/build_semiconductor_codes_rbics_l4_table.py:56)", style="filled", fillcolor="#ffc332b2", fontcolor="#000000", group="4", tooltip="src.ch3.analysis.build_semiconductor_codes_rbics_l4_table.load_codes\nsrc/ch3/analysis/build_semiconductor_codes_rbics_l4_table.py:56\nfunction in src.ch3.analysis.build_semiconductor_codes_rbics_l4_table"];
+            "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__main" [label="main\n(src/ch3/analysis/build_semiconductor_codes_rbics_l4_table.py:113)", style="filled", fillcolor="#ffc332b2", fontcolor="#000000", group="4", tooltip="src.ch3.analysis.build_semiconductor_codes_rbics_l4_table.main\nsrc/ch3/analysis/build_semiconductor_codes_rbics_l4_table.py:113\nfunction in src.ch3.analysis.build_semiconductor_codes_rbics_l4_table"];
+            "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__parse_args" [label="parse_args\n(src/ch3/analysis/build_semiconductor_codes_rbics_l4_table.py:28)", style="filled", fillcolor="#ffc332b2", fontcolor="#000000", group="4", tooltip="src.ch3.analysis.build_semiconductor_codes_rbics_l4_table.parse_args\nsrc/ch3/analysis/build_semiconductor_codes_rbics_l4_table.py:28\nfunction in src.ch3.analysis.build_semiconductor_codes_rbics_l4_table"];
+        }
+        subgraph "cluster_src__ch3__analysis__build_semiconductor_codes_sic_fallback_table" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis.build_semiconductor_codes_sic_fallback_table"];
+            "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table___example_firms" [label="_example_firms\n(src/ch3/analysis/build_semiconductor_codes_sic_fallback_table.py:55)", style="filled", fillcolor="#ffe732b2", fontcolor="#000000", group="5", tooltip="src.ch3.analysis.build_semiconductor_codes_sic_fallback_table._example_firms\nsrc/ch3/analysis/build_semiconductor_codes_sic_fallback_table.py:55\nfunction in src.ch3.analysis.build_semiconductor_codes_sic_fallback_table"];
+            "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table___load_sic_fallback_codes" [label="_load_sic_fallback_codes\n(src/ch3/analysis/build_semiconductor_codes_sic_fallback_table.py:48)", style="filled", fillcolor="#ffe732b2", fontcolor="#000000", group="5", tooltip="src.ch3.analysis.build_semiconductor_codes_sic_fallback_table._load_sic_fallback_codes\nsrc/ch3/analysis/build_semiconductor_codes_sic_fallback_table.py:48\nfunction in src.ch3.analysis.build_semiconductor_codes_sic_fallback_table"];
+            "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table__main" [label="main\n(src/ch3/analysis/build_semiconductor_codes_sic_fallback_table.py:72)", style="filled", fillcolor="#ffe732b2", fontcolor="#000000", group="5", tooltip="src.ch3.analysis.build_semiconductor_codes_sic_fallback_table.main\nsrc/ch3/analysis/build_semiconductor_codes_sic_fallback_table.py:72\nfunction in src.ch3.analysis.build_semiconductor_codes_sic_fallback_table"];
+            "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table__parse_args" [label="parse_args\n(src/ch3/analysis/build_semiconductor_codes_sic_fallback_table.py:25)", style="filled", fillcolor="#ffe732b2", fontcolor="#000000", group="5", tooltip="src.ch3.analysis.build_semiconductor_codes_sic_fallback_table.parse_args\nsrc/ch3/analysis/build_semiconductor_codes_sic_fallback_table.py:25\nfunction in src.ch3.analysis.build_semiconductor_codes_sic_fallback_table"];
+        }
+        subgraph "cluster_src__ch3__analysis__build_semis_network_summary_table" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis.build_semis_network_summary_table"];
+            "src__ch3__analysis__build_semis_network_summary_table__main" [label="main\n(src/ch3/analysis/build_semis_network_summary_table.py:45)", style="filled", fillcolor="#f3ff32b2", fontcolor="#000000", group="6", tooltip="src.ch3.analysis.build_semis_network_summary_table.main\nsrc/ch3/analysis/build_semis_network_summary_table.py:45\nfunction in src.ch3.analysis.build_semis_network_summary_table"];
+            "src__ch3__analysis__build_semis_network_summary_table__parse_args" [label="parse_args\n(src/ch3/analysis/build_semis_network_summary_table.py:23)", style="filled", fillcolor="#f3ff32b2", fontcolor="#000000", group="6", tooltip="src.ch3.analysis.build_semis_network_summary_table.parse_args\nsrc/ch3/analysis/build_semis_network_summary_table.py:23\nfunction in src.ch3.analysis.build_semis_network_summary_table"];
+        }
+        subgraph "cluster_src__ch3__analysis__diagnose_twotower_cold" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis.diagnose_twotower_cold"];
+            "src__ch3__analysis__diagnose_twotower_cold___build_nodeX_flags" [label="_build_node_flags\n(src/ch3/analysis/diagnose_twotower_cold.py:65)", style="filled", fillcolor="#cfff32b2", fontcolor="#000000", group="7", tooltip="src.ch3.analysis.diagnose_twotower_cold._build_node_flags\nsrc/ch3/analysis/diagnose_twotower_cold.py:65\nfunction in src.ch3.analysis.diagnose_twotower_cold"];
+            "src__ch3__analysis__diagnose_twotower_cold___current_map_cat" [label="_current_map_cat\n(src/ch3/analysis/diagnose_twotower_cold.py:58)", style="filled", fillcolor="#cfff32b2", fontcolor="#000000", group="7", tooltip="src.ch3.analysis.diagnose_twotower_cold._current_map_cat\nsrc/ch3/analysis/diagnose_twotower_cold.py:58\nfunction in src.ch3.analysis.diagnose_twotower_cold"];
+            "src__ch3__analysis__diagnose_twotower_cold___fixed_map_cat" [label="_fixed_map_cat\n(src/ch3/analysis/diagnose_twotower_cold.py:48)", style="filled", fillcolor="#cfff32b2", fontcolor="#000000", group="7", tooltip="src.ch3.analysis.diagnose_twotower_cold._fixed_map_cat\nsrc/ch3/analysis/diagnose_twotower_cold.py:48\nfunction in src.ch3.analysis.diagnose_twotower_cold"];
+            "src__ch3__analysis__diagnose_twotower_cold___hhi_and_entropy" [label="_hhi_and_entropy\n(src/ch3/analysis/diagnose_twotower_cold.py:92)", style="filled", fillcolor="#cfff32b2", fontcolor="#000000", group="7", tooltip="src.ch3.analysis.diagnose_twotower_cold._hhi_and_entropy\nsrc/ch3/analysis/diagnose_twotower_cold.py:92\nfunction in src.ch3.analysis.diagnose_twotower_cold"];
+            "src__ch3__analysis__diagnose_twotower_cold___now_iso" [label="_now_iso\n(src/ch3/analysis/diagnose_twotower_cold.py:44)", style="filled", fillcolor="#cfff32b2", fontcolor="#000000", group="7", tooltip="src.ch3.analysis.diagnose_twotower_cold._now_iso\nsrc/ch3/analysis/diagnose_twotower_cold.py:44\nfunction in src.ch3.analysis.diagnose_twotower_cold"];
+            "src__ch3__analysis__diagnose_twotower_cold__main" [label="main\n(src/ch3/analysis/diagnose_twotower_cold.py:102)", style="filled", fillcolor="#cfff32b2", fontcolor="#000000", group="7", tooltip="src.ch3.analysis.diagnose_twotower_cold.main\nsrc/ch3/analysis/diagnose_twotower_cold.py:102\nfunction in src.ch3.analysis.diagnose_twotower_cold"];
+        }
+        subgraph "cluster_src__ch3__analysis__diagnose_twotower_cold__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis.diagnose_twotower_cold.main"];
+            "src__ch3__analysis__diagnose_twotower_cold__main___fill_geo" [label="_fill_geo\n(src/ch3/analysis/diagnose_twotower_cold.py:222)", style="filled", fillcolor="#c3ff00b2", fontcolor="#000000", group="7", tooltip="src.ch3.analysis.diagnose_twotower_cold.main._fill_geo\nsrc/ch3/analysis/diagnose_twotower_cold.py:222\nfunction in src.ch3.analysis.diagnose_twotower_cold.main"];
+            "src__ch3__analysis__diagnose_twotower_cold__main___norm_iso" [label="_norm_iso\n(src/ch3/analysis/diagnose_twotower_cold.py:195)", style="filled", fillcolor="#c3ff00b2", fontcolor="#000000", group="7", tooltip="src.ch3.analysis.diagnose_twotower_cold.main._norm_iso\nsrc/ch3/analysis/diagnose_twotower_cold.py:195\nfunction in src.ch3.analysis.diagnose_twotower_cold.main"];
+            "src__ch3__analysis__diagnose_twotower_cold__main__pct" [label="pct\n(src/ch3/analysis/diagnose_twotower_cold.py:472)", style="filled", fillcolor="#c3ff00b2", fontcolor="#000000", group="7", tooltip="src.ch3.analysis.diagnose_twotower_cold.main.pct\nsrc/ch3/analysis/diagnose_twotower_cold.py:472\nfunction in src.ch3.analysis.diagnose_twotower_cold.main"];
+        }
+        subgraph "cluster_src__ch3__analysis__fig_hairball_dla_ego" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis.fig_hairball_dla_ego"];
+            "src__ch3__analysis__fig_hairball_dla_ego__bfs_reachable" [label="bfs_reachable\n(src/ch3/analysis/fig_hairball_dla_ego.py:25)", style="filled", fillcolor="#abff32b2", fontcolor="#000000", group="8", tooltip="src.ch3.analysis.fig_hairball_dla_ego.bfs_reachable\nsrc/ch3/analysis/fig_hairball_dla_ego.py:25\nfunction in src.ch3.analysis.fig_hairball_dla_ego"];
+            "src__ch3__analysis__fig_hairball_dla_ego__bfs_tiers" [label="bfs_tiers\n(src/ch3/analysis/fig_hairball_dla_ego.py:41)", style="filled", fillcolor="#abff32b2", fontcolor="#000000", group="8", tooltip="src.ch3.analysis.fig_hairball_dla_ego.bfs_tiers\nsrc/ch3/analysis/fig_hairball_dla_ego.py:41\nfunction in src.ch3.analysis.fig_hairball_dla_ego"];
+            "src__ch3__analysis__fig_hairball_dla_ego__main" [label="main\n(src/ch3/analysis/fig_hairball_dla_ego.py:56)", style="filled", fillcolor="#abff32b2", fontcolor="#000000", group="8", tooltip="src.ch3.analysis.fig_hairball_dla_ego.main\nsrc/ch3/analysis/fig_hairball_dla_ego.py:56\nfunction in src.ch3.analysis.fig_hairball_dla_ego"];
+        }
+        subgraph "cluster_src__ch3__analysis__fig_hairball_dla_ego__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis.fig_hairball_dla_ego.main"];
+            "src__ch3__analysis__fig_hairball_dla_ego__main__segments" [label="segments\n(src/ch3/analysis/fig_hairball_dla_ego.py:189)", style="filled", fillcolor="#95ff00b2", fontcolor="#000000", group="8", tooltip="src.ch3.analysis.fig_hairball_dla_ego.main.segments\nsrc/ch3/analysis/fig_hairball_dla_ego.py:189\nfunction in src.ch3.analysis.fig_hairball_dla_ego.main"];
+        }
+        subgraph "cluster_src__ch3__analysis__fig_hairball_semis" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis.fig_hairball_semis"];
+            "src__ch3__analysis__fig_hairball_semis__build_degree" [label="build_degree\n(src/ch3/analysis/fig_hairball_semis.py:33)", style="filled", fillcolor="#86ff32b2", fontcolor="#000000", group="9", tooltip="src.ch3.analysis.fig_hairball_semis.build_degree\nsrc/ch3/analysis/fig_hairball_semis.py:33\nfunction in src.ch3.analysis.fig_hairball_semis"];
+            "src__ch3__analysis__fig_hairball_semis__main" [label="main\n(src/ch3/analysis/fig_hairball_semis.py:40)", style="filled", fillcolor="#86ff32b2", fontcolor="#000000", group="9", tooltip="src.ch3.analysis.fig_hairball_semis.main\nsrc/ch3/analysis/fig_hairball_semis.py:40\nfunction in src.ch3.analysis.fig_hairball_semis"];
+            "src__ch3__analysis__fig_hairball_semis__pick_edge_type" [label="pick_edge_type\n(src/ch3/analysis/fig_hairball_semis.py:17)", style="filled", fillcolor="#86ff32b2", fontcolor="#000000", group="9", tooltip="src.ch3.analysis.fig_hairball_semis.pick_edge_type\nsrc/ch3/analysis/fig_hairball_semis.py:17\nfunction in src.ch3.analysis.fig_hairball_semis"];
+        }
+        subgraph "cluster_src__ch3__analysis__fig_tier_depth_ecdf" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis.fig_tier_depth_ecdf"];
+            "src__ch3__analysis__fig_tier_depth_ecdf__bfs_tiers" [label="bfs_tiers\n(src/ch3/analysis/fig_tier_depth_ecdf.py:34)", style="filled", fillcolor="#62ff32b2", fontcolor="#000000", group="10", tooltip="src.ch3.analysis.fig_tier_depth_ecdf.bfs_tiers\nsrc/ch3/analysis/fig_tier_depth_ecdf.py:34\nfunction in src.ch3.analysis.fig_tier_depth_ecdf"];
+            "src__ch3__analysis__fig_tier_depth_ecdf__build_adjacency" [label="build_adjacency\n(src/ch3/analysis/fig_tier_depth_ecdf.py:29)", style="filled", fillcolor="#62ff32b2", fontcolor="#000000", group="10", tooltip="src.ch3.analysis.fig_tier_depth_ecdf.build_adjacency\nsrc/ch3/analysis/fig_tier_depth_ecdf.py:29\nfunction in src.ch3.analysis.fig_tier_depth_ecdf"];
+            "src__ch3__analysis__fig_tier_depth_ecdf__ecdf" [label="ecdf\n(src/ch3/analysis/fig_tier_depth_ecdf.py:51)", style="filled", fillcolor="#62ff32b2", fontcolor="#000000", group="10", tooltip="src.ch3.analysis.fig_tier_depth_ecdf.ecdf\nsrc/ch3/analysis/fig_tier_depth_ecdf.py:51\nfunction in src.ch3.analysis.fig_tier_depth_ecdf"];
+            "src__ch3__analysis__fig_tier_depth_ecdf__main" [label="main\n(src/ch3/analysis/fig_tier_depth_ecdf.py:61)", style="filled", fillcolor="#62ff32b2", fontcolor="#000000", group="10", tooltip="src.ch3.analysis.fig_tier_depth_ecdf.main\nsrc/ch3/analysis/fig_tier_depth_ecdf.py:61\nfunction in src.ch3.analysis.fig_tier_depth_ecdf"];
+        }
+        subgraph "cluster_src__ch3__matching__match_primes" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.matching.match_primes"];
+            "src__ch3__matching__match_primes__build_lookup" [label="build_lookup\n(src/ch3/matching/match_primes.py:167)", style="filled", fillcolor="#3eff32b2", fontcolor="#000000", group="11", tooltip="src.ch3.matching.match_primes.build_lookup\nsrc/ch3/matching/match_primes.py:167\nfunction in src.ch3.matching.match_primes"];
+            "src__ch3__matching__match_primes__build_prefix_index" [label="build_prefix_index\n(src/ch3/matching/match_primes.py:176)", style="filled", fillcolor="#3eff32b2", fontcolor="#000000", group="11", tooltip="src.ch3.matching.match_primes.build_prefix_index\nsrc/ch3/matching/match_primes.py:176\nfunction in src.ch3.matching.match_primes"];
+            "src__ch3__matching__match_primes__fuzzy_match_vendor" [label="fuzzy_match_vendor\n(src/ch3/matching/match_primes.py:236)", style="filled", fillcolor="#3eff32b2", fontcolor="#000000", group="11", tooltip="src.ch3.matching.match_primes.fuzzy_match_vendor\nsrc/ch3/matching/match_primes.py:236\nfunction in src.ch3.matching.match_primes"];
+            "src__ch3__matching__match_primes__load_factset_entities" [label="load_factset_entities\n(src/ch3/matching/match_primes.py:140)", style="filled", fillcolor="#3eff32b2", fontcolor="#000000", group="11", tooltip="src.ch3.matching.match_primes.load_factset_entities\nsrc/ch3/matching/match_primes.py:140\nfunction in src.ch3.matching.match_primes"];
+            "src__ch3__matching__match_primes__load_vendors" [label="load_vendors\n(src/ch3/matching/match_primes.py:80)", style="filled", fillcolor="#3eff32b2", fontcolor="#000000", group="11", tooltip="src.ch3.matching.match_primes.load_vendors\nsrc/ch3/matching/match_primes.py:80\nfunction in src.ch3.matching.match_primes"];
+            "src__ch3__matching__match_primes__main" [label="main\n(src/ch3/matching/match_primes.py:299)", style="filled", fillcolor="#3eff32b2", fontcolor="#000000", group="11", tooltip="src.ch3.matching.match_primes.main\nsrc/ch3/matching/match_primes.py:299\nfunction in src.ch3.matching.match_primes"];
+            "src__ch3__matching__match_primes__match_vendor" [label="match_vendor\n(src/ch3/matching/match_primes.py:207)", style="filled", fillcolor="#3eff32b2", fontcolor="#000000", group="11", tooltip="src.ch3.matching.match_primes.match_vendor\nsrc/ch3/matching/match_primes.py:207\nfunction in src.ch3.matching.match_primes"];
+            "src__ch3__matching__match_primes__normalize_name" [label="normalize_name\n(src/ch3/matching/match_primes.py:70)", style="filled", fillcolor="#3eff32b2", fontcolor="#000000", group="11", tooltip="src.ch3.matching.match_primes.normalize_name\nsrc/ch3/matching/match_primes.py:70\nfunction in src.ch3.matching.match_primes"];
+            "src__ch3__matching__match_primes__pick_match" [label="pick_match\n(src/ch3/matching/match_primes.py:198)", style="filled", fillcolor="#3eff32b2", fontcolor="#000000", group="11", tooltip="src.ch3.matching.match_primes.pick_match\nsrc/ch3/matching/match_primes.py:198\nfunction in src.ch3.matching.match_primes"];
+            "src__ch3__matching__match_primes__simple_ratio" [label="simple_ratio\n(src/ch3/matching/match_primes.py:191)", style="filled", fillcolor="#3eff32b2", fontcolor="#000000", group="11", tooltip="src.ch3.matching.match_primes.simple_ratio\nsrc/ch3/matching/match_primes.py:191\nfunction in src.ch3.matching.match_primes"];
+            "src__ch3__matching__match_primes__summarize" [label="summarize\n(src/ch3/matching/match_primes.py:282)", style="filled", fillcolor="#3eff32b2", fontcolor="#000000", group="11", tooltip="src.ch3.matching.match_primes.summarize\nsrc/ch3/matching/match_primes.py:282\nfunction in src.ch3.matching.match_primes"];
+        }
+        subgraph "cluster_src__ch3__matching__match_primes__load_vendors" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.matching.match_primes.load_vendors"];
+            "src__ch3__matching__match_primes__load_vendors__to_alpha2" [label="to_alpha2\n(src/ch3/matching/match_primes.py:116)", style="filled", fillcolor="#0eff00b2", fontcolor="#000000", group="11", tooltip="src.ch3.matching.match_primes.load_vendors.to_alpha2\nsrc/ch3/matching/match_primes.py:116\nfunction in src.ch3.matching.match_primes.load_vendors"];
+        }
+        subgraph "cluster_src__ch3__network__build_disclosed_baseline" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.network.build_disclosed_baseline"];
+            "src__ch3__network__build_disclosed_baseline__build_nodeXs" [label="build_nodes\n(src/ch3/network/build_disclosed_baseline.py:87)", style="filled", fillcolor="#32ff4bb2", fontcolor="#000000", group="12", tooltip="src.ch3.network.build_disclosed_baseline.build_nodes\nsrc/ch3/network/build_disclosed_baseline.py:87\nfunction in src.ch3.network.build_disclosed_baseline"];
+            "src__ch3__network__build_disclosed_baseline__filter_edges" [label="filter_edges\n(src/ch3/network/build_disclosed_baseline.py:53)", style="filled", fillcolor="#32ff4bb2", fontcolor="#000000", group="12", tooltip="src.ch3.network.build_disclosed_baseline.filter_edges\nsrc/ch3/network/build_disclosed_baseline.py:53\nfunction in src.ch3.network.build_disclosed_baseline"];
+            "src__ch3__network__build_disclosed_baseline__load_primes" [label="load_primes\n(src/ch3/network/build_disclosed_baseline.py:23)", style="filled", fillcolor="#32ff4bb2", fontcolor="#000000", group="12", tooltip="src.ch3.network.build_disclosed_baseline.load_primes\nsrc/ch3/network/build_disclosed_baseline.py:23\nfunction in src.ch3.network.build_disclosed_baseline"];
+            "src__ch3__network__build_disclosed_baseline__main" [label="main\n(src/ch3/network/build_disclosed_baseline.py:190)", style="filled", fillcolor="#32ff4bb2", fontcolor="#000000", group="12", tooltip="src.ch3.network.build_disclosed_baseline.main\nsrc/ch3/network/build_disclosed_baseline.py:190\nfunction in src.ch3.network.build_disclosed_baseline"];
+            "src__ch3__network__build_disclosed_baseline__traverse_upstream" [label="traverse_upstream\n(src/ch3/network/build_disclosed_baseline.py:68)", style="filled", fillcolor="#32ff4bb2", fontcolor="#000000", group="12", tooltip="src.ch3.network.build_disclosed_baseline.traverse_upstream\nsrc/ch3/network/build_disclosed_baseline.py:68\nfunction in src.ch3.network.build_disclosed_baseline"];
+            "src__ch3__network__build_disclosed_baseline__write_summary" [label="write_summary\n(src/ch3/network/build_disclosed_baseline.py:174)", style="filled", fillcolor="#32ff4bb2", fontcolor="#000000", group="12", tooltip="src.ch3.network.build_disclosed_baseline.write_summary\nsrc/ch3/network/build_disclosed_baseline.py:174\nfunction in src.ch3.network.build_disclosed_baseline"];
+        }
+        subgraph "cluster_src__ch3__network__build_semiconductor_subgraphXX" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.network.build_semiconductor_subgraph"];
+            "src__ch3__network__build_semiconductor_subgraphXX__bfs_reach" [label="bfs_reach\n(src/ch3/network/build_semiconductor_subgraph.py:25)", style="filled", fillcolor="#32ff6eb2", fontcolor="#000000", group="13", tooltip="src.ch3.network.build_semiconductor_subgraph.bfs_reach\nsrc/ch3/network/build_semiconductor_subgraph.py:25\nfunction in src.ch3.network.build_semiconductor_subgraph"];
+            "src__ch3__network__build_semiconductor_subgraphXX__bfs_reach_restricted" [label="bfs_reach_restricted\n(src/ch3/network/build_semiconductor_subgraph.py:42)", style="filled", fillcolor="#32ff6eb2", fontcolor="#000000", group="13", tooltip="src.ch3.network.build_semiconductor_subgraph.bfs_reach_restricted\nsrc/ch3/network/build_semiconductor_subgraph.py:42\nfunction in src.ch3.network.build_semiconductor_subgraph"];
+            "src__ch3__network__build_semiconductor_subgraphXX__main" [label="main\n(src/ch3/network/build_semiconductor_subgraph.py:106)", style="filled", fillcolor="#32ff6eb2", fontcolor="#000000", group="13", tooltip="src.ch3.network.build_semiconductor_subgraph.main\nsrc/ch3/network/build_semiconductor_subgraph.py:106\nfunction in src.ch3.network.build_semiconductor_subgraph"];
+            "src__ch3__network__build_semiconductor_subgraphXX__multi_source_dist" [label="multi_source_dist\n(src/ch3/network/build_semiconductor_subgraph.py:61)", style="filled", fillcolor="#32ff6eb2", fontcolor="#000000", group="13", tooltip="src.ch3.network.build_semiconductor_subgraph.multi_source_dist\nsrc/ch3/network/build_semiconductor_subgraph.py:61\nfunction in src.ch3.network.build_semiconductor_subgraph"];
+            "src__ch3__network__build_semiconductor_subgraphXX__semis_reach_counts" [label="semis_reach_counts\n(src/ch3/network/build_semiconductor_subgraph.py:78)", style="filled", fillcolor="#32ff6eb2", fontcolor="#000000", group="13", tooltip="src.ch3.network.build_semiconductor_subgraph.semis_reach_counts\nsrc/ch3/network/build_semiconductor_subgraph.py:78\nfunction in src.ch3.network.build_semiconductor_subgraph"];
+        }
+        subgraph "cluster_src__ch3__network__build_shipping_observed_layer" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.network.build_shipping_observed_layer"];
+            "src__ch3__network__build_shipping_observed_layer__main" [label="main\n(src/ch3/network/build_shipping_observed_layer.py:20)", style="filled", fillcolor="#32ff93b2", fontcolor="#000000", group="14", tooltip="src.ch3.network.build_shipping_observed_layer.main\nsrc/ch3/network/build_shipping_observed_layer.py:20\nfunction in src.ch3.network.build_shipping_observed_layer"];
+        }
+        subgraph "cluster_src__ch3__network__build_shipping_observed_layer__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.network.build_shipping_observed_layer.main"];
+            "src__ch3__network__build_shipping_observed_layer__main__count" [label="count\n(src/ch3/network/build_shipping_observed_layer.py:246)", style="filled", fillcolor="#00ff78b2", fontcolor="#000000", group="14", tooltip="src.ch3.network.build_shipping_observed_layer.main.count\nsrc/ch3/network/build_shipping_observed_layer.py:246\nfunction in src.ch3.network.build_shipping_observed_layer.main"];
+        }
+        subgraph "cluster_src__ch3__network__compute_tiers" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.network.compute_tiers"];
+            "src__ch3__network__compute_tiers__bfs_tiers" [label="bfs_tiers\n(src/ch3/network/compute_tiers.py:33)", style="filled", fillcolor="#32ffb7b2", fontcolor="#000000", group="15", tooltip="src.ch3.network.compute_tiers.bfs_tiers\nsrc/ch3/network/compute_tiers.py:33\nfunction in src.ch3.network.compute_tiers"];
+            "src__ch3__network__compute_tiers__build_adjacency" [label="build_adjacency\n(src/ch3/network/compute_tiers.py:25)", style="filled", fillcolor="#32ffb7b2", fontcolor="#000000", group="15", tooltip="src.ch3.network.compute_tiers.build_adjacency\nsrc/ch3/network/compute_tiers.py:25\nfunction in src.ch3.network.compute_tiers"];
+            "src__ch3__network__compute_tiers__main" [label="main\n(src/ch3/network/compute_tiers.py:56)", style="filled", fillcolor="#32ffb7b2", fontcolor="#000000", group="15", tooltip="src.ch3.network.compute_tiers.main\nsrc/ch3/network/compute_tiers.py:56\nfunction in src.ch3.network.compute_tiers"];
+            "src__ch3__network__compute_tiers__tier_counts" [label="tier_counts\n(src/ch3/network/compute_tiers.py:51)", style="filled", fillcolor="#32ffb7b2", fontcolor="#000000", group="15", tooltip="src.ch3.network.compute_tiers.tier_counts\nsrc/ch3/network/compute_tiers.py:51\nfunction in src.ch3.network.compute_tiers"];
+        }
+        subgraph "cluster_src__ch3__network__package_dod_contract_layer" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.network.package_dod_contract_layer"];
+            "src__ch3__network__package_dod_contract_layer__main" [label="main\n(src/ch3/network/package_dod_contract_layer.py:30)", style="filled", fillcolor="#32ffdbb2", fontcolor="#000000", group="16", tooltip="src.ch3.network.package_dod_contract_layer.main\nsrc/ch3/network/package_dod_contract_layer.py:30\nfunction in src.ch3.network.package_dod_contract_layer"];
+        }
+        subgraph "cluster_src__ch3__network__package_dod_contract_layer__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.network.package_dod_contract_layer.main"];
+            "src__ch3__network__package_dod_contract_layer__main__count" [label="count\n(src/ch3/network/package_dod_contract_layer.py:222)", style="filled", fillcolor="#00ffd2b2", fontcolor="#000000", group="16", tooltip="src.ch3.network.package_dod_contract_layer.main.count\nsrc/ch3/network/package_dod_contract_layer.py:222\nfunction in src.ch3.network.package_dod_contract_layer.main"];
+        }
+        subgraph "cluster_src__ch3__network__package_dod_network_d99" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.network.package_dod_network_d99"];
+            "src__ch3__network__package_dod_network_d99__main" [label="main\n(src/ch3/network/package_dod_network_d99.py:21)", style="filled", fillcolor="#32feffb2", fontcolor="#000000", group="17", tooltip="src.ch3.network.package_dod_network_d99.main\nsrc/ch3/network/package_dod_network_d99.py:21\nfunction in src.ch3.network.package_dod_network_d99"];
+        }
+        subgraph "cluster_src__ch3__network__package_dod_network_d99__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.network.package_dod_network_d99.main"];
+            "src__ch3__network__package_dod_network_d99__main__count" [label="count\n(src/ch3/network/package_dod_network_d99.py:287)", style="filled", fillcolor="#00feffb2", fontcolor="#000000", group="17", tooltip="src.ch3.network.package_dod_network_d99.main.count\nsrc/ch3/network/package_dod_network_d99.py:287\nfunction in src.ch3.network.package_dod_network_d99.main"];
+        }
+        subgraph "cluster_src__ch3__network__package_dod_network_with_shipping" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.network.package_dod_network_with_shipping"];
+            "src__ch3__network__package_dod_network_with_shipping__main" [label="main\n(src/ch3/network/package_dod_network_with_shipping.py:21)", style="filled", fillcolor="#32daffb2", fontcolor="#000000", group="18", tooltip="src.ch3.network.package_dod_network_with_shipping.main\nsrc/ch3/network/package_dod_network_with_shipping.py:21\nfunction in src.ch3.network.package_dod_network_with_shipping"];
+        }
+        subgraph "cluster_src__ch3__network__package_dod_network_with_shipping__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.network.package_dod_network_with_shipping.main"];
+            "src__ch3__network__package_dod_network_with_shipping__main__count" [label="count\n(src/ch3/network/package_dod_network_with_shipping.py:218)", style="filled", fillcolor="#00d1ffb2", fontcolor="#000000", group="18", tooltip="src.ch3.network.package_dod_network_with_shipping.main.count\nsrc/ch3/network/package_dod_network_with_shipping.py:218\nfunction in src.ch3.network.package_dod_network_with_shipping.main"];
+        }
+        subgraph "cluster_src__ch3__network__package_scr_layers" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.network.package_scr_layers"];
+            "src__ch3__network__package_scr_layers__main" [label="main\n(src/ch3/network/package_scr_layers.py:31)", style="filled", fillcolor="#32b6ffb2", fontcolor="#000000", group="19", tooltip="src.ch3.network.package_scr_layers.main\nsrc/ch3/network/package_scr_layers.py:31\nfunction in src.ch3.network.package_scr_layers"];
+        }
+        subgraph "cluster_src__ch3__network__package_scr_layers__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.network.package_scr_layers.main"];
+            "src__ch3__network__package_scr_layers__main__count" [label="count\n(src/ch3/network/package_scr_layers.py:292)", style="filled", fillcolor="#00a4ffb2", fontcolor="#000000", group="19", tooltip="src.ch3.network.package_scr_layers.main.count\nsrc/ch3/network/package_scr_layers.py:292\nfunction in src.ch3.network.package_scr_layers.main"];
+            "src__ch3__network__package_scr_layers__main__distinct_nodeXs" [label="distinct_nodes\n(src/ch3/network/package_scr_layers.py:297)", style="filled", fillcolor="#00a4ffb2", fontcolor="#000000", group="19", tooltip="src.ch3.network.package_scr_layers.main.distinct_nodes\nsrc/ch3/network/package_scr_layers.py:297\nfunction in src.ch3.network.package_scr_layers.main"];
+            "src__ch3__network__package_scr_layers__main__write_layered" [label="write_layered\n(src/ch3/network/package_scr_layers.py:163)", style="filled", fillcolor="#00a4ffb2", fontcolor="#000000", group="19", tooltip="src.ch3.network.package_scr_layers.main.write_layered\nsrc/ch3/network/package_scr_layers.py:163\nfunction in src.ch3.network.package_scr_layers.main"];
+            "src__ch3__network__package_scr_layers__main__write_nodeXs" [label="write_nodes\n(src/ch3/network/package_scr_layers.py:181)", style="filled", fillcolor="#00a4ffb2", fontcolor="#000000", group="19", tooltip="src.ch3.network.package_scr_layers.main.write_nodes\nsrc/ch3/network/package_scr_layers.py:181\nfunction in src.ch3.network.package_scr_layers.main"];
+            "src__ch3__network__package_scr_layers__main__write_pred" [label="write_pred\n(src/ch3/network/package_scr_layers.py:139)", style="filled", fillcolor="#00a4ffb2", fontcolor="#000000", group="19", tooltip="src.ch3.network.package_scr_layers.main.write_pred\nsrc/ch3/network/package_scr_layers.py:139\nfunction in src.ch3.network.package_scr_layers.main"];
+        }
+        subgraph "cluster_src__ch3__prediction__build_candidate_pool" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.prediction.build_candidate_pool"];
+            "src__ch3__prediction__build_candidate_pool__bfs_neighbors" [label="bfs_neighbors\n(src/ch3/prediction/build_candidate_pool.py:69)", style="filled", fillcolor="#3292ffb2", fontcolor="#000000", group="20", tooltip="src.ch3.prediction.build_candidate_pool.bfs_neighbors\nsrc/ch3/prediction/build_candidate_pool.py:69\nfunction in src.ch3.prediction.build_candidate_pool"];
+            "src__ch3__prediction__build_candidate_pool__build_candidates_for_seed" [label="build_candidates_for_seed\n(src/ch3/prediction/build_candidate_pool.py:87)", style="filled", fillcolor="#3292ffb2", fontcolor="#000000", group="20", tooltip="src.ch3.prediction.build_candidate_pool.build_candidates_for_seed\nsrc/ch3/prediction/build_candidate_pool.py:87\nfunction in src.ch3.prediction.build_candidate_pool"];
+            "src__ch3__prediction__build_candidate_pool__compute_hubs" [label="compute_hubs\n(src/ch3/prediction/build_candidate_pool.py:61)", style="filled", fillcolor="#3292ffb2", fontcolor="#000000", group="20", tooltip="src.ch3.prediction.build_candidate_pool.compute_hubs\nsrc/ch3/prediction/build_candidate_pool.py:61\nfunction in src.ch3.prediction.build_candidate_pool"];
+            "src__ch3__prediction__build_candidate_pool__load_adj" [label="load_adj\n(src/ch3/prediction/build_candidate_pool.py:36)", style="filled", fillcolor="#3292ffb2", fontcolor="#000000", group="20", tooltip="src.ch3.prediction.build_candidate_pool.load_adj\nsrc/ch3/prediction/build_candidate_pool.py:36\nfunction in src.ch3.prediction.build_candidate_pool"];
+            "src__ch3__prediction__build_candidate_pool__load_seeds" [label="load_seeds\n(src/ch3/prediction/build_candidate_pool.py:25)", style="filled", fillcolor="#3292ffb2", fontcolor="#000000", group="20", tooltip="src.ch3.prediction.build_candidate_pool.load_seeds\nsrc/ch3/prediction/build_candidate_pool.py:25\nfunction in src.ch3.prediction.build_candidate_pool"];
+            "src__ch3__prediction__build_candidate_pool__load_semi_flags" [label="load_semi_flags\n(src/ch3/prediction/build_candidate_pool.py:46)", style="filled", fillcolor="#3292ffb2", fontcolor="#000000", group="20", tooltip="src.ch3.prediction.build_candidate_pool.load_semi_flags\nsrc/ch3/prediction/build_candidate_pool.py:46\nfunction in src.ch3.prediction.build_candidate_pool"];
+            "src__ch3__prediction__build_candidate_pool__main" [label="main\n(src/ch3/prediction/build_candidate_pool.py:144)", style="filled", fillcolor="#3292ffb2", fontcolor="#000000", group="20", tooltip="src.ch3.prediction.build_candidate_pool.main\nsrc/ch3/prediction/build_candidate_pool.py:144\nfunction in src.ch3.prediction.build_candidate_pool"];
+        }
+        subgraph "cluster_src__ch3__prediction__build_meta_and_select" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.prediction.build_meta_and_select"];
+            "src__ch3__prediction__build_meta_and_select__main" [label="main\n(src/ch3/prediction/build_meta_and_select.py:18)", style="filled", fillcolor="#326effb2", fontcolor="#000000", group="21", tooltip="src.ch3.prediction.build_meta_and_select.main\nsrc/ch3/prediction/build_meta_and_select.py:18\nfunction in src.ch3.prediction.build_meta_and_select"];
+        }
+        subgraph "cluster_src__ch3__prediction__build_meta_zero_slices" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.prediction.build_meta_zero_slices"];
+            "src__ch3__prediction__build_meta_zero_slices__main" [label="main\n(src/ch3/prediction/build_meta_zero_slices.py:81)", style="filled", fillcolor="#324affb2", fontcolor="#000000", group="22", tooltip="src.ch3.prediction.build_meta_zero_slices.main\nsrc/ch3/prediction/build_meta_zero_slices.py:81\nfunction in src.ch3.prediction.build_meta_zero_slices"];
+            "src__ch3__prediction__build_meta_zero_slices__parse_args" [label="parse_args\n(src/ch3/prediction/build_meta_zero_slices.py:58)", style="filled", fillcolor="#324affb2", fontcolor="#000000", group="22", tooltip="src.ch3.prediction.build_meta_zero_slices.parse_args\nsrc/ch3/prediction/build_meta_zero_slices.py:58\nfunction in src.ch3.prediction.build_meta_zero_slices"];
+        }
+        subgraph "cluster_src__ch3__prediction__build_semis_catalog_strict" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.prediction.build_semis_catalog_strict"];
+            "src__ch3__prediction__build_semis_catalog_strict__build_nodeX_factset_map" [label="build_node_factset_map\n(src/ch3/prediction/build_semis_catalog_strict.py:50)", style="filled", fillcolor="#3e32ffb2", fontcolor="#000000", group="23", tooltip="src.ch3.prediction.build_semis_catalog_strict.build_node_factset_map\nsrc/ch3/prediction/build_semis_catalog_strict.py:50\nfunction in src.ch3.prediction.build_semis_catalog_strict"];
+            "src__ch3__prediction__build_semis_catalog_strict__fetch_rbics_l4_entities" [label="fetch_rbics_l4_entities\n(src/ch3/prediction/build_semis_catalog_strict.py:29)", style="filled", fillcolor="#3e32ffb2", fontcolor="#000000", group="23", tooltip="src.ch3.prediction.build_semis_catalog_strict.fetch_rbics_l4_entities\nsrc/ch3/prediction/build_semis_catalog_strict.py:29\nfunction in src.ch3.prediction.build_semis_catalog_strict"];
+            "src__ch3__prediction__build_semis_catalog_strict__fetch_sic_entities" [label="fetch_sic_entities\n(src/ch3/prediction/build_semis_catalog_strict.py:41)", style="filled", fillcolor="#3e32ffb2", fontcolor="#000000", group="23", tooltip="src.ch3.prediction.build_semis_catalog_strict.fetch_sic_entities\nsrc/ch3/prediction/build_semis_catalog_strict.py:41\nfunction in src.ch3.prediction.build_semis_catalog_strict"];
+            "src__ch3__prediction__build_semis_catalog_strict__load_config" [label="load_config\n(src/ch3/prediction/build_semis_catalog_strict.py:24)", style="filled", fillcolor="#3e32ffb2", fontcolor="#000000", group="23", tooltip="src.ch3.prediction.build_semis_catalog_strict.load_config\nsrc/ch3/prediction/build_semis_catalog_strict.py:24\nfunction in src.ch3.prediction.build_semis_catalog_strict"];
+            "src__ch3__prediction__build_semis_catalog_strict__main" [label="main\n(src/ch3/prediction/build_semis_catalog_strict.py:68)", style="filled", fillcolor="#3e32ffb2", fontcolor="#000000", group="23", tooltip="src.ch3.prediction.build_semis_catalog_strict.main\nsrc/ch3/prediction/build_semis_catalog_strict.py:68\nfunction in src.ch3.prediction.build_semis_catalog_strict"];
+        }
+        subgraph "cluster_src__ch3__prediction__build_semis_catalog_strict__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.prediction.build_semis_catalog_strict.main"];
+            "src__ch3__prediction__build_semis_catalog_strict__main___source" [label="_source\n(src/ch3/prediction/build_semis_catalog_strict.py:147)", style="filled", fillcolor="#0e00ffb2", fontcolor="#000000", group="23", tooltip="src.ch3.prediction.build_semis_catalog_strict.main._source\nsrc/ch3/prediction/build_semis_catalog_strict.py:147\nfunction in src.ch3.prediction.build_semis_catalog_strict.main"];
+        }
+        subgraph "cluster_src__ch3__prediction__flip_candidates" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.prediction.flip_candidates"];
+            "src__ch3__prediction__flip_candidates__main" [label="main\n(src/ch3/prediction/flip_candidates.py:28)", style="filled", fillcolor="#6332ffb2", fontcolor="#000000", group="24", tooltip="src.ch3.prediction.flip_candidates.main\nsrc/ch3/prediction/flip_candidates.py:28\nfunction in src.ch3.prediction.flip_candidates"];
+        }
+        subgraph "cluster_src__ch3__prediction__join_meta" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.prediction.join_meta"];
+            "src__ch3__prediction__join_meta__main" [label="main\n(src/ch3/prediction/join_meta.py:105)", style="filled", fillcolor="#8632ffb2", fontcolor="#000000", group="25", tooltip="src.ch3.prediction.join_meta.main\nsrc/ch3/prediction/join_meta.py:105\nfunction in src.ch3.prediction.join_meta"];
+            "src__ch3__prediction__join_meta__run_full" [label="run_full\n(src/ch3/prediction/join_meta.py:20)", style="filled", fillcolor="#8632ffb2", fontcolor="#000000", group="25", tooltip="src.ch3.prediction.join_meta.run_full\nsrc/ch3/prediction/join_meta.py:20\nfunction in src.ch3.prediction.join_meta"];
+        }
+        subgraph "cluster_src__ch3__prediction__join_meta_with_slices" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.prediction.join_meta_with_slices"];
+            "src__ch3__prediction__join_meta_with_slices__dedup_candidates" [label="dedup_candidates\n(src/ch3/prediction/join_meta_with_slices.py:27)", style="filled", fillcolor="#aa32ffb2", fontcolor="#000000", group="26", tooltip="src.ch3.prediction.join_meta_with_slices.dedup_candidates\nsrc/ch3/prediction/join_meta_with_slices.py:27\nfunction in src.ch3.prediction.join_meta_with_slices"];
+            "src__ch3__prediction__join_meta_with_slices__join_meta" [label="join_meta\n(src/ch3/prediction/join_meta_with_slices.py:38)", style="filled", fillcolor="#aa32ffb2", fontcolor="#000000", group="26", tooltip="src.ch3.prediction.join_meta_with_slices.join_meta\nsrc/ch3/prediction/join_meta_with_slices.py:38\nfunction in src.ch3.prediction.join_meta_with_slices"];
+            "src__ch3__prediction__join_meta_with_slices__main" [label="main\n(src/ch3/prediction/join_meta_with_slices.py:75)", style="filled", fillcolor="#aa32ffb2", fontcolor="#000000", group="26", tooltip="src.ch3.prediction.join_meta_with_slices.main\nsrc/ch3/prediction/join_meta_with_slices.py:75\nfunction in src.ch3.prediction.join_meta_with_slices"];
+        }
+        subgraph "cluster_src__ch3__prediction__score_twotower_cold_primes" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes___chunked" [label="_chunked\n(src/ch3/prediction/score_twotower_cold_primes.py:74)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes._chunked\nsrc/ch3/prediction/score_twotower_cold_primes.py:74\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes___now_iso" [label="_now_iso\n(src/ch3/prediction/score_twotower_cold_primes.py:45)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes._now_iso\nsrc/ch3/prediction/score_twotower_cold_primes.py:45\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes___q_entity" [label="_q_entity\n(src/ch3/prediction/score_twotower_cold_primes.py:86)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes._q_entity\nsrc/ch3/prediction/score_twotower_cold_primes.py:86\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes___q_gr_country" [label="_q_gr_country\n(src/ch3/prediction/score_twotower_cold_primes.py:93)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes._q_gr_country\nsrc/ch3/prediction/score_twotower_cold_primes.py:93\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes___q_gr_region" [label="_q_gr_region\n(src/ch3/prediction/score_twotower_cold_primes.py:108)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes._q_gr_region\nsrc/ch3/prediction/score_twotower_cold_primes.py:108\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes___q_industry" [label="_q_industry\n(src/ch3/prediction/score_twotower_cold_primes.py:79)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes._q_industry\nsrc/ch3/prediction/score_twotower_cold_primes.py:79\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes___stable_int_hash" [label="_stable_int_hash\n(src/ch3/prediction/score_twotower_cold_primes.py:49)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes._stable_int_hash\nsrc/ch3/prediction/score_twotower_cold_primes.py:49\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes__build_candidates_for_vendor" [label="build_candidates_for_vendor\n(src/ch3/prediction/score_twotower_cold_primes.py:299)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.build_candidates_for_vendor\nsrc/ch3/prediction/score_twotower_cold_primes.py:299\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes__build_primary_sic_string_to_code" [label="build_primary_sic_string_to_code\n(src/ch3/prediction/score_twotower_cold_primes.py:247)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.build_primary_sic_string_to_code\nsrc/ch3/prediction/score_twotower_cold_primes.py:247\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes__compute_embeddings_side" [label="compute_embeddings_side\n(src/ch3/prediction/score_twotower_cold_primes.py:382)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.compute_embeddings_side\nsrc/ch3/prediction/score_twotower_cold_primes.py:382\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes__fetch_factset_attrs" [label="fetch_factset_attrs\n(src/ch3/prediction/score_twotower_cold_primes.py:125)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.fetch_factset_attrs\nsrc/ch3/prediction/score_twotower_cold_primes.py:125\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes__load_cold_primes" [label="load_cold_primes\n(src/ch3/prediction/score_twotower_cold_primes.py:257)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.load_cold_primes\nsrc/ch3/prediction/score_twotower_cold_primes.py:257\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes__load_country_mapping" [label="load_country_mapping\n(src/ch3/prediction/score_twotower_cold_primes.py:58)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.load_country_mapping\nsrc/ch3/prediction/score_twotower_cold_primes.py:58\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes__load_encoder_bundle" [label="load_encoder_bundle\n(src/ch3/prediction/score_twotower_cold_primes.py:67)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.load_encoder_bundle\nsrc/ch3/prediction/score_twotower_cold_primes.py:67\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes__load_hubs" [label="load_hubs\n(src/ch3/prediction/score_twotower_cold_primes.py:288)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.load_hubs\nsrc/ch3/prediction/score_twotower_cold_primes.py:288\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes__load_semis" [label="load_semis\n(src/ch3/prediction/score_twotower_cold_primes.py:278)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.load_semis\nsrc/ch3/prediction/score_twotower_cold_primes.py:278\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+            "src__ch3__prediction__score_twotower_cold_primes__main" [label="main\n(src/ch3/prediction/score_twotower_cold_primes.py:406)", style="filled", fillcolor="#cf32ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.main\nsrc/ch3/prediction/score_twotower_cold_primes.py:406\nfunction in src.ch3.prediction.score_twotower_cold_primes"];
+        }
+        subgraph "cluster_src__ch3__prediction__score_twotower_cold_primes__build_candidates_for_vendor" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.prediction.score_twotower_cold_primes.build_candidates_for_vendor"];
+            "src__ch3__prediction__score_twotower_cold_primes__build_candidates_for_vendor__add_many" [label="add_many\n(src/ch3/prediction/score_twotower_cold_primes.py:326)", style="filled", fillcolor="#c300ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.build_candidates_for_vendor.add_many\nsrc/ch3/prediction/score_twotower_cold_primes.py:326\nfunction in src.ch3.prediction.score_twotower_cold_primes.build_candidates_for_vendor"];
+        }
+        subgraph "cluster_src__ch3__prediction__score_twotower_cold_primes__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.prediction.score_twotower_cold_primes.main"];
+            "src__ch3__prediction__score_twotower_cold_primes__main___fill_geo" [label="_fill_geo\n(src/ch3/prediction/score_twotower_cold_primes.py:633)", style="filled", fillcolor="#c300ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.main._fill_geo\nsrc/ch3/prediction/score_twotower_cold_primes.py:633\nfunction in src.ch3.prediction.score_twotower_cold_primes.main"];
+            "src__ch3__prediction__score_twotower_cold_primes__main___geo_index" [label="_geo_index\n(src/ch3/prediction/score_twotower_cold_primes.py:692)", style="filled", fillcolor="#c300ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.main._geo_index\nsrc/ch3/prediction/score_twotower_cold_primes.py:692\nfunction in src.ch3.prediction.score_twotower_cold_primes.main"];
+            "src__ch3__prediction__score_twotower_cold_primes__main___norm_iso" [label="_norm_iso\n(src/ch3/prediction/score_twotower_cold_primes.py:606)", style="filled", fillcolor="#c300ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.main._norm_iso\nsrc/ch3/prediction/score_twotower_cold_primes.py:606\nfunction in src.ch3.prediction.score_twotower_cold_primes.main"];
+            "src__ch3__prediction__score_twotower_cold_primes__main__map_cat" [label="map_cat\n(src/ch3/prediction/score_twotower_cold_primes.py:648)", style="filled", fillcolor="#c300ffb2", fontcolor="#000000", group="27", tooltip="src.ch3.prediction.score_twotower_cold_primes.main.map_cat\nsrc/ch3/prediction/score_twotower_cold_primes.py:648\nfunction in src.ch3.prediction.score_twotower_cold_primes.main"];
+        }
+        subgraph "cluster_src__ch3__prediction__select_topk" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.prediction.select_topk"];
+            "src__ch3__prediction__select_topk__main" [label="main\n(src/ch3/prediction/select_topk.py:59)", style="filled", fillcolor="#f232ffb2", fontcolor="#000000", group="28", tooltip="src.ch3.prediction.select_topk.main\nsrc/ch3/prediction/select_topk.py:59\nfunction in src.ch3.prediction.select_topk"];
+            "src__ch3__prediction__select_topk__parse_args" [label="parse_args\n(src/ch3/prediction/select_topk.py:24)", style="filled", fillcolor="#f232ffb2", fontcolor="#000000", group="28", tooltip="src.ch3.prediction.select_topk.parse_args\nsrc/ch3/prediction/select_topk.py:24\nfunction in src.ch3.prediction.select_topk"];
+        }
+        subgraph "cluster_src__ch3__prediction__tag_semis" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.prediction.tag_semis"];
+            "src__ch3__prediction__tag_semis__fetch_rbics_entities" [label="fetch_rbics_entities\n(src/ch3/prediction/tag_semis.py:28)", style="filled", fillcolor="#ff32e7b2", fontcolor="#000000", group="29", tooltip="src.ch3.prediction.tag_semis.fetch_rbics_entities\nsrc/ch3/prediction/tag_semis.py:28\nfunction in src.ch3.prediction.tag_semis"];
+            "src__ch3__prediction__tag_semis__fetch_sic_entities" [label="fetch_sic_entities\n(src/ch3/prediction/tag_semis.py:38)", style="filled", fillcolor="#ff32e7b2", fontcolor="#000000", group="29", tooltip="src.ch3.prediction.tag_semis.fetch_sic_entities\nsrc/ch3/prediction/tag_semis.py:38\nfunction in src.ch3.prediction.tag_semis"];
+            "src__ch3__prediction__tag_semis__load_codes" [label="load_codes\n(src/ch3/prediction/tag_semis.py:22)", style="filled", fillcolor="#ff32e7b2", fontcolor="#000000", group="29", tooltip="src.ch3.prediction.tag_semis.load_codes\nsrc/ch3/prediction/tag_semis.py:22\nfunction in src.ch3.prediction.tag_semis"];
+            "src__ch3__prediction__tag_semis__main" [label="main\n(src/ch3/prediction/tag_semis.py:50)", style="filled", fillcolor="#ff32e7b2", fontcolor="#000000", group="29", tooltip="src.ch3.prediction.tag_semis.main\nsrc/ch3/prediction/tag_semis.py:50\nfunction in src.ch3.prediction.tag_semis"];
+        }
+        subgraph "cluster_src__ch3__usaspending__01_build_dod_transactions" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.usaspending.01_build_dod_transactions"];
+            "src__ch3__usaspending__01_build_dod_transactions__find_files" [label="find_files\n(src/ch3/usaspending/01_build_dod_transactions.py:66)", style="filled", fillcolor="#ff32c2b2", fontcolor="#000000", group="30", tooltip="src.ch3.usaspending.01_build_dod_transactions.find_files\nsrc/ch3/usaspending/01_build_dod_transactions.py:66\nfunction in src.ch3.usaspending.01_build_dod_transactions"];
+            "src__ch3__usaspending__01_build_dod_transactions__main" [label="main\n(src/ch3/usaspending/01_build_dod_transactions.py:73)", style="filled", fillcolor="#ff32c2b2", fontcolor="#000000", group="30", tooltip="src.ch3.usaspending.01_build_dod_transactions.main\nsrc/ch3/usaspending/01_build_dod_transactions.py:73\nfunction in src.ch3.usaspending.01_build_dod_transactions"];
+        }
+        subgraph "cluster_src__ch3__usaspending__01_build_dod_transactions__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.usaspending.01_build_dod_transactions.main"];
+            "src__ch3__usaspending__01_build_dod_transactions__main__render_sql" [label="render_sql\n(src/ch3/usaspending/01_build_dod_transactions.py:102)", style="filled", fillcolor="#ff00b3b2", fontcolor="#000000", group="30", tooltip="src.ch3.usaspending.01_build_dod_transactions.main.render_sql\nsrc/ch3/usaspending/01_build_dod_transactions.py:102\nfunction in src.ch3.usaspending.01_build_dod_transactions.main"];
+        }
+        subgraph "cluster_src__ch3__usaspending__02_aggregate_primes" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.usaspending.02_aggregate_primes"];
+            "src__ch3__usaspending__02_aggregate_primes__aggregate_primes" [label="aggregate_primes\n(src/ch3/usaspending/02_aggregate_primes.py:20)", style="filled", fillcolor="#ff329fb2", fontcolor="#000000", group="31", tooltip="src.ch3.usaspending.02_aggregate_primes.aggregate_primes\nsrc/ch3/usaspending/02_aggregate_primes.py:20\nfunction in src.ch3.usaspending.02_aggregate_primes"];
+            "src__ch3__usaspending__02_aggregate_primes__main" [label="main\n(src/ch3/usaspending/02_aggregate_primes.py:72)", style="filled", fillcolor="#ff329fb2", fontcolor="#000000", group="31", tooltip="src.ch3.usaspending.02_aggregate_primes.main\nsrc/ch3/usaspending/02_aggregate_primes.py:72\nfunction in src.ch3.usaspending.02_aggregate_primes"];
+        }
+        subgraph "cluster_src__ch3__usaspending__03_report_usaspending_summary" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.usaspending.03_report_usaspending_summary"];
+            "src__ch3__usaspending__03_report_usaspending_summary__main" [label="main\n(src/ch3/usaspending/03_report_usaspending_summary.py:79)", style="filled", fillcolor="#ff327ab2", fontcolor="#000000", group="32", tooltip="src.ch3.usaspending.03_report_usaspending_summary.main\nsrc/ch3/usaspending/03_report_usaspending_summary.py:79\nfunction in src.ch3.usaspending.03_report_usaspending_summary"];
+            "src__ch3__usaspending__03_report_usaspending_summary__summarize_primes" [label="summarize_primes\n(src/ch3/usaspending/03_report_usaspending_summary.py:49)", style="filled", fillcolor="#ff327ab2", fontcolor="#000000", group="32", tooltip="src.ch3.usaspending.03_report_usaspending_summary.summarize_primes\nsrc/ch3/usaspending/03_report_usaspending_summary.py:49\nfunction in src.ch3.usaspending.03_report_usaspending_summary"];
+            "src__ch3__usaspending__03_report_usaspending_summary__summarize_transactions" [label="summarize_transactions\n(src/ch3/usaspending/03_report_usaspending_summary.py:19)", style="filled", fillcolor="#ff327ab2", fontcolor="#000000", group="32", tooltip="src.ch3.usaspending.03_report_usaspending_summary.summarize_transactions\nsrc/ch3/usaspending/03_report_usaspending_summary.py:19\nfunction in src.ch3.usaspending.03_report_usaspending_summary"];
+        }
+    }
+        "src__ch3__analysis__backtest_twotower_cold_v2" -> "src__ch3__analysis__backtest_twotower_cold_v2__main" [style="solid",  color="#000000"];
+        "src__ch3__analysis__backtest_twotower_cold_v2__main" -> "src__ch3__analysis__backtest_twotower_cold_v2___now_iso" [style="solid",  color="#000000"];
+        "src__ch3__analysis__backtest_twotower_cold_v2__main" -> "src__ch3__analysis__backtest_twotower_cold_v2__compute_embeddings_side" [style="solid",  color="#000000"];
+        "src__ch3__analysis__backtest_twotower_cold_v2__main" -> "src__ch3__analysis__backtest_twotower_cold_v2__format_latex" [style="solid",  color="#000000"];
+        "src__ch3__analysis__backtest_twotower_cold_v2__main" -> "src__ch3__analysis__backtest_twotower_cold_v2__main___geo_index" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_ch3_tables" -> "src__ch3__analysis__build_ch3_tables__main" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_ch3_tables__main" -> "src__ch3__analysis__build_ch3_tables__build_agreement_table" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_ch3_tables__main" -> "src__ch3__analysis__build_ch3_tables__build_decile_table" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_ch3_tables__main" -> "src__ch3__analysis__build_ch3_tables__build_topk_table" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_ch3_tables__main" -> "src__ch3__analysis__build_ch3_tables__compute_base_rate" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_ch3_tables__main" -> "src__ch3__analysis__build_ch3_tables__ensure_dirs" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_ch3_tables__main" -> "src__ch3__analysis__build_ch3_tables__parse_args" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_ch3_tables__main" -> "src__ch3__analysis__build_ch3_tables__write_agreement_tabular" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_ch3_tables__main" -> "src__ch3__analysis__build_ch3_tables__write_deciles_tabular" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_ch3_tables__main" -> "src__ch3__analysis__build_ch3_tables__write_topk_tabular" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_ch3_tables__parse_args" -> "src__ch3__analysis__build_ch3_tables__parse_args" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_ch3_tables__write_agreement_tabular" -> "src__ch3__analysis__build_ch3_tables__fmt_float" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_ch3_tables__write_deciles_tabular" -> "src__ch3__analysis__build_ch3_tables__fmt_float" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_ch3_tables__write_topk_tabular" -> "src__ch3__analysis__build_ch3_tables__fmt_float" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_dod_network_baseline_table" -> "src__ch3__analysis__build_dod_network_baseline_table__main" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_evidence_overlap_delta_table" -> "src__ch3__analysis__build_evidence_overlap_delta_table__main" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_evidence_overlap_delta_table__main" -> "src__ch3__analysis__build_evidence_overlap_delta_table__parse_args" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_evidence_overlap_delta_table__parse_args" -> "src__ch3__analysis__build_evidence_overlap_delta_table__parse_args" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table" -> "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__main" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__main" -> "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__count_entities_by_l4" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__main" -> "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__get_entity_ids_in_network" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__main" -> "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__l4_name_lookup" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__main" -> "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__load_codes" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__main" -> "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__parse_args" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__parse_args" -> "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table__parse_args" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table" -> "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table__main" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table__main" -> "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table___example_firms" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table__main" -> "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table___load_sic_fallback_codes" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table__main" -> "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table__parse_args" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table__parse_args" -> "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table__parse_args" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semis_network_summary_table" -> "src__ch3__analysis__build_semis_network_summary_table__main" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semis_network_summary_table__main" -> "src__ch3__analysis__build_semis_network_summary_table__parse_args" [style="solid",  color="#000000"];
+        "src__ch3__analysis__build_semis_network_summary_table__parse_args" -> "src__ch3__analysis__build_semis_network_summary_table__parse_args" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold" -> "src__ch3__analysis__diagnose_twotower_cold__main" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold" -> "src__ch3__prediction__score_twotower_cold_primes__fetch_factset_attrs" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold" -> "src__ch3__prediction__score_twotower_cold_primes__load_cold_primes" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold" -> "src__ch3__prediction__score_twotower_cold_primes__load_encoder_bundle" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold__main" -> "src__ch3__analysis__diagnose_twotower_cold___build_nodeX_flags" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold__main" -> "src__ch3__analysis__diagnose_twotower_cold___current_map_cat" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold__main" -> "src__ch3__analysis__diagnose_twotower_cold___fixed_map_cat" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold__main" -> "src__ch3__analysis__diagnose_twotower_cold___hhi_and_entropy" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold__main" -> "src__ch3__analysis__diagnose_twotower_cold___now_iso" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold__main" -> "src__ch3__analysis__diagnose_twotower_cold__main___fill_geo" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold__main" -> "src__ch3__analysis__diagnose_twotower_cold__main___norm_iso" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold__main" -> "src__ch3__analysis__diagnose_twotower_cold__main__pct" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold__main" -> "src__ch3__prediction__score_twotower_cold_primes__fetch_factset_attrs" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold__main" -> "src__ch3__prediction__score_twotower_cold_primes__load_cold_primes" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold__main" -> "src__ch3__prediction__score_twotower_cold_primes__load_encoder_bundle" [style="solid",  color="#000000"];
+        "src__ch3__analysis__fig_hairball_dla_ego" -> "src__ch3__analysis__fig_hairball_dla_ego__main" [style="solid",  color="#000000"];
+        "src__ch3__analysis__fig_hairball_dla_ego__main" -> "src__ch3__analysis__fig_hairball_dla_ego__bfs_reachable" [style="solid",  color="#000000"];
+        "src__ch3__analysis__fig_hairball_dla_ego__main" -> "src__ch3__analysis__fig_hairball_dla_ego__bfs_tiers" [style="solid",  color="#000000"];
+        "src__ch3__analysis__fig_hairball_dla_ego__main" -> "src__ch3__analysis__fig_hairball_dla_ego__main__segments" [style="solid",  color="#000000"];
+        "src__ch3__analysis__fig_hairball_semis" -> "src__ch3__analysis__fig_hairball_semis__main" [style="solid",  color="#000000"];
+        "src__ch3__analysis__fig_hairball_semis__main" -> "src__ch3__analysis__fig_hairball_semis__build_degree" [style="solid",  color="#000000"];
+        "src__ch3__analysis__fig_hairball_semis__main" -> "src__ch3__analysis__fig_hairball_semis__pick_edge_type" [style="solid",  color="#000000"];
+        "src__ch3__analysis__fig_tier_depth_ecdf" -> "src__ch3__analysis__fig_tier_depth_ecdf__main" [style="solid",  color="#000000"];
+        "src__ch3__analysis__fig_tier_depth_ecdf__main" -> "src__ch3__analysis__fig_tier_depth_ecdf__bfs_tiers" [style="solid",  color="#000000"];
+        "src__ch3__analysis__fig_tier_depth_ecdf__main" -> "src__ch3__analysis__fig_tier_depth_ecdf__build_adjacency" [style="solid",  color="#000000"];
+        "src__ch3__analysis__fig_tier_depth_ecdf__main" -> "src__ch3__analysis__fig_tier_depth_ecdf__ecdf" [style="solid",  color="#000000"];
+        "src__ch3__matching__match_primes" -> "src__ch3__matching__match_primes__main" [style="solid",  color="#000000"];
+        "src__ch3__matching__match_primes__fuzzy_match_vendor" -> "src__ch3__matching__match_primes__simple_ratio" [style="solid",  color="#000000"];
+        "src__ch3__matching__match_primes__load_factset_entities" -> "src__ch3__matching__match_primes__normalize_name" [style="solid",  color="#000000"];
+        "src__ch3__matching__match_primes__load_vendors" -> "src__ch3__matching__match_primes__load_vendors__to_alpha2" [style="solid",  color="#000000"];
+        "src__ch3__matching__match_primes__load_vendors" -> "src__ch3__matching__match_primes__normalize_name" [style="solid",  color="#000000"];
+        "src__ch3__matching__match_primes__main" -> "src__ch3__matching__match_primes__build_lookup" [style="solid",  color="#000000"];
+        "src__ch3__matching__match_primes__main" -> "src__ch3__matching__match_primes__build_prefix_index" [style="solid",  color="#000000"];
+        "src__ch3__matching__match_primes__main" -> "src__ch3__matching__match_primes__fuzzy_match_vendor" [style="solid",  color="#000000"];
+        "src__ch3__matching__match_primes__main" -> "src__ch3__matching__match_primes__load_factset_entities" [style="solid",  color="#000000"];
+        "src__ch3__matching__match_primes__main" -> "src__ch3__matching__match_primes__load_vendors" [style="solid",  color="#000000"];
+        "src__ch3__matching__match_primes__main" -> "src__ch3__matching__match_primes__match_vendor" [style="solid",  color="#000000"];
+        "src__ch3__matching__match_primes__main" -> "src__ch3__matching__match_primes__summarize" [style="solid",  color="#000000"];
+        "src__ch3__matching__match_primes__match_vendor" -> "src__ch3__matching__match_primes__pick_match" [style="solid",  color="#000000"];
+        "src__ch3__network__build_disclosed_baseline" -> "src__ch3__network__build_disclosed_baseline__main" [style="solid",  color="#000000"];
+        "src__ch3__network__build_disclosed_baseline__main" -> "src__ch3__network__build_disclosed_baseline__build_nodeXs" [style="solid",  color="#000000"];
+        "src__ch3__network__build_disclosed_baseline__main" -> "src__ch3__network__build_disclosed_baseline__filter_edges" [style="solid",  color="#000000"];
+        "src__ch3__network__build_disclosed_baseline__main" -> "src__ch3__network__build_disclosed_baseline__load_primes" [style="solid",  color="#000000"];
+        "src__ch3__network__build_disclosed_baseline__main" -> "src__ch3__network__build_disclosed_baseline__traverse_upstream" [style="solid",  color="#000000"];
+        "src__ch3__network__build_disclosed_baseline__main" -> "src__ch3__network__build_disclosed_baseline__write_summary" [style="solid",  color="#000000"];
+        "src__ch3__network__build_semiconductor_subgraphXX" -> "src__ch3__network__build_semiconductor_subgraphXX__main" [style="solid",  color="#000000"];
+        "src__ch3__network__build_semiconductor_subgraphXX__main" -> "src__ch3__network__build_semiconductor_subgraphXX__bfs_reach" [style="solid",  color="#000000"];
+        "src__ch3__network__build_semiconductor_subgraphXX__main" -> "src__ch3__network__build_semiconductor_subgraphXX__bfs_reach_restricted" [style="solid",  color="#000000"];
+        "src__ch3__network__build_semiconductor_subgraphXX__main" -> "src__ch3__network__build_semiconductor_subgraphXX__multi_source_dist" [style="solid",  color="#000000"];
+        "src__ch3__network__build_semiconductor_subgraphXX__main" -> "src__ch3__network__build_semiconductor_subgraphXX__semis_reach_counts" [style="solid",  color="#000000"];
+        "src__ch3__network__build_shipping_observed_layer" -> "src__ch3__network__build_shipping_observed_layer__main" [style="solid",  color="#000000"];
+        "src__ch3__network__build_shipping_observed_layer__main" -> "src__ch3__network__build_shipping_observed_layer__main__count" [style="solid",  color="#000000"];
+        "src__ch3__network__compute_tiers" -> "src__ch3__network__compute_tiers__main" [style="solid",  color="#000000"];
+        "src__ch3__network__compute_tiers__main" -> "src__ch3__network__compute_tiers__bfs_tiers" [style="solid",  color="#000000"];
+        "src__ch3__network__compute_tiers__main" -> "src__ch3__network__compute_tiers__build_adjacency" [style="solid",  color="#000000"];
+        "src__ch3__network__compute_tiers__main" -> "src__ch3__network__compute_tiers__tier_counts" [style="solid",  color="#000000"];
+        "src__ch3__network__package_dod_contract_layer" -> "src__ch3__network__package_dod_contract_layer__main" [style="solid",  color="#000000"];
+        "src__ch3__network__package_dod_contract_layer__main" -> "src__ch3__network__package_dod_contract_layer__main__count" [style="solid",  color="#000000"];
+        "src__ch3__network__package_dod_network_d99" -> "src__ch3__network__package_dod_network_d99__main" [style="solid",  color="#000000"];
+        "src__ch3__network__package_dod_network_d99__main" -> "src__ch3__network__package_dod_network_d99__main__count" [style="solid",  color="#000000"];
+        "src__ch3__network__package_dod_network_with_shipping" -> "src__ch3__network__package_dod_network_with_shipping__main" [style="solid",  color="#000000"];
+        "src__ch3__network__package_dod_network_with_shipping__main" -> "src__ch3__network__package_dod_network_with_shipping__main__count" [style="solid",  color="#000000"];
+        "src__ch3__network__package_scr_layers" -> "src__ch3__network__package_scr_layers__main" [style="solid",  color="#000000"];
+        "src__ch3__network__package_scr_layers__main" -> "src__ch3__network__package_scr_layers__main__count" [style="solid",  color="#000000"];
+        "src__ch3__network__package_scr_layers__main" -> "src__ch3__network__package_scr_layers__main__distinct_nodeXs" [style="solid",  color="#000000"];
+        "src__ch3__network__package_scr_layers__main" -> "src__ch3__network__package_scr_layers__main__write_layered" [style="solid",  color="#000000"];
+        "src__ch3__network__package_scr_layers__main" -> "src__ch3__network__package_scr_layers__main__write_nodeXs" [style="solid",  color="#000000"];
+        "src__ch3__network__package_scr_layers__main" -> "src__ch3__network__package_scr_layers__main__write_pred" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_candidate_pool" -> "src__ch3__prediction__build_candidate_pool__main" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_candidate_pool__main" -> "src__ch3__prediction__build_candidate_pool__bfs_neighbors" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_candidate_pool__main" -> "src__ch3__prediction__build_candidate_pool__build_candidates_for_seed" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_candidate_pool__main" -> "src__ch3__prediction__build_candidate_pool__compute_hubs" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_candidate_pool__main" -> "src__ch3__prediction__build_candidate_pool__load_adj" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_candidate_pool__main" -> "src__ch3__prediction__build_candidate_pool__load_seeds" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_candidate_pool__main" -> "src__ch3__prediction__build_candidate_pool__load_semi_flags" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_meta_and_select" -> "src__ch3__prediction__build_meta_and_select__main" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_meta_zero_slices" -> "src__ch3__prediction__build_meta_zero_slices__main" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_meta_zero_slices__main" -> "src__ch3__prediction__build_meta_zero_slices__parse_args" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_meta_zero_slices__parse_args" -> "src__ch3__prediction__build_meta_zero_slices__parse_args" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_semis_catalog_strict" -> "src__ch3__prediction__build_semis_catalog_strict__main" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_semis_catalog_strict__main" -> "src__ch3__prediction__build_semis_catalog_strict__build_nodeX_factset_map" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_semis_catalog_strict__main" -> "src__ch3__prediction__build_semis_catalog_strict__fetch_rbics_l4_entities" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_semis_catalog_strict__main" -> "src__ch3__prediction__build_semis_catalog_strict__fetch_sic_entities" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_semis_catalog_strict__main" -> "src__ch3__prediction__build_semis_catalog_strict__load_config" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_semis_catalog_strict__main" -> "src__ch3__prediction__build_semis_catalog_strict__main___source" [style="solid",  color="#000000"];
+        "src__ch3__prediction__flip_candidates" -> "src__ch3__prediction__flip_candidates__main" [style="solid",  color="#000000"];
+        "src__ch3__prediction__join_meta" -> "src__ch3__prediction__join_meta__main" [style="solid",  color="#000000"];
+        "src__ch3__prediction__join_meta__main" -> "src__ch3__prediction__join_meta__run_full" [style="solid",  color="#000000"];
+        "src__ch3__prediction__join_meta_with_slices" -> "src__ch3__prediction__join_meta_with_slices__main" [style="solid",  color="#000000"];
+        "src__ch3__prediction__join_meta_with_slices__main" -> "src__ch3__prediction__join_meta_with_slices__dedup_candidates" [style="solid",  color="#000000"];
+        "src__ch3__prediction__join_meta_with_slices__main" -> "src__ch3__prediction__join_meta_with_slices__join_meta" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes" -> "src__ch3__prediction__score_twotower_cold_primes__main" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__build_candidates_for_vendor" -> "src__ch3__prediction__score_twotower_cold_primes___stable_int_hash" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__build_candidates_for_vendor" -> "src__ch3__prediction__score_twotower_cold_primes__build_candidates_for_vendor__add_many" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__fetch_factset_attrs" -> "src__ch3__prediction__score_twotower_cold_primes___chunked" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__fetch_factset_attrs" -> "src__ch3__prediction__score_twotower_cold_primes___q_entity" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__fetch_factset_attrs" -> "src__ch3__prediction__score_twotower_cold_primes___q_gr_country" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__fetch_factset_attrs" -> "src__ch3__prediction__score_twotower_cold_primes___q_gr_region" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__fetch_factset_attrs" -> "src__ch3__prediction__score_twotower_cold_primes___q_industry" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__main" -> "src__ch3__prediction__score_twotower_cold_primes___now_iso" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__main" -> "src__ch3__prediction__score_twotower_cold_primes__build_candidates_for_vendor" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__main" -> "src__ch3__prediction__score_twotower_cold_primes__build_primary_sic_string_to_code" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__main" -> "src__ch3__prediction__score_twotower_cold_primes__compute_embeddings_side" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__main" -> "src__ch3__prediction__score_twotower_cold_primes__fetch_factset_attrs" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__main" -> "src__ch3__prediction__score_twotower_cold_primes__load_cold_primes" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__main" -> "src__ch3__prediction__score_twotower_cold_primes__load_encoder_bundle" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__main" -> "src__ch3__prediction__score_twotower_cold_primes__load_hubs" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__main" -> "src__ch3__prediction__score_twotower_cold_primes__load_semis" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__main" -> "src__ch3__prediction__score_twotower_cold_primes__main___fill_geo" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__main" -> "src__ch3__prediction__score_twotower_cold_primes__main___geo_index" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__main" -> "src__ch3__prediction__score_twotower_cold_primes__main___norm_iso" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes__main" -> "src__ch3__prediction__score_twotower_cold_primes__main__map_cat" [style="solid",  color="#000000"];
+        "src__ch3__prediction__select_topk" -> "src__ch3__prediction__select_topk__main" [style="solid",  color="#000000"];
+        "src__ch3__prediction__select_topk__main" -> "src__ch3__prediction__select_topk__parse_args" [style="solid",  color="#000000"];
+        "src__ch3__prediction__select_topk__parse_args" -> "src__ch3__prediction__select_topk__parse_args" [style="solid",  color="#000000"];
+        "src__ch3__prediction__tag_semis" -> "src__ch3__prediction__tag_semis__main" [style="solid",  color="#000000"];
+        "src__ch3__prediction__tag_semis__main" -> "src__ch3__prediction__tag_semis__fetch_rbics_entities" [style="solid",  color="#000000"];
+        "src__ch3__prediction__tag_semis__main" -> "src__ch3__prediction__tag_semis__fetch_sic_entities" [style="solid",  color="#000000"];
+        "src__ch3__prediction__tag_semis__main" -> "src__ch3__prediction__tag_semis__load_codes" [style="solid",  color="#000000"];
+        "src__ch3__usaspending__01_build_dod_transactions" -> "src__ch3__usaspending__01_build_dod_transactions__main" [style="solid",  color="#000000"];
+        "src__ch3__usaspending__01_build_dod_transactions__main" -> "src__ch3__usaspending__01_build_dod_transactions__find_files" [style="solid",  color="#000000"];
+        "src__ch3__usaspending__01_build_dod_transactions__main" -> "src__ch3__usaspending__01_build_dod_transactions__main__render_sql" [style="solid",  color="#000000"];
+        "src__ch3__usaspending__02_aggregate_primes" -> "src__ch3__usaspending__02_aggregate_primes__main" [style="solid",  color="#000000"];
+        "src__ch3__usaspending__02_aggregate_primes__main" -> "src__ch3__usaspending__02_aggregate_primes__aggregate_primes" [style="solid",  color="#000000"];
+        "src__ch3__usaspending__03_report_usaspending_summary" -> "src__ch3__usaspending__03_report_usaspending_summary__main" [style="solid",  color="#000000"];
+        "src__ch3__usaspending__03_report_usaspending_summary__main" -> "src__ch3__usaspending__03_report_usaspending_summary__summarize_primes" [style="solid",  color="#000000"];
+        "src__ch3__usaspending__03_report_usaspending_summary__main" -> "src__ch3__usaspending__03_report_usaspending_summary__summarize_transactions" [style="solid",  color="#000000"];
+    }

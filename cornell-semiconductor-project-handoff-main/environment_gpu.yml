@@ -1,0 +1,47 @@
+name: supplychain_env_gpu
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11.7
+  - pip
+  - numpy=1.26.4
+  - pandas=2.1.4
+  - pyarrow=14.0.2
+  - duckdb=1.4.0
+  - scipy=1.11.4
+  - networkx=3.1
+  - pyyaml=6.0.1
+  - matplotlib
+  - jupyterlab
+  - scikit-learn
+  - pygraphviz
+  - sqlalchemy
+  - python-dotenv
+  - tqdm
+  - seaborn
+  - ipykernel
+  - pycountry
+  - joblib
+  - pip:
+      # 1) install the correct PyTorch build FIRST
+      - torch==2.7.1+cu126
+      - torchvision==0.22.1+cu126
+      - torchaudio==2.7.1+cu126
+      - --extra-index-url https://download.pytorch.org/whl/cu126
+      # 2) install PyG *and* its ops that match Torch 2.7/cu126
+      - pyg_lib==0.4.0+pt27cu126 -f https://data.pyg.org/whl/torch-2.7.0+cu126.html
+      - torch_scatter==2.1.2+pt27cu126
+      - torch_sparse==0.6.18+pt27cu126
+      - torch_cluster==1.6.3+pt27cu126
+      - torch_spline_conv==1.2.2+pt27cu126
+      - torch_geometric==2.5.3
+      - --find-links https://data.pyg.org/whl/torch-2.7.0+cu126.html
+      # 3) everything else can come from PyPI
+      - pyodbc
+      - igraph
+      - pyvis
+      - optuna
+      - faiss-cpu
+      - fuzzywuzzy
+      - python-Levenshtein
+      - plotly

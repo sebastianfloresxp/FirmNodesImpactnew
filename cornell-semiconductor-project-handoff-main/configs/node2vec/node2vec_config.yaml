@@ -1,0 +1,34 @@
+# Node2Vec Configuration
+
+# Data settings
+data:
+  input_dir: "data/processed"
+  output_dir: "artifacts/node2vec"
+  
+# Node2Vec settings
+node2vec:
+  dimensions: 128
+  walk_length: 80
+  num_walks: 10
+  window_size: 10
+  num_neg_samples: 1
+  p: 1.0
+  q: 1.0
+  workers: 4
+  
+# Training settings
+training:
+  random_seed: 42
+  test_size: 0.2
+  val_size: 0.1
+  
+# Evaluation settings
+evaluation:
+  metrics: ["auc", "ap", "precision@10", "recall@10"]
+  
+# Output settings
+output:
+  embeddings_file: "node2vec_embeddings.npy"
+  results_file: "node2vec_results.csv"
+  summary_file: "node2vec_summary.json"
+  plots_dir: "plots" 

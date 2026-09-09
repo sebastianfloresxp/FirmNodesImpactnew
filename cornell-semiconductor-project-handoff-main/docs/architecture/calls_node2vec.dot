@@ -1,0 +1,146 @@
+digraph G {
+    graph [rankdir=TB, ranksep=0.5, layout=dot, clusterrank="local"];
+    subgraph "cluster_G" {
+
+        graph [style="filled,rounded", fillcolor="#80808018", label=""];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna" [label="src.node2vec.01_node2vec_hpo_optuna\n(src/node2vec/01_node2vec_hpo_optuna.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0", tooltip="src.node2vec.01_node2vec_hpo_optuna\nsrc/node2vec/01_node2vec_hpo_optuna.py"];
+        "src__nodeX2vec__run_nodeX2vec_eval" [label="src.node2vec.run_node2vec_eval\n(src/node2vec/run_node2vec_eval.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval\nsrc/node2vec/run_node2vec_eval.py"];
+        subgraph "cluster_src__nodeX2vec__01_nodeX2vec_hpo_optuna" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.node2vec.01_node2vec_hpo_optuna"];
+            "src__nodeX2vec__01_nodeX2vec_hpo_optuna__main" [label="main\n(src/node2vec/01_node2vec_hpo_optuna.py:172)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.node2vec.01_node2vec_hpo_optuna.main\nsrc/node2vec/01_node2vec_hpo_optuna.py:172\nfunction in src.node2vec.01_node2vec_hpo_optuna"];
+            "src__nodeX2vec__01_nodeX2vec_hpo_optuna__objective_factory" [label="objective_factory\n(src/node2vec/01_node2vec_hpo_optuna.py:87)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.node2vec.01_node2vec_hpo_optuna.objective_factory\nsrc/node2vec/01_node2vec_hpo_optuna.py:87\nfunction in src.node2vec.01_node2vec_hpo_optuna"];
+            "src__nodeX2vec__01_nodeX2vec_hpo_optuna__parse_args" [label="parse_args\n(src/node2vec/01_node2vec_hpo_optuna.py:31)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.node2vec.01_node2vec_hpo_optuna.parse_args\nsrc/node2vec/01_node2vec_hpo_optuna.py:31\nfunction in src.node2vec.01_node2vec_hpo_optuna"];
+            "src__nodeX2vec__01_nodeX2vec_hpo_optuna__resolve_device" [label="resolve_device\n(src/node2vec/01_node2vec_hpo_optuna.py:81)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.node2vec.01_node2vec_hpo_optuna.resolve_device\nsrc/node2vec/01_node2vec_hpo_optuna.py:81\nfunction in src.node2vec.01_node2vec_hpo_optuna"];
+        }
+        subgraph "cluster_src__nodeX2vec__01_nodeX2vec_hpo_optuna__objective_factory" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.node2vec.01_node2vec_hpo_optuna.objective_factory"];
+            "src__nodeX2vec__01_nodeX2vec_hpo_optuna__objective_factory__objective" [label="objective\n(src/node2vec/01_node2vec_hpo_optuna.py:96)", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.node2vec.01_node2vec_hpo_optuna.objective_factory.objective\nsrc/node2vec/01_node2vec_hpo_optuna.py:96\nfunction in src.node2vec.01_node2vec_hpo_optuna.objective_factory"];
+        }
+        subgraph "cluster_src__nodeX2vec__run_nodeX2vec_eval" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer" [label="CandidateStreamer\n(src/node2vec/run_node2vec_eval.py:226)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.CandidateStreamer\nsrc/node2vec/run_node2vec_eval.py:226\nclass in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__Graph" [label="Graph\n(src/node2vec/run_node2vec_eval.py:195)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.Graph\nsrc/node2vec/run_node2vec_eval.py:195\nclass in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__KMetrics" [label="KMetrics\n(src/node2vec/run_node2vec_eval.py:282)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.KMetrics\nsrc/node2vec/run_node2vec_eval.py:282\nclass in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval___bool" [label="_bool\n(src/node2vec/run_node2vec_eval.py:46)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval._bool\nsrc/node2vec/run_node2vec_eval.py:46\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval___ensure_dir" [label="_ensure_dir\n(src/node2vec/run_node2vec_eval.py:55)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval._ensure_dir\nsrc/node2vec/run_node2vec_eval.py:55\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval___load_t0" [label="_load_t0\n(src/node2vec/run_node2vec_eval.py:167)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval._load_t0\nsrc/node2vec/run_node2vec_eval.py:167\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval___now_iso" [label="_now_iso\n(src/node2vec/run_node2vec_eval.py:59)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval._now_iso\nsrc/node2vec/run_node2vec_eval.py:59\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval___sigmoid" [label="_sigmoid\n(src/node2vec/run_node2vec_eval.py:995)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval._sigmoid\nsrc/node2vec/run_node2vec_eval.py:995\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__aggregate_multi_seed_results" [label="aggregate_multi_seed_results\n(src/node2vec/run_node2vec_eval.py:153)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.aggregate_multi_seed_results\nsrc/node2vec/run_node2vec_eval.py:153\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__apply_best_params_override" [label="apply_best_params_override\n(src/node2vec/run_node2vec_eval.py:63)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.apply_best_params_override\nsrc/node2vec/run_node2vec_eval.py:63\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__calculate_confidence_intervals" [label="calculate_confidence_intervals\n(src/node2vec/run_node2vec_eval.py:127)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.calculate_confidence_intervals\nsrc/node2vec/run_node2vec_eval.py:127\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__calibrate_nodeX2vec_on_val" [label="calibrate_node2vec_on_val\n(src/node2vec/run_node2vec_eval.py:1032)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.calibrate_node2vec_on_val\nsrc/node2vec/run_node2vec_eval.py:1032\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__classify_twohop" [label="classify_twohop\n(src/node2vec/run_node2vec_eval.py:401)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.classify_twohop\nsrc/node2vec/run_node2vec_eval.py:401\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__classify_warm_cold" [label="classify_warm_cold\n(src/node2vec/run_node2vec_eval.py:368)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.classify_warm_cold\nsrc/node2vec/run_node2vec_eval.py:368\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__classify_warm_cold_strict" [label="classify_warm_cold_strict\n(src/node2vec/run_node2vec_eval.py:381)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.classify_warm_cold_strict\nsrc/node2vec/run_node2vec_eval.py:381\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__csr_to_edge_index" [label="csr_to_edge_index\n(src/node2vec/run_node2vec_eval.py:217)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.csr_to_edge_index\nsrc/node2vec/run_node2vec_eval.py:217\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" [label="evaluate_split\n(src/node2vec/run_node2vec_eval.py:500)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.evaluate_split\nsrc/node2vec/run_node2vec_eval.py:500\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__fit_platt" [label="fit_platt\n(src/node2vec/run_node2vec_eval.py:1005)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.fit_platt\nsrc/node2vec/run_node2vec_eval.py:1005\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__get_embeddings" [label="get_embeddings\n(src/node2vec/run_node2vec_eval.py:434)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.get_embeddings\nsrc/node2vec/run_node2vec_eval.py:434\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__load_graphX" [label="load_graph\n(src/node2vec/run_node2vec_eval.py:203)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.load_graph\nsrc/node2vec/run_node2vec_eval.py:203\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__main" [label="main\n(src/node2vec/run_node2vec_eval.py:1097)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.main\nsrc/node2vec/run_node2vec_eval.py:1097\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__parse_args" [label="parse_args\n(src/node2vec/run_node2vec_eval.py:688)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.parse_args\nsrc/node2vec/run_node2vec_eval.py:688\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__run_single_seed_evaluation" [label="run_single_seed_evaluation\n(src/node2vec/run_node2vec_eval.py:818)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.run_single_seed_evaluation\nsrc/node2vec/run_node2vec_eval.py:818\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__set_seed" [label="set_seed\n(src/node2vec/run_node2vec_eval.py:106)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.set_seed\nsrc/node2vec/run_node2vec_eval.py:106\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__sort_by_score" [label="sort_by_score\n(src/node2vec/run_node2vec_eval.py:361)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.sort_by_score\nsrc/node2vec/run_node2vec_eval.py:361\nfunction in src.node2vec.run_node2vec_eval"];
+            "src__nodeX2vec__run_nodeX2vec_eval__train_nodeX2vec" [label="train_node2vec\n(src/node2vec/run_node2vec_eval.py:440)", style="filled", fillcolor="#65ff65b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.train_node2vec\nsrc/node2vec/run_node2vec_eval.py:440\nfunction in src.node2vec.run_node2vec_eval"];
+        }
+        subgraph "cluster_src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.node2vec.run_node2vec_eval.CandidateStreamer"];
+            "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____init__" [label="__init__\n(src/node2vec/run_node2vec_eval.py:227)", style="filled", fillcolor="#32ff32b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.CandidateStreamer.__init__\nsrc/node2vec/run_node2vec_eval.py:227\nmethod in src.node2vec.run_node2vec_eval.CandidateStreamer"];
+            "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____iter__" [label="__iter__\n(src/node2vec/run_node2vec_eval.py:237)", style="filled", fillcolor="#32ff32b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.CandidateStreamer.__iter__\nsrc/node2vec/run_node2vec_eval.py:237\nmethod in src.node2vec.run_node2vec_eval.CandidateStreamer"];
+        }
+        subgraph "cluster_src__nodeX2vec__run_nodeX2vec_eval__KMetrics" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.node2vec.run_node2vec_eval.KMetrics"];
+            "src__nodeX2vec__run_nodeX2vec_eval__KMetrics____post_init__" [label="__post_init__\n(src/node2vec/run_node2vec_eval.py:294)", style="filled", fillcolor="#32ff32b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.KMetrics.__post_init__\nsrc/node2vec/run_node2vec_eval.py:294\nmethod in src.node2vec.run_node2vec_eval.KMetrics"];
+            "src__nodeX2vec__run_nodeX2vec_eval__KMetrics__to_row" [label="to_row\n(src/node2vec/run_node2vec_eval.py:344)", style="filled", fillcolor="#32ff32b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.KMetrics.to_row\nsrc/node2vec/run_node2vec_eval.py:344\nmethod in src.node2vec.run_node2vec_eval.KMetrics"];
+            "src__nodeX2vec__run_nodeX2vec_eval__KMetrics__update" [label="update\n(src/node2vec/run_node2vec_eval.py:301)", style="filled", fillcolor="#32ff32b2", fontcolor="#000000", group="1", tooltip="src.node2vec.run_node2vec_eval.KMetrics.update\nsrc/node2vec/run_node2vec_eval.py:301\nmethod in src.node2vec.run_node2vec_eval.KMetrics"];
+        }
+    }
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna" -> "src__nodeX2vec__01_nodeX2vec_hpo_optuna__main" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna" -> "src__nodeX2vec__run_nodeX2vec_eval___now_iso" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna" -> "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna" -> "src__nodeX2vec__run_nodeX2vec_eval__get_embeddings" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna" -> "src__nodeX2vec__run_nodeX2vec_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna" -> "src__nodeX2vec__run_nodeX2vec_eval__set_seed" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna" -> "src__nodeX2vec__run_nodeX2vec_eval__train_nodeX2vec" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna__main" -> "src__nodeX2vec__01_nodeX2vec_hpo_optuna__objective_factory" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna__main" -> "src__nodeX2vec__01_nodeX2vec_hpo_optuna__parse_args" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna__main" -> "src__nodeX2vec__01_nodeX2vec_hpo_optuna__resolve_device" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna__main" -> "src__nodeX2vec__run_nodeX2vec_eval___now_iso" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna__main" -> "src__nodeX2vec__run_nodeX2vec_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna__main" -> "src__nodeX2vec__run_nodeX2vec_eval__set_seed" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna__objective_factory" -> "src__nodeX2vec__01_nodeX2vec_hpo_optuna__objective_factory__objective" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna__objective_factory__objective" -> "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna__objective_factory__objective" -> "src__nodeX2vec__run_nodeX2vec_eval__get_embeddings" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna__objective_factory__objective" -> "src__nodeX2vec__run_nodeX2vec_eval__set_seed" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna__objective_factory__objective" -> "src__nodeX2vec__run_nodeX2vec_eval__train_nodeX2vec" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna__parse_args" -> "src__nodeX2vec__01_nodeX2vec_hpo_optuna__parse_args" [style="solid",  color="#000000"];
+        "src__nodeX2vec__01_nodeX2vec_hpo_optuna__parse_args" -> "src__nodeX2vec__run_nodeX2vec_eval__parse_args" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval" -> "src__nodeX2vec__run_nodeX2vec_eval__main" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____iter__" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__KMetrics____post_init__" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__KMetrics____post_init__" -> "src__nodeX2vec__run_nodeX2vec_eval__KMetrics" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__KMetrics__to_row" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__KMetrics__to_row" -> "src__nodeX2vec__run_nodeX2vec_eval__KMetrics" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__KMetrics__update" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__KMetrics__update" -> "src__nodeX2vec__run_nodeX2vec_eval__KMetrics" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__aggregate_multi_seed_results" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__aggregate_multi_seed_results" -> "src__nodeX2vec__run_nodeX2vec_eval__calculate_confidence_intervals" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__calibrate_nodeX2vec_on_val" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__calibrate_nodeX2vec_on_val" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____init__" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__calibrate_nodeX2vec_on_val" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__calibrate_nodeX2vec_on_val" -> "src__nodeX2vec__run_nodeX2vec_eval__Graph" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__calibrate_nodeX2vec_on_val" -> "src__nodeX2vec__run_nodeX2vec_eval__fit_platt" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__classify_twohop" -> "src__nodeX2vec__run_nodeX2vec_eval__Graph" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__classify_warm_cold" -> "src__nodeX2vec__run_nodeX2vec_eval__Graph" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__classify_warm_cold_strict" -> "src__nodeX2vec__run_nodeX2vec_eval__Graph" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____init__" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" -> "src__nodeX2vec__run_nodeX2vec_eval__Graph" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" -> "src__nodeX2vec__run_nodeX2vec_eval__KMetrics" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" -> "src__nodeX2vec__run_nodeX2vec_eval__KMetrics__to_row" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" -> "src__nodeX2vec__run_nodeX2vec_eval__KMetrics__update" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" -> "src__nodeX2vec__run_nodeX2vec_eval___load_t0" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" -> "src__nodeX2vec__run_nodeX2vec_eval__classify_twohop" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" -> "src__nodeX2vec__run_nodeX2vec_eval__classify_warm_cold" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" -> "src__nodeX2vec__run_nodeX2vec_eval__classify_warm_cold_strict" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__fit_platt" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__fit_platt" -> "src__nodeX2vec__run_nodeX2vec_eval___sigmoid" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__load_graphX" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____init__" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__load_graphX" -> "src__nodeX2vec__run_nodeX2vec_eval__Graph" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__main" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__main" -> "src__nodeX2vec__run_nodeX2vec_eval___ensure_dir" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__main" -> "src__nodeX2vec__run_nodeX2vec_eval___load_t0" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__main" -> "src__nodeX2vec__run_nodeX2vec_eval___now_iso" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__main" -> "src__nodeX2vec__run_nodeX2vec_eval__aggregate_multi_seed_results" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__main" -> "src__nodeX2vec__run_nodeX2vec_eval__apply_best_params_override" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__main" -> "src__nodeX2vec__run_nodeX2vec_eval__calibrate_nodeX2vec_on_val" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__main" -> "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__main" -> "src__nodeX2vec__run_nodeX2vec_eval__get_embeddings" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__main" -> "src__nodeX2vec__run_nodeX2vec_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__main" -> "src__nodeX2vec__run_nodeX2vec_eval__parse_args" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__main" -> "src__nodeX2vec__run_nodeX2vec_eval__run_single_seed_evaluation" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__main" -> "src__nodeX2vec__run_nodeX2vec_eval__train_nodeX2vec" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__parse_args" -> "src__nodeX2vec__run_nodeX2vec_eval___bool" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__parse_args" -> "src__nodeX2vec__run_nodeX2vec_eval__parse_args" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__run_single_seed_evaluation" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__run_single_seed_evaluation" -> "src__nodeX2vec__run_nodeX2vec_eval__Graph" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__run_single_seed_evaluation" -> "src__nodeX2vec__run_nodeX2vec_eval___ensure_dir" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__run_single_seed_evaluation" -> "src__nodeX2vec__run_nodeX2vec_eval___load_t0" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__run_single_seed_evaluation" -> "src__nodeX2vec__run_nodeX2vec_eval___now_iso" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__run_single_seed_evaluation" -> "src__nodeX2vec__run_nodeX2vec_eval__calibrate_nodeX2vec_on_val" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__run_single_seed_evaluation" -> "src__nodeX2vec__run_nodeX2vec_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__run_single_seed_evaluation" -> "src__nodeX2vec__run_nodeX2vec_eval__get_embeddings" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__run_single_seed_evaluation" -> "src__nodeX2vec__run_nodeX2vec_eval__set_seed" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__run_single_seed_evaluation" -> "src__nodeX2vec__run_nodeX2vec_eval__train_nodeX2vec" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__train_nodeX2vec" -> "src__nodeX2vec__run_nodeX2vec_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__train_nodeX2vec" -> "src__nodeX2vec__run_nodeX2vec_eval__Graph" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval__train_nodeX2vec" -> "src__nodeX2vec__run_nodeX2vec_eval__csr_to_edge_index" [style="solid",  color="#000000"];
+    }

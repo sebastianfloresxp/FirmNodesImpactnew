@@ -1,0 +1,69 @@
+snapshot: "2025-06-09"
+run_id: "ch4_v2_fix02_gap_extensions"
+
+paths:
+  nodes: "artifacts/ch3/network_upstream/dod_semiconductor_nodes_top5_d99_shipping_strict.parquet"
+  edges: "artifacts/ch3/network_upstream/dod_semiconductor_edges_top5_d99_shipping_strict.parquet"
+  prime_weights: "artifacts/ch4/inputs/prime_weights.parquet"
+  out_root: "artifacts/ch4/v2_fix01"
+  tables_root: "tables/chapter4/v2_fix01"
+  figs_root: "figs/chapter4/v2_fix01"
+
+graph:
+  identity_mode: "collapse"
+  dedup_key: ["src_uid", "dst_uid"]
+  include_contract_seed_in_views: false
+  use_unweighted_fallback: true
+
+views:
+  disclosed:
+    include_any: ["is_disclosed"]
+  observed:
+    include_any: ["is_disclosed", "is_observed_ship"]
+  full:
+    include_any: ["is_disclosed", "is_observed_ship", "is_predicted"]
+
+m6_1:
+  views: ["disclosed", "observed", "full"]
+  primary_view: "full"
+  candidate_pool_n: 10000
+  candidate_signal_top_n: 3000
+  deep_eval_n: 1500
+  removal_fracs: [0.001, 0.005, 0.01, 0.02, 0.05]
+  random_repeats: 30
+  interdiction_k: [5, 10, 25]
+  interdiction_shortlist_n: 100
+  predicted_only_edge_cost: 3.0
+  geodesic_tolerance: 1.0e-9
+  h1_profiles:
+    - weight_mode: "unit"
+      support_form: "support_count"
+    - weight_mode: "log_obligation"
+      support_form: "any_support"
+    - weight_mode: "raw_obligation"
+      support_form: "any_support"
+  primary_h1_key: "log_obligation_any_support"
+  interdiction_h1_keys:
+    - "unit_support_count"
+    - "log_obligation_any_support"
+
+m6_2:
+  views: ["disclosed", "observed", "full"]
+  top_n_values: [25, 100, 500]
+  proxy_fracs: [0.001, 0.005, 0.01, 0.02, 0.05]
+
+m6_3:
+  views: ["disclosed", "observed", "full"]
+  top_n: 25
+  pool_sizes: [3000, 5000, 7000, 10000]
+  random_draws: 200
+
+m2_2:
+  views: ["disclosed", "observed", "full"]
+  top_n_articulation: 500
+  top_n_bridge: 300
+
+random:
+  global_seed: 7
+  numpy_seed: 7
+  python_seed: 7

@@ -1,0 +1,25 @@
+% Test global scorecard - Main Chapter
+% Column spec: set Lift to one decimal
+\begin{tabular}{@{}l
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=3.1]@{}}
+
+% Header row: wrap S headers with \multicolumn{1}{c}{...}
+\toprule
+\multicolumn{1}{c}{Model} & \multicolumn{1}{c}{nDCG@100} & \multicolumn{1}{c}{Hit@10} & \multicolumn{1}{c}{Hit@50} & \multicolumn{1}{c}{MRR} & \multicolumn{1}{c}{MAP@100} & \multicolumn{1}{c}{Lift ($\times$ base)} \\
+\midrule
+
+% Lift values rounded to 1 decimal
+Ensemble & {\bfseries \num{0.220}} & {\bfseries \num{0.337}} & {\bfseries \num{0.431}} & {\bfseries \num{0.282}} & {\bfseries \num{0.324}} & \num{612.7} \\
+TGNN & \num{0.082} & \num{0.172} & \num{0.296} & \num{0.093} & \num{0.037} & \multicolumn{1}{c}{\NA} \\
+Node2Vec-Temporal & \num{0.089} & \num{0.173} & \num{0.306} & \num{0.093} & \num{0.038} & \multicolumn{1}{c}{\NA} \\
+Node2Vec & \num{0.056} & \num{0.120} & \num{0.192} & \num{0.069} & \num{0.030} & \multicolumn{1}{c}{\NA} \\
+Two-Tower & \num{0.049} & \num{0.069} & \num{0.224} & \num{0.032} & \num{0.016} & \multicolumn{1}{c}{\NA} \\
+GraphSAGE & \num{0.023} & \num{0.054} & \num{0.119} & \num{0.029} & \num{0.011} & \multicolumn{1}{c}{\NA} \\
+Heuristics (PA/CN/AA mean) & \num{0.031} & \num{0.072} & \num{0.160} & \num{0.035} & \num{0.012} & \multicolumn{1}{c}{\NA} \\
+\bottomrule
+\end{tabular}

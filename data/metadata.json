@@ -1,0 +1,13 @@
+{
+  "disclaimer": "Measures structural consequence indicators, not probability. The supplied archive did not include the Cornell M6 node_single_removal_impacts table; metadata-only records do not have reported severity scores.",
+  "firm_count": 74263,
+  "is_sample_data": false,
+  "metadata_only_firm_count": 70803,
+  "methodology_label": "Scored centrality subset plus named metadata universe",
+  "network_snapshot": "Provided P1-21-2330 preprocessing archive",
+  "project_title": "Structural Severity Explorer",
+  "relationship_count": 29155,
+  "scored_firm_count": 3460,
+  "source_archive": "Semiconductor Supply Chain Cyber Security Research Project (P1-21-2330).zip",
+  "updated_at": "2026-07-23"
+}

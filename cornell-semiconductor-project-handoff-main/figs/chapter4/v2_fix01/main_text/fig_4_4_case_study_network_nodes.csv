@@ -1,0 +1,131 @@
+analysis_uid,name,role,x,y,is_focal,is_selected_semi,is_selected_prime,is_top25_strict,is_prime_disconnected_after_removal,is_prime_degraded_after_removal
+ent:10497,"KX Hitech Co., Ltd.",Semiconductor Node,5.8415450526116794,6.271172315569227,False,True,False,False,False,False
+ent:1073,"VERITONE, INC.",Prime Endpoint,-1.9619822241630949,-2.2656786676216716,False,False,False,False,False,False
+ent:11036,"Corning, Inc.",Semiconductor Node,3.632435467566236,5.337802991807428,False,True,False,False,False,False
+ent:11039,STRATTEC Security Corp.,Corridor Intermediary,9.892901020245981,1.1517956870205404,False,False,False,False,False,False
+ent:11040,"George Risk Industries, Inc.",Corridor Intermediary,4.750081597083633,-10.335296985097381,False,False,False,True,False,False
+ent:11087,Government of United Kingdom,Corridor Intermediary,-1.9250423828513878,-0.23934996535731062,False,False,False,False,False,False
+ent:11598,Taiwan Kong King Co. Ltd.,Semiconductor Node,6.891037488939474,7.361402844746902,False,True,False,False,False,False
+ent:12010,"Custom Truck One Source, Inc.",Corridor Intermediary,-2.5219749771892,-2.20141278779888,False,False,False,False,False,False
+ent:12169,Microsoft Corp.,Corridor Intermediary,0.8619767412173605,-1.692678722016785,False,False,False,False,False,False
+ent:12754,Xcerra Corp.,Semiconductor Node,8.229881268943503,-0.5011127034718291,False,True,False,False,False,False
+ent:13187,TELECOMMUNICATION SYSTEMS INC,Prime Endpoint,-3.6384364452922653,-5.324541171032351,False,False,True,False,False,True
+ent:13268,Safran SA,Corridor Intermediary,-0.5029038341167384,-1.4629072474443616,False,False,False,False,False,False
+ent:14368,Sanmina Corp.,Corridor Intermediary,4.844168714909674,-4.354108900883694,False,False,False,False,False,False
+ent:14449,General Motors Co.,Corridor Intermediary,6.173227378350219,0.1990287092833142,False,False,False,False,False,False
+ent:146,"Aoshikang Technology Co., Ltd.",Semiconductor Node,4.124482867128465,-0.5294266808442988,False,True,False,False,False,False
+ent:14809,Camtek Ltd.,Semiconductor Node,4.917243759356796,5.211955885679727,False,True,False,False,False,False
+ent:14828,"Airgain, Inc.",Semiconductor Node,4.453994941886564,-4.881656165159538,False,False,False,True,False,False
+ent:14880,Nordic Semiconductor ASA,Semiconductor Node,6.170919218799743,-2.4125434906301755,False,True,False,True,False,False
+ent:15119,JFrog Ltd.,Corridor Intermediary,3.2979111209740126,-1.3069004891226024,False,False,False,False,False,False
+ent:15578,Vivotek Inc.,Corridor Intermediary,7.954806927755642,-11.334350545809166,False,False,False,True,False,False
+ent:16244,"Hangzhou Chang Chuan Technology Co., Ltd.",Semiconductor Node,5.837685551851207,7.75883518194211,False,True,False,False,False,False
+ent:16632,International Business Machines Corp.,Semiconductor Node,2.3037154917190237,-5.145742461762583,False,False,False,False,False,False
+ent:16760,Johnson Controls International Plc,Corridor Intermediary,7.1869774986551915,2.8543177096544343,False,False,False,False,False,False
+ent:17085,SPEL Semiconductor Ltd.,Semiconductor Node,6.164329281682664,-4.210970985998354,False,True,False,False,False,False
+ent:17664,AMPHENOL CORP,Prime Endpoint,3.6901644664269178,-1.4461473693274318,False,False,False,False,False,False
+ent:17788,Koa Corp.,Corridor Intermediary,6.151163312029431,-5.836817434992142,False,False,False,False,False,False
+ent:18206,"Cray, Inc.",Corridor Intermediary,0.1744395593970774,4.983689848384338,False,False,False,False,False,False
+ent:20034,"Samsung Electronics Co., Ltd.",Semiconductor Node,4.728437397290505,1.8016050865768043,False,False,False,False,False,False
+ent:20036,KUO SAB de CV,Corridor Intermediary,3.040333445605,3.6993308490090713,False,False,False,False,False,False
+ent:2091,"Aspen Technology, Inc.",Corridor Intermediary,8.828498736143539,-10.349556382421538,False,False,False,True,False,False
+ent:22022,SmartBug Operating LLC,Corridor Intermediary,-1.06588886166806,0.010053774815960353,False,False,False,False,False,False
+ent:2266,Grupo Carso SAB de CV,Corridor Intermediary,4.899385349187197,2.8262640400650203,False,False,False,False,False,False
+ent:23390,"CONFLUENT, INC.",Prime Endpoint,-0.24448366693497084,2.4727483264984698,False,False,False,False,False,False
+ent:23447,EchoStar Corp.,Corridor Intermediary,1.3819713384856012,3.7985683251687847,False,False,False,False,False,False
+ent:23951,First Sensor AG,Semiconductor Node,10.677833602614811,-4.2469621477155775,False,True,False,False,False,False
+ent:24523,WICKR LLC,Prime Endpoint,1.0341063295146056,-2.4302230436230556,False,False,False,False,False,False
+ent:24681,"Iridium Communications, Inc.",Corridor Intermediary,1.2195438050997747,-6.672621442702307,False,False,False,False,False,False
+ent:24756,Taoglas Ltd.,Corridor Intermediary,6.471842067668082,-2.5114425382074166,False,False,False,False,False,False
+ent:26150,QuickLogic Corp.,Semiconductor Node,5.150088664369395,-0.7980810110837047,False,False,False,False,False,False
+ent:26744,SMS DATA PRODUCTS GROUP INC,Prime Endpoint,-5.381878750804949,-4.267661133396133,False,False,True,False,False,True
+ent:26784,"Hurco Cos., Inc.",Corridor Intermediary,2.9624797239259077,9.044343620337076,False,False,False,True,False,False
+ent:27573,"6Sense Insights, Inc.",Corridor Intermediary,0.40330243401416105,-2.687363515167737,False,False,False,False,False,False
+ent:27901,"Micron Technology, Inc.",Semiconductor Node,3.5637909507810646,2.478035320617242,False,False,False,False,False,False
+ent:27914,Aurubis AG,Corridor Intermediary,9.465893499354745,4.57548903028813,False,False,False,False,False,False
+ent:27973,"BRC Group Holdings, Inc.",Corridor Intermediary,-6.5633987991422185,-5.519661773069184,False,False,False,False,False,False
+ent:28082,"GE Vernova, Inc.",Corridor Intermediary,1.8835726969207032,2.0751544618915934,False,False,False,False,False,False
+ent:28975,WORLD WIDE TECHNOLOGY LLC,Prime Endpoint,-4.674316436438469,5.540903071477735,False,False,True,False,False,True
+ent:30115,"BARNARD CONSTRUCTION COMPANY, INCORPORATED",Prime Endpoint,-6.963005816558022,-0.45143201173112973,False,False,True,False,False,True
+ent:30194,Siemens AG,Corridor Intermediary,3.0455514316434744,1.2398710237051318,False,False,False,False,False,False
+ent:30204,"Wesco Aircraft Holdings, Inc.",Corridor Intermediary,1.8500774788929828,-3.9376279870182636,False,False,False,False,False,False
+ent:30243,"Intops Co., Ltd.",Corridor Intermediary,8.438765263620057,2.1565704998143,False,False,False,False,False,False
+ent:30273,Foryou Corp.,Semiconductor Node,8.056267154967925,-3.053530818757842,False,True,False,False,False,False
+ent:31264,"AVNET, INC.",Prime Endpoint,2.9381409637114766,-2.849005851362184,False,False,False,False,False,False
+ent:31271,HONEYWELL INTERNATIONAL INC.,Prime Endpoint,4.811000424910341,-5.106981405947135,False,False,False,False,False,False
+ent:31365,LG Chem Ltd.,Corridor Intermediary,5.685552134730964,0.7871471968734592,False,False,False,False,False,False
+ent:3202,"D-Wave Quantum, Inc.",Semiconductor Node,0.8451441595560129,0.6810454720724213,False,False,False,True,False,False
+ent:32380,RAYTHEON COMPANY,Prime Endpoint,-1.771472375302686,-3.4969776864035205,False,False,True,False,False,True
+ent:32478,"Quanta Computer, Inc.",Corridor Intermediary,4.572704182568661,0.20298205320931018,False,False,False,True,False,False
+ent:3259,"CACI TECHNOLOGIES, LLC",Prime Endpoint,-6.291807058359245,-1.4437151315194214,False,False,True,False,False,True
+ent:33644,"Taiwan Semiconductor Manufacturing Co., Ltd.",Semiconductor Node,3.991579899130565,3.287453434345935,False,False,False,False,False,False
+ent:34660,"MOTOROLA SOLUTIONS, INC",Prime Endpoint,1.2929250415736044,-2.6864639548458795,False,False,False,False,False,False
+ent:34794,Aubert & Duval SAS,Corridor Intermediary,2.2433580050747346,-8.712979923392329,False,False,False,True,False,False
+ent:35865,"L3HARRIS TECHNOLOGIES, INC.",Prime Endpoint,-2.9741175635298207,-4.153844748366686,False,False,True,False,False,True
+ent:35882,Continental AG,Corridor Intermediary,5.536377222421337,-3.1338917825903025,False,False,False,False,False,False
+ent:35943,"Invengo Information Technology Co., Ltd.",Corridor Intermediary,10.03040543217115,3.520470608619618,False,False,False,False,False,False
+ent:36040,Metso Corp.,Corridor Intermediary,13.078842442308357,8.207890640399597,False,False,False,True,False,False
+ent:36678,One United Properties SA,Corridor Intermediary,3.2418123947133073,-13.619984879239368,False,False,False,False,False,False
+ent:37020,"Bentley Systems, Inc.",Corridor Intermediary,-2.058080003588725,2.3484662268611296,False,False,False,False,False,False
+ent:3755,"D-Box Technologies, Inc.",Corridor Intermediary,-4.933125117333361,-2.298120676539148,False,False,False,True,False,False
+ent:37551,"Forescout Technologies, Inc.",Corridor Intermediary,-0.38135635001618207,-4.323841579039256,False,False,False,False,False,False
+ent:38122,Schindler Holding AG,Corridor Intermediary,5.605651951360161,-9.693033443756057,False,False,False,False,False,False
+ent:38174,Zhejiang Hailiang Co. Ltd.,Corridor Intermediary,8.586395935062344,3.3051933962187787,False,False,False,True,False,False
+ent:38502,Semtech Corp.,Semiconductor Node,5.1748003094051915,-2.3266207905749985,False,True,False,False,False,False
+ent:39093,"THE CHARLES STARK DRAPER LABORATORY, INC.",Prime Endpoint,-3.828392603600327,6.557410183917054,False,False,True,False,False,True
+ent:39886,"Wuxi Hodgen Technology Co., Ltd.",Semiconductor Node,10.780861198012643,-2.548246880438324,False,True,False,False,False,False
+ent:40207,"ECS FEDERAL, LLC",Prime Endpoint,-1.8077276551454062,-4.2923496045648,False,False,True,False,False,True
+ent:40223,PERATON ENTERPRISE SOLUTIONS LLC,Prime Endpoint,-4.803403850914709,-6.388684061029285,False,False,True,False,False,True
+ent:40471,"ADTRAN Holdings, Inc.",Corridor Intermediary,4.187332961688535,-8.357605730118053,False,False,False,True,False,False
+ent:40472,TE Connectivity Plc,Focal Chokepoint,5.845374193858198,-1.0324365126541326,True,False,False,True,False,False
+ent:40740,"Raymond James Financial, Inc.",Corridor Intermediary,-2.407401606330443,-13.564891473719252,False,False,False,False,False,False
+ent:41118,"Asia Pacific Satellite, Inc.",Corridor Intermediary,0.5301863418191665,-6.490256727996223,False,False,False,False,False,False
+ent:41421,HUNTINGTON INGALLS INCORPORATED,Prime Endpoint,-4.855020829718664,3.368857757277721,False,False,True,False,False,True
+ent:41922,Codan Ltd.,Corridor Intermediary,-1.2400322057709787,-5.861958977321461,False,False,False,True,False,False
+ent:42593,NVIDIA Corp.,Semiconductor Node,2.080845805521051,0.5348842798371729,False,False,False,False,False,False
+ent:43437,Titomic Ltd.,Corridor Intermediary,-0.319092431664845,0.8489179233349665,False,False,False,True,False,False
+ent:43748,Intel Corp.,Semiconductor Node,3.203434639660911,0.7644513492350076,False,False,False,False,False,False
+ent:4389,"GENERAL ATOMICS AERONAUTICAL SYSTEMS, INC.",Prime Endpoint,-1.8896801219316641,3.3718572808788885,False,False,True,False,False,True
+ent:44509,"MEDIA DO Co., Ltd.",Corridor Intermediary,3.5524607672962225,-5.602198088363286,False,False,False,False,False,False
+ent:44858,"SHIMMICK CONSTRUCTION COMPANY, INC.",Prime Endpoint,-4.786757460957807,0.9524514730505385,False,False,True,False,False,True
+ent:44922,AAR Corp.,Corridor Intermediary,1.1399047941575011,-1.0702799766909252,False,False,False,False,False,False
+ent:47,Solid State Plc,Corridor Intermediary,4.456073077570065,-3.5200723331185255,False,False,False,False,False,False
+ent:47001,"Blackthorn.io, Inc.",Corridor Intermediary,1.6181876377759719,-12.163119908119008,False,False,False,False,False,False
+ent:47237,Arotech Corp.,Corridor Intermediary,-3.680120473659165,-2.8059445879901177,False,False,False,True,False,False
+ent:47273,Ramco Systems Ltd.,Corridor Intermediary,2.556111267720522,-0.07281422269939808,False,False,False,False,False,False
+ent:48237,NORTH STAR IMAGING INCORPORATED,Prime Endpoint,6.36684594676317,-4.203920466687137,False,False,False,False,False,False
+ent:48266,MASSACHUSETTS INSTITUTE OF TECHNOLOGY,Prime Endpoint,-3.2292434071174987,4.7717697175321225,False,False,True,False,False,True
+ent:48317,ABB Ltd.,Corridor Intermediary,2.9872108289521777,0.13788324722744089,False,False,False,False,False,False
+ent:48853,Alviva Holdings Ltd.,Corridor Intermediary,1.9569250806105019,-0.3855929673524493,False,False,False,False,False,False
+ent:49071,"Macnica Holdings, Inc.",Corridor Intermediary,2.79079063606083,-3.1535760074401935,False,False,False,False,False,False
+ent:49329,LOCKHEED MARTIN CORP,Prime Endpoint,-2.6295216886267427,-2.874075039725831,False,False,True,False,False,True
+ent:49366,ALLISON TRANSMISSION INC,Prime Endpoint,0.8377854176873124,3.04157218905302,False,False,False,False,False,False
+ent:50681,"Suzhou Anjie Technology Co., Ltd.",Corridor Intermediary,5.135426242263179,-0.02525743745549397,False,False,False,False,False,False
+ent:51737,Jentech Precision Industrial Co. Ltd.,Semiconductor Node,11.363514437899134,-0.6929303134428895,False,True,False,False,False,False
+ent:52765,Flex Ltd.,Corridor Intermediary,5.838792506918968,-1.7329949947261822,False,False,False,False,False,False
+ent:53846,OSTEOMED LLC,Prime Endpoint,2.4664175167662354,-2.703603600146461,False,False,False,False,False,False
+ent:5494,AMERICAN SUPERCONDUCTOR CORP,Prime Endpoint,-1.2711831994266498,4.323019939052286,False,False,False,False,False,False
+ent:56307,"ASE Technology Holding Co., Ltd.",Semiconductor Node,6.313770637623898,2.431120363917028,False,True,False,False,False,False
+ent:58295,AM GENERAL LLC,Prime Endpoint,-1.6734155528524786,5.436205758767097,False,False,True,False,False,True
+ent:58380,Unimicron Technology Corp.,Semiconductor Node,6.399815034991506,5.025377823123614,False,False,False,False,False,False
+ent:59389,UsefulBI Corp.,Corridor Intermediary,-1.803719849155468,1.1185422699920644,False,False,False,False,False,False
+ent:59432,METHODE ELECTRONICS INC,Prime Endpoint,7.90515242156933,-2.1382950120204853,False,True,False,False,False,False
+ent:59524,"Aten International Co., Ltd.",Corridor Intermediary,1.890677034250329,-7.072360038703801,False,False,False,True,False,False
+ent:59958,"Mediafly, Inc.",Corridor Intermediary,2.9872313400174932,-5.979172177732208,False,False,False,False,False,False
+ent:6011,BOS Better Online Solutions Ltd.,Semiconductor Node,9.077999050680496,-5.682081157682965,False,False,False,False,False,False
+ent:60684,"Hisense Home Appliances Group Co., Ltd.",Corridor Intermediary,9.602800006425483,-6.352637784585699,False,False,False,False,False,False
+ent:62755,Department of the Navy,DoD Agency,-3.8528000000000007,0.0,False,False,False,False,False,False
+ent:62848,Atlas Copco AB,Semiconductor Node,4.2805135099420815,0.8707471296075706,False,True,False,False,False,False
+ent:62903,"Orion Energy Systems, Inc.",Semiconductor Node,1.5355925594339306,4.654675571569041,False,False,False,False,False,False
+ent:63766,"Velodyne Lidar, Inc.",Semiconductor Node,2.263190071690864,6.501137097214521,False,False,False,True,False,False
+ent:65591,"Impinj, Inc.",Semiconductor Node,8.341029814029852,6.2666513424672425,False,True,False,True,False,False
+ent:66066,APPLE INC,Prime Endpoint,2.935548239421927,0.84000246311082,False,False,False,False,False,False
+ent:69514,Wistron Corp.,Corridor Intermediary,5.195241879529544,1.3491469541937815,False,False,False,False,False,False
+ent:70562,Airbus SE,Corridor Intermediary,1.434322980073263,-3.7365803504352058,False,False,False,True,False,False
+ent:7078,"Workiva, Inc.",Corridor Intermediary,-0.11665407498554238,-7.557614621978697,False,False,False,False,False,False
+ent:746,"Stripe, Inc.",Corridor Intermediary,0.9202410610009139,-8.43586749508065,False,False,False,False,False,False
+ent:7709,Toyota Tsusho Corp.,Corridor Intermediary,5.1595067242315835,2.0965705887218435,False,False,False,False,False,False
+ent:7765,Liebherr-International AG,Corridor Intermediary,14.847362217832737,-3.5527894873600654,False,False,False,True,False,False
+ent:8528,Quadrant Technologies LLC,Corridor Intermediary,-0.6079012155715027,-6.840684650693177,False,False,False,False,False,False
+ent:8664,"Adeia, Inc.",Corridor Intermediary,0.8597109313705313,6.094154575961705,False,False,False,False,False,False
+ent:9845,"A. E. PETSCHE COMPANY, INC.",Prime Endpoint,3.0675095698331014,-3.3427276348604718,False,False,False,False,False,False

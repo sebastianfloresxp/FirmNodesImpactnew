@@ -1,0 +1,60 @@
+{
+  "figure_name": "fig_4_1_robustness_observed",
+  "view": "observed",
+  "source_csv": "artifacts/ch4/v2_fix01/2025-06-09/m6_1/robustness_summary_observed.csv",
+  "source_csv_sha256": "6565238740087ca362b1e42072a8119e1e44cc2524eb041843844eb38393cf85",
+  "output_files": {
+    "pdf": "figs/chapter4/v2_fix01/main_text/fig_4_1_robustness_observed.pdf",
+    "svg": "figs/chapter4/v2_fix01/main_text/fig_4_1_robustness_observed.svg",
+    "png": "figs/chapter4/v2_fix01/main_text/fig_4_1_robustness_observed.png",
+    "plot_data_csv": "figs/chapter4/v2_fix01/main_text/fig_4_1_robustness_observed_plot_data.csv"
+  },
+  "figure_size_inches": [
+    6.5,
+    4.0
+  ],
+  "font_sizes": {
+    "axes_label": 10,
+    "ticks": 9,
+    "legend": 8.4
+  },
+  "x_axis": {
+    "label": "Nodes removed",
+    "ticks_percent": [
+      0.1,
+      0.5,
+      1.0,
+      2.0,
+      5.0
+    ]
+  },
+  "y_axis": {
+    "label": "H1_log loss (%)"
+  },
+  "series": [
+    {
+      "strategy": "random",
+      "label": "Random baseline",
+      "color": "#111111",
+      "linestyle": "-",
+      "marker": "o"
+    },
+    {
+      "strategy": "target_pagerank",
+      "label": "Targeted (PageRank)",
+      "color": "#333333",
+      "linestyle": "--",
+      "marker": "s"
+    },
+    {
+      "strategy": "target_m4_bottleneck",
+      "label": "Targeted (Corridor bottleneck)",
+      "color": "#555555",
+      "linestyle": ":",
+      "marker": "^"
+    }
+  ],
+  "random_uncertainty_band": {
+    "enabled": false
+  }
+}

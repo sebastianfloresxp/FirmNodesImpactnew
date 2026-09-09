@@ -1,0 +1,7 @@
+cohort,cohort_label,deny_share,deny_pct,k_target
+corridor_intermediary,"Corridor
+Intermediary",0.881372723436515,88.13727234365149,25
+prime_adjacent,"Prime
+Adjacent",0.242003693094311,24.2003693094311,25
+upstream_of_semi,"Upstream
+of Semis",0.0123776795684448,1.2377679568444802,25

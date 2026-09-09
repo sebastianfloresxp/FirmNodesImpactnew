@@ -1,0 +1,18 @@
+{
+  "module": "export_fig_4_1_robustness_observed",
+  "snapshot": "2025-06-09",
+  "run_id": "ch4_v2_fix01_final_freeze",
+  "timestamp_utc": "2026-02-20T16:11:37.839720+00:00",
+  "config_path": "src/analysis/chapter4/config/ch4_v2_fix01.yaml",
+  "inputs": {
+    "robustness_summary_csv": "artifacts/ch4/v2_fix01/2025-06-09/m6_1/robustness_summary_observed.csv",
+    "robustness_summary_sha256": "6565238740087ca362b1e42072a8119e1e44cc2524eb041843844eb38393cf85"
+  },
+  "outputs": {
+    "pdf": "figs/chapter4/v2_fix01/main_text/fig_4_1_robustness_observed.pdf",
+    "svg": "figs/chapter4/v2_fix01/main_text/fig_4_1_robustness_observed.svg",
+    "png": "figs/chapter4/v2_fix01/main_text/fig_4_1_robustness_observed.png",
+    "plot_data_csv": "figs/chapter4/v2_fix01/main_text/fig_4_1_robustness_observed_plot_data.csv",
+    "spec_json": "figs/chapter4/v2_fix01/main_text/fig_4_1_robustness_observed_spec.json"
+  }
+}

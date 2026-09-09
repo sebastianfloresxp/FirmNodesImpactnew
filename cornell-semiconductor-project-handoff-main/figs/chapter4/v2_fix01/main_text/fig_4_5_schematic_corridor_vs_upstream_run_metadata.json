@@ -1,0 +1,18 @@
+{
+  "module": "export_fig_4_5_schematic_corridor_vs_upstream",
+  "snapshot": "2025-06-09",
+  "run_id": "ch4_v2_fix01_final_freeze",
+  "timestamp_utc": "2026-02-25T19:46:27.861579+00:00",
+  "config_path": "src/analysis/chapter4/config/ch4_v2_fix01.yaml",
+  "inputs": {
+    "config_sha256": "ee734b20300fb813fd4c18b68b92760801527784b607b8e91bc6903fbba51b4d"
+  },
+  "outputs": {
+    "pdf": "figs/chapter4/v2_fix01/main_text/fig_4_5_schematic_corridor_vs_upstream.pdf",
+    "svg": "figs/chapter4/v2_fix01/main_text/fig_4_5_schematic_corridor_vs_upstream.svg",
+    "png": "figs/chapter4/v2_fix01/main_text/fig_4_5_schematic_corridor_vs_upstream.png",
+    "nodes_csv": "figs/chapter4/v2_fix01/main_text/fig_4_5_schematic_corridor_vs_upstream_nodes.csv",
+    "edges_csv": "figs/chapter4/v2_fix01/main_text/fig_4_5_schematic_corridor_vs_upstream_edges.csv",
+    "spec_json": "figs/chapter4/v2_fix01/main_text/fig_4_5_schematic_corridor_vs_upstream_spec.json"
+  }
+}

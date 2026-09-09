@@ -1,0 +1,16 @@
+strategy,series_label,x_pct_removed,h1_loss_pct_mean,h1_loss_pct_p05,h1_loss_pct_p95
+random,Random baseline,0.1,0.02986086229518,0.0,0.08581276852394
+random,Random baseline,0.5,0.26243961182309,0.0549039480069,0.52955184762317
+random,Random baseline,1.0,0.46816804107320004,0.17450744967059,0.90665005071281
+random,Random baseline,2.0,0.9479115303077301,0.49140411819344,1.50805465407074
+random,Random baseline,5.0,2.5346925630001698,1.7499367586923598,3.39594041974831
+target_m4_bottleneck,Targeted (Corridor bottleneck),0.1,0.09482053490535,,
+target_m4_bottleneck,Targeted (Corridor bottleneck),0.5,1.71984671213015,,
+target_m4_bottleneck,Targeted (Corridor bottleneck),1.0,1.9790686234414399,,
+target_m4_bottleneck,Targeted (Corridor bottleneck),2.0,6.44308838677961,,
+target_m4_bottleneck,Targeted (Corridor bottleneck),5.0,12.13433142094872,,
+target_pagerank,Targeted (PageRank),0.1,1.81033204137599,,
+target_pagerank,Targeted (PageRank),0.5,3.8314777896631202,,
+target_pagerank,Targeted (PageRank),1.0,5.72686599798079,,
+target_pagerank,Targeted (PageRank),2.0,8.8181644892915,,
+target_pagerank,Targeted (PageRank),5.0,15.02405218334911,,

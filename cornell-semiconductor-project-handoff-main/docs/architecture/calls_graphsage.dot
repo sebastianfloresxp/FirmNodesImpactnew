@@ -1,0 +1,287 @@
+digraph G {
+    graph [rankdir=TB, ranksep=0.5, layout=dot, clusterrank="local"];
+    subgraph "cluster_G" {
+
+        graph [style="filled,rounded", fillcolor="#80808018", label=""];
+        "src__graphXsage__01_graphXsage_hpo_optuna" [label="src.graphsage.01_graphsage_hpo_optuna\n(src/graphsage/01_graphsage_hpo_optuna.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0", tooltip="src.graphsage.01_graphsage_hpo_optuna\nsrc/graphsage/01_graphsage_hpo_optuna.py"];
+        "src__graphXsage__02_graphXsage_finalize_hpo" [label="src.graphsage.02_graphsage_finalize_hpo\n(src/graphsage/02_graphsage_finalize_hpo.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="1", tooltip="src.graphsage.02_graphsage_finalize_hpo\nsrc/graphsage/02_graphsage_finalize_hpo.py"];
+        "src__graphXsage__03_graphXsage_train_eval" [label="src.graphsage.03_graphsage_train_eval\n(src/graphsage/03_graphsage_train_eval.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="2", tooltip="src.graphsage.03_graphsage_train_eval\nsrc/graphsage/03_graphsage_train_eval.py"];
+        "src__graphXsage__run_graphXsage_eval" [label="src.graphsage.run_graphsage_eval\n(src/graphsage/run_graphsage_eval.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval\nsrc/graphsage/run_graphsage_eval.py"];
+        subgraph "cluster_src__graphXsage__01_graphXsage_hpo_optuna" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.01_graphsage_hpo_optuna"];
+            "src__graphXsage__01_graphXsage_hpo_optuna__main" [label="main\n(src/graphsage/01_graphsage_hpo_optuna.py:410)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.graphsage.01_graphsage_hpo_optuna.main\nsrc/graphsage/01_graphsage_hpo_optuna.py:410\nfunction in src.graphsage.01_graphsage_hpo_optuna"];
+            "src__graphXsage__01_graphXsage_hpo_optuna__objective" [label="objective\n(src/graphsage/01_graphsage_hpo_optuna.py:116)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.graphsage.01_graphsage_hpo_optuna.objective\nsrc/graphsage/01_graphsage_hpo_optuna.py:116\nfunction in src.graphsage.01_graphsage_hpo_optuna"];
+            "src__graphXsage__01_graphXsage_hpo_optuna__parse_args" [label="parse_args\n(src/graphsage/01_graphsage_hpo_optuna.py:39)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.graphsage.01_graphsage_hpo_optuna.parse_args\nsrc/graphsage/01_graphsage_hpo_optuna.py:39\nfunction in src.graphsage.01_graphsage_hpo_optuna"];
+        }
+        subgraph "cluster_src__graphXsage__01_graphXsage_hpo_optuna__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.01_graphsage_hpo_optuna.main"];
+            "src__graphXsage__01_graphXsage_hpo_optuna__main__obj" [label="obj\n(src/graphsage/01_graphsage_hpo_optuna.py:509)", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.graphsage.01_graphsage_hpo_optuna.main.obj\nsrc/graphsage/01_graphsage_hpo_optuna.py:509\nfunction in src.graphsage.01_graphsage_hpo_optuna.main"];
+        }
+        subgraph "cluster_src__graphXsage__01_graphXsage_hpo_optuna__objective" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.01_graphsage_hpo_optuna.objective"];
+            "src__graphXsage__01_graphXsage_hpo_optuna__objective___progress_cb" [label="_progress_cb\n(src/graphsage/01_graphsage_hpo_optuna.py:277)", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.graphsage.01_graphsage_hpo_optuna.objective._progress_cb\nsrc/graphsage/01_graphsage_hpo_optuna.py:277\nfunction in src.graphsage.01_graphsage_hpo_optuna.objective"];
+        }
+        subgraph "cluster_src__graphXsage__02_graphXsage_finalize_hpo" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.02_graphsage_finalize_hpo"];
+            "src__graphXsage__02_graphXsage_finalize_hpo__TrialConfig" [label="TrialConfig\n(src/graphsage/02_graphsage_finalize_hpo.py:145)", style="filled", fillcolor="#e0ff65b2", fontcolor="#000000", group="1", tooltip="src.graphsage.02_graphsage_finalize_hpo.TrialConfig\nsrc/graphsage/02_graphsage_finalize_hpo.py:145\nclass in src.graphsage.02_graphsage_finalize_hpo"];
+            "src__graphXsage__02_graphXsage_finalize_hpo___now_iso" [label="_now_iso\n(src/graphsage/02_graphsage_finalize_hpo.py:179)", style="filled", fillcolor="#e0ff65b2", fontcolor="#000000", group="1", tooltip="src.graphsage.02_graphsage_finalize_hpo._now_iso\nsrc/graphsage/02_graphsage_finalize_hpo.py:179\nfunction in src.graphsage.02_graphsage_finalize_hpo"];
+            "src__graphXsage__02_graphXsage_finalize_hpo___to_bool" [label="_to_bool\n(src/graphsage/02_graphsage_finalize_hpo.py:183)", style="filled", fillcolor="#e0ff65b2", fontcolor="#000000", group="1", tooltip="src.graphsage.02_graphsage_finalize_hpo._to_bool\nsrc/graphsage/02_graphsage_finalize_hpo.py:183\nfunction in src.graphsage.02_graphsage_finalize_hpo"];
+            "src__graphXsage__02_graphXsage_finalize_hpo__get_env_snapshot" [label="get_env_snapshot\n(src/graphsage/02_graphsage_finalize_hpo.py:219)", style="filled", fillcolor="#e0ff65b2", fontcolor="#000000", group="1", tooltip="src.graphsage.02_graphsage_finalize_hpo.get_env_snapshot\nsrc/graphsage/02_graphsage_finalize_hpo.py:219\nfunction in src.graphsage.02_graphsage_finalize_hpo"];
+            "src__graphXsage__02_graphXsage_finalize_hpo__load_multi_seed_summary" [label="load_multi_seed_summary\n(src/graphsage/02_graphsage_finalize_hpo.py:369)", style="filled", fillcolor="#e0ff65b2", fontcolor="#000000", group="1", tooltip="src.graphsage.02_graphsage_finalize_hpo.load_multi_seed_summary\nsrc/graphsage/02_graphsage_finalize_hpo.py:369\nfunction in src.graphsage.02_graphsage_finalize_hpo"];
+            "src__graphXsage__02_graphXsage_finalize_hpo__load_topk_trials" [label="load_topk_trials\n(src/graphsage/02_graphsage_finalize_hpo.py:187)", style="filled", fillcolor="#e0ff65b2", fontcolor="#000000", group="1", tooltip="src.graphsage.02_graphsage_finalize_hpo.load_topk_trials\nsrc/graphsage/02_graphsage_finalize_hpo.py:187\nfunction in src.graphsage.02_graphsage_finalize_hpo"];
+            "src__graphXsage__02_graphXsage_finalize_hpo__main" [label="main\n(src/graphsage/02_graphsage_finalize_hpo.py:378)", style="filled", fillcolor="#e0ff65b2", fontcolor="#000000", group="1", tooltip="src.graphsage.02_graphsage_finalize_hpo.main\nsrc/graphsage/02_graphsage_finalize_hpo.py:378\nfunction in src.graphsage.02_graphsage_finalize_hpo"];
+            "src__graphXsage__02_graphXsage_finalize_hpo__parse_args" [label="parse_args\n(src/graphsage/02_graphsage_finalize_hpo.py:41)", style="filled", fillcolor="#e0ff65b2", fontcolor="#000000", group="1", tooltip="src.graphsage.02_graphsage_finalize_hpo.parse_args\nsrc/graphsage/02_graphsage_finalize_hpo.py:41\nfunction in src.graphsage.02_graphsage_finalize_hpo"];
+            "src__graphXsage__02_graphXsage_finalize_hpo__run_config_multi_seed" [label="run_config_multi_seed\n(src/graphsage/02_graphsage_finalize_hpo.py:255)", style="filled", fillcolor="#e0ff65b2", fontcolor="#000000", group="1", tooltip="src.graphsage.02_graphsage_finalize_hpo.run_config_multi_seed\nsrc/graphsage/02_graphsage_finalize_hpo.py:255\nfunction in src.graphsage.02_graphsage_finalize_hpo"];
+        }
+        subgraph "cluster_src__graphXsage__02_graphXsage_finalize_hpo__TrialConfig" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.02_graphsage_finalize_hpo.TrialConfig"];
+            "src__graphXsage__02_graphXsage_finalize_hpo__TrialConfig__to_params_dict" [label="to_params_dict\n(src/graphsage/02_graphsage_finalize_hpo.py:160)", style="filled", fillcolor="#d6ff32b2", fontcolor="#000000", group="1", tooltip="src.graphsage.02_graphsage_finalize_hpo.TrialConfig.to_params_dict\nsrc/graphsage/02_graphsage_finalize_hpo.py:160\nmethod in src.graphsage.02_graphsage_finalize_hpo.TrialConfig"];
+        }
+        subgraph "cluster_src__graphXsage__02_graphXsage_finalize_hpo__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.02_graphsage_finalize_hpo.main"];
+            "src__graphXsage__02_graphXsage_finalize_hpo__main___key" [label="_key\n(src/graphsage/02_graphsage_finalize_hpo.py:514)", style="filled", fillcolor="#d6ff32b2", fontcolor="#000000", group="1", tooltip="src.graphsage.02_graphsage_finalize_hpo.main._key\nsrc/graphsage/02_graphsage_finalize_hpo.py:514\nfunction in src.graphsage.02_graphsage_finalize_hpo.main"];
+        }
+        subgraph "cluster_src__graphXsage__run_graphXsage_eval" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__AliasSampler" [label="AliasSampler\n(src/graphsage/run_graphsage_eval.py:281)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.AliasSampler\nsrc/graphsage/run_graphsage_eval.py:281\nclass in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__CandidateStreamer" [label="CandidateStreamer\n(src/graphsage/run_graphsage_eval.py:158)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.CandidateStreamer\nsrc/graphsage/run_graphsage_eval.py:158\nclass in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__FeatureMLP" [label="FeatureMLP\n(src/graphsage/run_graphsage_eval.py:233)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.FeatureMLP\nsrc/graphsage/run_graphsage_eval.py:233\nclass in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__Graph" [label="Graph\n(src/graphsage/run_graphsage_eval.py:84)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.Graph\nsrc/graphsage/run_graphsage_eval.py:84\nclass in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__GraphSAGE" [label="GraphSAGE\n(src/graphsage/run_graphsage_eval.py:207)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.GraphSAGE\nsrc/graphsage/run_graphsage_eval.py:207\nclass in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__KM" [label="KM\n(src/graphsage/run_graphsage_eval.py:1430)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.KM\nsrc/graphsage/run_graphsage_eval.py:1430\nclass in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__TwoHopCache" [label="TwoHopCache\n(src/graphsage/run_graphsage_eval.py:317)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.TwoHopCache\nsrc/graphsage/run_graphsage_eval.py:317\nclass in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval___bool" [label="_bool\n(src/graphsage/run_graphsage_eval.py:39)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval._bool\nsrc/graphsage/run_graphsage_eval.py:39\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval___ensure_dir" [label="_ensure_dir\n(src/graphsage/run_graphsage_eval.py:48)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval._ensure_dir\nsrc/graphsage/run_graphsage_eval.py:48\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval___load_t0" [label="_load_t0\n(src/graphsage/run_graphsage_eval.py:56)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval._load_t0\nsrc/graphsage/run_graphsage_eval.py:56\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval___now_iso" [label="_now_iso\n(src/graphsage/run_graphsage_eval.py:52)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval._now_iso\nsrc/graphsage/run_graphsage_eval.py:52\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval___sigmoid_np" [label="_sigmoid_np\n(src/graphsage/run_graphsage_eval.py:1713)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval._sigmoid_np\nsrc/graphsage/run_graphsage_eval.py:1713\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__build_semantic_indices" [label="build_semantic_indices\n(src/graphsage/run_graphsage_eval.py:359)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.build_semantic_indices\nsrc/graphsage/run_graphsage_eval.py:359\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__calibrate_on_val" [label="calibrate_on_val\n(src/graphsage/run_graphsage_eval.py:1750)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.calibrate_on_val\nsrc/graphsage/run_graphsage_eval.py:1750\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__csr_to_edge_index" [label="csr_to_edge_index\n(src/graphsage/run_graphsage_eval.py:123)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.csr_to_edge_index\nsrc/graphsage/run_graphsage_eval.py:123\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__dot_scores" [label="dot_scores\n(src/graphsage/run_graphsage_eval.py:229)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.dot_scores\nsrc/graphsage/run_graphsage_eval.py:229\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__evaluate_split" [label="evaluate_split\n(src/graphsage/run_graphsage_eval.py:1499)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.evaluate_split\nsrc/graphsage/run_graphsage_eval.py:1499\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__filter_exclusions" [label="filter_exclusions\n(src/graphsage/run_graphsage_eval.py:350)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.filter_exclusions\nsrc/graphsage/run_graphsage_eval.py:350\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__fit_platt" [label="fit_platt\n(src/graphsage/run_graphsage_eval.py:1723)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.fit_platt\nsrc/graphsage/run_graphsage_eval.py:1723\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__is_train_edge" [label="is_train_edge\n(src/graphsage/run_graphsage_eval.py:401)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.is_train_edge\nsrc/graphsage/run_graphsage_eval.py:401\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__load_features" [label="load_features\n(src/graphsage/run_graphsage_eval.py:128)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.load_features\nsrc/graphsage/run_graphsage_eval.py:128\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__load_graphX" [label="load_graph\n(src/graphsage/run_graphsage_eval.py:92)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.load_graph\nsrc/graphsage/run_graphsage_eval.py:92\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__main" [label="main\n(src/graphsage/run_graphsage_eval.py:2098)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.main\nsrc/graphsage/run_graphsage_eval.py:2098\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__one_hop_set" [label="one_hop_set\n(src/graphsage/run_graphsage_eval.py:409)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.one_hop_set\nsrc/graphsage/run_graphsage_eval.py:409\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__parse_args" [label="parse_args\n(src/graphsage/run_graphsage_eval.py:1805)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.parse_args\nsrc/graphsage/run_graphsage_eval.py:1805\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__sample_degree_negatives" [label="sample_degree_negatives\n(src/graphsage/run_graphsage_eval.py:263)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.sample_degree_negatives\nsrc/graphsage/run_graphsage_eval.py:263\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__sample_semantic" [label="sample_semantic\n(src/graphsage/run_graphsage_eval.py:456)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.sample_semantic\nsrc/graphsage/run_graphsage_eval.py:456\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__sample_twohop" [label="sample_twohop\n(src/graphsage/run_graphsage_eval.py:417)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.sample_twohop\nsrc/graphsage/run_graphsage_eval.py:417\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__sample_uniform_negatives" [label="sample_uniform_negatives\n(src/graphsage/run_graphsage_eval.py:256)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.sample_uniform_negatives\nsrc/graphsage/run_graphsage_eval.py:256\nfunction in src.graphsage.run_graphsage_eval"];
+            "src__graphXsage__run_graphXsage_eval__train_graphXsage" [label="train_graphsage\n(src/graphsage/run_graphsage_eval.py:508)", style="filled", fillcolor="#65a3ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.train_graphsage\nsrc/graphsage/run_graphsage_eval.py:508\nfunction in src.graphsage.run_graphsage_eval"];
+        }
+        subgraph "cluster_src__graphXsage__run_graphXsage_eval__AliasSampler" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.run_graphsage_eval.AliasSampler"];
+            "src__graphXsage__run_graphXsage_eval__AliasSampler____init__" [label="__init__\n(src/graphsage/run_graphsage_eval.py:282)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.AliasSampler.__init__\nsrc/graphsage/run_graphsage_eval.py:282\nmethod in src.graphsage.run_graphsage_eval.AliasSampler"];
+            "src__graphXsage__run_graphXsage_eval__AliasSampler__sample" [label="sample\n(src/graphsage/run_graphsage_eval.py:306)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.AliasSampler.sample\nsrc/graphsage/run_graphsage_eval.py:306\nmethod in src.graphsage.run_graphsage_eval.AliasSampler"];
+        }
+        subgraph "cluster_src__graphXsage__run_graphXsage_eval__CandidateStreamer" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.run_graphsage_eval.CandidateStreamer"];
+            "src__graphXsage__run_graphXsage_eval__CandidateStreamer____init__" [label="__init__\n(src/graphsage/run_graphsage_eval.py:159)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.CandidateStreamer.__init__\nsrc/graphsage/run_graphsage_eval.py:159\nmethod in src.graphsage.run_graphsage_eval.CandidateStreamer"];
+            "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [label="__iter__\n(src/graphsage/run_graphsage_eval.py:169)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.CandidateStreamer.__iter__\nsrc/graphsage/run_graphsage_eval.py:169\nmethod in src.graphsage.run_graphsage_eval.CandidateStreamer"];
+        }
+        subgraph "cluster_src__graphXsage__run_graphXsage_eval__FeatureMLP" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.run_graphsage_eval.FeatureMLP"];
+            "src__graphXsage__run_graphXsage_eval__FeatureMLP____init__" [label="__init__\n(src/graphsage/run_graphsage_eval.py:234)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.FeatureMLP.__init__\nsrc/graphsage/run_graphsage_eval.py:234\nmethod in src.graphsage.run_graphsage_eval.FeatureMLP"];
+            "src__graphXsage__run_graphXsage_eval__FeatureMLP__encode" [label="encode\n(src/graphsage/run_graphsage_eval.py:249)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.FeatureMLP.encode\nsrc/graphsage/run_graphsage_eval.py:249\nmethod in src.graphsage.run_graphsage_eval.FeatureMLP"];
+            "src__graphXsage__run_graphXsage_eval__FeatureMLP__forward" [label="forward\n(src/graphsage/run_graphsage_eval.py:246)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.FeatureMLP.forward\nsrc/graphsage/run_graphsage_eval.py:246\nmethod in src.graphsage.run_graphsage_eval.FeatureMLP"];
+        }
+        subgraph "cluster_src__graphXsage__run_graphXsage_eval__GraphSAGE" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.run_graphsage_eval.GraphSAGE"];
+            "src__graphXsage__run_graphXsage_eval__GraphSAGE____init__" [label="__init__\n(src/graphsage/run_graphsage_eval.py:208)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.GraphSAGE.__init__\nsrc/graphsage/run_graphsage_eval.py:208\nmethod in src.graphsage.run_graphsage_eval.GraphSAGE"];
+            "src__graphXsage__run_graphXsage_eval__GraphSAGE__encode" [label="encode\n(src/graphsage/run_graphsage_eval.py:225)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.GraphSAGE.encode\nsrc/graphsage/run_graphsage_eval.py:225\nmethod in src.graphsage.run_graphsage_eval.GraphSAGE"];
+            "src__graphXsage__run_graphXsage_eval__GraphSAGE__forward" [label="forward\n(src/graphsage/run_graphsage_eval.py:217)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.GraphSAGE.forward\nsrc/graphsage/run_graphsage_eval.py:217\nmethod in src.graphsage.run_graphsage_eval.GraphSAGE"];
+        }
+        subgraph "cluster_src__graphXsage__run_graphXsage_eval__KM" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.run_graphsage_eval.KM"];
+            "src__graphXsage__run_graphXsage_eval__KM____post_init__" [label="__post_init__\n(src/graphsage/run_graphsage_eval.py:1442)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.KM.__post_init__\nsrc/graphsage/run_graphsage_eval.py:1442\nmethod in src.graphsage.run_graphsage_eval.KM"];
+            "src__graphXsage__run_graphXsage_eval__KM__row" [label="row\n(src/graphsage/run_graphsage_eval.py:1484)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.KM.row\nsrc/graphsage/run_graphsage_eval.py:1484\nmethod in src.graphsage.run_graphsage_eval.KM"];
+            "src__graphXsage__run_graphXsage_eval__KM__upd" [label="upd\n(src/graphsage/run_graphsage_eval.py:1448)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.KM.upd\nsrc/graphsage/run_graphsage_eval.py:1448\nmethod in src.graphsage.run_graphsage_eval.KM"];
+        }
+        subgraph "cluster_src__graphXsage__run_graphXsage_eval__TwoHopCache" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.run_graphsage_eval.TwoHopCache"];
+            "src__graphXsage__run_graphXsage_eval__TwoHopCache____init__" [label="__init__\n(src/graphsage/run_graphsage_eval.py:318)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.TwoHopCache.__init__\nsrc/graphsage/run_graphsage_eval.py:318\nmethod in src.graphsage.run_graphsage_eval.TwoHopCache"];
+            "src__graphXsage__run_graphXsage_eval__TwoHopCache__get" [label="get\n(src/graphsage/run_graphsage_eval.py:324)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.TwoHopCache.get\nsrc/graphsage/run_graphsage_eval.py:324\nmethod in src.graphsage.run_graphsage_eval.TwoHopCache"];
+        }
+        subgraph "cluster_src__graphXsage__run_graphXsage_eval__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.run_graphsage_eval.main"];
+            "src__graphXsage__run_graphXsage_eval__main__ci" [label="ci\n(src/graphsage/run_graphsage_eval.py:2341)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.main.ci\nsrc/graphsage/run_graphsage_eval.py:2341\nfunction in src.graphsage.run_graphsage_eval.main"];
+            "src__graphXsage__run_graphXsage_eval__main__extract_metrics" [label="extract_metrics\n(src/graphsage/run_graphsage_eval.py:2323)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.main.extract_metrics\nsrc/graphsage/run_graphsage_eval.py:2323\nfunction in src.graphsage.run_graphsage_eval.main"];
+            "src__graphXsage__run_graphXsage_eval__main__set_seed_all" [label="set_seed_all\n(src/graphsage/run_graphsage_eval.py:2314)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.main.set_seed_all\nsrc/graphsage/run_graphsage_eval.py:2314\nfunction in src.graphsage.run_graphsage_eval.main"];
+        }
+        subgraph "cluster_src__graphXsage__run_graphXsage_eval__train_graphXsage" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage.run_graphsage_eval.train_graphsage"];
+            "src__graphXsage__run_graphXsage_eval__train_graphXsage___is_edge" [label="_is_edge\n(src/graphsage/run_graphsage_eval.py:1111)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.train_graphsage._is_edge\nsrc/graphsage/run_graphsage_eval.py:1111\nfunction in src.graphsage.run_graphsage_eval.train_graphsage"];
+            "src__graphXsage__run_graphXsage_eval__train_graphXsage___sample_in_deg" [label="_sample_in_deg\n(src/graphsage/run_graphsage_eval.py:610)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.train_graphsage._sample_in_deg\nsrc/graphsage/run_graphsage_eval.py:610\nfunction in src.graphsage.run_graphsage_eval.train_graphsage"];
+            "src__graphXsage__run_graphXsage_eval__train_graphXsage__build_pairs_for_batch" [label="build_pairs_for_batch\n(src/graphsage/run_graphsage_eval.py:658)", style="filled", fillcolor="#3284ffb2", fontcolor="#000000", group="3", tooltip="src.graphsage.run_graphsage_eval.train_graphsage.build_pairs_for_batch\nsrc/graphsage/run_graphsage_eval.py:658\nfunction in src.graphsage.run_graphsage_eval.train_graphsage"];
+        }
+    }
+        "src__graphXsage__01_graphXsage_hpo_optuna" -> "src__graphXsage__01_graphXsage_hpo_optuna__main" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna" -> "src__graphXsage__run_graphXsage_eval__build_semantic_indices" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna" -> "src__graphXsage__run_graphXsage_eval__csr_to_edge_index" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna" -> "src__graphXsage__run_graphXsage_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna" -> "src__graphXsage__run_graphXsage_eval__load_features" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna" -> "src__graphXsage__run_graphXsage_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__main" -> "src__graphXsage__01_graphXsage_hpo_optuna__main__obj" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__main" -> "src__graphXsage__01_graphXsage_hpo_optuna__parse_args" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__main" -> "src__graphXsage__run_graphXsage_eval__load_features" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__main" -> "src__graphXsage__run_graphXsage_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__main__obj" -> "src__graphXsage__01_graphXsage_hpo_optuna__objective" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__main__obj" -> "src__graphXsage__run_graphXsage_eval__load_features" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__main__obj" -> "src__graphXsage__run_graphXsage_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__objective" -> "src__graphXsage__01_graphXsage_hpo_optuna__objective" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__objective" -> "src__graphXsage__01_graphXsage_hpo_optuna__objective___progress_cb" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__objective" -> "src__graphXsage__run_graphXsage_eval__FeatureMLP__encode" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__objective" -> "src__graphXsage__run_graphXsage_eval__GraphSAGE__encode" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__objective" -> "src__graphXsage__run_graphXsage_eval__build_semantic_indices" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__objective" -> "src__graphXsage__run_graphXsage_eval__csr_to_edge_index" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__objective" -> "src__graphXsage__run_graphXsage_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__objective" -> "src__graphXsage__run_graphXsage_eval__train_graphXsage" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__parse_args" -> "src__graphXsage__01_graphXsage_hpo_optuna__parse_args" [style="solid",  color="#000000"];
+        "src__graphXsage__01_graphXsage_hpo_optuna__parse_args" -> "src__graphXsage__run_graphXsage_eval__parse_args" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo" -> "src__graphXsage__02_graphXsage_finalize_hpo__main" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo__TrialConfig__to_params_dict" -> "src__graphXsage__02_graphXsage_finalize_hpo__TrialConfig" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo__get_env_snapshot" -> "src__graphXsage__02_graphXsage_finalize_hpo___now_iso" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo__load_topk_trials" -> "src__graphXsage__02_graphXsage_finalize_hpo__TrialConfig" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo__main" -> "src__graphXsage__02_graphXsage_finalize_hpo__TrialConfig" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo__main" -> "src__graphXsage__02_graphXsage_finalize_hpo___now_iso" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo__main" -> "src__graphXsage__02_graphXsage_finalize_hpo___to_bool" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo__main" -> "src__graphXsage__02_graphXsage_finalize_hpo__get_env_snapshot" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo__main" -> "src__graphXsage__02_graphXsage_finalize_hpo__load_multi_seed_summary" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo__main" -> "src__graphXsage__02_graphXsage_finalize_hpo__load_topk_trials" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo__main" -> "src__graphXsage__02_graphXsage_finalize_hpo__main___key" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo__main" -> "src__graphXsage__02_graphXsage_finalize_hpo__parse_args" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo__main" -> "src__graphXsage__02_graphXsage_finalize_hpo__run_config_multi_seed" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo__parse_args" -> "src__graphXsage__02_graphXsage_finalize_hpo__parse_args" [style="solid",  color="#000000"];
+        "src__graphXsage__02_graphXsage_finalize_hpo__run_config_multi_seed" -> "src__graphXsage__02_graphXsage_finalize_hpo__TrialConfig" [style="solid",  color="#000000"];
+        "src__graphXsage__03_graphXsage_train_eval" -> "src__graphXsage__run_graphXsage_eval__main" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval" -> "src__graphXsage__run_graphXsage_eval__main" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__AliasSampler____init__" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__AliasSampler__sample" -> "src__graphXsage__run_graphXsage_eval__AliasSampler" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__FeatureMLP____init__" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__FeatureMLP__encode" -> "src__graphXsage__run_graphXsage_eval__FeatureMLP__forward" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__FeatureMLP__forward" -> "src__graphXsage__run_graphXsage_eval__FeatureMLP" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__GraphSAGE____init__" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__GraphSAGE__encode" -> "src__graphXsage__run_graphXsage_eval__GraphSAGE__forward" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__GraphSAGE__forward" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__GraphSAGE__forward" -> "src__graphXsage__run_graphXsage_eval__GraphSAGE" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__KM____post_init__" -> "src__graphXsage__run_graphXsage_eval__KM" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__KM__row" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__KM__row" -> "src__graphXsage__run_graphXsage_eval__KM" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__KM__upd" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__KM__upd" -> "src__graphXsage__run_graphXsage_eval__KM" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__TwoHopCache__get" -> "src__graphXsage__run_graphXsage_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__TwoHopCache__get" -> "src__graphXsage__run_graphXsage_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval___load_t0" -> "src__graphXsage__run_graphXsage_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__build_semantic_indices" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__calibrate_on_val" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__calibrate_on_val" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__calibrate_on_val" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__calibrate_on_val" -> "src__graphXsage__run_graphXsage_eval__Graph" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__calibrate_on_val" -> "src__graphXsage__run_graphXsage_eval__fit_platt" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__evaluate_split" -> "src__graphXsage__run_graphXsage_eval__AliasSampler____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__evaluate_split" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__evaluate_split" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__evaluate_split" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__evaluate_split" -> "src__graphXsage__run_graphXsage_eval__FeatureMLP____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__evaluate_split" -> "src__graphXsage__run_graphXsage_eval__Graph" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__evaluate_split" -> "src__graphXsage__run_graphXsage_eval__GraphSAGE____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__evaluate_split" -> "src__graphXsage__run_graphXsage_eval__KM" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__evaluate_split" -> "src__graphXsage__run_graphXsage_eval__KM__row" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__evaluate_split" -> "src__graphXsage__run_graphXsage_eval__KM__upd" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__evaluate_split" -> "src__graphXsage__run_graphXsage_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__evaluate_split" -> "src__graphXsage__run_graphXsage_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__evaluate_split" -> "src__graphXsage__run_graphXsage_eval___load_t0" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__evaluate_split" -> "src__graphXsage__run_graphXsage_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__fit_platt" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__fit_platt" -> "src__graphXsage__run_graphXsage_eval___sigmoid_np" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__load_graphX" -> "src__graphXsage__run_graphXsage_eval__AliasSampler____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__load_graphX" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__load_graphX" -> "src__graphXsage__run_graphXsage_eval__FeatureMLP____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__load_graphX" -> "src__graphXsage__run_graphXsage_eval__Graph" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__load_graphX" -> "src__graphXsage__run_graphXsage_eval__GraphSAGE____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__load_graphX" -> "src__graphXsage__run_graphXsage_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__FeatureMLP__encode" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__GraphSAGE__encode" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval___ensure_dir" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval___load_t0" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval___now_iso" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__build_semantic_indices" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__calibrate_on_val" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__csr_to_edge_index" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__load_features" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__main__ci" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__main__extract_metrics" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__main__set_seed_all" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__parse_args" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main" -> "src__graphXsage__run_graphXsage_eval__train_graphXsage" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main__extract_metrics" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__main__extract_metrics" -> "src__graphXsage__run_graphXsage_eval__KM__row" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__parse_args" -> "src__graphXsage__run_graphXsage_eval___bool" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__parse_args" -> "src__graphXsage__run_graphXsage_eval__parse_args" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__sample_semantic" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__sample_semantic" -> "src__graphXsage__run_graphXsage_eval__is_train_edge" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__sample_twohop" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__sample_twohop" -> "src__graphXsage__run_graphXsage_eval__is_train_edge" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__AliasSampler" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__AliasSampler____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__AliasSampler__sample" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__FeatureMLP" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__FeatureMLP____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__Graph" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__GraphSAGE" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__GraphSAGE____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__GraphSAGE__encode" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__csr_to_edge_index" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__dot_scores" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__filter_exclusions" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__is_train_edge" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__one_hop_set" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__sample_degree_negatives" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__sample_semantic" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__sample_twohop" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__sample_uniform_negatives" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__train_graphXsage" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__train_graphXsage___is_edge" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage" -> "src__graphXsage__run_graphXsage_eval__train_graphXsage__build_pairs_for_batch" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage___is_edge" -> "src__graphXsage__run_graphXsage_eval__is_train_edge" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage__build_pairs_for_batch" -> "src__graphXsage__run_graphXsage_eval__AliasSampler" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage__build_pairs_for_batch" -> "src__graphXsage__run_graphXsage_eval__AliasSampler____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage__build_pairs_for_batch" -> "src__graphXsage__run_graphXsage_eval__AliasSampler__sample" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage__build_pairs_for_batch" -> "src__graphXsage__run_graphXsage_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage__build_pairs_for_batch" -> "src__graphXsage__run_graphXsage_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage__build_pairs_for_batch" -> "src__graphXsage__run_graphXsage_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage__build_pairs_for_batch" -> "src__graphXsage__run_graphXsage_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage__build_pairs_for_batch" -> "src__graphXsage__run_graphXsage_eval__filter_exclusions" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage__build_pairs_for_batch" -> "src__graphXsage__run_graphXsage_eval__one_hop_set" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval__train_graphXsage__build_pairs_for_batch" -> "src__graphXsage__run_graphXsage_eval__train_graphXsage" [style="solid",  color="#000000"];
+    }

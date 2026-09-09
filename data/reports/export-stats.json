@@ -1,0 +1,9 @@
+{
+  "firms_exported": 74263,
+  "index_gzip_size_bytes": 1833862,
+  "index_size_bytes": 13056771,
+  "largest_scenario_file": "data/firms/0BYK40-E.json",
+  "largest_scenario_size_bytes": 4723,
+  "scenario_files_written": 74263,
+  "total_output_size_bytes": 195725359
+}

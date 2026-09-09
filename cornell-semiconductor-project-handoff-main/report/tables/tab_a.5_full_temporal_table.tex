@@ -1,0 +1,34 @@
+% Auto-generated full temporal horizon table --- best-in-class excludes Ensemble
+% chktex-file 8   en-dash compounds are correct academic usage
+\begin{tabular}{@{}l
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=+1.3]@{}}
+\toprule
+\multicolumn{1}{c}{Model} &
+\multicolumn{1}{c}{AP 0--6m (val)} &
+\multicolumn{1}{c}{AP 6--12m (val)} &
+\multicolumn{1}{c}{AP 12--24m (val)} &
+\multicolumn{1}{c}{AP 24--36m (val)} &
+\multicolumn{1}{c}{AP 36--48m (test)} &
+\multicolumn{1}{c}{AP 48--60m (test)} &
+\multicolumn{1}{c}{AP 60--72m (test)} &
+\multicolumn{1}{c}{AP 72+m (test)} &
+\multicolumn{1}{c}{$\Delta$ (48--60 - 0--6)} \\
+\midrule
+Ensemble            & 1.000 & 1.000 & 1.000 & 1.000 & 0.609 & 0.236 & 0.225 & 0.208 & -0.764 \\
+TGNN                & 0.059 & 0.060 & \bfseries 0.052 & 0.054 & \bfseries 0.053 & \bfseries 0.033 & \bfseries 0.034 & 0.031 & -0.025 \\
+Node2Vec-Temporal   & 0.028 & 0.031 & 0.028 & 0.036 & 0.047 & 0.031 & 0.031 & \bfseries 0.034 & \bfseries 0.003 \\
+Node2Vec            & \bfseries 0.074 & \bfseries 0.065 & 0.052 & \bfseries 0.055 & 0.051 & 0.031 & 0.026 & 0.024 & -0.043 \\
+Two-Tower           & 0.022 & 0.025 & 0.023 & 0.020 & 0.017 & 0.014 & 0.015 & 0.012 & -0.008 \\
+GraphSAGE           & 0.008 & 0.008 & 0.009 & 0.010 & 0.008 & 0.009 & 0.010 & 0.012 & 0.001 \\
+Heuristics          & 0.014 & 0.015 & 0.013 & 0.015 & 0.017 & 0.013 & 0.010 & 0.010 & -0.001 \\
+\bottomrule
+\end{tabular}
+

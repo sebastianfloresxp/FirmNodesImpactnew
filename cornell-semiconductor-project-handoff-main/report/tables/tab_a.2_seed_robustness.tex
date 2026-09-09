@@ -1,0 +1,19 @@
+% Auto-generated seed robustness table (Test)
+\begin{tabular}{@{}l S[table-format=1.0] c c c c@{}}
+\toprule
+\multicolumn{1}{c}{Model} &
+\multicolumn{1}{c}{$n_{\text{seeds}}$} &
+\multicolumn{1}{c}{nDCG@100} &
+\multicolumn{1}{c}{Hit@10} &
+\multicolumn{1}{c}{AP 0--6m} &
+\multicolumn{1}{c}{AP 48--60m} \\
+\midrule
+Ensemble            & 1 & \num{0.220} & \num{0.337} & \num{1.000} & \num{0.236} \\
+TGNN                & 5 & \num{0.082} $\pm$ \num{0.004} & \num{0.172} $\pm$ \num{0.009} & \num{0.059} $\pm$ \num{0.001} & \num{0.033} $\pm$ \num{0.002} \\
+Node2Vec-Temporal   & 5 & \num{0.089} $\pm$ \num{0.001} & \num{0.173} $\pm$ \num{0.001} & \num{0.028} $\pm$ \num{0.000} & \num{0.031} $\pm$ \num{0.001} \\
+Node2Vec            & 5 & \num{0.056} $\pm$ \num{0.000} & \num{0.120} $\pm$ \num{0.000} & \num{0.074} $\pm$ \num{0.001} & \num{0.031} $\pm$ \num{0.000} \\
+Two-Tower           & 5 & \num{0.049} $\pm$ \num{0.002} & \num{0.069} $\pm$ \num{0.003} & \num{0.022} $\pm$ \num{0.001} & \num{0.014} $\pm$ \num{0.001} \\
+GraphSAGE           & 5 & \num{0.023} $\pm$ \num{0.001} & \num{0.054} $\pm$ \num{0.001} & \num{0.008} $\pm$ \num{0.000} & \num{0.009} $\pm$ \num{0.000} \\
+Heuristics          & 3 & \num{0.031} $\pm$ \num{0.010} & \num{0.072} $\pm$ \num{0.017} & \num{0.014} $\pm$ \num{0.005} & \num{0.013} $\pm$ \num{0.009} \\
+\bottomrule
+\end{tabular}

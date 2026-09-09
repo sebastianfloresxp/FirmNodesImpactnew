@@ -1,0 +1,1500 @@
+<!--
+ * Copyright (c) 2015 Mountainstorm
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ * Original from https://github.com/mountainstorm/jquery.graphviz.svg/blob/master/demo.html
+ -->
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="css/graphviz.svg.css"> -->
+	</head>
+
+	<style>
+        #instructions {
+            color: #000000;
+            position: absolute;
+            z-index: 100;
+            bottom: 0px;
+            left: 0px;
+        }
+    </style>
+	<body>
+		<h4 id="instructions">Click node to highlight; Shift-scroll to zoom; Esc to unhighlight</h4>
+		<div id="graph" style="width: 100%; height: 100%; overflow: scroll;"></div>
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+		<script type="text/javascript" src="https://cdn.rawgit.com/jquery/jquery-mousewheel/master/jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="https://cdn.rawgit.com/jquery/jquery-color/master/jquery.color.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script type="text/javascript">!function(t){"use strict";String.prototype.startsWith=function(t){return 0==this.indexOf(t)},String.prototype.endsWith=function(t){return-1!==this.indexOf(t,this.length-t.length)};var e=function(t,e){this.type=null,this.options=null,this.enabled=null,this.$element=null,this.init("graphviz.svg",t,e)};e.VERSION="1.0.1",e.GVPT_2_PX=32.5,e.DEFAULTS={url:null,svg:null,shrink:"0.125pt",tooltips:{init:function(e){var i=t(this);i.tooltip({container:e,placement:"auto left",animation:!1,viewport:null}).on("hide.bs.tooltip",function(){if(i.attr("data-tooltip-keepvisible"))return!1})},show:function(){var e=t(this);e.attr("data-tooltip-keepvisible",!0),e.tooltip("show")},hide:function(){var e=t(this);e.removeAttr("data-tooltip-keepvisible"),e.tooltip("hide")},update:function(){var e=t(this);e.attr("data-tooltip-keepvisible")&&e.tooltip("show")}},zoom:!0,highlight:{selected:function(t,e){return t},unselected:function(t,e){return jQuery.Color(t).transition(e,.9)}},ready:null},e.prototype.init=function(e,i,n){if(this.enabled=!0,this.type=e,this.$element=t(i),this.options=this.getOptions(n),n.url){var o=this;t.get(n.url,null,function(e){var i=t("svg",e);o.$element.html(document.adoptNode(i[0])),o.setup()},"xml")}else n.svg&&this.$element.html(n.svg),this.setup()},e.prototype.getDefaults=function(){return e.DEFAULTS},e.prototype.getOptions=function(e){return(e=t.extend({},this.getDefaults(),this.$element.data(),e)).shrink&&("object"!=typeof e.shrink&&(e.shrink={x:e.shrink,y:e.shrink}),e.shrink.x=this.convertToPx(e.shrink.x),e.shrink.y=this.convertToPx(e.shrink.y)),e},e.prototype.setup=function(){var e=this.options,i=t(this.$element.children("svg")),n=i.children("g:first");this.$svg=i,this.$graph=n,this.$background=n.children("polygon:first"),this.$nodes=n.children(".node"),this.$edges=n.children(".edge"),this._nodesByName={},this._edgesByName={},this.$element.addClass("graphviz-svg"),this.$background.length&&this.$element.css("background",this.$background.attr("fill"));var o=this;this.$nodes.each(function(){o.setupNodesEdges(t(this),!0)}),this.$edges.each(function(){o.setupNodesEdges(t(this),!1)});var r=this.$graph.children("title");this.$graph.attr("data-name",r.text()),r.remove(),e.zoom&&this.setupZoom(),e.ready&&e.ready.call(this)},e.prototype.setupNodesEdges=function(e,i){var n=this,o=this.options;e.find("polygon, ellipse, path").each(function(){var e=t(this);e.data("graphviz.svg.color",{fill:e.attr("fill"),stroke:e.attr("stroke")}),i&&o.shrink&&n.scaleNode(e)});var r,s,h=e.children("title");if(h[0]){var a=h.text().replace(/:[snew][ew]?/g,"");e.attr("data-name",a),h.remove(),i?this._nodesByName[a]=e[0]:this._edgesByName[a]=e[0];for(var l=e[0].previousSibling;l&&8!=l.nodeType;)l=l.previousSibling;if(null!=l&&8==l.nodeType){var p=(r=l.nodeValue.trim(),(s=document.createElement("div")).innerHTML=r,s.childNodes[0].nodeValue);p!=a&&e.attr("data-comment",p)}}e.children("a").filter(function(){return t(this).attr("xlink:title")}).each(function(){var e=t(this);e.attr("title",e.attr("xlink:title")),e.removeAttr("xlink:title"),o.tooltips&&o.tooltips.init.call(this,n.$element)})},e.prototype.setupZoom=function(){var t=this,e=this.$element,i=this.$svg;this.zoom={width:i.attr("width"),height:i.attr("height"),percentage:null},this.scaleView(100),e.mousewheel(function(n){if(n.shiftKey){var o=t.zoom.percentage;(o-=n.deltaY*n.deltaFactor)<100&&(o=100);var r=n.pageX-i.offset().left,s=n.pageY-i.offset().top,h=r/i.width(),a=s/i.height(),l=n.pageX-e.offset().left,p=n.pageY-e.offset().top;return t.scaleView(o),e.scrollLeft(h*i.width()+.5-l),e.scrollTop(a*i.height()+.5-p),!1}})},e.prototype.scaleView=function(t){var e=this,i=this.$svg;i.attr("width",t+"%"),i.attr("height",t+"%"),this.zoom.percentage=t,this.$nodes.add(this.$edges).children("a[title]").each(function(){e.options.tooltips.update.call(this)})},e.prototype.scaleNode=function(t){var e=this.options.shrink.x,i=this.options.shrink.y,n=t.prop("tagName");if("ellipse"==n)t.attr("rx",parseFloat(t.attr("rx"))-e),t.attr("ry",parseFloat(t.attr("ry"))-i);else if("polygon"==n){var o=t[0].getBBox(),r=o.x+o.width/2,s=o.y+o.height/2,h=t.attr("points").split(" "),a="";for(var l in h){var p=h[l].split(","),d=parseFloat(p[0]),u=parseFloat(p[1]);a+=(r-d)/(o.width/2)*e+d+","+((s-u)/(o.height/2)*i+u)+" "}t.attr("points",a)}},e.prototype.convertToPx=function(t){var i=t;if("string"==typeof t){var n=t.length,o=1;t.endsWith("px")?n-=2:t.endsWith("pt")&&(n-=2,o=e.GVPT_2_PX),i=parseFloat(t.substring(0,n))*o}return i},e.prototype.findEdge=function(t,e,i){var n=[];for(var o in this._edgesByName){var r=e(t,o);r&&(i&&i.push(this._edgesByName[o]),n.push(r))}return n},e.prototype.findLinked=function(e,i,n,o){var r=t(e),s=null;i&&(s=o);var h=this.findEdge(r.attr("data-name"),n,s);for(var a in h){var l=this._nodesByName[h[a]];o.is(l)||(o.push(l),this.findLinked(l,i,n,o))}},e.prototype.colorElement=function(e,i){var n=this.$element.css("background");e.find("polygon, ellipse, path").each(function(){var e=t(this),o=e.data("graphviz.svg.color");o.fill&&"path"!=e.prop("tagName")&&e.attr("fill",i(o.fill,n)),o.stroke&&e.attr("stroke",i(o.stroke,n))})},e.prototype.restoreElement=function(e){e.find("polygon, ellipse, path").each(function(){var e=t(this),i=e.data("graphviz.svg.color");i.fill&&e.attr("fill",i.fill),i.stroke&&e.attr("stroke",i.stroke)})},e.prototype.nodes=function(){return this.$nodes},e.prototype.edges=function(){return this.$edges},e.prototype.nodesByName=function(){return this._nodesByName},e.prototype.edgesByName=function(){return this._edgesByName},e.prototype.linkedTo=function(e,i){var n=t();return this.findLinked(e,i,function(t,e){var i=null,n="->"+t;return e.endsWith(n)&&(i=e.substring(0,e.length-n.length)),i},n),n},e.prototype.linkedFrom=function(e,i){var n=t();return this.findLinked(e,i,function(t,e){var i=null,n=t+"->";return e.startsWith(n)&&(i=e.substring(n.length)),i},n),n},e.prototype.linked=function(e,i){var n=t();return this.findLinked(e,i,function(t,e){return"^"+name+"--(.*)$"},n),this.findLinked(e,i,function(t,e){return"^(.*)--"+name+"$"},n),n},e.prototype.tooltip=function(e,i){var n=this.options;e.each(function(){t(this).children("a[title]").each(function(){i?n.tooltips.show.call(this):n.tooltips.hide.call(this)})})},e.prototype.bringToFront=function(t){t.detach().appendTo(this.$graph)},e.prototype.sendToBack=function(t){this.$background.length?$element.insertAfter(this.$background):t.detach().prependTo(this.$graph)},e.prototype.highlight=function(e,i){var n=this,o=this.options,r=this.$nodes.add(this.$edges);e&&e.length>0?(r.not(e).each(function(){n.colorElement(t(this),o.highlight.unselected),n.tooltip(t(this))}),e.each(function(){n.colorElement(t(this),o.highlight.selected)}),i&&this.tooltip(e,!0)):(r.each(function(){n.restoreElement(t(this))}),this.tooltip(r))},e.prototype.destroy=function(){var t=this;this.hide(function(){t.$element.off("."+t.type).removeData(t.type)})};var i=t.fn.graphviz;t.fn.graphviz=function(i){return this.each(function(){var n=t(this),o=n.data("graphviz.svg"),r="object"==typeof i&&i;!o&&/destroy/.test(i)||(o||n.data("graphviz.svg",o=new e(this,r)),"string"==typeof i&&o[i]())})},t.fn.graphviz.Constructor=e,t.fn.graphviz.noConflict=function(){return t.fn.graphviz=i,this}}(jQuery);</script>
+		<script type="text/javascript">
+ 			$(document).ready(function(){
+                $("#graph").graphviz({
+                    svg: `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (20260124.0452)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="34302pt" height="818pt"
+ viewBox="0.00 0.00 34302.00 818.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 813.86)">
+<title>G</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-813.86 34298,-813.86 34298,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_G</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M20,-8C20,-8 34274,-8 34274,-8 34280,-8 34286,-14 34286,-20 34286,-20 34286,-789.86 34286,-789.86 34286,-795.86 34280,-801.86 34274,-801.86 34274,-801.86 20,-801.86 20,-801.86 14,-801.86 8,-795.86 8,-789.86 8,-789.86 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_src__analysis__chapter2__build_model_metrics</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M364,-216.47C364,-216.47 3712,-216.47 3712,-216.47 3718,-216.47 3724,-222.47 3724,-228.47 3724,-228.47 3724,-683.38 3724,-683.38 3724,-689.38 3718,-695.38 3712,-695.38 3712,-695.38 364,-695.38 364,-695.38 358,-695.38 352,-689.38 352,-683.38 352,-683.38 352,-228.47 352,-228.47 352,-222.47 358,-216.47 364,-216.47"/>
+<text xml:space="preserve" text-anchor="middle" x="2038" y="-678.08" font-family="Times,serif" font-size="14.00">src.analysis.chapter2.build_model_metrics</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_src__analysis__chapter2__scorecard_common</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M5995,-122.48C5995,-122.48 24978,-122.48 24978,-122.48 24984,-122.48 24990,-128.48 24990,-134.48 24990,-134.48 24990,-781.86 24990,-781.86 24990,-787.86 24984,-793.86 24978,-793.86 24978,-793.86 5995,-793.86 5995,-793.86 5989,-793.86 5983,-787.86 5983,-781.86 5983,-781.86 5983,-134.48 5983,-134.48 5983,-128.48 5989,-122.48 5995,-122.48"/>
+<text xml:space="preserve" text-anchor="middle" x="15486.5" y="-776.56" font-family="Times,serif" font-size="14.00">src.analysis.chapter2.scorecard_common</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_src__analysis__chapter2__scorecard_common__compute_metrics</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M17204,-16C17204,-16 18284,-16 18284,-16 18290,-16 18296,-22 18296,-28 18296,-28 18296,-102.48 18296,-102.48 18296,-108.48 18290,-114.48 18284,-114.48 18284,-114.48 17204,-114.48 17204,-114.48 17198,-114.48 17192,-108.48 17192,-102.48 17192,-102.48 17192,-28 17192,-28 17192,-22 17198,-16 17204,-16"/>
+<text xml:space="preserve" text-anchor="middle" x="17744" y="-97.18" font-family="Times,serif" font-size="14.00">src.analysis.chapter2.scorecard_common.compute_metrics</text>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_src__analysis__chapter2__scorecard_common__write_slice_winners_table</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M3758,-498.41C3758,-498.41 5963,-498.41 5963,-498.41 5969,-498.41 5975,-504.41 5975,-510.41 5975,-510.41 5975,-584.9 5975,-584.9 5975,-590.9 5969,-596.9 5963,-596.9 5963,-596.9 3758,-596.9 3758,-596.9 3752,-596.9 3746,-590.9 3746,-584.9 3746,-584.9 3746,-510.41 3746,-510.41 3746,-504.41 3752,-498.41 3758,-498.41"/>
+<text xml:space="preserve" text-anchor="middle" x="4860.5" y="-579.6" font-family="Times,serif" font-size="14.00">src.analysis.chapter2.scorecard_common.write_slice_winners_table</text>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_src__analysis__chapter2__tab_01_global_scorecard</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M25010,-498.41C25010,-498.41 26120,-498.41 26120,-498.41 26126,-498.41 26132,-504.41 26132,-510.41 26132,-510.41 26132,-683.38 26132,-683.38 26132,-689.38 26126,-695.38 26120,-695.38 26120,-695.38 25010,-695.38 25010,-695.38 25004,-695.38 24998,-689.38 24998,-683.38 24998,-683.38 24998,-510.41 24998,-510.41 24998,-504.41 25004,-498.41 25010,-498.41"/>
+<text xml:space="preserve" text-anchor="middle" x="25565" y="-678.08" font-family="Times,serif" font-size="14.00">src.analysis.chapter2.tab_01_global_scorecard</text>
+</g>
+<g id="clust7" class="cluster">
+<title>cluster_src__analysis__chapter2__tab_02_structural_generalization</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M26152,-310.45C26152,-310.45 28518,-310.45 28518,-310.45 28524,-310.45 28530,-316.45 28530,-322.45 28530,-322.45 28530,-683.38 28530,-683.38 28530,-689.38 28524,-695.38 28518,-695.38 28518,-695.38 26152,-695.38 26152,-695.38 26146,-695.38 26140,-689.38 26140,-683.38 26140,-683.38 26140,-322.45 26140,-322.45 26140,-316.45 26146,-310.45 26152,-310.45"/>
+<text xml:space="preserve" text-anchor="middle" x="27335" y="-678.08" font-family="Times,serif" font-size="14.00">src.analysis.chapter2.tab_02_structural_generalization</text>
+</g>
+<g id="clust8" class="cluster">
+<title>cluster_src__analysis__chapter2__tab_03_temporal_horizons</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M28550,-498.41C28550,-498.41 29674,-498.41 29674,-498.41 29680,-498.41 29686,-504.41 29686,-510.41 29686,-510.41 29686,-683.38 29686,-683.38 29686,-689.38 29680,-695.38 29674,-695.38 29674,-695.38 28550,-695.38 28550,-695.38 28544,-695.38 28538,-689.38 28538,-683.38 28538,-683.38 28538,-510.41 28538,-510.41 28538,-504.41 28544,-498.41 28550,-498.41"/>
+<text xml:space="preserve" text-anchor="middle" x="29112" y="-678.08" font-family="Times,serif" font-size="14.00">src.analysis.chapter2.tab_03_temporal_horizons</text>
+</g>
+<g id="clust9" class="cluster">
+<title>cluster_src__analysis__chapter2__tab_04_seed_robustness</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M29706,-498.41C29706,-498.41 30810,-498.41 30810,-498.41 30816,-498.41 30822,-504.41 30822,-510.41 30822,-510.41 30822,-683.38 30822,-683.38 30822,-689.38 30816,-695.38 30810,-695.38 30810,-695.38 29706,-695.38 29706,-695.38 29700,-695.38 29694,-689.38 29694,-683.38 29694,-683.38 29694,-510.41 29694,-510.41 29694,-504.41 29700,-498.41 29706,-498.41"/>
+<text xml:space="preserve" text-anchor="middle" x="30258" y="-678.08" font-family="Times,serif" font-size="14.00">src.analysis.chapter2.tab_04_seed_robustness</text>
+</g>
+<g id="clust10" class="cluster">
+<title>cluster_src__analysis__chapter2__tab_05_structural_slices_test</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M30842,-404.43C30842,-404.43 31982,-404.43 31982,-404.43 31988,-404.43 31994,-410.43 31994,-416.43 31994,-416.43 31994,-683.38 31994,-683.38 31994,-689.38 31988,-695.38 31982,-695.38 31982,-695.38 30842,-695.38 30842,-695.38 30836,-695.38 30830,-689.38 30830,-683.38 30830,-683.38 30830,-416.43 30830,-416.43 30830,-410.43 30836,-404.43 30842,-404.43"/>
+<text xml:space="preserve" text-anchor="middle" x="31412" y="-678.08" font-family="Times,serif" font-size="14.00">src.analysis.chapter2.tab_05_structural_slices_test</text>
+</g>
+<g id="clust11" class="cluster">
+<title>cluster_src__analysis__chapter2__tab_06_structural_slices_val</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M32014,-404.43C32014,-404.43 33150,-404.43 33150,-404.43 33156,-404.43 33162,-410.43 33162,-416.43 33162,-416.43 33162,-683.38 33162,-683.38 33162,-689.38 33156,-695.38 33150,-695.38 33150,-695.38 32014,-695.38 32014,-695.38 32008,-695.38 32002,-689.38 32002,-683.38 32002,-683.38 32002,-416.43 32002,-416.43 32002,-410.43 32008,-404.43 32014,-404.43"/>
+<text xml:space="preserve" text-anchor="middle" x="32582" y="-678.08" font-family="Times,serif" font-size="14.00">src.analysis.chapter2.tab_06_structural_slices_val</text>
+</g>
+<g id="clust12" class="cluster">
+<title>cluster_src__analysis__chapter2__tab_07_temporal_full</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M33182,-498.41C33182,-498.41 34266,-498.41 34266,-498.41 34272,-498.41 34278,-504.41 34278,-510.41 34278,-510.41 34278,-683.38 34278,-683.38 34278,-689.38 34272,-695.38 34266,-695.38 34266,-695.38 33182,-695.38 33182,-695.38 33176,-695.38 33170,-689.38 33170,-683.38 33170,-683.38 33170,-510.41 33170,-510.41 33170,-504.41 33176,-498.41 33182,-498.41"/>
+<text xml:space="preserve" text-anchor="middle" x="33724" y="-678.08" font-family="Times,serif" font-size="14.00">src.analysis.chapter2.tab_07_temporal_full</text>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics -->
+<g id="node1" class="node">
+<title>src__analysis__chapter2__build_model_metrics</title>
+<ellipse fill="#ffffff" fill-opacity="0.698039" stroke="black" cx="2896" cy="-732.37" rx="170.09" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="2896" y="-727.32" font-family="Times,serif" font-size="14.00" fill="#000000">src.analysis.chapter2.build_model_metrics</text>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__ModelSpec -->
+<g id="node10" class="node">
+<title>src__analysis__chapter2__build_model_metrics__ModelSpec</title>
+<ellipse fill="#ff3232" fill-opacity="0.698039" stroke="black" cx="2597" cy="-253.46" rx="545.36" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="2597" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">ModelSpec</text>
+<text xml:space="preserve" text-anchor="middle" x="2597" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/build_model_metrics.py:27)</text>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics&#45;&gt;src__analysis__chapter2__build_model_metrics__ModelSpec -->
+<g id="edge16" class="edge">
+<title>src__analysis__chapter2__build_model_metrics&#45;&gt;src__analysis__chapter2__build_model_metrics__ModelSpec</title>
+<path fill="none" stroke="#000000" d="M3058.46,-726.86C3272.81,-717.37 3633.68,-687.94 3725,-596.9 3744.3,-577.66 3735,-563.66 3735,-536.41 3735,-536.41 3735,-536.41 3735,-440.42 3735,-423.82 3737.53,-415.33 3725,-404.43 3630.27,-322.02 3351.52,-284.47 3094.84,-267.56"/>
+<polygon fill="#000000" stroke="#000000" points="3095.13,-264.07 3084.92,-266.91 3094.67,-271.05 3095.13,-264.07"/>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__main -->
+<g id="node15" class="node">
+<title>src__analysis__chapter2__build_model_metrics__main</title>
+<ellipse fill="#ff3232" fill-opacity="0.698039" stroke="black" cx="2058" cy="-633.89" rx="550.13" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="2058" y="-637.09" font-family="Times,serif" font-size="14.00" fill="#000000">main</text>
+<text xml:space="preserve" text-anchor="middle" x="2058" y="-620.59" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/build_model_metrics.py:292)</text>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics&#45;&gt;src__analysis__chapter2__build_model_metrics__main -->
+<g id="edge15" class="edge">
+<title>src__analysis__chapter2__build_model_metrics&#45;&gt;src__analysis__chapter2__build_model_metrics__main</title>
+<path fill="none" stroke="#000000" d="M2783.85,-718.46C2659.16,-704.1 2454.22,-680.51 2293.85,-662.04"/>
+<polygon fill="#000000" stroke="#000000" points="2294.7,-658.62 2284.37,-660.95 2293.9,-665.57 2294.7,-658.62"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common -->
+<g id="node2" class="node">
+<title>src__analysis__chapter2__scorecard_common</title>
+<ellipse fill="#ffffff" fill-opacity="0.698039" stroke="black" cx="180" cy="-441.42" rx="163.95" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="180" y="-436.37" font-family="Times,serif" font-size="14.00" fill="#000000">src.analysis.chapter2.scorecard_common</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="node19" class="node">
+<title>src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="9962" cy="-347.44" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="9962" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">ConsolidatedColumnSpec</text>
+<text xml:space="preserve" text-anchor="middle" x="9962" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:111)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="edge33" class="edge">
+<title>src__analysis__chapter2__scorecard_common&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<path fill="none" stroke="#000000" d="M240.55,-424.28C272.3,-416.63 311.97,-408.32 348,-404.43 534.97,-384.24 6929.95,-377.75 7118,-376.43 7920.59,-370.82 8850.56,-361.05 9422.57,-354.66"/>
+<polygon fill="#000000" stroke="#000000" points="9422.44,-358.17 9432.4,-354.55 9422.36,-351.17 9422.44,-358.17"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__SeedResult -->
+<g id="node22" class="node">
+<title>src__analysis__chapter2__scorecard_common__SeedResult</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="11631" cy="-159.47" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="11631" y="-162.67" font-family="Times,serif" font-size="14.00" fill="#000000">SeedResult</text>
+<text xml:space="preserve" text-anchor="middle" x="11631" y="-146.17" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:286)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common&#45;&gt;src__analysis__chapter2__scorecard_common__SeedResult -->
+<g id="edge34" class="edge">
+<title>src__analysis__chapter2__scorecard_common&#45;&gt;src__analysis__chapter2__scorecard_common__SeedResult</title>
+<path fill="none" stroke="#000000" d="M186.62,-422.96C204.54,-378.49 258.77,-261.35 348,-216.47 408.58,-185.99 8816.57,-166.32 11076.97,-161.59"/>
+<polygon fill="#000000" stroke="#000000" points="11076.61,-165.09 11086.6,-161.57 11076.59,-158.09 11076.61,-165.09"/>
+</g>
+<!-- src__analysis__chapter2__tab_01_global_scorecard -->
+<g id="node3" class="node">
+<title>src__analysis__chapter2__tab_01_global_scorecard</title>
+<ellipse fill="#ffffff" fill-opacity="0.698039" stroke="black" cx="25565" cy="-732.37" rx="183.4" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="25565" y="-727.32" font-family="Times,serif" font-size="14.00" fill="#000000">src.analysis.chapter2.tab_01_global_scorecard</text>
+</g>
+<!-- src__analysis__chapter2__tab_01_global_scorecard__main -->
+<g id="node76" class="node">
+<title>src__analysis__chapter2__tab_01_global_scorecard__main</title>
+<ellipse fill="#d6ff32" fill-opacity="0.698039" stroke="black" cx="25565" cy="-633.89" rx="559.14" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="25565" y="-637.09" font-family="Times,serif" font-size="14.00" fill="#000000">main</text>
+<text xml:space="preserve" text-anchor="middle" x="25565" y="-620.59" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_01_global_scorecard.py:37)</text>
+</g>
+<!-- src__analysis__chapter2__tab_01_global_scorecard&#45;&gt;src__analysis__chapter2__tab_01_global_scorecard__main -->
+<g id="edge28" class="edge">
+<title>src__analysis__chapter2__tab_01_global_scorecard&#45;&gt;src__analysis__chapter2__tab_01_global_scorecard__main</title>
+<path fill="none" stroke="#000000" d="M25565,-714.12C25565,-703.11 25565,-688.37 25565,-674.58"/>
+<polygon fill="#000000" stroke="#000000" points="25568.5,-674.85 25565,-664.85 25561.5,-674.85 25568.5,-674.85"/>
+</g>
+<!-- src__analysis__chapter2__tab_02_structural_generalization -->
+<g id="node4" class="node">
+<title>src__analysis__chapter2__tab_02_structural_generalization</title>
+<ellipse fill="#ffffff" fill-opacity="0.698039" stroke="black" cx="27335" cy="-732.37" rx="212.06" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="27335" y="-727.32" font-family="Times,serif" font-size="14.00" fill="#000000">src.analysis.chapter2.tab_02_structural_generalization</text>
+</g>
+<!-- src__analysis__chapter2__tab_02_structural_generalization__main -->
+<g id="node80" class="node">
+<title>src__analysis__chapter2__tab_02_structural_generalization__main</title>
+<ellipse fill="#5bff32" fill-opacity="0.698039" stroke="black" cx="27335" cy="-633.89" rx="593.62" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="27335" y="-637.09" font-family="Times,serif" font-size="14.00" fill="#000000">main</text>
+<text xml:space="preserve" text-anchor="middle" x="27335" y="-620.59" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_02_structural_generalization.py:107)</text>
+</g>
+<!-- src__analysis__chapter2__tab_02_structural_generalization&#45;&gt;src__analysis__chapter2__tab_02_structural_generalization__main -->
+<g id="edge3" class="edge">
+<title>src__analysis__chapter2__tab_02_structural_generalization&#45;&gt;src__analysis__chapter2__tab_02_structural_generalization__main</title>
+<path fill="none" stroke="#000000" d="M27335,-714.12C27335,-703.11 27335,-688.37 27335,-674.58"/>
+<polygon fill="#000000" stroke="#000000" points="27338.5,-674.85 27335,-664.85 27331.5,-674.85 27338.5,-674.85"/>
+</g>
+<!-- src__analysis__chapter2__tab_03_temporal_horizons -->
+<g id="node5" class="node">
+<title>src__analysis__chapter2__tab_03_temporal_horizons</title>
+<ellipse fill="#ffffff" fill-opacity="0.698039" stroke="black" cx="29112" cy="-732.37" rx="190.05" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="29112" y="-727.32" font-family="Times,serif" font-size="14.00" fill="#000000">src.analysis.chapter2.tab_03_temporal_horizons</text>
+</g>
+<!-- src__analysis__chapter2__tab_03_temporal_horizons__main -->
+<g id="node83" class="node">
+<title>src__analysis__chapter2__tab_03_temporal_horizons__main</title>
+<ellipse fill="#32ff84" fill-opacity="0.698039" stroke="black" cx="29112" cy="-633.89" rx="566.04" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="29112" y="-637.09" font-family="Times,serif" font-size="14.00" fill="#000000">main</text>
+<text xml:space="preserve" text-anchor="middle" x="29112" y="-620.59" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_03_temporal_horizons.py:40)</text>
+</g>
+<!-- src__analysis__chapter2__tab_03_temporal_horizons&#45;&gt;src__analysis__chapter2__tab_03_temporal_horizons__main -->
+<g id="edge11" class="edge">
+<title>src__analysis__chapter2__tab_03_temporal_horizons&#45;&gt;src__analysis__chapter2__tab_03_temporal_horizons__main</title>
+<path fill="none" stroke="#000000" d="M29112,-714.12C29112,-703.11 29112,-688.37 29112,-674.58"/>
+<polygon fill="#000000" stroke="#000000" points="29115.5,-674.85 29112,-664.85 29108.5,-674.85 29115.5,-674.85"/>
+</g>
+<!-- src__analysis__chapter2__tab_04_seed_robustness -->
+<g id="node6" class="node">
+<title>src__analysis__chapter2__tab_04_seed_robustness</title>
+<ellipse fill="#ffffff" fill-opacity="0.698039" stroke="black" cx="30258" cy="-732.37" rx="180.33" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="30258" y="-727.32" font-family="Times,serif" font-size="14.00" fill="#000000">src.analysis.chapter2.tab_04_seed_robustness</text>
+</g>
+<!-- src__analysis__chapter2__tab_04_seed_robustness__main -->
+<g id="node85" class="node">
+<title>src__analysis__chapter2__tab_04_seed_robustness__main</title>
+<ellipse fill="#32feff" fill-opacity="0.698039" stroke="black" cx="30258" cy="-633.89" rx="555.96" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="30258" y="-637.09" font-family="Times,serif" font-size="14.00" fill="#000000">main</text>
+<text xml:space="preserve" text-anchor="middle" x="30258" y="-620.59" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_04_seed_robustness.py:32)</text>
+</g>
+<!-- src__analysis__chapter2__tab_04_seed_robustness&#45;&gt;src__analysis__chapter2__tab_04_seed_robustness__main -->
+<g id="edge13" class="edge">
+<title>src__analysis__chapter2__tab_04_seed_robustness&#45;&gt;src__analysis__chapter2__tab_04_seed_robustness__main</title>
+<path fill="none" stroke="#000000" d="M30258,-714.12C30258,-703.11 30258,-688.37 30258,-674.58"/>
+<polygon fill="#000000" stroke="#000000" points="30261.5,-674.85 30258,-664.85 30254.5,-674.85 30261.5,-674.85"/>
+</g>
+<!-- src__analysis__chapter2__tab_05_structural_slices_test -->
+<g id="node7" class="node">
+<title>src__analysis__chapter2__tab_05_structural_slices_test</title>
+<ellipse fill="#ffffff" fill-opacity="0.698039" stroke="black" cx="31412" cy="-732.37" rx="197.73" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="31412" y="-727.32" font-family="Times,serif" font-size="14.00" fill="#000000">src.analysis.chapter2.tab_05_structural_slices_test</text>
+</g>
+<!-- src__analysis__chapter2__tab_05_structural_slices_test__main -->
+<g id="node87" class="node">
+<title>src__analysis__chapter2__tab_05_structural_slices_test__main</title>
+<ellipse fill="#3284ff" fill-opacity="0.698039" stroke="black" cx="31412" cy="-633.89" rx="573.99" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="31412" y="-637.09" font-family="Times,serif" font-size="14.00" fill="#000000">main</text>
+<text xml:space="preserve" text-anchor="middle" x="31412" y="-620.59" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_05_structural_slices_test.py:91)</text>
+</g>
+<!-- src__analysis__chapter2__tab_05_structural_slices_test&#45;&gt;src__analysis__chapter2__tab_05_structural_slices_test__main -->
+<g id="edge30" class="edge">
+<title>src__analysis__chapter2__tab_05_structural_slices_test&#45;&gt;src__analysis__chapter2__tab_05_structural_slices_test__main</title>
+<path fill="none" stroke="#000000" d="M31412,-714.12C31412,-703.11 31412,-688.37 31412,-674.58"/>
+<polygon fill="#000000" stroke="#000000" points="31415.5,-674.85 31412,-664.85 31408.5,-674.85 31415.5,-674.85"/>
+</g>
+<!-- src__analysis__chapter2__tab_06_structural_slices_val -->
+<g id="node8" class="node">
+<title>src__analysis__chapter2__tab_06_structural_slices_val</title>
+<ellipse fill="#ffffff" fill-opacity="0.698039" stroke="black" cx="32582" cy="-732.37" rx="196.19" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="32582" y="-727.32" font-family="Times,serif" font-size="14.00" fill="#000000">src.analysis.chapter2.tab_06_structural_slices_val</text>
+</g>
+<!-- src__analysis__chapter2__tab_06_structural_slices_val__main -->
+<g id="node90" class="node">
+<title>src__analysis__chapter2__tab_06_structural_slices_val__main</title>
+<ellipse fill="#5b32ff" fill-opacity="0.698039" stroke="black" cx="32582" cy="-633.89" rx="572.4" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="32582" y="-637.09" font-family="Times,serif" font-size="14.00" fill="#000000">main</text>
+<text xml:space="preserve" text-anchor="middle" x="32582" y="-620.59" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_06_structural_slices_val.py:91)</text>
+</g>
+<!-- src__analysis__chapter2__tab_06_structural_slices_val&#45;&gt;src__analysis__chapter2__tab_06_structural_slices_val__main -->
+<g id="edge8" class="edge">
+<title>src__analysis__chapter2__tab_06_structural_slices_val&#45;&gt;src__analysis__chapter2__tab_06_structural_slices_val__main</title>
+<path fill="none" stroke="#000000" d="M32582,-714.12C32582,-703.11 32582,-688.37 32582,-674.58"/>
+<polygon fill="#000000" stroke="#000000" points="32585.5,-674.85 32582,-664.85 32578.5,-674.85 32585.5,-674.85"/>
+</g>
+<!-- src__analysis__chapter2__tab_07_temporal_full -->
+<g id="node9" class="node">
+<title>src__analysis__chapter2__tab_07_temporal_full</title>
+<ellipse fill="#ffffff" fill-opacity="0.698039" stroke="black" cx="33724" cy="-732.37" rx="171.11" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="33724" y="-727.32" font-family="Times,serif" font-size="14.00" fill="#000000">src.analysis.chapter2.tab_07_temporal_full</text>
+</g>
+<!-- src__analysis__chapter2__tab_07_temporal_full__main -->
+<g id="node93" class="node">
+<title>src__analysis__chapter2__tab_07_temporal_full__main</title>
+<ellipse fill="#d632ff" fill-opacity="0.698039" stroke="black" cx="33724" cy="-633.89" rx="546.42" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="33724" y="-637.09" font-family="Times,serif" font-size="14.00" fill="#000000">main</text>
+<text xml:space="preserve" text-anchor="middle" x="33724" y="-620.59" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_07_temporal_full.py:52)</text>
+</g>
+<!-- src__analysis__chapter2__tab_07_temporal_full&#45;&gt;src__analysis__chapter2__tab_07_temporal_full__main -->
+<g id="edge1" class="edge">
+<title>src__analysis__chapter2__tab_07_temporal_full&#45;&gt;src__analysis__chapter2__tab_07_temporal_full__main</title>
+<path fill="none" stroke="#000000" d="M33724,-714.12C33724,-703.11 33724,-688.37 33724,-674.58"/>
+<polygon fill="#000000" stroke="#000000" points="33727.5,-674.85 33724,-664.85 33720.5,-674.85 33727.5,-674.85"/>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__collect_model_specs -->
+<g id="node11" class="node">
+<title>src__analysis__chapter2__build_model_metrics__collect_model_specs</title>
+<ellipse fill="#ff3232" fill-opacity="0.698039" stroke="black" cx="910" cy="-347.44" rx="550.13" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="910" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">collect_model_specs</text>
+<text xml:space="preserve" text-anchor="middle" x="910" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/build_model_metrics.py:127)</text>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__collect_model_specs&#45;&gt;src__analysis__chapter2__build_model_metrics__ModelSpec -->
+<g id="edge17" class="edge">
+<title>src__analysis__chapter2__build_model_metrics__collect_model_specs&#45;&gt;src__analysis__chapter2__build_model_metrics__ModelSpec</title>
+<path fill="none" stroke="#000000" d="M1244.34,-324.04C1318.31,-319.33 1396.3,-314.55 1469,-310.45 1726.23,-295.95 1790.68,-295.23 2048,-282.45 2097.06,-280.01 2148.59,-277.42 2199.61,-274.84"/>
+<polygon fill="#000000" stroke="#000000" points="2199.51,-278.35 2209.32,-274.35 2199.16,-271.36 2199.51,-278.35"/>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__compute_metrics -->
+<g id="node12" class="node">
+<title>src__analysis__chapter2__build_model_metrics__compute_metrics</title>
+<ellipse fill="#ff3232" fill-opacity="0.698039" stroke="black" cx="3166" cy="-441.42" rx="550.13" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="3166" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">compute_metrics</text>
+<text xml:space="preserve" text-anchor="middle" x="3166" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/build_model_metrics.py:163)</text>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__create_base_view -->
+<g id="node13" class="node">
+<title>src__analysis__chapter2__build_model_metrics__create_base_view</title>
+<ellipse fill="#ff3232" fill-opacity="0.698039" stroke="black" cx="940" cy="-535.41" rx="550.13" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="940" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">create_base_view</text>
+<text xml:space="preserve" text-anchor="middle" x="940" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/build_model_metrics.py:107)</text>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__evaluate_model -->
+<g id="node14" class="node">
+<title>src__analysis__chapter2__build_model_metrics__evaluate_model</title>
+<ellipse fill="#ff3232" fill-opacity="0.698039" stroke="black" cx="2058" cy="-535.41" rx="550.13" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="2058" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">evaluate_model</text>
+<text xml:space="preserve" text-anchor="middle" x="2058" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/build_model_metrics.py:248)</text>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__evaluate_model&#45;&gt;src__analysis__chapter2__build_model_metrics__ModelSpec -->
+<g id="edge22" class="edge">
+<title>src__analysis__chapter2__build_model_metrics__evaluate_model&#45;&gt;src__analysis__chapter2__build_model_metrics__ModelSpec</title>
+<path fill="none" stroke="#000000" d="M2375.86,-511.35C2478.03,-500.95 2569.57,-487.2 2587,-470.41 2611.36,-446.96 2606.38,-349.54 2601.3,-293.89"/>
+<polygon fill="#000000" stroke="#000000" points="2604.81,-293.82 2600.37,-284.2 2597.84,-294.49 2604.81,-293.82"/>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__evaluate_model&#45;&gt;src__analysis__chapter2__build_model_metrics__compute_metrics -->
+<g id="edge21" class="edge">
+<title>src__analysis__chapter2__build_model_metrics__evaluate_model&#45;&gt;src__analysis__chapter2__build_model_metrics__compute_metrics</title>
+<path fill="none" stroke="#000000" d="M2347.67,-510.36C2506.87,-497.14 2704.12,-480.77 2865.07,-467.41"/>
+<polygon fill="#000000" stroke="#000000" points="2864.92,-470.93 2874.59,-466.61 2864.34,-463.95 2864.92,-470.93"/>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__register_model_view -->
+<g id="node18" class="node">
+<title>src__analysis__chapter2__build_model_metrics__register_model_view</title>
+<ellipse fill="#ff3232" fill-opacity="0.698039" stroke="black" cx="2028" cy="-441.42" rx="550.13" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="2028" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">register_model_view</text>
+<text xml:space="preserve" text-anchor="middle" x="2028" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/build_model_metrics.py:139)</text>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__evaluate_model&#45;&gt;src__analysis__chapter2__build_model_metrics__register_model_view -->
+<g id="edge23" class="edge">
+<title>src__analysis__chapter2__build_model_metrics__evaluate_model&#45;&gt;src__analysis__chapter2__build_model_metrics__register_model_view</title>
+<path fill="none" stroke="#000000" d="M2048.75,-506.06C2046.24,-498.36 2043.48,-489.89 2040.81,-481.71"/>
+<polygon fill="#000000" stroke="#000000" points="2044.16,-480.7 2037.74,-472.27 2037.51,-482.87 2044.16,-480.7"/>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__main&#45;&gt;src__analysis__chapter2__build_model_metrics__collect_model_specs -->
+<g id="edge27" class="edge">
+<title>src__analysis__chapter2__build_model_metrics__main&#45;&gt;src__analysis__chapter2__build_model_metrics__collect_model_specs</title>
+<path fill="none" stroke="#000000" d="M1512,-630.09C1030.2,-626.27 401.04,-617.37 381,-596.9 266.12,-479.53 507.98,-411.25 701.39,-376.91"/>
+<polygon fill="#000000" stroke="#000000" points="701.86,-380.38 711.11,-375.21 700.65,-373.49 701.86,-380.38"/>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__main&#45;&gt;src__analysis__chapter2__build_model_metrics__create_base_view -->
+<g id="edge26" class="edge">
+<title>src__analysis__chapter2__build_model_metrics__main&#45;&gt;src__analysis__chapter2__build_model_metrics__create_base_view</title>
+<path fill="none" stroke="#000000" d="M1694.36,-611.78C1629.27,-607.34 1562.1,-602.34 1499,-596.9 1391.08,-587.59 1271.69,-574.98 1171.05,-563.69"/>
+<polygon fill="#000000" stroke="#000000" points="1171.65,-560.23 1161.32,-562.59 1170.86,-567.19 1171.65,-560.23"/>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__main&#45;&gt;src__analysis__chapter2__build_model_metrics__evaluate_model -->
+<g id="edge24" class="edge">
+<title>src__analysis__chapter2__build_model_metrics__main&#45;&gt;src__analysis__chapter2__build_model_metrics__evaluate_model</title>
+<path fill="none" stroke="#000000" d="M2058,-604.46C2058,-595.53 2058,-585.5 2058,-575.95"/>
+<polygon fill="#000000" stroke="#000000" points="2061.5,-576.14 2058,-566.14 2054.5,-576.14 2061.5,-576.14"/>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__parse_args -->
+<g id="node17" class="node">
+<title>src__analysis__chapter2__build_model_metrics__parse_args</title>
+<ellipse fill="#ff3232" fill-opacity="0.698039" stroke="black" cx="3171" cy="-535.41" rx="545.36" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="3171" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">parse_args</text>
+<text xml:space="preserve" text-anchor="middle" x="3171" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/build_model_metrics.py:83)</text>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__main&#45;&gt;src__analysis__chapter2__build_model_metrics__parse_args -->
+<g id="edge25" class="edge">
+<title>src__analysis__chapter2__build_model_metrics__main&#45;&gt;src__analysis__chapter2__build_model_metrics__parse_args</title>
+<path fill="none" stroke="#000000" d="M2422.02,-611.8C2486.99,-607.37 2554.02,-602.36 2617,-596.9 2724.08,-587.61 2842.54,-574.99 2942.35,-563.68"/>
+<polygon fill="#000000" stroke="#000000" points="2942.45,-567.19 2951.99,-562.59 2941.66,-560.24 2942.45,-567.19"/>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__model_score_path -->
+<g id="node16" class="node">
+<title>src__analysis__chapter2__build_model_metrics__model_score_path</title>
+<ellipse fill="#ff3232" fill-opacity="0.698039" stroke="black" cx="2028" cy="-347.44" rx="550.13" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="2028" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">model_score_path</text>
+<text xml:space="preserve" text-anchor="middle" x="2028" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/build_model_metrics.py:133)</text>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__model_score_path&#45;&gt;src__analysis__chapter2__build_model_metrics__ModelSpec -->
+<g id="edge18" class="edge">
+<title>src__analysis__chapter2__build_model_metrics__model_score_path&#45;&gt;src__analysis__chapter2__build_model_metrics__ModelSpec</title>
+<path fill="none" stroke="#000000" d="M2195.26,-319.4C2265.44,-308.06 2347.15,-294.85 2418.49,-283.31"/>
+<polygon fill="#000000" stroke="#000000" points="2419.04,-286.77 2428.36,-281.72 2417.93,-279.86 2419.04,-286.77"/>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__register_model_view&#45;&gt;src__analysis__chapter2__build_model_metrics__ModelSpec -->
+<g id="edge19" class="edge">
+<title>src__analysis__chapter2__build_model_metrics__register_model_view&#45;&gt;src__analysis__chapter2__build_model_metrics__ModelSpec</title>
+<path fill="none" stroke="#000000" d="M2371.14,-418.39C2476.5,-408.25 2569.59,-394.41 2587,-376.43 2607.6,-355.16 2608.73,-320.89 2605.49,-294.09"/>
+<polygon fill="#000000" stroke="#000000" points="2608.96,-293.62 2604.03,-284.24 2602.04,-294.65 2608.96,-293.62"/>
+</g>
+<!-- src__analysis__chapter2__build_model_metrics__register_model_view&#45;&gt;src__analysis__chapter2__build_model_metrics__model_score_path -->
+<g id="edge20" class="edge">
+<title>src__analysis__chapter2__build_model_metrics__register_model_view&#45;&gt;src__analysis__chapter2__build_model_metrics__model_score_path</title>
+<path fill="none" stroke="#000000" d="M2028,-412.07C2028,-404.56 2028,-396.29 2028,-388.29"/>
+<polygon fill="#000000" stroke="#000000" points="2031.5,-388.37 2028,-378.37 2024.5,-388.37 2031.5,-388.37"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__MetricAggregate -->
+<g id="node20" class="node">
+<title>src__analysis__chapter2__scorecard_common__MetricAggregate</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="20276" cy="-253.46" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="20276" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">MetricAggregate</text>
+<text xml:space="preserve" text-anchor="middle" x="20276" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:263)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__ScorecardAssets -->
+<g id="node21" class="node">
+<title>src__analysis__chapter2__scorecard_common__ScorecardAssets</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="19428" cy="-441.42" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="19428" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">ScorecardAssets</text>
+<text xml:space="preserve" text-anchor="middle" x="19428" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:293)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__SplitSummary -->
+<g id="node23" class="node">
+<title>src__analysis__chapter2__scorecard_common__SplitSummary</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="19994" cy="-347.44" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="19994" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">SplitSummary</text>
+<text xml:space="preserve" text-anchor="middle" x="19994" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:273)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__ScorecardAssets&#45;&gt;src__analysis__chapter2__scorecard_common__SplitSummary -->
+<g id="edge36" class="edge">
+<title>src__analysis__chapter2__scorecard_common__ScorecardAssets&#45;&gt;src__analysis__chapter2__scorecard_common__SplitSummary</title>
+<path fill="none" stroke="#000000" d="M19594.38,-413.38C19664.19,-402.04 19745.47,-388.83 19816.44,-377.3"/>
+<polygon fill="#000000" stroke="#000000" points="19816.93,-380.76 19826.24,-375.7 19815.81,-373.85 19816.93,-380.76"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__SplitSummary&#45;&gt;src__analysis__chapter2__scorecard_common__MetricAggregate -->
+<g id="edge35" class="edge">
+<title>src__analysis__chapter2__scorecard_common__SplitSummary&#45;&gt;src__analysis__chapter2__scorecard_common__MetricAggregate</title>
+<path fill="none" stroke="#000000" d="M20080.14,-318.34C20111.43,-308.14 20146.99,-296.54 20179.14,-286.05"/>
+<polygon fill="#000000" stroke="#000000" points="20180.04,-289.44 20188.46,-283.01 20177.87,-282.78 20180.04,-289.44"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common___preload_seed_results -->
+<g id="node24" class="node">
+<title>src__analysis__chapter2__scorecard_common___preload_seed_results</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="15543" cy="-535.41" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="15543" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">_preload_seed_results</text>
+<text xml:space="preserve" text-anchor="middle" x="15543" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1477)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common___preload_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="edge95" class="edge">
+<title>src__analysis__chapter2__scorecard_common___preload_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<path fill="none" stroke="#000000" d="M15228.69,-511.25C15149.52,-506.2 15064.67,-501.46 14986,-498.41 14925.93,-496.09 12871.25,-504.89 12822,-470.41 12796.31,-452.43 12822.7,-422.41 12797,-404.43 12745.06,-368.09 10578.36,-378.42 10515,-376.43 10459.15,-374.68 10400.15,-372.27 10342.31,-369.61"/>
+<polygon fill="#000000" stroke="#000000" points="10342.81,-366.13 10332.66,-369.16 10342.48,-373.12 10342.81,-366.13"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common___preload_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__SeedResult -->
+<g id="edge96" class="edge">
+<title>src__analysis__chapter2__scorecard_common___preload_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__SeedResult</title>
+<path fill="none" stroke="#000000" d="M16015.08,-520.35C16467.89,-501.87 17094.05,-461.21 17171,-376.43 17190.71,-354.72 17191.29,-331.62 17171,-310.45 17085.38,-221.09 13556.83,-178.48 12176.5,-165.2"/>
+<polygon fill="#000000" stroke="#000000" points="12176.69,-161.71 12166.65,-165.11 12176.62,-168.7 12176.69,-161.71"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__load_model_seed_results -->
+<g id="node59" class="node">
+<title>src__analysis__chapter2__scorecard_common__load_model_seed_results</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="12194" cy="-347.44" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="12194" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">load_model_seed_results</text>
+<text xml:space="preserve" text-anchor="middle" x="12194" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:410)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common___preload_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__load_model_seed_results -->
+<g id="edge97" class="edge">
+<title>src__analysis__chapter2__scorecard_common___preload_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__load_model_seed_results</title>
+<path fill="none" stroke="#000000" d="M15231.69,-511.16C15075.65,-499.33 14883.8,-484.5 14712,-470.41 14374.53,-442.75 14291.09,-423.03 13953,-404.43 13417.67,-374.98 13282.78,-396.21 12747,-376.43 12692.96,-374.44 12635.98,-371.97 12579.94,-369.33"/>
+<polygon fill="#000000" stroke="#000000" points="12580.41,-365.85 12570.26,-368.87 12580.08,-372.84 12580.41,-365.85"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common___to_float -->
+<g id="node25" class="node">
+<title>src__analysis__chapter2__scorecard_common___to_float</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="11068" cy="-347.44" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="11068" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">_to_float</text>
+<text xml:space="preserve" text-anchor="middle" x="11068" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:936)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__aggregate_metric_lists -->
+<g id="node26" class="node">
+<title>src__analysis__chapter2__scorecard_common__aggregate_metric_lists</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="13300" cy="-347.44" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="13300" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">aggregate_metric_lists</text>
+<text xml:space="preserve" text-anchor="middle" x="13300" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:609)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__aggregate_metric_lists&#45;&gt;src__analysis__chapter2__scorecard_common__MetricAggregate -->
+<g id="edge45" class="edge">
+<title>src__analysis__chapter2__scorecard_common__aggregate_metric_lists&#45;&gt;src__analysis__chapter2__scorecard_common__MetricAggregate</title>
+<path fill="none" stroke="#000000" d="M13608.42,-323.15C13688.05,-318.02 13773.68,-313.28 13853,-310.45 14839.95,-275.25 17309.48,-292.54 18297,-282.45 18789.19,-277.42 19350.2,-269.25 19748.91,-263.04"/>
+<polygon fill="#000000" stroke="#000000" points="19748.9,-266.54 19758.85,-262.88 19748.79,-259.54 19748.9,-266.54"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__build_consolidated_metrics -->
+<g id="node27" class="node">
+<title>src__analysis__chapter2__scorecard_common__build_consolidated_metrics</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="12239" cy="-441.42" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="12239" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">build_consolidated_metrics</text>
+<text xml:space="preserve" text-anchor="middle" x="12239" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1126)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__build_consolidated_metrics&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="edge74" class="edge">
+<title>src__analysis__chapter2__scorecard_common__build_consolidated_metrics&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<path fill="none" stroke="#000000" d="M11916.46,-417.59C11837.82,-412.64 11753.91,-407.86 11676,-404.43 11160.35,-381.74 11030.79,-395.7 10515,-376.43 10461.3,-374.42 10404.69,-371.96 10348.99,-369.33"/>
+<polygon fill="#000000" stroke="#000000" points="10349.16,-365.84 10339.01,-368.86 10348.83,-372.83 10349.16,-365.84"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__build_consolidated_metrics&#45;&gt;src__analysis__chapter2__scorecard_common___to_float -->
+<g id="edge75" class="edge">
+<title>src__analysis__chapter2__scorecard_common__build_consolidated_metrics&#45;&gt;src__analysis__chapter2__scorecard_common___to_float</title>
+<path fill="none" stroke="#000000" d="M11937.82,-416.76C11766.58,-403.31 11552.48,-386.5 11379.55,-372.91"/>
+<polygon fill="#000000" stroke="#000000" points="11379.97,-369.43 11369.73,-372.14 11379.42,-376.41 11379.97,-369.43"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__build_global_column_spec -->
+<g id="node28" class="node">
+<title>src__analysis__chapter2__scorecard_common__build_global_column_spec</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="21120" cy="-347.44" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="21120" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">build_global_column_spec</text>
+<text xml:space="preserve" text-anchor="middle" x="21120" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:221)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__build_metrics_from_seeds -->
+<g id="node29" class="node">
+<title>src__analysis__chapter2__scorecard_common__build_metrics_from_seeds</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="13395" cy="-441.42" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="13395" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">build_metrics_from_seeds</text>
+<text xml:space="preserve" text-anchor="middle" x="13395" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1164)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__build_metrics_from_seeds&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="edge77" class="edge">
+<title>src__analysis__chapter2__scorecard_common__build_metrics_from_seeds&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<path fill="none" stroke="#000000" d="M13078.78,-417.32C12998.33,-412.24 12912.01,-407.47 12832,-404.43 11802.89,-365.34 11544.35,-408.69 10515,-376.43 10459.15,-374.68 10400.15,-372.28 10342.31,-369.62"/>
+<polygon fill="#000000" stroke="#000000" points="10342.81,-366.14 10332.66,-369.17 10342.48,-373.13 10342.81,-366.14"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__build_metrics_from_seeds&#45;&gt;src__analysis__chapter2__scorecard_common__SeedResult -->
+<g id="edge78" class="edge">
+<title>src__analysis__chapter2__scorecard_common__build_metrics_from_seeds&#45;&gt;src__analysis__chapter2__scorecard_common__SeedResult</title>
+<path fill="none" stroke="#000000" d="M13072.47,-417.56C12993.82,-412.6 12909.91,-407.84 12832,-404.43 12798.94,-402.99 11664.66,-399.56 11641,-376.43 11616.82,-352.79 11621.72,-255.45 11626.75,-199.86"/>
+<polygon fill="#000000" stroke="#000000" points="11630.21,-200.47 11627.67,-190.18 11623.24,-199.8 11630.21,-200.47"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__build_metrics_from_seeds&#45;&gt;src__analysis__chapter2__scorecard_common__aggregate_metric_lists -->
+<g id="edge76" class="edge">
+<title>src__analysis__chapter2__scorecard_common__build_metrics_from_seeds&#45;&gt;src__analysis__chapter2__scorecard_common__aggregate_metric_lists</title>
+<path fill="none" stroke="#000000" d="M13365.72,-412.07C13356.78,-403.42 13346.83,-393.78 13337.43,-384.68"/>
+<polygon fill="#000000" stroke="#000000" points="13340.05,-382.35 13330.43,-377.91 13335.18,-387.38 13340.05,-382.35"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__build_metrics_from_seeds&#45;&gt;src__analysis__chapter2__scorecard_common__load_model_seed_results -->
+<g id="edge79" class="edge">
+<title>src__analysis__chapter2__scorecard_common__build_metrics_from_seeds&#45;&gt;src__analysis__chapter2__scorecard_common__load_model_seed_results</title>
+<path fill="none" stroke="#000000" d="M13088.83,-416.97C12911.85,-403.42 12689.54,-386.39 12510.79,-372.7"/>
+<polygon fill="#000000" stroke="#000000" points="12511.1,-369.22 12500.86,-371.94 12510.56,-376.2 12511.1,-369.22"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__build_seed_robustness_lines -->
+<g id="node30" class="node">
+<title>src__analysis__chapter2__scorecard_common__build_seed_robustness_lines</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="18318" cy="-441.42" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="18318" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">build_seed_robustness_lines</text>
+<text xml:space="preserve" text-anchor="middle" x="18318" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1733)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__build_seed_robustness_lines&#45;&gt;src__analysis__chapter2__scorecard_common__SplitSummary -->
+<g id="edge117" class="edge">
+<title>src__analysis__chapter2__scorecard_common__build_seed_robustness_lines&#45;&gt;src__analysis__chapter2__scorecard_common__SplitSummary</title>
+<path fill="none" stroke="#000000" d="M18651.88,-418.02C18725.37,-413.32 18802.8,-408.55 18875,-404.43 19126.9,-390.07 19190.01,-389.04 19442,-376.43 19491.66,-373.95 19543.84,-371.32 19595.48,-368.71"/>
+<polygon fill="#000000" stroke="#000000" points="19595.51,-372.21 19605.33,-368.21 19595.16,-365.22 19595.51,-372.21"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__format_cv_inline -->
+<g id="node44" class="node">
+<title>src__analysis__chapter2__scorecard_common__format_cv_inline</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="18884" cy="-347.44" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="18884" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">format_cv_inline</text>
+<text xml:space="preserve" text-anchor="middle" x="18884" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1727)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__build_seed_robustness_lines&#45;&gt;src__analysis__chapter2__scorecard_common__format_cv_inline -->
+<g id="edge116" class="edge">
+<title>src__analysis__chapter2__scorecard_common__build_seed_robustness_lines&#45;&gt;src__analysis__chapter2__scorecard_common__format_cv_inline</title>
+<path fill="none" stroke="#000000" d="M18484.38,-413.38C18554.19,-402.04 18635.47,-388.83 18706.44,-377.3"/>
+<polygon fill="#000000" stroke="#000000" points="18706.93,-380.76 18716.24,-375.7 18705.81,-373.85 18706.93,-380.76"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__format_mean_ci_inline -->
+<g id="node48" class="node">
+<title>src__analysis__chapter2__scorecard_common__format_mean_ci_inline</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="17769" cy="-347.44" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="17769" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">format_mean_ci_inline</text>
+<text xml:space="preserve" text-anchor="middle" x="17769" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1718)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__build_seed_robustness_lines&#45;&gt;src__analysis__chapter2__scorecard_common__format_mean_ci_inline -->
+<g id="edge115" class="edge">
+<title>src__analysis__chapter2__scorecard_common__build_seed_robustness_lines&#45;&gt;src__analysis__chapter2__scorecard_common__format_mean_ci_inline</title>
+<path fill="none" stroke="#000000" d="M18155.88,-413.26C18088.63,-401.99 18010.5,-388.9 17942.13,-377.45"/>
+<polygon fill="#000000" stroke="#000000" points="17942.74,-374 17932.3,-375.8 17941.58,-380.9 17942.74,-374"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__build_slice_column_spec -->
+<g id="node31" class="node">
+<title>src__analysis__chapter2__scorecard_common__build_slice_column_spec</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="24438" cy="-347.44" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="24438" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">build_slice_column_spec</text>
+<text xml:space="preserve" text-anchor="middle" x="24438" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:210)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__chunk_specs -->
+<g id="node32" class="node">
+<title>src__analysis__chapter2__scorecard_common__chunk_specs</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="6580" cy="-633.89" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="6580" y="-637.09" font-family="Times,serif" font-size="14.00" fill="#000000">chunk_specs</text>
+<text xml:space="preserve" text-anchor="middle" x="6580" y="-620.59" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1307)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__chunk_specs&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="edge82" class="edge">
+<title>src__analysis__chapter2__scorecard_common__chunk_specs&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<path fill="none" stroke="#000000" d="M6822.32,-607.49C6924.39,-585.67 7037.85,-545.23 7118,-470.41 7140.93,-449.02 7117.37,-422.51 7143,-404.43 7188.67,-372.22 8604.64,-357.47 9411.98,-351.66"/>
+<polygon fill="#000000" stroke="#000000" points="9411.74,-355.16 9421.71,-351.59 9411.69,-348.16 9411.74,-355.16"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_metrics_for_specs -->
+<g id="node33" class="node">
+<title>src__analysis__chapter2__scorecard_common__collect_metrics_for_specs</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="9957" cy="-535.41" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="9957" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">collect_metrics_for_specs</text>
+<text xml:space="preserve" text-anchor="middle" x="9957" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1319)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_metrics_for_specs&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="edge83" class="edge">
+<title>src__analysis__chapter2__scorecard_common__collect_metrics_for_specs&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<path fill="none" stroke="#000000" d="M9642.95,-511.25C9547.68,-501.03 9463.99,-487.41 9449,-470.41 9429.6,-448.42 9429.42,-426.26 9449,-404.43 9461.7,-390.27 9522.46,-379.34 9597.98,-371.06"/>
+<polygon fill="#000000" stroke="#000000" points="9598.15,-374.56 9607.72,-370.01 9597.41,-367.6 9598.15,-374.56"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_metrics_for_specs&#45;&gt;src__analysis__chapter2__scorecard_common__SeedResult -->
+<g id="edge85" class="edge">
+<title>src__analysis__chapter2__scorecard_common__collect_metrics_for_specs&#45;&gt;src__analysis__chapter2__scorecard_common__SeedResult</title>
+<path fill="none" stroke="#000000" d="M9645.25,-511.16C9541.79,-500.63 9448.12,-486.83 9430,-470.41 9403.42,-446.35 9384.52,-336.64 9409,-310.45 9468.03,-247.3 10529.13,-199.19 11163.32,-175.92"/>
+<polygon fill="#000000" stroke="#000000" points="11163.11,-179.43 11172.98,-175.57 11162.86,-172.44 11163.11,-179.43"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_metrics_for_specs&#45;&gt;src__analysis__chapter2__scorecard_common__build_consolidated_metrics -->
+<g id="edge86" class="edge">
+<title>src__analysis__chapter2__scorecard_common__collect_metrics_for_specs&#45;&gt;src__analysis__chapter2__scorecard_common__build_consolidated_metrics</title>
+<path fill="none" stroke="#000000" d="M10277.56,-511.48C10354.94,-506.56 10437.4,-501.82 10514,-498.41 11023.43,-475.75 11151.41,-488.97 11661,-470.41 11719.48,-468.28 11781.27,-465.67 11841.84,-462.91"/>
+<polygon fill="#000000" stroke="#000000" points="11841.8,-466.42 11851.63,-462.47 11841.48,-459.43 11841.8,-466.42"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_metrics_for_specs&#45;&gt;src__analysis__chapter2__scorecard_common__build_metrics_from_seeds -->
+<g id="edge88" class="edge">
+<title>src__analysis__chapter2__scorecard_common__collect_metrics_for_specs&#45;&gt;src__analysis__chapter2__scorecard_common__build_metrics_from_seeds</title>
+<path fill="none" stroke="#000000" d="M10270.95,-511.24C10350.22,-506.18 10435.2,-501.44 10514,-498.41 11528,-459.46 11782.7,-500.36 12797,-470.41 12862.2,-468.49 12931.36,-465.83 12998.64,-462.9"/>
+<polygon fill="#000000" stroke="#000000" points="12998.51,-466.41 13008.34,-462.48 12998.2,-459.42 12998.51,-466.41"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__compute_slice_positive_counts -->
+<g id="node38" class="node">
+<title>src__analysis__chapter2__scorecard_common__compute_slice_positive_counts</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="10002" cy="-441.42" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="10002" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">compute_slice_positive_counts</text>
+<text xml:space="preserve" text-anchor="middle" x="10002" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:961)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_metrics_for_specs&#45;&gt;src__analysis__chapter2__scorecard_common__compute_slice_positive_counts -->
+<g id="edge84" class="edge">
+<title>src__analysis__chapter2__scorecard_common__collect_metrics_for_specs&#45;&gt;src__analysis__chapter2__scorecard_common__compute_slice_positive_counts</title>
+<path fill="none" stroke="#000000" d="M9970.87,-506.06C9974.72,-498.19 9978.96,-489.51 9983.05,-481.15"/>
+<polygon fill="#000000" stroke="#000000" points="9986.18,-482.72 9987.43,-472.2 9979.9,-479.64 9986.18,-482.72"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__load_analysis_slice_metrics -->
+<g id="node57" class="node">
+<title>src__analysis__chapter2__scorecard_common__load_analysis_slice_metrics</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="11108" cy="-441.42" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="11108" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">load_analysis_slice_metrics</text>
+<text xml:space="preserve" text-anchor="middle" x="11108" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:945)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_metrics_for_specs&#45;&gt;src__analysis__chapter2__scorecard_common__load_analysis_slice_metrics -->
+<g id="edge87" class="edge">
+<title>src__analysis__chapter2__scorecard_common__collect_metrics_for_specs&#45;&gt;src__analysis__chapter2__scorecard_common__load_analysis_slice_metrics</title>
+<path fill="none" stroke="#000000" d="M10254.53,-510.63C10422.12,-497.23 10631.09,-480.53 10800.31,-467.01"/>
+<polygon fill="#000000" stroke="#000000" points="10800.46,-470.51 10810.14,-466.23 10799.9,-463.53 10800.46,-470.51"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_split -->
+<g id="node34" class="node">
+<title>src__analysis__chapter2__scorecard_common__collect_split</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="15265" cy="-441.42" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="15265" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">collect_split</text>
+<text xml:space="preserve" text-anchor="middle" x="15265" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:635)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_split&#45;&gt;src__analysis__chapter2__scorecard_common__MetricAggregate -->
+<g id="edge47" class="edge">
+<title>src__analysis__chapter2__scorecard_common__collect_split&#45;&gt;src__analysis__chapter2__scorecard_common__MetricAggregate</title>
+<path fill="none" stroke="#000000" d="M15795.81,-434.97C16339.07,-427.51 17112.14,-410.89 17171,-376.43 17200.59,-359.1 17181.27,-327.55 17211,-310.45 17224.56,-302.65 18872.91,-276.08 19746.37,-262.54"/>
+<polygon fill="#000000" stroke="#000000" points="19746.11,-266.04 19756.06,-262.39 19746,-259.04 19746.11,-266.04"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_split&#45;&gt;src__analysis__chapter2__scorecard_common__SplitSummary -->
+<g id="edge48" class="edge">
+<title>src__analysis__chapter2__scorecard_common__collect_split&#45;&gt;src__analysis__chapter2__scorecard_common__SplitSummary</title>
+<path fill="none" stroke="#000000" d="M15786,-432.93C16865.79,-417.34 19262.74,-382.35 19442,-376.43 19497.07,-374.61 19555.21,-372.2 19612.27,-369.56"/>
+<polygon fill="#000000" stroke="#000000" points="19612.32,-373.06 19622.15,-369.1 19612,-366.07 19612.32,-373.06"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_split&#45;&gt;src__analysis__chapter2__scorecard_common__aggregate_metric_lists -->
+<g id="edge46" class="edge">
+<title>src__analysis__chapter2__scorecard_common__collect_split&#45;&gt;src__analysis__chapter2__scorecard_common__aggregate_metric_lists</title>
+<path fill="none" stroke="#000000" d="M14854.69,-422.07C14508.62,-406.54 14040.58,-385.43 13853,-376.43 13802.46,-374.01 13749.33,-371.4 13696.81,-368.78"/>
+<polygon fill="#000000" stroke="#000000" points="13697.29,-365.3 13687.12,-368.3 13696.94,-372.29 13697.29,-365.3"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__count_sources -->
+<g id="node39" class="node">
+<title>src__analysis__chapter2__scorecard_common__count_sources</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="14406" cy="-347.44" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="14406" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">count_sources</text>
+<text xml:space="preserve" text-anchor="middle" x="14406" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:587)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_split&#45;&gt;src__analysis__chapter2__scorecard_common__count_sources -->
+<g id="edge51" class="edge">
+<title>src__analysis__chapter2__scorecard_common__collect_split&#45;&gt;src__analysis__chapter2__scorecard_common__count_sources</title>
+<path fill="none" stroke="#000000" d="M15026.86,-414.92C14911.3,-402.55 14772.51,-387.69 14655.48,-375.15"/>
+<polygon fill="#000000" stroke="#000000" points="14656.05,-371.7 14645.73,-374.11 14655.3,-378.66 14656.05,-371.7"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__get_base_rate -->
+<g id="node54" class="node">
+<title>src__analysis__chapter2__scorecard_common__get_base_rate</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="15512" cy="-347.44" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="15512" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">get_base_rate</text>
+<text xml:space="preserve" text-anchor="middle" x="15512" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:549)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_split&#45;&gt;src__analysis__chapter2__scorecard_common__get_base_rate -->
+<g id="edge49" class="edge">
+<title>src__analysis__chapter2__scorecard_common__collect_split&#45;&gt;src__analysis__chapter2__scorecard_common__get_base_rate</title>
+<path fill="none" stroke="#000000" d="M15340.45,-412.32C15367.5,-402.25 15398.19,-390.82 15426.06,-380.44"/>
+<polygon fill="#000000" stroke="#000000" points="15427.02,-383.82 15435.17,-377.05 15424.58,-377.26 15427.02,-383.82"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__get_reference_precision -->
+<g id="node55" class="node">
+<title>src__analysis__chapter2__scorecard_common__get_reference_precision</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="16618" cy="-347.44" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="16618" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">get_reference_precision</text>
+<text xml:space="preserve" text-anchor="middle" x="16618" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:565)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_split&#45;&gt;src__analysis__chapter2__scorecard_common__get_reference_precision -->
+<g id="edge50" class="edge">
+<title>src__analysis__chapter2__scorecard_common__collect_split&#45;&gt;src__analysis__chapter2__scorecard_common__get_reference_precision</title>
+<path fill="none" stroke="#000000" d="M15595.12,-417.98C15801.84,-403.93 16067.66,-385.85 16276.51,-371.66"/>
+<polygon fill="#000000" stroke="#000000" points="16276.73,-375.15 16286.47,-370.98 16276.25,-368.17 16276.73,-375.15"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__collect_split&#45;&gt;src__analysis__chapter2__scorecard_common__load_model_seed_results -->
+<g id="edge52" class="edge">
+<title>src__analysis__chapter2__scorecard_common__collect_split&#45;&gt;src__analysis__chapter2__scorecard_common__load_model_seed_results</title>
+<path fill="none" stroke="#000000" d="M14876.33,-420.79C14744.52,-414.73 14596.38,-408.57 14461,-404.43 13699.48,-381.17 13508.45,-401.91 12747,-376.43 12691.94,-374.59 12633.83,-372.17 12576.78,-369.52"/>
+<polygon fill="#000000" stroke="#000000" points="12577.05,-366.03 12566.9,-369.06 12576.72,-373.02 12577.05,-366.03"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__compute_daggers -->
+<g id="node35" class="node">
+<title>src__analysis__chapter2__scorecard_common__compute_daggers</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="22226" cy="-347.44" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="22226" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">compute_daggers</text>
+<text xml:space="preserve" text-anchor="middle" x="22226" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:721)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__compute_daggers&#45;&gt;src__analysis__chapter2__scorecard_common__MetricAggregate -->
+<g id="edge53" class="edge">
+<title>src__analysis__chapter2__scorecard_common__compute_daggers&#45;&gt;src__analysis__chapter2__scorecard_common__MetricAggregate</title>
+<path fill="none" stroke="#000000" d="M21899.67,-323.85C21825.2,-319.07 21746.38,-314.31 21673,-310.45 21362.2,-294.11 21012.27,-280.09 20740.38,-270.17"/>
+<polygon fill="#000000" stroke="#000000" points="20740.76,-266.68 20730.64,-269.81 20740.5,-273.67 20740.76,-266.68"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__compute_ensemble_seed_results -->
+<g id="node36" class="node">
+<title>src__analysis__chapter2__scorecard_common__compute_ensemble_seed_results</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="17744" cy="-253.46" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="17744" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">compute_ensemble_seed_results</text>
+<text xml:space="preserve" text-anchor="middle" x="17744" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:509)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__compute_ensemble_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__SeedResult -->
+<g id="edge43" class="edge">
+<title>src__analysis__chapter2__scorecard_common__compute_ensemble_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__SeedResult</title>
+<path fill="none" stroke="#000000" d="M17431.69,-229.31C17351.65,-224.2 17265.67,-219.43 17186,-216.47 16225.04,-180.66 13390.57,-166.66 12184.42,-162.22"/>
+<polygon fill="#000000" stroke="#000000" points="12184.48,-158.72 12174.47,-162.19 12184.45,-165.72 12184.48,-158.72"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__compute_metrics -->
+<g id="node37" class="node">
+<title>src__analysis__chapter2__scorecard_common__compute_metrics</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="17744" cy="-159.47" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="17744" y="-162.67" font-family="Times,serif" font-size="14.00" fill="#000000">compute_metrics</text>
+<text xml:space="preserve" text-anchor="middle" x="17744" y="-146.17" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:301)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__compute_ensemble_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__compute_metrics -->
+<g id="edge44" class="edge">
+<title>src__analysis__chapter2__scorecard_common__compute_ensemble_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__compute_metrics</title>
+<path fill="none" stroke="#000000" d="M17744,-224.11C17744,-216.59 17744,-208.33 17744,-200.32"/>
+<polygon fill="#000000" stroke="#000000" points="17747.5,-200.4 17744,-190.4 17740.5,-200.4 17747.5,-200.4"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__compute_metrics__to_float -->
+<g id="node72" class="node">
+<title>src__analysis__chapter2__scorecard_common__compute_metrics__to_float</title>
+<ellipse fill="#ff9900" fill-opacity="0.698039" stroke="black" cx="17744" cy="-52.99" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="17744" y="-56.19" font-family="Times,serif" font-size="14.00" fill="#000000">to_float</text>
+<text xml:space="preserve" text-anchor="middle" x="17744" y="-39.69" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:350)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__compute_metrics&#45;&gt;src__analysis__chapter2__scorecard_common__compute_metrics__to_float -->
+<g id="edge37" class="edge">
+<title>src__analysis__chapter2__scorecard_common__compute_metrics&#45;&gt;src__analysis__chapter2__scorecard_common__compute_metrics__to_float</title>
+<path fill="none" stroke="#000000" d="M17744,-130.2C17744,-118.93 17744,-105.77 17744,-93.58"/>
+<polygon fill="#000000" stroke="#000000" points="17747.5,-93.8 17744,-83.8 17740.5,-93.8 17747.5,-93.8"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__compute_slice_positive_counts&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="edge67" class="edge">
+<title>src__analysis__chapter2__scorecard_common__compute_slice_positive_counts&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<path fill="none" stroke="#000000" d="M9989.67,-412.07C9986.25,-404.21 9982.48,-395.52 9978.84,-387.17"/>
+<polygon fill="#000000" stroke="#000000" points="9982.16,-386.02 9974.96,-378.24 9975.74,-388.81 9982.16,-386.02"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__derive_slice_column_specs -->
+<g id="node40" class="node">
+<title>src__analysis__chapter2__scorecard_common__derive_slice_column_specs</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="6560" cy="-441.42" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="6560" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">derive_slice_column_specs</text>
+<text xml:space="preserve" text-anchor="middle" x="6560" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1283)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__derive_slice_column_specs&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="edge80" class="edge">
+<title>src__analysis__chapter2__scorecard_common__derive_slice_column_specs&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<path fill="none" stroke="#000000" d="M6880.3,-417.49C6959.59,-412.49 7044.35,-407.72 7123,-404.43 7918.88,-371.16 8841.11,-357.58 9413.12,-352.09"/>
+<polygon fill="#000000" stroke="#000000" points="9412.98,-355.59 9422.94,-352 9412.91,-348.6 9412.98,-355.59"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__format_slice_label -->
+<g id="node50" class="node">
+<title>src__analysis__chapter2__scorecard_common__format_slice_label</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="6560" cy="-347.44" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="6560" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">format_slice_label</text>
+<text xml:space="preserve" text-anchor="middle" x="6560" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1268)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__derive_slice_column_specs&#45;&gt;src__analysis__chapter2__scorecard_common__format_slice_label -->
+<g id="edge81" class="edge">
+<title>src__analysis__chapter2__scorecard_common__derive_slice_column_specs&#45;&gt;src__analysis__chapter2__scorecard_common__format_slice_label</title>
+<path fill="none" stroke="#000000" d="M6560,-412.07C6560,-404.56 6560,-396.29 6560,-388.29"/>
+<polygon fill="#000000" stroke="#000000" points="6563.5,-388.37 6560,-378.37 6556.5,-388.37 6563.5,-388.37"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__detect_models -->
+<g id="node41" class="node">
+<title>src__analysis__chapter2__scorecard_common__detect_models</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="8831" cy="-441.42" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="8831" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">detect_models</text>
+<text xml:space="preserve" text-anchor="middle" x="8831" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1822)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__detect_slices -->
+<g id="node42" class="node">
+<title>src__analysis__chapter2__scorecard_common__detect_slices</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="7716" cy="-441.42" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="7716" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">detect_slices</text>
+<text xml:space="preserve" text-anchor="middle" x="7716" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1835)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__export_tables_to_pdf -->
+<g id="node43" class="node">
+<title>src__analysis__chapter2__scorecard_common__export_tables_to_pdf</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="6832" cy="-732.37" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="6832" y="-735.57" font-family="Times,serif" font-size="14.00" fill="#000000">export_tables_to_pdf</text>
+<text xml:space="preserve" text-anchor="middle" x="6832" y="-719.07" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1783)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__format_delta -->
+<g id="node45" class="node">
+<title>src__analysis__chapter2__scorecard_common__format_delta</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="24438" cy="-253.46" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="24438" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">format_delta</text>
+<text xml:space="preserve" text-anchor="middle" x="24438" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:709)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__format_delta_inline -->
+<g id="node46" class="node">
+<title>src__analysis__chapter2__scorecard_common__format_delta_inline</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="14428" cy="-535.41" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="14428" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">format_delta_inline</text>
+<text xml:space="preserve" text-anchor="middle" x="14428" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1259)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__format_lift -->
+<g id="node47" class="node">
+<title>src__analysis__chapter2__scorecard_common__format_lift</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="22226" cy="-253.46" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="22226" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">format_lift</text>
+<text xml:space="preserve" text-anchor="middle" x="22226" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:715)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__format_single_cell -->
+<g id="node49" class="node">
+<title>src__analysis__chapter2__scorecard_common__format_single_cell</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="12177" cy="-535.41" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="12177" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">format_single_cell</text>
+<text xml:space="preserve" text-anchor="middle" x="12177" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1250)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__format_stacked_cell -->
+<g id="node51" class="node">
+<title>src__analysis__chapter2__scorecard_common__format_stacked_cell</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="8821" cy="-535.41" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="8821" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">format_stacked_cell</text>
+<text xml:space="preserve" text-anchor="middle" x="8821" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1231)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__format_value -->
+<g id="node52" class="node">
+<title>src__analysis__chapter2__scorecard_common__format_value</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="23332" cy="-253.46" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="23332" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">format_value</text>
+<text xml:space="preserve" text-anchor="middle" x="23332" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:698)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__generate_slice_table_lines -->
+<g id="node53" class="node">
+<title>src__analysis__chapter2__scorecard_common__generate_slice_table_lines</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="9673" cy="-633.89" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="9673" y="-637.09" font-family="Times,serif" font-size="14.00" fill="#000000">generate_slice_table_lines</text>
+<text xml:space="preserve" text-anchor="middle" x="9673" y="-620.59" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1385)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__generate_slice_table_lines&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="edge89" class="edge">
+<title>src__analysis__chapter2__scorecard_common__generate_slice_table_lines&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<path fill="none" stroke="#000000" d="M9414.28,-608.02C9407.83,-604.74 9402.64,-601.04 9399,-596.9 9370.43,-564.33 9396.27,-431.62 9430,-404.43 9446.64,-391.02 9520.11,-380.01 9607.39,-371.41"/>
+<polygon fill="#000000" stroke="#000000" points="9607.54,-374.91 9617.16,-370.47 9606.87,-367.95 9607.54,-374.91"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__generate_slice_table_lines&#45;&gt;src__analysis__chapter2__scorecard_common__SeedResult -->
+<g id="edge93" class="edge">
+<title>src__analysis__chapter2__scorecard_common__generate_slice_table_lines&#45;&gt;src__analysis__chapter2__scorecard_common__SeedResult</title>
+<path fill="none" stroke="#000000" d="M9126.63,-631.12C8504.38,-628.03 7526.29,-619.63 7158,-596.9 6900.07,-580.98 6204.82,-630.55 6002,-470.41 5991.63,-462.23 5992,-455.63 5992,-442.42 5992,-442.42 5992,-442.42 5992,-346.44 5992,-329.84 5988.92,-320.67 6002,-310.45 6308.63,-70.84 9114,-226.8 9503,-216.47 10062.93,-201.58 10705.75,-184.7 11137.05,-173.4"/>
+<polygon fill="#000000" stroke="#000000" points="11137.05,-176.9 11146.96,-173.14 11136.87,-169.9 11137.05,-176.9"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__generate_slice_table_lines&#45;&gt;src__analysis__chapter2__scorecard_common__collect_metrics_for_specs -->
+<g id="edge90" class="edge">
+<title>src__analysis__chapter2__scorecard_common__generate_slice_table_lines&#45;&gt;src__analysis__chapter2__scorecard_common__collect_metrics_for_specs</title>
+<path fill="none" stroke="#000000" d="M9755.53,-604.85C9789.37,-593.36 9828.71,-579.99 9863.59,-568.14"/>
+<polygon fill="#000000" stroke="#000000" points="9864.49,-571.53 9872.84,-565 9862.24,-564.9 9864.49,-571.53"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__generate_slice_table_lines&#45;&gt;src__analysis__chapter2__scorecard_common__format_single_cell -->
+<g id="edge92" class="edge">
+<title>src__analysis__chapter2__scorecard_common__generate_slice_table_lines&#45;&gt;src__analysis__chapter2__scorecard_common__format_single_cell</title>
+<path fill="none" stroke="#000000" d="M10211.98,-628.34C10691.67,-623.3 11356.88,-613.58 11620,-596.9 11733.68,-589.69 11859.92,-576.42 11963.43,-564.14"/>
+<polygon fill="#000000" stroke="#000000" points="11963.63,-567.64 11973.15,-562.98 11962.8,-560.69 11963.63,-567.64"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__generate_slice_table_lines&#45;&gt;src__analysis__chapter2__scorecard_common__format_stacked_cell -->
+<g id="edge91" class="edge">
+<title>src__analysis__chapter2__scorecard_common__generate_slice_table_lines&#45;&gt;src__analysis__chapter2__scorecard_common__format_stacked_cell</title>
+<path fill="none" stroke="#000000" d="M9444.96,-607.06C9326.06,-593.6 9180.69,-577.14 9060.2,-563.49"/>
+<polygon fill="#000000" stroke="#000000" points="9060.82,-560.04 9050.49,-562.39 9060.03,-567 9060.82,-560.04"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__latex_escape -->
+<g id="node56" class="node">
+<title>src__analysis__chapter2__scorecard_common__latex_escape</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="11067" cy="-535.41" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="11067" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">latex_escape</text>
+<text xml:space="preserve" text-anchor="middle" x="11067" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:932)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__generate_slice_table_lines&#45;&gt;src__analysis__chapter2__scorecard_common__latex_escape -->
+<g id="edge94" class="edge">
+<title>src__analysis__chapter2__scorecard_common__generate_slice_table_lines&#45;&gt;src__analysis__chapter2__scorecard_common__latex_escape</title>
+<path fill="none" stroke="#000000" d="M10140.42,-618.44C10262.43,-613.15 10393.73,-606.12 10515,-596.9 10624.45,-588.57 10745.73,-575.68 10846.67,-563.94"/>
+<polygon fill="#000000" stroke="#000000" points="10846.91,-567.44 10856.43,-562.8 10846.09,-560.49 10846.91,-567.44"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__load_analysis_slice_metrics&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="edge66" class="edge">
+<title>src__analysis__chapter2__scorecard_common__load_analysis_slice_metrics&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<path fill="none" stroke="#000000" d="M10812.13,-416.67C10645.44,-403.3 10437.52,-386.61 10269.04,-373.08"/>
+<polygon fill="#000000" stroke="#000000" points="10269.5,-369.61 10259.25,-372.3 10268.94,-376.59 10269.5,-369.61"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__load_csv -->
+<g id="node58" class="node">
+<title>src__analysis__chapter2__scorecard_common__load_csv</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="12194" cy="-253.46" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="12194" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">load_csv</text>
+<text xml:space="preserve" text-anchor="middle" x="12194" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:400)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__load_model_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__SeedResult -->
+<g id="edge39" class="edge">
+<title>src__analysis__chapter2__scorecard_common__load_model_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__SeedResult</title>
+<path fill="none" stroke="#000000" d="M12505.69,-323.29C12584.4,-318.23 12668.77,-313.49 12747,-310.45 12777.7,-309.26 14937.41,-304.31 14959,-282.45 14979.6,-261.58 14979.56,-237.38 14959,-216.47 14911.15,-167.81 13120.85,-160.47 12186.39,-159.97"/>
+<polygon fill="#000000" stroke="#000000" points="12186.61,-156.47 12176.61,-159.97 12186.61,-163.47 12186.61,-156.47"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__load_model_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__compute_ensemble_seed_results -->
+<g id="edge38" class="edge">
+<title>src__analysis__chapter2__scorecard_common__load_model_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__compute_ensemble_seed_results</title>
+<path fill="none" stroke="#000000" d="M12504.96,-323.26C12583.87,-318.18 12668.53,-313.44 12747,-310.45 12856.94,-306.26 15931.74,-273.54 17202.48,-260.14"/>
+<polygon fill="#000000" stroke="#000000" points="17202.16,-263.65 17212.12,-260.04 17202.08,-256.65 17202.16,-263.65"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__load_model_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__load_csv -->
+<g id="edge42" class="edge">
+<title>src__analysis__chapter2__scorecard_common__load_model_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__load_csv</title>
+<path fill="none" stroke="#000000" d="M12194,-318.09C12194,-310.57 12194,-302.31 12194,-294.3"/>
+<polygon fill="#000000" stroke="#000000" points="12197.5,-294.38 12194,-284.38 12190.5,-294.38 12197.5,-294.38"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__macro_rows -->
+<g id="node60" class="node">
+<title>src__analysis__chapter2__scorecard_common__macro_rows</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="13300" cy="-253.46" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="13300" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">macro_rows</text>
+<text xml:space="preserve" text-anchor="middle" x="13300" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:363)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__load_model_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__macro_rows -->
+<g id="edge40" class="edge">
+<title>src__analysis__chapter2__scorecard_common__load_model_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__macro_rows</title>
+<path fill="none" stroke="#000000" d="M12482.42,-322.45C12641.81,-309.2 12839.56,-292.75 13000.66,-279.35"/>
+<polygon fill="#000000" stroke="#000000" points="13000.52,-282.88 13010.19,-278.56 12999.94,-275.9 13000.52,-282.88"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__row_to_metrics -->
+<g id="node63" class="node">
+<title>src__analysis__chapter2__scorecard_common__row_to_metrics</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="14406" cy="-253.46" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="14406" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">row_to_metrics</text>
+<text xml:space="preserve" text-anchor="middle" x="14406" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:376)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__load_model_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__row_to_metrics -->
+<g id="edge41" class="edge">
+<title>src__analysis__chapter2__scorecard_common__load_model_seed_results&#45;&gt;src__analysis__chapter2__scorecard_common__row_to_metrics</title>
+<path fill="none" stroke="#000000" d="M12512.62,-323.54C12589.34,-318.62 12671.07,-313.88 12747,-310.45 13238.21,-288.25 13361.64,-301.1 13853,-282.45 13906.58,-280.41 13963.07,-277.94 14018.66,-275.31"/>
+<polygon fill="#000000" stroke="#000000" points="14018.8,-278.81 14028.62,-274.83 14018.46,-271.81 14018.8,-278.81"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__prepare_scorecard_assets -->
+<g id="node61" class="node">
+<title>src__analysis__chapter2__scorecard_common__prepare_scorecard_assets</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="7711" cy="-535.41" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="7711" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">prepare_scorecard_assets</text>
+<text xml:space="preserve" text-anchor="middle" x="7711" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:987)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__prepare_scorecard_assets&#45;&gt;src__analysis__chapter2__scorecard_common__ScorecardAssets -->
+<g id="edge70" class="edge">
+<title>src__analysis__chapter2__scorecard_common__prepare_scorecard_assets&#45;&gt;src__analysis__chapter2__scorecard_common__ScorecardAssets</title>
+<path fill="none" stroke="#000000" d="M8017.05,-511.03C8097.04,-505.86 8183.22,-501.12 8263,-498.41 9441.55,-458.48 17697.19,-501.84 18876,-470.41 18933.22,-468.89 18993.75,-466.55 19052.94,-463.87"/>
+<polygon fill="#000000" stroke="#000000" points="19053.02,-467.37 19062.85,-463.42 19052.7,-460.38 19053.02,-467.37"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__prepare_scorecard_assets&#45;&gt;src__analysis__chapter2__scorecard_common__collect_split -->
+<g id="edge69" class="edge">
+<title>src__analysis__chapter2__scorecard_common__prepare_scorecard_assets&#45;&gt;src__analysis__chapter2__scorecard_common__collect_split</title>
+<path fill="none" stroke="#000000" d="M8018.13,-511.09C8097.83,-505.94 8183.58,-501.2 8263,-498.41 9526.68,-454.15 12688.65,-487.01 13953,-470.41 14222.23,-466.88 14522.5,-460.64 14767.77,-454.95"/>
+<polygon fill="#000000" stroke="#000000" points="14767.61,-458.46 14777.53,-454.73 14767.45,-451.46 14767.61,-458.46"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__prepare_scorecard_assets&#45;&gt;src__analysis__chapter2__scorecard_common__detect_models -->
+<g id="edge71" class="edge">
+<title>src__analysis__chapter2__scorecard_common__prepare_scorecard_assets&#45;&gt;src__analysis__chapter2__scorecard_common__detect_models</title>
+<path fill="none" stroke="#000000" d="M8001.98,-510.51C8163.7,-497.23 8364.69,-480.72 8528.26,-467.29"/>
+<polygon fill="#000000" stroke="#000000" points="8528.29,-470.8 8537.97,-466.49 8527.71,-463.82 8528.29,-470.8"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__prepare_scorecard_assets&#45;&gt;src__analysis__chapter2__scorecard_common__detect_slices -->
+<g id="edge68" class="edge">
+<title>src__analysis__chapter2__scorecard_common__prepare_scorecard_assets&#45;&gt;src__analysis__chapter2__scorecard_common__detect_slices</title>
+<path fill="none" stroke="#000000" d="M7712.54,-506.06C7712.95,-498.54 7713.4,-490.28 7713.83,-482.27"/>
+<polygon fill="#000000" stroke="#000000" points="7717.33,-482.52 7714.37,-472.35 7710.34,-482.14 7717.33,-482.52"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__render_table -->
+<g id="node62" class="node">
+<title>src__analysis__chapter2__scorecard_common__render_table</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="23332" cy="-347.44" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="23332" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">render_table</text>
+<text xml:space="preserve" text-anchor="middle" x="23332" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:746)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__render_table&#45;&gt;src__analysis__chapter2__scorecard_common__MetricAggregate -->
+<g id="edge54" class="edge">
+<title>src__analysis__chapter2__scorecard_common__render_table&#45;&gt;src__analysis__chapter2__scorecard_common__MetricAggregate</title>
+<path fill="none" stroke="#000000" d="M23015.2,-323.49C22937.96,-318.54 22855.53,-313.79 22779,-310.45 22587.05,-302.06 21466.22,-278.55 20791.2,-264.81"/>
+<polygon fill="#000000" stroke="#000000" points="20791.39,-261.31 20781.32,-264.61 20791.25,-268.31 20791.39,-261.31"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__render_table&#45;&gt;src__analysis__chapter2__scorecard_common__format_delta -->
+<g id="edge56" class="edge">
+<title>src__analysis__chapter2__scorecard_common__render_table&#45;&gt;src__analysis__chapter2__scorecard_common__format_delta</title>
+<path fill="none" stroke="#000000" d="M23620.42,-322.45C23779.81,-309.2 23977.56,-292.75 24138.66,-279.35"/>
+<polygon fill="#000000" stroke="#000000" points="24138.52,-282.88 24148.19,-278.56 24137.94,-275.9 24138.52,-282.88"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__render_table&#45;&gt;src__analysis__chapter2__scorecard_common__format_lift -->
+<g id="edge57" class="edge">
+<title>src__analysis__chapter2__scorecard_common__render_table&#45;&gt;src__analysis__chapter2__scorecard_common__format_lift</title>
+<path fill="none" stroke="#000000" d="M23043.58,-322.45C22884.19,-309.2 22686.44,-292.75 22525.34,-279.35"/>
+<polygon fill="#000000" stroke="#000000" points="22526.06,-275.9 22515.81,-278.56 22525.48,-282.88 22526.06,-275.9"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__render_table&#45;&gt;src__analysis__chapter2__scorecard_common__format_value -->
+<g id="edge55" class="edge">
+<title>src__analysis__chapter2__scorecard_common__render_table&#45;&gt;src__analysis__chapter2__scorecard_common__format_value</title>
+<path fill="none" stroke="#000000" d="M23332,-318.09C23332,-310.57 23332,-302.31 23332,-294.3"/>
+<polygon fill="#000000" stroke="#000000" points="23335.5,-294.38 23332,-284.38 23328.5,-294.38 23335.5,-294.38"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__winner_display_name -->
+<g id="node64" class="node">
+<title>src__analysis__chapter2__scorecard_common__winner_display_name</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="13313" cy="-535.41" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="13313" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">winner_display_name</text>
+<text xml:space="preserve" text-anchor="middle" x="13313" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1312)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_consolidated_slice_table -->
+<g id="node65" class="node">
+<title>src__analysis__chapter2__scorecard_common__write_consolidated_slice_table</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="15543" cy="-732.37" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="15543" y="-735.57" font-family="Times,serif" font-size="14.00" fill="#000000">write_consolidated_slice_table</text>
+<text xml:space="preserve" text-anchor="middle" x="15543" y="-719.07" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1559)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_consolidated_slice_table&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="edge102" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_consolidated_slice_table&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<path fill="none" stroke="#000000" d="M15783.74,-705.88C15983.13,-675.97 16216.49,-614.9 16101,-498.41 16037.16,-434.03 12910.33,-523.74 12837,-470.41 12812,-452.23 12839.97,-422.66 12815,-404.43 12789.2,-385.6 10546.93,-377.43 10515,-376.43 10459.15,-374.68 10400.15,-372.28 10342.31,-369.62"/>
+<polygon fill="#000000" stroke="#000000" points="10342.81,-366.13 10332.66,-369.17 10342.48,-373.13 10342.81,-366.13"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_consolidated_slice_table&#45;&gt;src__analysis__chapter2__scorecard_common___preload_seed_results -->
+<g id="edge104" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_consolidated_slice_table&#45;&gt;src__analysis__chapter2__scorecard_common___preload_seed_results</title>
+<path fill="none" stroke="#000000" d="M15543,-703.02C15543,-669.52 15543,-613.58 15543,-575.86"/>
+<polygon fill="#000000" stroke="#000000" points="15546.5,-576.3 15543,-566.3 15539.5,-576.3 15546.5,-576.3"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_consolidated_slice_table&#45;&gt;src__analysis__chapter2__scorecard_common__generate_slice_table_lines -->
+<g id="edge103" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_consolidated_slice_table&#45;&gt;src__analysis__chapter2__scorecard_common__generate_slice_table_lines</title>
+<path fill="none" stroke="#000000" d="M14995.81,-730.13C14237.43,-727.55 12823.98,-719.63 11619,-695.38 11107.5,-685.08 10520.58,-665.82 10126.23,-651.79"/>
+<polygon fill="#000000" stroke="#000000" points="10126.55,-648.3 10116.43,-651.44 10126.3,-655.29 10126.55,-648.3"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_global_table -->
+<g id="node66" class="node">
+<title>src__analysis__chapter2__scorecard_common__write_global_table</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="21948" cy="-441.42" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="21948" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">write_global_table</text>
+<text xml:space="preserve" text-anchor="middle" x="21948" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:807)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_global_table&#45;&gt;src__analysis__chapter2__scorecard_common__SplitSummary -->
+<g id="edge60" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_global_table&#45;&gt;src__analysis__chapter2__scorecard_common__SplitSummary</title>
+<path fill="none" stroke="#000000" d="M21541.23,-421.84C21266.16,-409.21 20894.7,-392.03 20567,-376.43 20512.56,-373.84 20455.2,-371.08 20398.67,-368.34"/>
+<polygon fill="#000000" stroke="#000000" points="20399.05,-364.85 20388.89,-367.86 20398.71,-371.84 20399.05,-364.85"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_global_table&#45;&gt;src__analysis__chapter2__scorecard_common__build_global_column_spec -->
+<g id="edge59" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_global_table&#45;&gt;src__analysis__chapter2__scorecard_common__build_global_column_spec</title>
+<path fill="none" stroke="#000000" d="M21716.81,-414.74C21606.48,-402.48 21474.48,-387.82 21362.71,-375.4"/>
+<polygon fill="#000000" stroke="#000000" points="21363.1,-371.92 21352.77,-374.3 21362.32,-378.88 21363.1,-371.92"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_global_table&#45;&gt;src__analysis__chapter2__scorecard_common__compute_daggers -->
+<g id="edge61" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_global_table&#45;&gt;src__analysis__chapter2__scorecard_common__compute_daggers</title>
+<path fill="none" stroke="#000000" d="M22032.92,-412.32C22063.76,-402.12 22098.82,-390.52 22130.51,-380.03"/>
+<polygon fill="#000000" stroke="#000000" points="22131.29,-383.46 22139.68,-377 22129.09,-376.82 22131.29,-383.46"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_global_table&#45;&gt;src__analysis__chapter2__scorecard_common__render_table -->
+<g id="edge58" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_global_table&#45;&gt;src__analysis__chapter2__scorecard_common__render_table</title>
+<path fill="none" stroke="#000000" d="M22282.59,-418.19C22495.67,-404.02 22771.08,-385.72 22986.28,-371.42"/>
+<polygon fill="#000000" stroke="#000000" points="22986.2,-374.93 22995.94,-370.77 22985.73,-367.95 22986.2,-374.93"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_grouped_slice_tables -->
+<g id="node67" class="node">
+<title>src__analysis__chapter2__scorecard_common__write_grouped_slice_tables</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="9098" cy="-732.37" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="9098" y="-735.57" font-family="Times,serif" font-size="14.00" fill="#000000">write_grouped_slice_tables</text>
+<text xml:space="preserve" text-anchor="middle" x="9098" y="-719.07" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1521)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_grouped_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="edge98" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_grouped_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<path fill="none" stroke="#000000" d="M8648,-715.51C8090.75,-693.63 7208.22,-650.72 7158,-596.9 7128.82,-565.63 7128.06,-434.97 7158,-404.43 7196.84,-364.81 8602.37,-353.23 9408.36,-349.84"/>
+<polygon fill="#000000" stroke="#000000" points="9408.09,-353.34 9418.08,-349.8 9408.06,-346.34 9408.09,-353.34"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_grouped_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common___preload_seed_results -->
+<g id="edge101" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_grouped_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common___preload_seed_results</title>
+<path fill="none" stroke="#000000" d="M9646.87,-731.72C10359.02,-730.84 11640.02,-724.74 12735,-695.38 13736.04,-668.54 13987.49,-672.88 14986,-596.9 15096.31,-588.5 15218.55,-575.63 15320.34,-563.91"/>
+<polygon fill="#000000" stroke="#000000" points="15320.67,-567.39 15330.2,-562.77 15319.86,-560.44 15320.67,-567.39"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_grouped_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common__chunk_specs -->
+<g id="edge100" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_grouped_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common__chunk_specs</title>
+<path fill="none" stroke="#000000" d="M8578.13,-722.94C8023.22,-713.77 7213.68,-699.82 7143,-695.38 7027.98,-688.16 6900.25,-674.86 6795.56,-662.57"/>
+<polygon fill="#000000" stroke="#000000" points="6796.05,-659.11 6785.71,-661.41 6795.23,-666.06 6796.05,-659.11"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_grouped_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common__generate_slice_table_lines -->
+<g id="edge99" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_grouped_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common__generate_slice_table_lines</title>
+<path fill="none" stroke="#000000" d="M9259.7,-704.24C9334.73,-691.65 9424.01,-676.67 9500.35,-663.86"/>
+<polygon fill="#000000" stroke="#000000" points="9500.74,-667.34 9510.03,-662.23 9499.58,-660.44 9500.74,-667.34"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_model_scorecard_table -->
+<g id="node68" class="node">
+<title>src__analysis__chapter2__scorecard_common__write_model_scorecard_table</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="20559" cy="-441.42" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="20559" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">write_model_scorecard_table</text>
+<text xml:space="preserve" text-anchor="middle" x="20559" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1035)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_model_scorecard_table&#45;&gt;src__analysis__chapter2__scorecard_common__MetricAggregate -->
+<g id="edge72" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_model_scorecard_table&#45;&gt;src__analysis__chapter2__scorecard_common__MetricAggregate</title>
+<path fill="none" stroke="#000000" d="M20560.17,-412.02C20560.94,-378.34 20559.95,-324.93 20547,-310.45 20537.37,-299.68 20517.3,-290.87 20492.23,-283.71"/>
+<polygon fill="#000000" stroke="#000000" points="20493.22,-280.36 20482.66,-281.14 20491.4,-287.12 20493.22,-280.36"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_model_scorecard_table&#45;&gt;src__analysis__chapter2__scorecard_common__SplitSummary -->
+<g id="edge73" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_model_scorecard_table&#45;&gt;src__analysis__chapter2__scorecard_common__SplitSummary</title>
+<path fill="none" stroke="#000000" d="M20392.54,-413.32C20323.02,-402 20242.15,-388.84 20171.5,-377.34"/>
+<polygon fill="#000000" stroke="#000000" points="20172.17,-373.9 20161.74,-375.75 20171.05,-380.81 20172.17,-373.9"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_seed_robustness_tables -->
+<g id="node69" class="node">
+<title>src__analysis__chapter2__scorecard_common__write_seed_robustness_tables</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="19154" cy="-535.41" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="19154" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">write_seed_robustness_tables</text>
+<text xml:space="preserve" text-anchor="middle" x="19154" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1768)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_seed_robustness_tables&#45;&gt;src__analysis__chapter2__scorecard_common__SplitSummary -->
+<g id="edge119" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_seed_robustness_tables&#45;&gt;src__analysis__chapter2__scorecard_common__SplitSummary</title>
+<path fill="none" stroke="#000000" d="M19641.13,-521.84C19804.88,-512.78 19953.42,-497.21 19981,-470.41 19992.45,-459.3 19994.95,-419.4 19995.05,-388.22"/>
+<polygon fill="#000000" stroke="#000000" points="19998.55,-388.28 19995,-378.3 19991.55,-388.31 19998.55,-388.28"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_seed_robustness_tables&#45;&gt;src__analysis__chapter2__scorecard_common__build_seed_robustness_lines -->
+<g id="edge118" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_seed_robustness_tables&#45;&gt;src__analysis__chapter2__scorecard_common__build_seed_robustness_lines</title>
+<path fill="none" stroke="#000000" d="M18920.57,-508.72C18808.95,-496.44 18675.36,-481.74 18562.36,-469.31"/>
+<polygon fill="#000000" stroke="#000000" points="18562.97,-465.85 18552.64,-468.24 18562.2,-472.81 18562.97,-465.85"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_tables -->
+<g id="node70" class="node">
+<title>src__analysis__chapter2__scorecard_common__write_slice_tables</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="23194" cy="-441.42" rx="543.77" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="23194" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">write_slice_tables</text>
+<text xml:space="preserve" text-anchor="middle" x="23194" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:873)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common__SplitSummary -->
+<g id="edge64" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common__SplitSummary</title>
+<path fill="none" stroke="#000000" d="M22835.77,-419.26C22728.17,-413.59 22609.82,-408.04 22501,-404.43 21641.83,-375.91 21426.22,-403.63 20567,-376.43 20507.13,-374.54 20443.77,-371.99 20381.86,-369.19"/>
+<polygon fill="#000000" stroke="#000000" points="20382.39,-365.72 20372.24,-368.76 20382.07,-372.71 20382.39,-365.72"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common__build_slice_column_spec -->
+<g id="edge62" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common__build_slice_column_spec</title>
+<path fill="none" stroke="#000000" d="M23506.71,-417.3C23692.03,-403.6 23926.5,-386.26 24113.8,-372.41"/>
+<polygon fill="#000000" stroke="#000000" points="24113.99,-375.91 24123.71,-371.68 24113.48,-368.93 24113.99,-375.91"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common__compute_daggers -->
+<g id="edge65" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common__compute_daggers</title>
+<path fill="none" stroke="#000000" d="M22932.68,-415.59C22798.29,-402.82 22634.62,-387.27 22498.64,-374.35"/>
+<polygon fill="#000000" stroke="#000000" points="22499.03,-370.87 22488.74,-373.41 22498.37,-377.84 22499.03,-370.87"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common__render_table -->
+<g id="edge63" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_slice_tables&#45;&gt;src__analysis__chapter2__scorecard_common__render_table</title>
+<path fill="none" stroke="#000000" d="M23236.53,-412.07C23250.43,-402.81 23266.03,-392.41 23280.51,-382.76"/>
+<polygon fill="#000000" stroke="#000000" points="23282.21,-385.83 23288.59,-377.38 23278.33,-380.01 23282.21,-385.83"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_winners_table -->
+<g id="node71" class="node">
+<title>src__analysis__chapter2__scorecard_common__write_slice_winners_table</title>
+<ellipse fill="#ffad32" fill-opacity="0.698039" stroke="black" cx="12177" cy="-633.89" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="12177" y="-637.09" font-family="Times,serif" font-size="14.00" fill="#000000">write_slice_winners_table</text>
+<text xml:space="preserve" text-anchor="middle" x="12177" y="-620.59" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1585)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="edge105" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<path fill="none" stroke="#000000" d="M12652.21,-619.14C12695.05,-613.82 12725.89,-606.61 12735,-596.9 12749.97,-580.93 12750.27,-514.09 12735,-498.41 12694.13,-456.45 11727.58,-505.93 11681,-470.41 11656.63,-451.83 11685.39,-422.99 11661,-404.43 11635.66,-385.15 10546.82,-377.62 10515,-376.43 10461.3,-374.42 10404.69,-371.95 10348.99,-369.32"/>
+<polygon fill="#000000" stroke="#000000" points="10349.16,-365.82 10339.01,-368.84 10348.83,-372.81 10349.16,-365.82"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common___preload_seed_results -->
+<g id="edge112" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common___preload_seed_results</title>
+<path fill="none" stroke="#000000" d="M12698.69,-624.7C13091.85,-618.7 13644.27,-610.63 14129,-604.9 14319.44,-602.64 14795.88,-608.08 14986,-596.9 15100.89,-590.14 15228.55,-576.71 15332.65,-564.21"/>
+<polygon fill="#000000" stroke="#000000" points="15332.92,-567.71 15342.43,-563.03 15332.08,-560.76 15332.92,-567.71"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__collect_metrics_for_specs -->
+<g id="edge106" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__collect_metrics_for_specs</title>
+<path fill="none" stroke="#000000" d="M11646.27,-626.38C11244.24,-620.52 10726.12,-610.68 10514,-596.9 10400.68,-589.53 10274.88,-576.3 10171.54,-564.09"/>
+<polygon fill="#000000" stroke="#000000" points="10172.18,-560.64 10161.84,-562.94 10171.36,-567.59 10172.18,-560.64"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__format_delta_inline -->
+<g id="edge108" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__format_delta_inline</title>
+<path fill="none" stroke="#000000" d="M12709.04,-626.62C13119.73,-620.84 13653.41,-611 13871,-596.9 13984.32,-589.55 14110.12,-576.33 14213.46,-564.11"/>
+<polygon fill="#000000" stroke="#000000" points="14213.64,-567.61 14223.16,-562.96 14212.82,-560.66 14213.64,-567.61"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__format_single_cell -->
+<g id="edge107" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__format_single_cell</title>
+<path fill="none" stroke="#000000" d="M12177,-604.46C12177,-595.53 12177,-585.5 12177,-575.95"/>
+<polygon fill="#000000" stroke="#000000" points="12180.5,-576.14 12177,-566.14 12173.5,-576.14 12180.5,-576.14"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__latex_escape -->
+<g id="edge110" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__latex_escape</title>
+<path fill="none" stroke="#000000" d="M11813.63,-611.81C11748.78,-607.38 11681.86,-602.37 11619,-596.9 11512.42,-587.62 11394.51,-575.02 11295.13,-563.72"/>
+<polygon fill="#000000" stroke="#000000" points="11295.56,-560.25 11285.22,-562.59 11294.76,-567.2 11295.56,-560.25"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__winner_display_name -->
+<g id="edge113" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__winner_display_name</title>
+<path fill="none" stroke="#000000" d="M12546.29,-612.11C12614.09,-607.61 12684.2,-602.49 12750,-596.9 12858.93,-587.63 12979.46,-575 13080.96,-563.67"/>
+<polygon fill="#000000" stroke="#000000" points="13081.24,-567.16 13090.79,-562.57 13080.46,-560.21 13081.24,-567.16"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_winners_table__lookup_count -->
+<g id="node73" class="node">
+<title>src__analysis__chapter2__scorecard_common__write_slice_winners_table__lookup_count</title>
+<ellipse fill="#ff9900" fill-opacity="0.698039" stroke="black" cx="4303" cy="-535.41" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="4303" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">lookup_count</text>
+<text xml:space="preserve" text-anchor="middle" x="4303" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1618)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__write_slice_winners_table__lookup_count -->
+<g id="edge111" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__write_slice_winners_table__lookup_count</title>
+<path fill="none" stroke="#000000" d="M11662.05,-623.67C11269.8,-617.09 10716.37,-608.75 10231,-604.9 10081.81,-603.71 5008.97,-605.07 4860,-596.9 4744.15,-590.54 4615.34,-576.97 4510.79,-564.3"/>
+<polygon fill="#000000" stroke="#000000" points="4511.31,-560.83 4500.96,-563.1 4510.47,-567.78 4511.31,-560.83"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_winners_table__store_counts -->
+<g id="node74" class="node">
+<title>src__analysis__chapter2__scorecard_common__write_slice_winners_table__store_counts</title>
+<ellipse fill="#ff9900" fill-opacity="0.698039" stroke="black" cx="5418" cy="-535.41" rx="548.54" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="5418" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">store_counts</text>
+<text xml:space="preserve" text-anchor="middle" x="5418" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/scorecard_common.py:1605)</text>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__write_slice_winners_table__store_counts -->
+<g id="edge109" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_slice_winners_table&#45;&gt;src__analysis__chapter2__scorecard_common__write_slice_winners_table__store_counts</title>
+<path fill="none" stroke="#000000" d="M11661.8,-623.72C11269.55,-617.17 10716.27,-608.84 10231,-604.9 10112.89,-603.94 6096.94,-603.35 5979,-596.9 5862.33,-590.51 5732.59,-576.95 5627.29,-564.28"/>
+<polygon fill="#000000" stroke="#000000" points="5627.73,-560.8 5617.38,-563.08 5626.89,-567.75 5627.73,-560.8"/>
+</g>
+<!-- src__analysis__chapter2__scorecard_common__write_slice_winners_table__lookup_count&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec -->
+<g id="edge114" class="edge">
+<title>src__analysis__chapter2__scorecard_common__write_slice_winners_table__lookup_count&#45;&gt;src__analysis__chapter2__scorecard_common__ConsolidatedColumnSpec</title>
+<path fill="none" stroke="#000000" d="M4607.4,-510.88C5086.91,-473.85 5967.66,-405.99 6002,-404.43 6648.58,-375.16 8485.92,-358.66 9412.88,-351.98"/>
+<polygon fill="#000000" stroke="#000000" points="9412.59,-355.48 9422.57,-351.91 9412.54,-348.48 9412.59,-355.48"/>
+</g>
+<!-- src__analysis__chapter2__tab_01_global_scorecard___render_global_tables -->
+<g id="node75" class="node">
+<title>src__analysis__chapter2__tab_01_global_scorecard___render_global_tables</title>
+<ellipse fill="#d6ff32" fill-opacity="0.698039" stroke="black" cx="25565" cy="-535.41" rx="559.14" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="25565" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">_render_global_tables</text>
+<text xml:space="preserve" text-anchor="middle" x="25565" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_01_global_scorecard.py:23)</text>
+</g>
+<!-- src__analysis__chapter2__tab_01_global_scorecard__main&#45;&gt;src__analysis__chapter2__tab_01_global_scorecard___render_global_tables -->
+<g id="edge29" class="edge">
+<title>src__analysis__chapter2__tab_01_global_scorecard__main&#45;&gt;src__analysis__chapter2__tab_01_global_scorecard___render_global_tables</title>
+<path fill="none" stroke="#000000" d="M25565,-604.46C25565,-595.53 25565,-585.5 25565,-575.95"/>
+<polygon fill="#000000" stroke="#000000" points="25568.5,-576.14 25565,-566.14 25561.5,-576.14 25568.5,-576.14"/>
+</g>
+<!-- src__analysis__chapter2__tab_02_structural_generalization__build_rows -->
+<g id="node77" class="node">
+<title>src__analysis__chapter2__tab_02_structural_generalization__build_rows</title>
+<ellipse fill="#5bff32" fill-opacity="0.698039" stroke="black" cx="26737" cy="-441.42" rx="588.84" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="26737" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">build_rows</text>
+<text xml:space="preserve" text-anchor="middle" x="26737" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_02_structural_generalization.py:60)</text>
+</g>
+<!-- src__analysis__chapter2__tab_02_structural_generalization__format_numeric -->
+<g id="node79" class="node">
+<title>src__analysis__chapter2__tab_02_structural_generalization__format_numeric</title>
+<ellipse fill="#5bff32" fill-opacity="0.698039" stroke="black" cx="26737" cy="-347.44" rx="588.84" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="26737" y="-350.64" font-family="Times,serif" font-size="14.00" fill="#000000">format_numeric</text>
+<text xml:space="preserve" text-anchor="middle" x="26737" y="-334.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_02_structural_generalization.py:31)</text>
+</g>
+<!-- src__analysis__chapter2__tab_02_structural_generalization__build_rows&#45;&gt;src__analysis__chapter2__tab_02_structural_generalization__format_numeric -->
+<g id="edge4" class="edge">
+<title>src__analysis__chapter2__tab_02_structural_generalization__build_rows&#45;&gt;src__analysis__chapter2__tab_02_structural_generalization__format_numeric</title>
+<path fill="none" stroke="#000000" d="M26737,-412.07C26737,-404.56 26737,-396.29 26737,-388.29"/>
+<polygon fill="#000000" stroke="#000000" points="26740.5,-388.37 26737,-378.37 26733.5,-388.37 26740.5,-388.37"/>
+</g>
+<!-- src__analysis__chapter2__tab_02_structural_generalization__collect_best_values -->
+<g id="node78" class="node">
+<title>src__analysis__chapter2__tab_02_structural_generalization__collect_best_values</title>
+<ellipse fill="#5bff32" fill-opacity="0.698039" stroke="black" cx="27933" cy="-441.42" rx="588.84" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="27933" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">collect_best_values</text>
+<text xml:space="preserve" text-anchor="middle" x="27933" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_02_structural_generalization.py:42)</text>
+</g>
+<!-- src__analysis__chapter2__tab_02_structural_generalization__render_table -->
+<g id="node81" class="node">
+<title>src__analysis__chapter2__tab_02_structural_generalization__render_table</title>
+<ellipse fill="#5bff32" fill-opacity="0.698039" stroke="black" cx="27335" cy="-535.41" rx="588.84" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="27335" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">render_table</text>
+<text xml:space="preserve" text-anchor="middle" x="27335" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_02_structural_generalization.py:80)</text>
+</g>
+<!-- src__analysis__chapter2__tab_02_structural_generalization__main&#45;&gt;src__analysis__chapter2__tab_02_structural_generalization__render_table -->
+<g id="edge7" class="edge">
+<title>src__analysis__chapter2__tab_02_structural_generalization__main&#45;&gt;src__analysis__chapter2__tab_02_structural_generalization__render_table</title>
+<path fill="none" stroke="#000000" d="M27335,-604.46C27335,-595.53 27335,-585.5 27335,-575.95"/>
+<polygon fill="#000000" stroke="#000000" points="27338.5,-576.14 27335,-566.14 27331.5,-576.14 27338.5,-576.14"/>
+</g>
+<!-- src__analysis__chapter2__tab_02_structural_generalization__render_table&#45;&gt;src__analysis__chapter2__tab_02_structural_generalization__build_rows -->
+<g id="edge6" class="edge">
+<title>src__analysis__chapter2__tab_02_structural_generalization__render_table&#45;&gt;src__analysis__chapter2__tab_02_structural_generalization__build_rows</title>
+<path fill="none" stroke="#000000" d="M27158.81,-507.3C27085.01,-495.95 26999.13,-482.74 26924.19,-471.22"/>
+<polygon fill="#000000" stroke="#000000" points="26925.13,-467.82 26914.71,-469.76 26924.06,-474.74 26925.13,-467.82"/>
+</g>
+<!-- src__analysis__chapter2__tab_02_structural_generalization__render_table&#45;&gt;src__analysis__chapter2__tab_02_structural_generalization__collect_best_values -->
+<g id="edge5" class="edge">
+<title>src__analysis__chapter2__tab_02_structural_generalization__render_table&#45;&gt;src__analysis__chapter2__tab_02_structural_generalization__collect_best_values</title>
+<path fill="none" stroke="#000000" d="M27511.19,-507.3C27584.99,-495.95 27670.87,-482.74 27745.81,-471.22"/>
+<polygon fill="#000000" stroke="#000000" points="27745.94,-474.74 27755.29,-469.76 27744.87,-467.82 27745.94,-474.74"/>
+</g>
+<!-- src__analysis__chapter2__tab_03_temporal_horizons__format_cell -->
+<g id="node82" class="node">
+<title>src__analysis__chapter2__tab_03_temporal_horizons__format_cell</title>
+<ellipse fill="#32ff84" fill-opacity="0.698039" stroke="black" cx="29112" cy="-535.41" rx="566.04" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="29112" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">format_cell</text>
+<text xml:space="preserve" text-anchor="middle" x="29112" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_03_temporal_horizons.py:31)</text>
+</g>
+<!-- src__analysis__chapter2__tab_03_temporal_horizons__main&#45;&gt;src__analysis__chapter2__tab_03_temporal_horizons__format_cell -->
+<g id="edge12" class="edge">
+<title>src__analysis__chapter2__tab_03_temporal_horizons__main&#45;&gt;src__analysis__chapter2__tab_03_temporal_horizons__format_cell</title>
+<path fill="none" stroke="#000000" d="M29112,-604.46C29112,-595.53 29112,-585.5 29112,-575.95"/>
+<polygon fill="#000000" stroke="#000000" points="29115.5,-576.14 29112,-566.14 29108.5,-576.14 29115.5,-576.14"/>
+</g>
+<!-- src__analysis__chapter2__tab_04_seed_robustness__format_mean_ci -->
+<g id="node84" class="node">
+<title>src__analysis__chapter2__tab_04_seed_robustness__format_mean_ci</title>
+<ellipse fill="#32feff" fill-opacity="0.698039" stroke="black" cx="30258" cy="-535.41" rx="555.96" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="30258" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">format_mean_ci</text>
+<text xml:space="preserve" text-anchor="middle" x="30258" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_04_seed_robustness.py:24)</text>
+</g>
+<!-- src__analysis__chapter2__tab_04_seed_robustness__main&#45;&gt;src__analysis__chapter2__tab_04_seed_robustness__format_mean_ci -->
+<g id="edge14" class="edge">
+<title>src__analysis__chapter2__tab_04_seed_robustness__main&#45;&gt;src__analysis__chapter2__tab_04_seed_robustness__format_mean_ci</title>
+<path fill="none" stroke="#000000" d="M30258,-604.46C30258,-595.53 30258,-585.5 30258,-575.95"/>
+<polygon fill="#000000" stroke="#000000" points="30261.5,-576.14 30258,-566.14 30254.5,-576.14 30261.5,-576.14"/>
+</g>
+<!-- src__analysis__chapter2__tab_05_structural_slices_test__format_cell -->
+<g id="node86" class="node">
+<title>src__analysis__chapter2__tab_05_structural_slices_test__format_cell</title>
+<ellipse fill="#3284ff" fill-opacity="0.698039" stroke="black" cx="31412" cy="-441.42" rx="573.99" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="31412" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">format_cell</text>
+<text xml:space="preserve" text-anchor="middle" x="31412" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_05_structural_slices_test.py:39)</text>
+</g>
+<!-- src__analysis__chapter2__tab_05_structural_slices_test__render_table -->
+<g id="node88" class="node">
+<title>src__analysis__chapter2__tab_05_structural_slices_test__render_table</title>
+<ellipse fill="#3284ff" fill-opacity="0.698039" stroke="black" cx="31412" cy="-535.41" rx="573.99" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="31412" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">render_table</text>
+<text xml:space="preserve" text-anchor="middle" x="31412" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_05_structural_slices_test.py:48)</text>
+</g>
+<!-- src__analysis__chapter2__tab_05_structural_slices_test__main&#45;&gt;src__analysis__chapter2__tab_05_structural_slices_test__render_table -->
+<g id="edge32" class="edge">
+<title>src__analysis__chapter2__tab_05_structural_slices_test__main&#45;&gt;src__analysis__chapter2__tab_05_structural_slices_test__render_table</title>
+<path fill="none" stroke="#000000" d="M31412,-604.46C31412,-595.53 31412,-585.5 31412,-575.95"/>
+<polygon fill="#000000" stroke="#000000" points="31415.5,-576.14 31412,-566.14 31408.5,-576.14 31415.5,-576.14"/>
+</g>
+<!-- src__analysis__chapter2__tab_05_structural_slices_test__render_table&#45;&gt;src__analysis__chapter2__tab_05_structural_slices_test__format_cell -->
+<g id="edge31" class="edge">
+<title>src__analysis__chapter2__tab_05_structural_slices_test__render_table&#45;&gt;src__analysis__chapter2__tab_05_structural_slices_test__format_cell</title>
+<path fill="none" stroke="#000000" d="M31412,-506.06C31412,-498.54 31412,-490.28 31412,-482.27"/>
+<polygon fill="#000000" stroke="#000000" points="31415.5,-482.35 31412,-472.35 31408.5,-482.35 31415.5,-482.35"/>
+</g>
+<!-- src__analysis__chapter2__tab_06_structural_slices_val__format_cell -->
+<g id="node89" class="node">
+<title>src__analysis__chapter2__tab_06_structural_slices_val__format_cell</title>
+<ellipse fill="#5b32ff" fill-opacity="0.698039" stroke="black" cx="32582" cy="-441.42" rx="572.4" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="32582" y="-444.62" font-family="Times,serif" font-size="14.00" fill="#000000">format_cell</text>
+<text xml:space="preserve" text-anchor="middle" x="32582" y="-428.12" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_06_structural_slices_val.py:39)</text>
+</g>
+<!-- src__analysis__chapter2__tab_06_structural_slices_val__render_table -->
+<g id="node91" class="node">
+<title>src__analysis__chapter2__tab_06_structural_slices_val__render_table</title>
+<ellipse fill="#5b32ff" fill-opacity="0.698039" stroke="black" cx="32582" cy="-535.41" rx="572.4" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="32582" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">render_table</text>
+<text xml:space="preserve" text-anchor="middle" x="32582" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_06_structural_slices_val.py:48)</text>
+</g>
+<!-- src__analysis__chapter2__tab_06_structural_slices_val__main&#45;&gt;src__analysis__chapter2__tab_06_structural_slices_val__render_table -->
+<g id="edge10" class="edge">
+<title>src__analysis__chapter2__tab_06_structural_slices_val__main&#45;&gt;src__analysis__chapter2__tab_06_structural_slices_val__render_table</title>
+<path fill="none" stroke="#000000" d="M32582,-604.46C32582,-595.53 32582,-585.5 32582,-575.95"/>
+<polygon fill="#000000" stroke="#000000" points="32585.5,-576.14 32582,-566.14 32578.5,-576.14 32585.5,-576.14"/>
+</g>
+<!-- src__analysis__chapter2__tab_06_structural_slices_val__render_table&#45;&gt;src__analysis__chapter2__tab_06_structural_slices_val__format_cell -->
+<g id="edge9" class="edge">
+<title>src__analysis__chapter2__tab_06_structural_slices_val__render_table&#45;&gt;src__analysis__chapter2__tab_06_structural_slices_val__format_cell</title>
+<path fill="none" stroke="#000000" d="M32582,-506.06C32582,-498.54 32582,-490.28 32582,-482.27"/>
+<polygon fill="#000000" stroke="#000000" points="32585.5,-482.35 32582,-472.35 32578.5,-482.35 32585.5,-482.35"/>
+</g>
+<!-- src__analysis__chapter2__tab_07_temporal_full__format_cell -->
+<g id="node92" class="node">
+<title>src__analysis__chapter2__tab_07_temporal_full__format_cell</title>
+<ellipse fill="#d632ff" fill-opacity="0.698039" stroke="black" cx="33724" cy="-535.41" rx="546.42" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="33724" y="-538.61" font-family="Times,serif" font-size="14.00" fill="#000000">format_cell</text>
+<text xml:space="preserve" text-anchor="middle" x="33724" y="-522.11" font-family="Times,serif" font-size="14.00" fill="#000000">(src/analysis/chapter2/tab_07_temporal_full.py:43)</text>
+</g>
+<!-- src__analysis__chapter2__tab_07_temporal_full__main&#45;&gt;src__analysis__chapter2__tab_07_temporal_full__format_cell -->
+<g id="edge2" class="edge">
+<title>src__analysis__chapter2__tab_07_temporal_full__main&#45;&gt;src__analysis__chapter2__tab_07_temporal_full__format_cell</title>
+<path fill="none" stroke="#000000" d="M33724,-604.46C33724,-595.53 33724,-585.5 33724,-575.95"/>
+<polygon fill="#000000" stroke="#000000" points="33727.5,-576.14 33724,-566.14 33720.5,-576.14 33727.5,-576.14"/>
+</g>
+</g>
+</svg>
+`,
+                    ready: function() {
+                        var gv = this
+                        gv.nodes().click(function () {
+                            var $set = $()
+                            $set.push(this)
+                            $set = $set.add(gv.linkedFrom(this, true))
+                            $set = $set.add(gv.linkedTo(this, true))
+                            gv.highlight($set, true)
+                            gv.bringToFront($set)
+                        })
+                        $(document).keydown(function (evt) {
+                            if (evt.keyCode == 27) {
+                                gv.highlight()
+                            }
+                        })
+                    }
+                });
+            });
+		</script>
+	</body>
+</html>

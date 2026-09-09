@@ -1,0 +1,41 @@
+# GraphSAGE Random Splits Configuration
+
+# Data configuration
+data:
+  input_dir: "data/processed"
+  output_dir: "artifacts/graphsage_random"
+  
+# Model configuration
+model:
+  type: "graphsage"
+  hidden_dims: [128, 64]
+  dropout: 0.2
+  aggregator: "mean"  # mean, gcn, lstm, pool
+  
+# Training configuration
+training:
+  num_epochs: 100
+  batch_size: 64
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  early_stopping_patience: 10
+  random_seed: 42
+  
+# Optuna configuration
+optuna:
+  n_trials: 50
+  timeout: 3600  # 1 hour
+  study_name: "graphsage_random_optimization"
+  
+# Evaluation configuration
+evaluation:
+  metrics: ["auc", "ap", "precision@k", "recall@k"]
+  k_values: [10, 50, 100]
+  test_size: 0.2
+  val_size: 0.1
+  
+# Output configuration
+output:
+  model_file: "graphsage_random_model.pt"
+  results_file: "graphsage_random_results.csv"
+  summary_file: "graphsage_random_summary.json" 

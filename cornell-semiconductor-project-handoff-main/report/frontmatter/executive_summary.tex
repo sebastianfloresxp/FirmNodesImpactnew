@@ -1,0 +1,34 @@
+% chktex-file 8   en-dash compounds are correct academic usage
+\subsection*{Strategic Context}
+
+U.S.\ military power depends on semiconductors at every echelon---from encrypted radios and GPS receivers to guidance systems in precision munitions and the compute fabric that drives intelligence fusion and autonomous platforms. Yet the supply chains that produce these chips are global, multi-tiered, and opaque beyond the first layer of contractors. The Department of Defense can generally see who it buys from, but not who supplies those suppliers or where single points of failure hide three or four tiers deep. This report directly addresses that gap. It constructs a DoD-anchored semiconductor supply-chain network that makes multi-tier dependencies visible, quantifiable, and decision-grade.
+
+\subsection*{Methodology}
+
+The report opens with a technical primer on semiconductors and their manufacturing (Section~\ref{chap:intro}), framing the two classes of supply-chain risk that motivate the analysis: continuity risk, in which parts fail to arrive when needed, and integrity risk, in which delivered components cannot be trusted.
+
+Section~\ref{chap:link-prediction} treats incomplete visibility as a predictive problem. Starting from FactSet's Supply Chain Relationships (SCR)---a curated, time-stamped record of disclosed supplier--customer ties---the analysis constructs a leakage-safe temporal dataset of over 1.7 million relationship episodes spanning two decades. It evaluates six model families on a shared scorecard and combines them into an ensemble whose operating points define explicit precision--yield trade-offs, with precision measured as a conservative lower bound under positive--unlabeled labeling. At the validation-tuned operating point, the ensemble achieves approximately 81\% precision on held-out test data---more than 600 times the base rate of true edges among candidates---confirming that the inferred links materially extend visibility beyond what disclosure alone provides.
+
+Section~\ref{chap:dod-supply-chain} anchors the network in observed DoD demand by extracting Tier-0 awarding components and Tier-1 prime vendors from USAspending contracting records (\ContractingWindow). From this seed, the analysis layers three evidence streams---disclosed SCR ties, high-confidence predicted links from the ensemble, and observed shipping transactions---into a single directed multiplex network, then prunes to a semiconductor-relevant subgraph. The resulting network captures a multi-tier structure that no single data source reveals on its own.
+
+\subsection*{Key Findings}
+
+Section~\ref{chap:network_analysis} holds the network fixed and evaluates structural vulnerability through deny (hard loss of reachable support) and delay (route stretching and redundancy collapse) lenses. Three findings emerge:
+
+\begin{enumerate}
+  \item \textbf{Targeted disruption is far more damaging than random failure.} A small number of structurally consequential firms account for disproportionate harm, indicating that continuity risk is shaped by identifiable leverage points rather than diffuse fragility.
+  \item \textbf{Vulnerability concentrates on two attack surfaces.} Corridor intermediaries close to primes dominate prime-facing deny severity, recovering \CorridorRecovery\% of benchmark harm at a budget of 25 removals. Upstream enablers to semiconductor firms become more consequential under delay-oriented objectives and semiconductor-side targeting.
+  \item \textbf{Decision-grade prioritization separates impact from uncertainty.} An action matrix triages high-consequence findings into ``act now'' versus ``validate then act'' postures, and a strict Top-25 chokepoint shortlist anchors on the empirical evidence view.
+\end{enumerate}
+
+\subsection*{Policy Recommendations}
+
+Section~\ref{chap:from_illumination_to_assurance} translates these findings into a policy agenda organized around a single bounded objective: \textit{decision-grade visibility}---enough timely and verifiable evidence about high-consequence semiconductor dependencies to identify, verify, monitor, and intervene without requiring a complete census. The section grounds that agenda in six design principles and translates them into a layered assurance framework built around four functions: traceability, provenance, resilience, and decision integration. Acquisition levers, a hybrid data-governance model that centralizes interoperability standards while keeping sensitive records distributed, and a three-phase implementation roadmap anchored in the Section 856 pilot authority complete the operational design.
+
+\subsection*{Inference Boundaries}
+
+Three data limitations bound the findings: approximately \UnmatchedPrimeShare\% of prime-contractor obligations remain unmatched to commercial entity data, predicted links carry conservative lower-bound precision under positive--unlabeled labeling, and shipping coverage emphasizes maritime imports over domestic logistics flows.
+
+The analysis addresses continuity risk and does not directly test integrity compromise. The dependency map does not trace specific components into specific platforms. The resulting network is a defensible, provenance-aware snapshot---not a complete census---where absence of a tie is non-observation rather than evidence of no relationship.
+
+Section~\ref{chap:conclusion} consolidates the central argument through four linked findings---empirical, methodological, analytic, and policy---and states the scope conditions that govern interpretation. Together, the six sections make visibility into Tier-2+ semiconductor dependencies a repeatable, actionable resource rather than an after-the-fact discovery.

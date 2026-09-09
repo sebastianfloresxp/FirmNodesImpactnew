@@ -1,0 +1,42 @@
+# GraphSAGE Configuration
+
+# Data settings
+data:
+  input_dir: "data/processed"
+  output_dir: "artifacts/graphsage"
+  
+# Model settings
+model:
+  hidden_channels: 256
+  num_layers: 2
+  dropout: 0.5
+  activation: "relu"
+  
+# Training settings
+training:
+  num_epochs: 100
+  batch_size: 64
+  learning_rate: 0.001
+  weight_decay: 5e-4
+  early_stopping_patience: 10
+  random_seed: 42
+  
+# Optuna optimization settings
+optuna:
+  n_trials: 50
+  timeout: 3600  # 1 hour
+  study_name: "graphsage_optimization"
+  
+# Evaluation settings
+evaluation:
+  metrics: ["auc", "ap", "precision@k", "recall@k"]
+  k_values: [10, 50, 100]
+  test_size: 0.2
+  val_size: 0.1
+  
+# Output settings
+output:
+  model_checkpoint: "graphsage_model.pt"
+  results_file: "graphsage_results.csv"
+  summary_file: "graphsage_summary.json"
+  plots_dir: "plots" 

@@ -1,0 +1,7 @@
+# Chapter 3 timeline settings
+fy_start: 2022
+fy_end: 2025
+# As-of date aligned to core_v1 max/test window (days since 1970 -> 2025-06-09)
+as_of_date: 2025-06-09
+# FY26+ treated as recency pulse, not used for canonical network
+include_post_as_of: true

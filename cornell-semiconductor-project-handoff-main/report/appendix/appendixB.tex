@@ -1,0 +1,98 @@
+%========================================================
+% Appendix B: Semiconductor classification codes
+%========================================================
+% chktex-file 13  intersentence spacing is a style choice
+% chktex-file 24  \label on own line is standard practice
+\chapter{Semiconductor Classification Codes}
+\label{app:semiconductor_classification_codes}
+
+This appendix documents the industry-code boundary used to seed the strict semiconductor catalog referenced in \S3.6. The goal is transparency and reproducibility. Rather than relying on informal judgments about what ``counts'' as semiconductor activity, the analysis defines a high-precision seed set using a small, auditable list of classification codes. That seed set is then mapped into the unified node namespace and used to prune the canonical DoD-anchored multiplex into the semiconductor-relevant dependency subgraph.
+
+Table~\ref{tab:app_semiconductor_codes_rbics_l4} lists the RBICS Level 4 industry group codes treated as semiconductor-relevant in the strict build. These codes include both core semiconductor categories and semiconductor-enabling activity. The table also reports two adjacent RBICS codes that are defined but intentionally excluded. The analysis excludes them to avoid pulling broad electronics activity into the seed set, thereby weakening the interpretability of the resulting semiconductor network. The example firms are illustrative and drawn from the locked DoD semiconductor network. Because the RBICS assignment is based on business-segment reporting, diversified firms can be associated with multiple RBICS groups. In the network, such firms appear once as nodes, with their semiconductor provenance recorded in node attributes.
+
+Table~\ref{tab:app_sic_semiconductor_fallback} reports the SIC fallback rule used when RBICS business-segment coverage is unavailable for a firm. The analysis uses SIC 3674 as a narrow indicator of semiconductor-related activity so that missing RBICS coverage does not mechanically exclude otherwise relevant entities. In the locked DoD semiconductor network, 1{,}256 nodes are flagged SIC 3674 (representing 1{,}179 unique firms; the difference reflects multiplex identities where a single firm appears under more than one namespace prefix), of which 708 are SIC-only.
+
+
+%========================================================
+% Appendix Table: Semiconductor classification codes (strict seed)
+%========================================================
+\begin{landscape}
+\pagestyle{landscape}
+\begin{table}[p]
+  \centering
+  \caption[\textit{Industry codes used to seed the strict semiconductor catalog}]
+          {\textit{RBICS Level 4 industry group codes used to seed the strict semiconductor catalog, with in-network coverage counts for the locked DoD semiconductor network.}}
+  \label{tab:app_semiconductor_codes_rbics_l4}
+
+  \begin{threeparttable}
+    \footnotesize
+    \setlength{\tabcolsep}{4pt}
+    \renewcommand{\arraystretch}{1.1}
+
+    \begin{adjustbox}{max width=\linewidth, max totalheight=\textheight, keepaspectratio}
+    \begin{tabularx}{\linewidth}{@{}l >{\raggedright\arraybackslash}X c c >{\raggedright\arraybackslash}X@{}}
+      \toprule
+      \multicolumn{1}{c}{RBICS L4 code} &
+      \multicolumn{1}{c}{Industry group (L4)} &
+      \multicolumn{1}{c}{Firms} &
+      \multicolumn{1}{c}{Role} &
+      \multicolumn{1}{c}{Example firms in DoD semiconductor network} \\
+      \midrule
+
+      \multicolumn{5}{@{}l}{\textit{Strict seed set (included)}} \\
+      55102010 & Analog and Mixed Signal Semiconductors & 360 & Included & Texas Instruments Incorporated; Analog Devices \\
+      55102015 & Discrete Semiconductors & 159 & Included & Infineon Technologies AG; STMicroelectronics NV \\
+      55102020 & General Semiconductors & 190 & Included & NXP Semiconductors NV; Renesas Electronics Corp. \\
+      55102025 & Memory Semiconductors & 54  & Included & Micron Technology, Inc.; SK hynix, Inc. \\
+      55102030 & Processor Semiconductors & 74  & Included & Intel Corp.; Advanced Micro Devices, Inc. \\
+      55102035 & Programmable Logic and ASIC Semiconductors & 58 & Included & Xilinx, Inc.; Lattice Semiconductor Corp. \\
+      55102040 & Specialized Semiconductors & 242 & Included & QUALCOMM, Inc.; Broadcom Inc. \\
+      55103010 & Semiconductor Manufacturing Capital Equipment & 545 & Included & ASML Holding NV; Applied Materials, Inc. \\
+      55103015 & Semiconductor Manufacturing Services & 200 & Included & Taiwan Semiconductor Manufacturing Co., Ltd.; GLOBALFOUNDRIES, Inc. \\
+
+      \midrule
+      \multicolumn{5}{@{}l}{\textit{Adjacent codes (defined but excluded from the strict build)}} \\
+      55101010 & Electronic Components & --- & Excluded & --- \\
+      55102510 & Electronic Equipment Manufacturing & --- & Excluded & --- \\
+      \bottomrule
+    \end{tabularx}
+    \end{adjustbox}
+
+    \begin{tablenotes}[flushleft]
+      \footnotesize
+      \item \textit{Note}. RBICS is FactSet's Revere Business Industry Classification System. RBICS membership is determined from business-segment reporting and is used here only to seed the strict semiconductor catalog. \textit{Firms} reports the number of unique firms (FactSet entities) in the locked DoD semiconductor network that are flagged by each RBICS L4 code; because firms can report multiple business segments, counts are not mutually exclusive across codes. Entities without RBICS segment coverage are additionally captured via an SIC 3674 fallback rule (not shown in this table). Example firms are illustrative and drawn from the locked DoD semiconductor network constructed in \S3.6. See \parencite{factset_standard_2021}.
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+\end{landscape}
+\pagestyle{fancy}
+
+%========================================================
+% Appendix Table: SIC fallback used for strict semiconductors
+% Source: src/ch3/config/semiconductor_codes.yml
+% Examples drawn from the locked DoD semiconductor network (\S3.6)
+%========================================================
+\begin{landscape}
+\pagestyle{landscape}
+\begin{table}[tbp]
+  \centering
+  \caption[\textit{SIC fallback code used in the strict semiconductor seed}]
+          {\textit{SIC fallback code used to flag semiconductor-relevant firms when RBICS business-segment coverage is unavailable.}}
+  \label{tab:app_sic_semiconductor_fallback}
+
+\begin{tabular}{@{}l l S[table-format=4.0, table-number-alignment=center] p{7.4cm}@{}}
+\toprule
+\multicolumn{1}{c}{SIC code} & \multicolumn{1}{c}{Industry} & \multicolumn{1}{c}{Firms} & \multicolumn{1}{c}{Example firms in DoD semiconductor network} \\
+\midrule
+3674 & Semiconductors and Related Devices & 1179 & 5N Plus Semiconductors LLC; Accretech America INC.; ACECO Precision Manufacturing LLC \\
+\bottomrule
+\end{tabular}
+
+
+    \begin{tablenotes}[flushleft]
+      \footnotesize
+      \item \textit{Note}. SIC 3674 is used as a strict fallback for identifying semiconductor-relevant firms when RBICS business-segment reporting does not cover a firm. In the locked DoD semiconductor network, 1{,}256 nodes are flagged SIC 3674 (representing 1{,}179 unique firms; the difference reflects multiplex identities where a single firm appears under more than one namespace prefix), of which 708 are \emph{SIC-only} (i.e., not also flagged by RBICS L4). Firms flagged by both RBICS and SIC are included once as nodes in the graph, with their semiconductor provenance recorded in the node attributes.
+    \end{tablenotes}
+\end{table}
+\end{landscape}
+\pagestyle{fancy}

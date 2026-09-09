@@ -1,0 +1,165 @@
+% ==== Appendix A --- Extended Results and Robustness (narrative) ====
+% chktex-file 1   user-defined macros terminated with space is correct
+% chktex-file 8   en-dash compounds are correct academic usage
+% chktex-file 13  intersentence spacing is a style choice
+% chktex-file 24  \label on own line is standard practice
+\chapter{Extended Results and Robustness}
+\label{app:extended-results}
+
+This appendix complements Section~\ref{chap:link-prediction} by reporting validation mirrors, full structural slices, full temporal horizons, and seed-level robustness.
+Unless noted, metrics are macro-averaged per source, candidate pools are built from the \textit{train} graph using \emph{undirected two-hop} reachability with \emph{uniform} fallback (per-source budget = 5{,}000; candidate-pool RNG seed = 42), and labels are positive--unlabeled (PU).
+Under PU, precision-like metrics are lower bounds because some ``negatives'' in the pool are undiscovered positives.
+Statistical comparisons use 95\% confidence intervals across training seeds; the tables bold the best entry and mark \textdagger\ where a model is not statistically worse than that best.
+For compactness, the Ensemble row is always shown for context, but ``best-in-class'' comparisons among single models exclude it.
+
+\section{Validation Model Scorecard}
+\label{app:a1-scorecard}
+\noindent
+Table~A.1 mirrors the global scorecard on validation.
+The Ensemble attains \(\,1.000\,\) on several metrics because its weights were tuned on validation predictions; this is an \emph{in-sample optimum} and not directly comparable to held-out performance.
+The value of Table~A.1 is two-fold: (i) the \emph{ordering} of single models is consistent with the test set in Table~\ref{tab:model_scorecard}, and (ii) magnitudes are within the same range once base rates and the smaller temporal span of validation are taken into account.
+Use this table to confirm that the \emph{model selection} and \emph{hyperparameters} were not over-fitting a narrow subset of the data.
+
+% ----------------- Validation Global Scorecard -------------
+\begin{table}[H]
+\centering
+\caption[\textit{Model Scorecard}]{\textit{Model Scorecard --- Validation}}
+\label{tab:model-scorecard-validation}
+
+\resizebox{\linewidth}{!}{\input{report/tables/tab_a.1_global_scorecard_validation}}
+
+  \captionsetup{justification=raggedright,singlelinecheck=false}
+  \caption*{\footnotesize \textit{Note}. {Metrics are macro-averaged across 49{,}778 validation sources (each with $\geq 1$ labeled positive) on the validation window (2018-10-13 to 2021-12-11). Candidate pools use \emph{undirected two-hop} reachability with \emph{uniform} fallback to a per-source budget of 5{,}000 (seed = 42), excluding earlier positives (\textit{val}: exclude train). Labels are positive--unlabeled, so precision-like metrics are lower bounds. ``Heuristics'' is the mean of PA/CN/AA. The validation base rate (positives among candidates) is used to compute \emph{Lift ($\times$ base)} as Precision@10 divided by the base rate (here, Ensemble P@10 $= 1.000 \Rightarrow$ Lift $= 821.0\times$). The Ensemble achieves $1.000$ across macro metrics on validation because ensemble weights are tuned on validation scores; this reflects in-sample optimal ranking and is not directly comparable to held-out performance. See Table~\ref{tab:model_scorecard} for the test scorecard. Results are averaged over five seeds; 95\% confidence intervals are reported in Appendix~\ref{app:a5-seeds}.}
+}
+\end{table}
+
+\section{Full Structural Slices}
+\label{app:a2-struct-test}
+\noindent
+Tables~A.2 and~A.3 report the full set of structural/generalization slices on the \textit{test} and \textit{validation} windows, respectively. Slices are defined \emph{as-of} the train cutoff $T_0$: WW (both endpoints warm), WW3 (both observed within three years pre-$T_0$), CW (cold source, warm target), WC (warm source, cold target), CC (both endpoints cold), CC3 (both not observed within three years pre-$T_0$); \textit{Two-hop} (a path of length $\leq 2$ exists between endpoints in the train graph) versus \textit{$>$2-hop} (no such path); and degree quartiles \textit{deg Q1--Q4} by \emph{source out-degree} on the train snapshot. Three consistent patterns emerge across both splits. First, strict generalization is hard: CC performance is materially lower than CW/WC, reflecting the difficulty when both endpoints are unseen at $T_0$. Second, $>$2-hop is a reliable hard-topology stress: models with stronger multi-hop representation generally maintain higher nDCG@100 when no short path exists in the train graph. Third, head vs.\ tail effects are visible: \textit{deg Q1} (sparse sources) is consistently more challenging than mid- or high-degree sources. Any \NA\ entries indicate \emph{insufficient slice support} (e.g., no eligible sources with $\geq 1$ labeled positive in that slice/split), while reported zeros reflect near-zero means under rounding. On validation, the Ensemble may attain values near $1.000$ in some slices because its weights are tuned on validation predictions (in-sample optimum); these entries are not directly comparable to held-out test results. In all columns, boldface best-in-class \emph{excludes the Ensemble}; \textdagger\ marks entries that are \emph{not statistically worse} than the bolded best under 95\% confidence intervals.
+
+% --------------- Full Structural Slices (Test) --------------
+\begin{landscape}
+\pagestyle{landscape}
+\begin{table}[p] 
+  \centering
+  \caption[\textit{Full Structural Slices (Test Split)}]{\textit{Full Structural Slices (Test Split)}}
+  \label{tab:struct_slices_test}
+  
+\resizebox{\linewidth}{!}{\input{report/tables/tab_a.3_full_structural_slice_test}}
+
+  \captionsetup{justification=raggedright,singlelinecheck=false}
+  \caption*{\footnotesize \textit{Note}. Metrics are macro-averaged across eligible sources for each slice in the held-out \textit{test} window (2022-02-09 to 2025-06-09).
+  Slice definitions are as of the train cutoff ($T_0$):
+  WW = both endpoints warm (observed before $T_0$); 
+  WW3 = both endpoints observed within the 3 years before $T_0$; 
+  CW = cold source, warm target; 
+  WC = warm source, cold target; 
+  CC = both endpoints cold (no observed edges before $T_0$); 
+  CC3 = both endpoints \emph{not} observed within the 3 years before $T_0$ (they may have older activity).
+  Two-hop = endpoints connected by a path of length $\leq 2$ in the train graph; 
+  $>$2-hop = no such path in the train graph.
+  deg Q1--Q4 = lowest to highest quartiles by \emph{source out-degree} on the train snapshot.
+  Candidate pools use \emph{undirected two-hop} reachability with \emph{uniform} fallback (per-source budget 5{,}000; candidate-pool RNG seed = 42), excluding earlier positives (\textit{val}: exclude train; \textit{test}: exclude train $\cup$ val).
+  Labels are positive--unlabeled, so precision-like metrics are lower bounds.
+  \NA\ indicates insufficient support for the slice (no eligible sources in test); zeros denote near-zero means under rounding.
+  Boldface best-in-class \emph{excludes the Ensemble}; the Ensemble row is reported for context.
+  Confidence interval and significance conventions follow Table~\ref{tab:model_scorecard}.}
+\end{table}
+\end{landscape}
+\pagestyle{fancy}
+
+% --------------- Full Structural Slices (Validation) --------------
+\begin{landscape}
+\pagestyle{landscape}
+\begin{table}[p]
+  \centering
+  \caption[\textit{Full Structural Slices (Validation Split)}]
+  {\textit{Full Structural Slices (Validation Split)}}
+  \label{tab:struct_slices_val}
+
+  \resizebox{\linewidth}{!}{\input{report/tables/tab_a.4_full_structural_slice_val}}
+
+  \captionsetup{justification=raggedright,singlelinecheck=false}
+  \caption*{\footnotesize \textit{Note}. Metrics are macro-averaged across eligible sources for each slice in the \textit{validation} window (2018-10-13 to 2021-12-11).
+  Slice definitions are as of the train cutoff ($T_0$):
+  WW = both endpoints warm (observed before $T_0$); 
+  WW3 = both observed within the 3 years before $T_0$; 
+  CW = cold source, warm target; 
+  WC = warm source, cold target; 
+  CC = both endpoints cold (no observed edges before $T_0$); 
+  CC3 = both endpoints \emph{not} observed within the 3 years before $T_0$.
+  Two-hop = endpoints connected by a path of length $\leq 2$ in the train graph; 
+  $>$2-hop = no such path in the train graph.
+  deg Q1--Q4 = lowest to highest quartiles by \emph{source out-degree} on the train snapshot (Q2/Q3 may be omitted for brevity).
+  Candidate pools use \emph{undirected two-hop} reachability with \emph{uniform} fallback (per-source budget 5{,}000; candidate-pool RNG seed = 42), excluding earlier positives (\textit{val}: exclude train).
+  Labels are positive--unlabeled, so precision-like metrics are lower bounds.
+  The Ensemble may reach $1.000$ across validation slices because weights are tuned on validation predictions (in-sample optimum); these entries are not directly comparable to held-out performance on test.
+  \NA\ indicates insufficient slice support; zeros reflect near-zero means under rounding.
+  Boldface best-in-class \emph{excludes the Ensemble}; the Ensemble row is shown for context.
+  Confidence interval and significance conventions follow Table~\ref{tab:model_scorecard}.}
+\end{table}
+\end{landscape}
+\pagestyle{fancy}
+
+\section{Full Temporal Horizons --- Validation + Test}
+\label{app:a4-temporal}
+\noindent
+Table~A.4 presents a calendar-anchored horizon profile, with \textit{validation} evaluated at 0--6\,m, 6--12\,m, 12--24\,m, and 24--36\,m, and \textit{test} evaluated at 36--48\,m, 48--60\,m, 60--72\,m, and 72+\,m. The table reports \emph{Average Precision (AP)} because it is threshold-free and robust under class imbalance. The final column, \(\Delta=\mathrm{AP}_{48\text{--}60}-\mathrm{AP}_{0\text{--}6}\), summarizes the \emph{absolute change} from early-warning to a longer-lag window (note that \(\Delta\) spans splits). Interpreting the table, models that rank highly at 0--6\,m (near-term discovery) are not always the most durable at 48--60\,m, which matters for operational planning horizons; conversely, a small negative (or positive) \(\Delta\) indicates that the signal persists, whereas a large negative \(\Delta\) indicates decay over time. AP magnitudes should be read in light of the \emph{horizon base rates} (prevalence of positives), as lower prevalence mechanically reduces AP. For validation horizons, the Ensemble can reach AP \(=1.000\) (in-sample); test horizons reflect true generalization.
+
+
+% ------------- Full Temporal Horizons (Validation + Test) ----------
+\begin{landscape}
+\pagestyle{landscape}
+\begin{table}[H]
+  \centering
+  \caption[\textit{Full Temporal Horizons}]
+  {\textit{Full Temporal Horizons}}
+  \label{tab:full_temporal_horizons}
+
+
+\resizebox{\linewidth}{!}
+{\input{report/tables/tab_a.5_full_temporal_table}}
+
+  \captionsetup{justification=raggedright,singlelinecheck=false}
+  \caption*{\footnotesize \textit{Note}. Horizons are \emph{calendar-anchored} from the train cutoff ($T_0$ end).
+  Short horizons (0--6\,m, 6--12\,m) are evaluated on the \textit{validation} window; longer horizons (12--24\,m, 24--36\,m, 36--48\,m, 48--60\,m, 60--72\,m, 72+\,m) on the \textit{test} window. 
+  Where a horizon window would straddle a split boundary, evaluation is restricted to its intersection with the designated split.
+  Average Precision (AP) is computed under positive--unlabeled labeling within each horizon; entries are macro-averaged across eligible sources. 
+  $\Delta$ is the absolute change $\mathrm{AP}_{48\text{--}60} - \mathrm{AP}_{0\text{--}6}$ (note it spans validation and test).
+  Candidate pools use \emph{undirected two-hop} reachability with \emph{uniform} fallback (per-source budget 5{,}000; candidate-pool RNG seed = 42), excluding earlier positives (\textit{val}: exclude train; \textit{test}: exclude train $\cup$ val).
+  Labels are positive--unlabeled, so precision-like metrics are lower bounds.
+  The Ensemble may reach $1.000$ on validation horizons because weights are tuned on validation predictions (in-sample optimum); held-out test horizons reflect generalization.
+  \NA\ indicates insufficient support for the horizon (no eligible sources/scores); zeros denote near-zero means under rounding.
+  Boldface best-in-class \emph{excludes the Ensemble}; the Ensemble row is shown for context.
+  Confidence interval and significance conventions follow Table~\ref{tab:model_scorecard}; base rates per horizon are reported in Appendix~A.4 text.}
+\end{table}
+\end{landscape}
+\pagestyle{fancy}
+
+\section{Seed Robustness}
+\label{app:a5-seeds}
+\noindent
+\noindent
+Table~A.5 summarizes \(\text{mean} \pm 95\%\ \text{CI}\) across training RNG seeds for a compact set of metrics (nDCG@100, Hit@10, AP 0--6\,m on \textit{validation}, AP 48--60\,m on \textit{test}). Beyond the setup, the empirical picture is that \emph{things are stable}. First, the \emph{model ordering} observed in the main test scorecard is unchanged across seeds---there are no rank inversions attributable to initialization. Second, dispersion is modest: for the learned models, CI half-widths for nDCG@100 and Hit@10 are typically on the order of \(10^{-3}\) to \(10^{-2}\), indicating tight concentration of outcomes under the fixed candidate-pool policy; the heuristic baselines show somewhat wider intervals, consistent with their greater sensitivity to local structure. Third, the \emph{temporal pattern} (higher near-term AP at 0--6\,m than at 48--60\,m) persists across seeds; the absolute differences exceed the associated CI half-widths, suggesting that the early-vs-late gap is not an artifact of initialization. Entries marked ``\(\pm\,\NA\)'' correspond to single-seed runs (no interval estimable)---notably the Ensemble, which also attains AP \(=1.000\) on validation due to in-sample weight tuning; those values should be interpreted cautiously relative to held-out results.
+
+
+%------------------------ Seed Robustness ---------------------------
+\begin{table}[h]
+  \centering
+  \caption[\textit{Seed Robustness (test; mean $\pm$ 95\% CI)}]{\textit{Seed Robustness (mean $\pm$ 95\% CI)}}
+  \label{tab:seed_robustness}
+
+\resizebox{\linewidth}{!}{\input{report/tables/tab_a.2_seed_robustness}}
+
+  \captionsetup{justification=raggedright,singlelinecheck=false}
+  \caption*{\footnotesize \textit{Note}. Entries report \emph{mean $\pm$ 95\% confidence interval} across training seeds for each model; the number of seeds used is shown in the $n_{\text{seeds}}$ column. 
+  nDCG@100 and Hit@10 are computed on the held-out \textit{test} window (2022-02-09 to 2025-06-09). 
+  Horizon metrics are calendar-anchored: AP 0--6\,m is evaluated on \textit{validation} (anchored from $T_0$ end), while AP 48--60\,m is evaluated on \textit{test}. 
+  $\pm\,\NA$ indicates \emph{single-seed} runs (no interval estimable). 
+  Candidate pools follow the same policy as Table~\ref{tab:model_scorecard} (undirected two-hop with uniform fallback, per-source budget 5{,}000; earlier positives excluded); labels are positive\text{--}unlabeled, so precision-like metrics are lower bounds.}
+\end{table}
+
+\FloatBarrier   % keep subsequent floats from jumping past this section
+
+

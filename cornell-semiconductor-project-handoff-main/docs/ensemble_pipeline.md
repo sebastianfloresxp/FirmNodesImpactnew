@@ -1,0 +1,139 @@
+# Ensemble Pipeline
+
+This repository ships with a trained logistic meta-ranker (`meta_ranker_v4`) and
+pre-materialized meta datasets (`meta_dataset_v4`) for validation and test. The
+instructions below capture how the artifacts were produced and how to apply the
+existing ranker to a fresh candidate export without retraining.
+
+## Training recap (already completed)
+
+1. Build per-model candidate scores under `results/ensemble/meta_dataset_v4/`.
+2. Train the logistic meta-ranker and save weights to
+   `artifacts/ensemble/meta_ranker_v4/meta_model.json`.
+3. Evaluate the model to obtain scores and rank metrics under
+   `results/ensemble/meta_ranker/meta_ranker_v4/` (includes
+   `scores_{val,test}.parquet`, calibration plots, and `metrics.json`).
+
+These steps are documented for provenance only—do **not** rerun them unless you
+need to train a new release.
+
+## Predict pipeline
+
+Use `src/ensemble/ensemble_predict.sh` for a single-command workflow that:
+
+1. Applies the saved meta model to `meta_inputs_val.parquet` and
+   `meta_inputs_test.parquet` to regenerate clean `scores_{val,test}.parquet`.
+2. Runs `threshold_eval.py` on validation to sweep probability thresholds, build
+   histograms, and select the smallest threshold that meets the requested
+   precision target (default `0.90`).
+3. Reuses the selected threshold on the test split and writes
+   `threshold_report_test.json/csv` alongside the validation report.
+4. Executes `eval_selection.py` to summarize global-τ and Top-K+floor rules and
+   emit `selection_summary.json` (under
+   `results/ensemble/meta_ranker/<tag>/`) with per-slice precision/recall/yield
+   for validation and test.
+5. (Optional) Exports all test edges with probabilities above the chosen
+   validation threshold to `predictions/<tag>/ranked_edges.parquet` and writes
+   preset selections (e.g., anchor τ=1.0, core Top-K+floor, discovery queue) to
+   sibling Parquet files in the same directory.
+
+Example invocation (uses the v4 artifacts by default):
+
+```bash
+bash src/ensemble/ensemble_predict.sh --tag meta_ranker_v4
+```
+
+Key options:
+
+- `--precision` – customize the minimum precision when selecting thresholds.
+- `--meta-dataset` – point to a different release containing
+  `meta_inputs_{val,test}.parquet`.
+- `--model` – evaluate a different saved meta-ranker JSON file.
+- `--skip-predictions` – omit the ranked Parquet export if you only need the
+  threshold reports.
+
+Each run generates:
+
+- `results/ensemble/meta_ranker/<tag>/scores_{val,test}.parquet`
+- `results/ensemble/meta_ranker/<tag>/threshold_report_{val,test}.{json,csv}`
+- `results/ensemble/meta_ranker/<tag>/selection_summary.json`
+- `predictions/<tag>/ranked_edges.parquet` (when not skipped)
+- `predictions/<tag>/<name>.parquet` for any exported selection rules (defaults
+  include `anchor_tau1`, `core_topk`, and `discovery_topk`)
+
+## Threshold evaluation utility
+
+`src/ensemble/threshold_eval.py` backs the automation above and can be called
+manually for ad-hoc analysis. Example for the validation split:
+
+```bash
+python -m src.ensemble.threshold_eval \
+  --scores results/ensemble/meta_ranker/meta_ranker_v4/scores_val.parquet \
+  --meta-input results/ensemble/meta_dataset_v4/meta_inputs_val.parquet \
+  --baseline-prob-cols prob_graphsage prob_node2vec prob_heuristics \
+  --baseline-prob-cols prob_twotower prob_tgnn prob_n2v_temporal \
+  --precision-target 0.90 \
+  --tag meta_ranker_v4 \
+  --split val
+```
+
+The script prints a JSON summary and writes the JSON/CSV reports under
+`results/ensemble/meta_ranker/<tag>/`. When supplying `--threshold`, the script
+skips the validation sweep and reports metrics at the provided cut-off (used for
+applying validation-derived thresholds to test).
+
+## Selection evaluation
+
+`src/ensemble/eval_selection.py` aggregates decision metrics for both global
+thresholds and Top-K+floor policies. It produces
+`selection_summary.json`, which includes per-slice precision, recall, and yield on
+validation and test, plus (optionally) exports named Parquet selections. To run
+it manually:
+
+```bash
+python -m src.ensemble.eval_selection \
+  --scores-dir results/ensemble/meta_ranker/meta_ranker_v4_fulltest \
+  --meta-dir results/ensemble/meta_dataset_v4 \
+  --out-dir results/ensemble/meta_ranker \
+  --tag meta_ranker_v4_fulltest \
+  --prediction-root predictions \
+  --export-threshold anchor_tau1=1.0 \
+  --export-topk core_topk=K=10,floor=0.995,cap=50 \
+ --export-topk discovery_topk=K=10,floor=0.98,cap=None
+```
+
+Defaults cover the grid described in the report (τ ∈ {1.0, 0.9235},
+precision-driven τ_core targets 0.30/0.20, and the Top-K/floor combinations
+{K ∈ [1,2,3,5,10], floor ∈ {0.995,0.99,0.985,0.98}, cap ∈ {None,50}}).
+
+## Calibration plots (optional)
+
+`src/ensemble/calibration_plots.py` can render reliability diagrams for the
+validation OOF and test predictions. This step is not part of the default
+pipeline; run it manually when refreshed plots are needed.
+
+## Analysis tables & figures
+
+Analysis figures and tables are generated by per-chapter scripts under
+`src/analysis/`. For example, Chapter 2 figures are produced by individual
+modules in `src/analysis/chapter2/` (e.g., `fig_01_degree_histogram.py`,
+`fig_02_model_pr_overlay.py`, `tab_02_structural_generalization.py`).
+
+> **Note:** The earlier `generate_figures` and `plot_figures` entry points have
+> been removed. Use the per-chapter scripts in `src/analysis/` instead.
+
+## Ranked predictions
+
+The ranked export contains the columns:
+
+- `src_id`, `dst_id`, `meta_prob` – edge endpoints and the ensemble probability
+- `rank` – per-source rank order (1 = highest probability)
+- `slice_CC`, `slice_CC3`, `slice_WW`, `slice_WW3`, `slice_deg_q1`,
+  `slice_gt2hop` – slice membership flags to support downstream analysis
+
+Consumers can open the Parquet with DuckDB, pandas, or Spark to extract top-N
+edges per supplier or to filter by slice.
+
+With these artifacts in place you can process new candidate dumps by pointing
+`--meta-dataset` and `--tag` at the appropriate locations; the pipeline avoids
+retraining and depends only on the saved meta model.

@@ -1,0 +1,31 @@
+% =======================
+% Table C.1 (tabular only)
+% Cross-view stability summary
+% =======================
+% chktex-file 1   user-defined macros in table cells terminated with space is correct
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X
+  S[table-format=-2.3]
+  S[table-format=-2.3]
+  S[table-format=-2.3]
+  S[table-format=3.0]@{}}
+\toprule
+Metric
+& \multicolumn{1}{c}{Disc.\textendash Emp.}
+& \multicolumn{1}{c}{Emp.\textendash Aug.}
+& \multicolumn{1}{c}{Disc.\textendash Aug.}
+& \multicolumn{1}{c}{Overall} \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Rank stability across evidence views}} \\
+Top-25 overlap (count)         & 22    & 3     & 0     & \multicolumn{1}{c}{\textemdash} \\
+Top-25 overlap (Jaccard)       & 0.786 & 0.064 & 0.000 & \multicolumn{1}{c}{\textemdash} \\
+Common ranked nodes ($n$)      & 58    & 55    & 12    & \multicolumn{1}{c}{\textemdash} \\
+Spearman rank correlation      & 0.943 & 0.539 & -0.119& \multicolumn{1}{c}{\textemdash} \\
+Kendall rank correlation       & 0.867 & 0.597 & -0.030& \multicolumn{1}{c}{\textemdash} \\
+\addlinespace[2pt]
+\multicolumn{5}{@{}l}{\textit{High-impact set by confidence (integrated decision view)}} \\
+High-impact, high confidence ($n$)   & \multicolumn{1}{c}{\textemdash} & \multicolumn{1}{c}{\textemdash} & \multicolumn{1}{c}{\textemdash} & 0   \\
+High-impact, medium confidence ($n$) & \multicolumn{1}{c}{\textemdash} & \multicolumn{1}{c}{\textemdash} & \multicolumn{1}{c}{\textemdash} & 47  \\
+High-impact, low confidence ($n$)    & \multicolumn{1}{c}{\textemdash} & \multicolumn{1}{c}{\textemdash} & \multicolumn{1}{c}{\textemdash} & 56  \\
+High-impact total ($n$)              & \multicolumn{1}{c}{\textemdash} & \multicolumn{1}{c}{\textemdash} & \multicolumn{1}{c}{\textemdash} & 103 \\
+\bottomrule
+\end{tabularx}

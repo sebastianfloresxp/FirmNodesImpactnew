@@ -1,0 +1,73 @@
+{
+  "figure_name": "fig_4_4_case_study_network_observed",
+  "view": "observed",
+  "focal_uid": "ent:40472",
+  "focal_name": "TE Connectivity Plc",
+  "selection_params": {
+    "max_semis": 18,
+    "max_primes": 16,
+    "min_nodes": 130,
+    "max_nodes": 170,
+    "max_hops": 10,
+    "k_shortest": 2,
+    "augment_neighbors_per_node": 5,
+    "max_context_edges": 220
+  },
+  "counts": {
+    "n_nodes": 130,
+    "n_edges": 449,
+    "n_highlight_edges": 153,
+    "n_selected_semis": 18,
+    "n_selected_primes": 16,
+    "n_selected_dod_agency": 1,
+    "n_disconnected_primes_after_removal": 0,
+    "n_degraded_primes_after_removal": 16
+  },
+  "selected_dod_agency": "ent:62755",
+  "selected_dod_agency_name": "Department of the Navy",
+  "selected_semis": [
+    "ent:14880",
+    "ent:56307",
+    "ent:62848",
+    "ent:17085",
+    "ent:23951",
+    "ent:30273",
+    "ent:39886",
+    "ent:51737",
+    "ent:59432",
+    "ent:65591",
+    "ent:38502",
+    "ent:10497",
+    "ent:11036",
+    "ent:11598",
+    "ent:12754",
+    "ent:146",
+    "ent:14809",
+    "ent:16244"
+  ],
+  "selected_primes": [
+    "ent:41421",
+    "ent:48266",
+    "ent:4389",
+    "ent:35865",
+    "ent:3259",
+    "ent:58295",
+    "ent:39093",
+    "ent:30115",
+    "ent:40223",
+    "ent:13187",
+    "ent:28975",
+    "ent:26744",
+    "ent:44858",
+    "ent:32380",
+    "ent:40207",
+    "ent:49329"
+  ],
+  "output_files": {
+    "pdf": "figs/chapter4/v2_fix01/main_text/fig_4_4_case_study_network_observed.pdf",
+    "svg": "figs/chapter4/v2_fix01/main_text/fig_4_4_case_study_network_observed.svg",
+    "png": "figs/chapter4/v2_fix01/main_text/fig_4_4_case_study_network_observed.png",
+    "nodes_csv": "figs/chapter4/v2_fix01/main_text/fig_4_4_case_study_network_nodes.csv",
+    "edges_csv": "figs/chapter4/v2_fix01/main_text/fig_4_4_case_study_network_edges.csv"
+  }
+}

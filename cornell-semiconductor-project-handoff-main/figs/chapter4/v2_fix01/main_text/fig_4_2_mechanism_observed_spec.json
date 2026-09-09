@@ -1,0 +1,57 @@
+{
+  "figure_name": "fig_4_2_mechanism_observed",
+  "view": "observed",
+  "k_target": 25,
+  "source_csv": "artifacts/ch4/v2_fix01/2025-06-09/m6_6/mechanism_interdiction_summary_observed.csv",
+  "source_csv_sha256": "4a189126d13778d8a927ea0beafc72d3bcf98ef1e9b8bafd9fe85dfe1bd88e44",
+  "output_files": {
+    "pdf": "figs/chapter4/v2_fix01/main_text/fig_4_2_mechanism_observed.pdf",
+    "svg": "figs/chapter4/v2_fix01/main_text/fig_4_2_mechanism_observed.svg",
+    "png": "figs/chapter4/v2_fix01/main_text/fig_4_2_mechanism_observed.png",
+    "plot_data_csv": "figs/chapter4/v2_fix01/main_text/fig_4_2_mechanism_observed_plot_data.csv"
+  },
+  "figure_size_inches": [
+    6.5,
+    3.7
+  ],
+  "font_sizes": {
+    "axes_label": 10,
+    "ticks": 9,
+    "legend": 8.4
+  },
+  "x_axis": {
+    "label": "Cohort-constrained deny harm (% of unrestricted maximum)",
+    "range_pct": [
+      0.0,
+      100.0
+    ],
+    "reference_line_pct": 100.0
+  },
+  "y_axis": {
+    "label": "Cohort"
+  },
+  "lollipop": {
+    "series": "deny",
+    "label": "Deny share",
+    "stem_color": "#8c8c8c",
+    "stem_linewidth": 1.5,
+    "marker": "o",
+    "marker_facecolor": "#1f1f1f",
+    "marker_edgecolor": "#1f1f1f",
+    "label_precision_decimals": 1
+  },
+  "cohorts": [
+    {
+      "cohort": "corridor_intermediary",
+      "cohort_label": "Corridor\nIntermediary"
+    },
+    {
+      "cohort": "prime_adjacent",
+      "cohort_label": "Prime\nAdjacent"
+    },
+    {
+      "cohort": "upstream_of_semi",
+      "cohort_label": "Upstream\nof Semis"
+    }
+  ]
+}

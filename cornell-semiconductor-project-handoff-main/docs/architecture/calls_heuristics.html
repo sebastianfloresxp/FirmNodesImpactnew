@@ -1,0 +1,603 @@
+<!--
+ * Copyright (c) 2015 Mountainstorm
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ * Original from https://github.com/mountainstorm/jquery.graphviz.svg/blob/master/demo.html
+ -->
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="css/graphviz.svg.css"> -->
+	</head>
+
+	<style>
+        #instructions {
+            color: #000000;
+            position: absolute;
+            z-index: 100;
+            bottom: 0px;
+            left: 0px;
+        }
+    </style>
+	<body>
+		<h4 id="instructions">Click node to highlight; Shift-scroll to zoom; Esc to unhighlight</h4>
+		<div id="graph" style="width: 100%; height: 100%; overflow: scroll;"></div>
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+		<script type="text/javascript" src="https://cdn.rawgit.com/jquery/jquery-mousewheel/master/jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="https://cdn.rawgit.com/jquery/jquery-color/master/jquery.color.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script type="text/javascript">!function(t){"use strict";String.prototype.startsWith=function(t){return 0==this.indexOf(t)},String.prototype.endsWith=function(t){return-1!==this.indexOf(t,this.length-t.length)};var e=function(t,e){this.type=null,this.options=null,this.enabled=null,this.$element=null,this.init("graphviz.svg",t,e)};e.VERSION="1.0.1",e.GVPT_2_PX=32.5,e.DEFAULTS={url:null,svg:null,shrink:"0.125pt",tooltips:{init:function(e){var i=t(this);i.tooltip({container:e,placement:"auto left",animation:!1,viewport:null}).on("hide.bs.tooltip",function(){if(i.attr("data-tooltip-keepvisible"))return!1})},show:function(){var e=t(this);e.attr("data-tooltip-keepvisible",!0),e.tooltip("show")},hide:function(){var e=t(this);e.removeAttr("data-tooltip-keepvisible"),e.tooltip("hide")},update:function(){var e=t(this);e.attr("data-tooltip-keepvisible")&&e.tooltip("show")}},zoom:!0,highlight:{selected:function(t,e){return t},unselected:function(t,e){return jQuery.Color(t).transition(e,.9)}},ready:null},e.prototype.init=function(e,i,n){if(this.enabled=!0,this.type=e,this.$element=t(i),this.options=this.getOptions(n),n.url){var o=this;t.get(n.url,null,function(e){var i=t("svg",e);o.$element.html(document.adoptNode(i[0])),o.setup()},"xml")}else n.svg&&this.$element.html(n.svg),this.setup()},e.prototype.getDefaults=function(){return e.DEFAULTS},e.prototype.getOptions=function(e){return(e=t.extend({},this.getDefaults(),this.$element.data(),e)).shrink&&("object"!=typeof e.shrink&&(e.shrink={x:e.shrink,y:e.shrink}),e.shrink.x=this.convertToPx(e.shrink.x),e.shrink.y=this.convertToPx(e.shrink.y)),e},e.prototype.setup=function(){var e=this.options,i=t(this.$element.children("svg")),n=i.children("g:first");this.$svg=i,this.$graph=n,this.$background=n.children("polygon:first"),this.$nodes=n.children(".node"),this.$edges=n.children(".edge"),this._nodesByName={},this._edgesByName={},this.$element.addClass("graphviz-svg"),this.$background.length&&this.$element.css("background",this.$background.attr("fill"));var o=this;this.$nodes.each(function(){o.setupNodesEdges(t(this),!0)}),this.$edges.each(function(){o.setupNodesEdges(t(this),!1)});var r=this.$graph.children("title");this.$graph.attr("data-name",r.text()),r.remove(),e.zoom&&this.setupZoom(),e.ready&&e.ready.call(this)},e.prototype.setupNodesEdges=function(e,i){var n=this,o=this.options;e.find("polygon, ellipse, path").each(function(){var e=t(this);e.data("graphviz.svg.color",{fill:e.attr("fill"),stroke:e.attr("stroke")}),i&&o.shrink&&n.scaleNode(e)});var r,s,h=e.children("title");if(h[0]){var a=h.text().replace(/:[snew][ew]?/g,"");e.attr("data-name",a),h.remove(),i?this._nodesByName[a]=e[0]:this._edgesByName[a]=e[0];for(var l=e[0].previousSibling;l&&8!=l.nodeType;)l=l.previousSibling;if(null!=l&&8==l.nodeType){var p=(r=l.nodeValue.trim(),(s=document.createElement("div")).innerHTML=r,s.childNodes[0].nodeValue);p!=a&&e.attr("data-comment",p)}}e.children("a").filter(function(){return t(this).attr("xlink:title")}).each(function(){var e=t(this);e.attr("title",e.attr("xlink:title")),e.removeAttr("xlink:title"),o.tooltips&&o.tooltips.init.call(this,n.$element)})},e.prototype.setupZoom=function(){var t=this,e=this.$element,i=this.$svg;this.zoom={width:i.attr("width"),height:i.attr("height"),percentage:null},this.scaleView(100),e.mousewheel(function(n){if(n.shiftKey){var o=t.zoom.percentage;(o-=n.deltaY*n.deltaFactor)<100&&(o=100);var r=n.pageX-i.offset().left,s=n.pageY-i.offset().top,h=r/i.width(),a=s/i.height(),l=n.pageX-e.offset().left,p=n.pageY-e.offset().top;return t.scaleView(o),e.scrollLeft(h*i.width()+.5-l),e.scrollTop(a*i.height()+.5-p),!1}})},e.prototype.scaleView=function(t){var e=this,i=this.$svg;i.attr("width",t+"%"),i.attr("height",t+"%"),this.zoom.percentage=t,this.$nodes.add(this.$edges).children("a[title]").each(function(){e.options.tooltips.update.call(this)})},e.prototype.scaleNode=function(t){var e=this.options.shrink.x,i=this.options.shrink.y,n=t.prop("tagName");if("ellipse"==n)t.attr("rx",parseFloat(t.attr("rx"))-e),t.attr("ry",parseFloat(t.attr("ry"))-i);else if("polygon"==n){var o=t[0].getBBox(),r=o.x+o.width/2,s=o.y+o.height/2,h=t.attr("points").split(" "),a="";for(var l in h){var p=h[l].split(","),d=parseFloat(p[0]),u=parseFloat(p[1]);a+=(r-d)/(o.width/2)*e+d+","+((s-u)/(o.height/2)*i+u)+" "}t.attr("points",a)}},e.prototype.convertToPx=function(t){var i=t;if("string"==typeof t){var n=t.length,o=1;t.endsWith("px")?n-=2:t.endsWith("pt")&&(n-=2,o=e.GVPT_2_PX),i=parseFloat(t.substring(0,n))*o}return i},e.prototype.findEdge=function(t,e,i){var n=[];for(var o in this._edgesByName){var r=e(t,o);r&&(i&&i.push(this._edgesByName[o]),n.push(r))}return n},e.prototype.findLinked=function(e,i,n,o){var r=t(e),s=null;i&&(s=o);var h=this.findEdge(r.attr("data-name"),n,s);for(var a in h){var l=this._nodesByName[h[a]];o.is(l)||(o.push(l),this.findLinked(l,i,n,o))}},e.prototype.colorElement=function(e,i){var n=this.$element.css("background");e.find("polygon, ellipse, path").each(function(){var e=t(this),o=e.data("graphviz.svg.color");o.fill&&"path"!=e.prop("tagName")&&e.attr("fill",i(o.fill,n)),o.stroke&&e.attr("stroke",i(o.stroke,n))})},e.prototype.restoreElement=function(e){e.find("polygon, ellipse, path").each(function(){var e=t(this),i=e.data("graphviz.svg.color");i.fill&&e.attr("fill",i.fill),i.stroke&&e.attr("stroke",i.stroke)})},e.prototype.nodes=function(){return this.$nodes},e.prototype.edges=function(){return this.$edges},e.prototype.nodesByName=function(){return this._nodesByName},e.prototype.edgesByName=function(){return this._edgesByName},e.prototype.linkedTo=function(e,i){var n=t();return this.findLinked(e,i,function(t,e){var i=null,n="->"+t;return e.endsWith(n)&&(i=e.substring(0,e.length-n.length)),i},n),n},e.prototype.linkedFrom=function(e,i){var n=t();return this.findLinked(e,i,function(t,e){var i=null,n=t+"->";return e.startsWith(n)&&(i=e.substring(n.length)),i},n),n},e.prototype.linked=function(e,i){var n=t();return this.findLinked(e,i,function(t,e){return"^"+name+"--(.*)$"},n),this.findLinked(e,i,function(t,e){return"^(.*)--"+name+"$"},n),n},e.prototype.tooltip=function(e,i){var n=this.options;e.each(function(){t(this).children("a[title]").each(function(){i?n.tooltips.show.call(this):n.tooltips.hide.call(this)})})},e.prototype.bringToFront=function(t){t.detach().appendTo(this.$graph)},e.prototype.sendToBack=function(t){this.$background.length?$element.insertAfter(this.$background):t.detach().prependTo(this.$graph)},e.prototype.highlight=function(e,i){var n=this,o=this.options,r=this.$nodes.add(this.$edges);e&&e.length>0?(r.not(e).each(function(){n.colorElement(t(this),o.highlight.unselected),n.tooltip(t(this))}),e.each(function(){n.colorElement(t(this),o.highlight.selected)}),i&&this.tooltip(e,!0)):(r.each(function(){n.restoreElement(t(this))}),this.tooltip(r))},e.prototype.destroy=function(){var t=this;this.hide(function(){t.$element.off("."+t.type).removeData(t.type)})};var i=t.fn.graphviz;t.fn.graphviz=function(i){return this.each(function(){var n=t(this),o=n.data("graphviz.svg"),r="object"==typeof i&&i;!o&&/destroy/.test(i)||(o||n.data("graphviz.svg",o=new e(this,r)),"string"==typeof i&&o[i]())})},t.fn.graphviz.Constructor=e,t.fn.graphviz.noConflict=function(){return t.fn.graphviz=i,this}}(jQuery);</script>
+		<script type="text/javascript">
+ 			$(document).ready(function(){
+                $("#graph").graphviz({
+                    svg: `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (20260124.0452)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="14750pt" height="531pt"
+ viewBox="0.00 0.00 14750.00 531.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 527.41)">
+<title>G</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-527.41 14746,-527.41 14746,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_G</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M20,-8C20,-8 14722,-8 14722,-8 14728,-8 14734,-14 14734,-20 14734,-20 14734,-503.41 14734,-503.41 14734,-509.41 14728,-515.41 14722,-515.41 14722,-515.41 20,-515.41 20,-515.41 14,-515.41 8,-509.41 8,-503.41 8,-503.41 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_src__heuristics__run_heuristics_eval</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M28,-16C28,-16 12620,-16 12620,-16 12626,-16 12632,-22 12632,-28 12632,-28 12632,-388.93 12632,-388.93 12632,-394.93 12626,-400.93 12620,-400.93 12620,-400.93 28,-400.93 28,-400.93 22,-400.93 16,-394.93 16,-388.93 16,-388.93 16,-28 16,-28 16,-22 22,-16 28,-16"/>
+<text xml:space="preserve" text-anchor="middle" x="6324" y="-383.63" font-family="Times,serif" font-size="14.00">src.heuristics.run_heuristics_eval</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_src__heuristics__run_heuristics_eval__CandidateStreamer</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M12652,-109.98C12652,-109.98 14714,-109.98 14714,-109.98 14720,-109.98 14726,-115.98 14726,-121.98 14726,-121.98 14726,-196.47 14726,-196.47 14726,-202.47 14720,-208.47 14714,-208.47 14714,-208.47 12652,-208.47 12652,-208.47 12646,-208.47 12640,-202.47 12640,-196.47 12640,-196.47 12640,-121.98 12640,-121.98 12640,-115.98 12646,-109.98 12652,-109.98"/>
+<text xml:space="preserve" text-anchor="middle" x="13683" y="-191.17" font-family="Times,serif" font-size="14.00">src.heuristics.run_heuristics_eval.CandidateStreamer</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_src__heuristics__run_heuristics_eval__KMetrics</title>
+<path fill="#808080" fill-opacity="0.094118" stroke="black" d="M1872,-408.93C1872,-408.93 4978,-408.93 4978,-408.93 4984,-408.93 4990,-414.93 4990,-420.93 4990,-420.93 4990,-495.41 4990,-495.41 4990,-501.41 4984,-507.41 4978,-507.41 4978,-507.41 1872,-507.41 1872,-507.41 1866,-507.41 1860,-501.41 1860,-495.41 1860,-495.41 1860,-420.93 1860,-420.93 1860,-414.93 1866,-408.93 1872,-408.93"/>
+<text xml:space="preserve" text-anchor="middle" x="3425" y="-490.11" font-family="Times,serif" font-size="14.00">src.heuristics.run_heuristics_eval.KMetrics</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval -->
+<g id="node1" class="node">
+<title>src__heuristics__run_heuristics_eval</title>
+<ellipse fill="#ffffff" fill-opacity="0.698039" stroke="black" cx="6387" cy="-445.92" rx="134.26" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="6387" y="-440.87" font-family="Times,serif" font-size="14.00" fill="#000000">src.heuristics.run_heuristics_eval</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__main -->
+<g id="node25" class="node">
+<title>src__heuristics__run_heuristics_eval__main</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="6387" cy="-339.44" rx="517.78" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="6387" y="-342.64" font-family="Times,serif" font-size="14.00" fill="#000000">main</text>
+<text xml:space="preserve" text-anchor="middle" x="6387" y="-326.14" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:1046)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval&#45;&gt;src__heuristics__run_heuristics_eval__main -->
+<g id="edge1" class="edge">
+<title>src__heuristics__run_heuristics_eval&#45;&gt;src__heuristics__run_heuristics_eval__main</title>
+<path fill="none" stroke="#000000" d="M6387,-427.67C6387,-414.67 6387,-396.33 6387,-379.81"/>
+<polygon fill="#000000" stroke="#000000" points="6390.5,-380.27 6387,-370.27 6383.5,-380.27 6390.5,-380.27"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__CandidateStreamer -->
+<g id="node2" class="node">
+<title>src__heuristics__run_heuristics_eval__CandidateStreamer</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="3669" cy="-146.97" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="3669" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">CandidateStreamer</text>
+<text xml:space="preserve" text-anchor="middle" x="3669" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:258)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__GraphData -->
+<g id="node3" class="node">
+<title>src__heuristics__run_heuristics_eval__GraphData</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="9973" cy="-52.99" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="9973" y="-56.19" font-family="Times,serif" font-size="14.00" fill="#000000">GraphData</text>
+<text xml:space="preserve" text-anchor="middle" x="9973" y="-39.69" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:223)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__HeuristicScores -->
+<g id="node4" class="node">
+<title>src__heuristics__run_heuristics_eval__HeuristicScores</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="4733" cy="-52.99" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="4733" y="-56.19" font-family="Times,serif" font-size="14.00" fill="#000000">HeuristicScores</text>
+<text xml:space="preserve" text-anchor="middle" x="4733" y="-39.69" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:441)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__KMetrics -->
+<g id="node5" class="node">
+<title>src__heuristics__run_heuristics_eval__KMetrics</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="7885" cy="-146.97" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="7885" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">KMetrics</text>
+<text xml:space="preserve" text-anchor="middle" x="7885" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:329)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval___bool_arg -->
+<g id="node6" class="node">
+<title>src__heuristics__run_heuristics_eval___bool_arg</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="12116" cy="-146.97" rx="508.23" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="12116" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">_bool_arg</text>
+<text xml:space="preserve" text-anchor="middle" x="12116" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:55)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval___ensure_dir -->
+<g id="node7" class="node">
+<title>src__heuristics__run_heuristics_eval___ensure_dir</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="1576" cy="-146.97" rx="508.23" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="1576" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">_ensure_dir</text>
+<text xml:space="preserve" text-anchor="middle" x="1576" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:77)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval___gather_from_sparse_row -->
+<g id="node8" class="node">
+<title>src__heuristics__run_heuristics_eval___gather_from_sparse_row</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="3689" cy="-52.99" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="3689" y="-56.19" font-family="Times,serif" font-size="14.00" fill="#000000">_gather_from_sparse_row</text>
+<text xml:space="preserve" text-anchor="middle" x="3689" y="-39.69" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:458)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval___load_temporal_T0 -->
+<g id="node9" class="node">
+<title>src__heuristics__run_heuristics_eval___load_temporal_T0</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="2610" cy="-146.97" rx="508.23" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="2610" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">_load_temporal_T0</text>
+<text xml:space="preserve" text-anchor="middle" x="2610" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:81)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval___now_iso -->
+<g id="node10" class="node">
+<title>src__heuristics__run_heuristics_eval___now_iso</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="3792" cy="-245.46" rx="508.23" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="3792" y="-248.66" font-family="Times,serif" font-size="14.00" fill="#000000">_now_iso</text>
+<text xml:space="preserve" text-anchor="middle" x="3792" y="-232.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:73)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval___set_num_threads -->
+<g id="node11" class="node">
+<title>src__heuristics__run_heuristics_eval___set_num_threads</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="4826" cy="-245.46" rx="508.23" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="4826" y="-248.66" font-family="Times,serif" font-size="14.00" fill="#000000">_set_num_threads</text>
+<text xml:space="preserve" text-anchor="middle" x="4826" y="-232.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:64)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval___sigmoid -->
+<g id="node12" class="node">
+<title>src__heuristics__run_heuristics_eval___sigmoid</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="537" cy="-52.99" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="537" y="-56.19" font-family="Times,serif" font-size="14.00" fill="#000000">_sigmoid</text>
+<text xml:space="preserve" text-anchor="middle" x="537" y="-39.69" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:111)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval___vector_from_row_indices -->
+<g id="node13" class="node">
+<title>src__heuristics__run_heuristics_eval___vector_from_row_indices</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="5777" cy="-52.99" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="5777" y="-56.19" font-family="Times,serif" font-size="14.00" fill="#000000">_vector_from_row_indices</text>
+<text xml:space="preserve" text-anchor="middle" x="5777" y="-39.69" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:450)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val -->
+<g id="node14" class="node">
+<title>src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="5865" cy="-245.46" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="5865" y="-248.66" font-family="Times,serif" font-size="14.00" fill="#000000">calibrate_heuristic_on_val</text>
+<text xml:space="preserve" text-anchor="middle" x="5865" y="-232.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:154)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val&#45;&gt;src__heuristics__run_heuristics_eval__CandidateStreamer -->
+<g id="edge3" class="edge">
+<title>src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val&#45;&gt;src__heuristics__run_heuristics_eval__CandidateStreamer</title>
+<path fill="none" stroke="#000000" d="M5519.38,-223.65C5460.54,-220.76 5400.04,-218.19 5343,-216.47 5088.22,-208.75 4450.43,-223.91 4196,-208.47 4087.02,-201.85 3965.95,-188.39 3867.37,-175.84"/>
+<polygon fill="#000000" stroke="#000000" points="3867.94,-172.38 3857.57,-174.59 3867.05,-179.33 3867.94,-172.38"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val&#45;&gt;src__heuristics__run_heuristics_eval__GraphData -->
+<g id="edge9" class="edge">
+<title>src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val&#45;&gt;src__heuristics__run_heuristics_eval__GraphData</title>
+<path fill="none" stroke="#000000" d="M6235.87,-225.13C6268.09,-220.67 6291.44,-215.18 6299,-208.47 6332.38,-178.79 6284.64,-138.51 6319,-109.98 6378.27,-60.78 8451.68,-54.01 9448.29,-53.6"/>
+<polygon fill="#000000" stroke="#000000" points="9448.09,-57.11 9458.09,-53.6 9448.09,-50.11 9448.09,-57.11"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val&#45;&gt;src__heuristics__run_heuristics_eval___gather_from_sparse_row -->
+<g id="edge7" class="edge">
+<title>src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val&#45;&gt;src__heuristics__run_heuristics_eval___gather_from_sparse_row</title>
+<path fill="none" stroke="#000000" d="M5521.14,-223.57C5461.75,-220.67 5400.61,-218.11 5343,-216.47 5335.38,-216.25 3152.38,-213.87 3147,-208.47 3131.55,-192.96 3132.34,-126.23 3147,-109.98 3160.89,-94.58 3228.86,-83.16 3312.22,-74.81"/>
+<polygon fill="#000000" stroke="#000000" points="3312.42,-78.3 3322.04,-73.85 3311.74,-71.34 3312.42,-78.3"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__compute_heuristics_for_source -->
+<g id="node18" class="node">
+<title>src__heuristics__run_heuristics_eval__compute_heuristics_for_source</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="4733" cy="-146.97" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="4733" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">compute_heuristics_for_source</text>
+<text xml:space="preserve" text-anchor="middle" x="4733" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:480)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val&#45;&gt;src__heuristics__run_heuristics_eval__compute_heuristics_for_source -->
+<g id="edge8" class="edge">
+<title>src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val&#45;&gt;src__heuristics__run_heuristics_eval__compute_heuristics_for_source</title>
+<path fill="none" stroke="#000000" d="M5487.29,-225.51C5410.37,-220.71 5330.04,-215.02 5255,-208.47 5153.36,-199.59 5040.91,-186.92 4946.49,-175.47"/>
+<polygon fill="#000000" stroke="#000000" points="4946.92,-172 4936.57,-174.26 4946.08,-178.95 4946.92,-172"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__fit_platt -->
+<g id="node23" class="node">
+<title>src__heuristics__run_heuristics_eval__fit_platt</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="537" cy="-146.97" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="537" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">fit_platt</text>
+<text xml:space="preserve" text-anchor="middle" x="537" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:122)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val&#45;&gt;src__heuristics__run_heuristics_eval__fit_platt -->
+<g id="edge4" class="edge">
+<title>src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val&#45;&gt;src__heuristics__run_heuristics_eval__fit_platt</title>
+<path fill="none" stroke="#000000" d="M5521.84,-223.52C5462.23,-220.61 5400.83,-218.07 5343,-216.47 5105.09,-209.87 1296.59,-222.41 1059,-208.47 950.59,-202.1 830.13,-188.58 732.27,-175.93"/>
+<polygon fill="#000000" stroke="#000000" points="732.93,-172.48 722.56,-174.66 732.03,-179.43 732.93,-172.48"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__CandidateStreamer____init__ -->
+<g id="node28" class="node">
+<title>src__heuristics__run_heuristics_eval__CandidateStreamer____init__</title>
+<ellipse fill="#ff3232" fill-opacity="0.698039" stroke="black" cx="13161" cy="-146.97" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="13161" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">__init__</text>
+<text xml:space="preserve" text-anchor="middle" x="13161" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:266)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val&#45;&gt;src__heuristics__run_heuristics_eval__CandidateStreamer____init__ -->
+<g id="edge5" class="edge">
+<title>src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val&#45;&gt;src__heuristics__run_heuristics_eval__CandidateStreamer____init__</title>
+<path fill="none" stroke="#000000" d="M6207.81,-223.51C6267.52,-220.59 6329.05,-218.06 6387,-216.47 6560.52,-211.71 12462.71,-218.53 12636,-208.47 12745.14,-202.13 12866.42,-188.58 12964.9,-175.92"/>
+<polygon fill="#000000" stroke="#000000" points="12965.21,-179.41 12974.68,-174.65 12964.31,-172.46 12965.21,-179.41"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__CandidateStreamer____iter__ -->
+<g id="node29" class="node">
+<title>src__heuristics__run_heuristics_eval__CandidateStreamer____iter__</title>
+<ellipse fill="#ff3232" fill-opacity="0.698039" stroke="black" cx="14205" cy="-146.97" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="14205" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">__iter__</text>
+<text xml:space="preserve" text-anchor="middle" x="14205" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:280)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val&#45;&gt;src__heuristics__run_heuristics_eval__CandidateStreamer____iter__ -->
+<g id="edge6" class="edge">
+<title>src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val&#45;&gt;src__heuristics__run_heuristics_eval__CandidateStreamer____iter__</title>
+<path fill="none" stroke="#000000" d="M6207.81,-223.5C6267.52,-220.59 6329.05,-218.05 6387,-216.47 6589.59,-210.93 13480.68,-220.26 13683,-208.47 13791.42,-202.15 13911.87,-188.62 14009.73,-175.96"/>
+<polygon fill="#000000" stroke="#000000" points="14009.98,-179.46 14019.44,-174.7 14009.07,-172.52 14009.98,-179.46"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__classify_twohop -->
+<g id="node15" class="node">
+<title>src__heuristics__run_heuristics_eval__classify_twohop</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="8929" cy="-146.97" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="8929" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">classify_twohop</text>
+<text xml:space="preserve" text-anchor="middle" x="8929" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:579)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__classify_twohop&#45;&gt;src__heuristics__run_heuristics_eval__GraphData -->
+<g id="edge17" class="edge">
+<title>src__heuristics__run_heuristics_eval__classify_twohop&#45;&gt;src__heuristics__run_heuristics_eval__GraphData</title>
+<path fill="none" stroke="#000000" d="M9201.25,-121.99C9351.41,-108.76 9537.63,-92.35 9689.53,-78.97"/>
+<polygon fill="#000000" stroke="#000000" points="9689.7,-82.47 9699.36,-78.1 9689.09,-75.49 9689.7,-82.47"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__classify_warm_cold -->
+<g id="node16" class="node">
+<title>src__heuristics__run_heuristics_eval__classify_warm_cold</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="9973" cy="-146.97" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="9973" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">classify_warm_cold</text>
+<text xml:space="preserve" text-anchor="middle" x="9973" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:545)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__classify_warm_cold&#45;&gt;src__heuristics__run_heuristics_eval__GraphData -->
+<g id="edge15" class="edge">
+<title>src__heuristics__run_heuristics_eval__classify_warm_cold&#45;&gt;src__heuristics__run_heuristics_eval__GraphData</title>
+<path fill="none" stroke="#000000" d="M9973,-117.63C9973,-110.11 9973,-101.85 9973,-93.84"/>
+<polygon fill="#000000" stroke="#000000" points="9976.5,-93.92 9973,-83.92 9969.5,-93.92 9976.5,-93.92"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__classify_warm_cold_strict -->
+<g id="node17" class="node">
+<title>src__heuristics__run_heuristics_eval__classify_warm_cold_strict</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="11017" cy="-146.97" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="11017" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">classify_warm_cold_strict</text>
+<text xml:space="preserve" text-anchor="middle" x="11017" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:562)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__classify_warm_cold_strict&#45;&gt;src__heuristics__run_heuristics_eval__GraphData -->
+<g id="edge16" class="edge">
+<title>src__heuristics__run_heuristics_eval__classify_warm_cold_strict&#45;&gt;src__heuristics__run_heuristics_eval__GraphData</title>
+<path fill="none" stroke="#000000" d="M10744.75,-121.99C10594.59,-108.76 10408.37,-92.35 10256.47,-78.97"/>
+<polygon fill="#000000" stroke="#000000" points="10256.91,-75.49 10246.64,-78.1 10256.3,-82.47 10256.91,-75.49"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__compute_heuristics_for_source&#45;&gt;src__heuristics__run_heuristics_eval__GraphData -->
+<g id="edge14" class="edge">
+<title>src__heuristics__run_heuristics_eval__compute_heuristics_for_source&#45;&gt;src__heuristics__run_heuristics_eval__GraphData</title>
+<path fill="none" stroke="#000000" d="M5026.51,-122.79C5101,-117.72 5180.91,-112.97 5255,-109.98 6057.85,-77.57 8400.85,-61.95 9452.03,-56.42"/>
+<polygon fill="#000000" stroke="#000000" points="9451.69,-59.93 9461.67,-56.37 9451.66,-52.93 9451.69,-59.93"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__compute_heuristics_for_source&#45;&gt;src__heuristics__run_heuristics_eval__HeuristicScores -->
+<g id="edge11" class="edge">
+<title>src__heuristics__run_heuristics_eval__compute_heuristics_for_source&#45;&gt;src__heuristics__run_heuristics_eval__HeuristicScores</title>
+<path fill="none" stroke="#000000" d="M4733,-117.63C4733,-110.11 4733,-101.85 4733,-93.84"/>
+<polygon fill="#000000" stroke="#000000" points="4736.5,-93.92 4733,-83.92 4729.5,-93.92 4736.5,-93.92"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__compute_heuristics_for_source&#45;&gt;src__heuristics__run_heuristics_eval___gather_from_sparse_row -->
+<g id="edge13" class="edge">
+<title>src__heuristics__run_heuristics_eval__compute_heuristics_for_source&#45;&gt;src__heuristics__run_heuristics_eval___gather_from_sparse_row</title>
+<path fill="none" stroke="#000000" d="M4460.75,-121.99C4310.59,-108.76 4124.37,-92.35 3972.47,-78.97"/>
+<polygon fill="#000000" stroke="#000000" points="3972.91,-75.49 3962.64,-78.1 3972.3,-82.47 3972.91,-75.49"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__compute_heuristics_for_source&#45;&gt;src__heuristics__run_heuristics_eval___vector_from_row_indices -->
+<g id="edge12" class="edge">
+<title>src__heuristics__run_heuristics_eval__compute_heuristics_for_source&#45;&gt;src__heuristics__run_heuristics_eval___vector_from_row_indices</title>
+<path fill="none" stroke="#000000" d="M5005.25,-121.99C5155.41,-108.76 5341.63,-92.35 5493.53,-78.97"/>
+<polygon fill="#000000" stroke="#000000" points="5493.7,-82.47 5503.36,-78.1 5493.09,-75.49 5493.7,-82.47"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__compute_katz_for_source -->
+<g id="node19" class="node">
+<title>src__heuristics__run_heuristics_eval__compute_katz_for_source</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="5777" cy="-146.97" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="5777" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">compute_katz_for_source</text>
+<text xml:space="preserve" text-anchor="middle" x="5777" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:641)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__compute_katz_for_source&#45;&gt;src__heuristics__run_heuristics_eval__GraphData -->
+<g id="edge19" class="edge">
+<title>src__heuristics__run_heuristics_eval__compute_katz_for_source&#45;&gt;src__heuristics__run_heuristics_eval__GraphData</title>
+<path fill="none" stroke="#000000" d="M6074.03,-122.93C6149.03,-117.87 6229.44,-113.1 6304,-109.98 7423.17,-63.26 8735.81,-54.31 9448.19,-53.28"/>
+<polygon fill="#000000" stroke="#000000" points="9448.17,-56.78 9458.16,-53.27 9448.16,-49.78 9448.17,-56.78"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__compute_katz_for_source&#45;&gt;src__heuristics__run_heuristics_eval___gather_from_sparse_row -->
+<g id="edge20" class="edge">
+<title>src__heuristics__run_heuristics_eval__compute_katz_for_source&#45;&gt;src__heuristics__run_heuristics_eval___gather_from_sparse_row</title>
+<path fill="none" stroke="#000000" d="M5476.25,-123.07C5403.83,-118.15 5326.68,-113.41 5255,-109.98 4791.36,-87.79 4674.79,-100.63 4211,-81.98 4160.63,-79.96 4107.54,-77.49 4055.28,-74.87"/>
+<polygon fill="#000000" stroke="#000000" points="4055.47,-71.38 4045.3,-74.37 4055.12,-78.37 4055.47,-71.38"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__compute_katz_for_source&#45;&gt;src__heuristics__run_heuristics_eval___vector_from_row_indices -->
+<g id="edge21" class="edge">
+<title>src__heuristics__run_heuristics_eval__compute_katz_for_source&#45;&gt;src__heuristics__run_heuristics_eval___vector_from_row_indices</title>
+<path fill="none" stroke="#000000" d="M5777,-117.63C5777,-110.11 5777,-101.85 5777,-93.84"/>
+<polygon fill="#000000" stroke="#000000" points="5780.5,-93.92 5777,-83.92 5773.5,-93.92 5780.5,-93.92"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__compute_pagerank -->
+<g id="node20" class="node">
+<title>src__heuristics__run_heuristics_eval__compute_pagerank</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="10854" cy="-245.46" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="10854" y="-248.66" font-family="Times,serif" font-size="14.00" fill="#000000">compute_pagerank</text>
+<text xml:space="preserve" text-anchor="middle" x="10854" y="-232.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:613)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__compute_pagerank&#45;&gt;src__heuristics__run_heuristics_eval__GraphData -->
+<g id="edge18" class="edge">
+<title>src__heuristics__run_heuristics_eval__compute_pagerank&#45;&gt;src__heuristics__run_heuristics_eval__GraphData</title>
+<path fill="none" stroke="#000000" d="M11278.45,-228.86C11429.41,-222.28 11564.07,-214.7 11570,-208.47 11600.16,-176.75 11600.4,-141.47 11570,-109.98 11532.42,-71.06 10947.57,-58.79 10496.41,-55.13"/>
+<polygon fill="#000000" stroke="#000000" points="10496.65,-51.63 10486.63,-55.05 10496.6,-58.63 10496.65,-51.63"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__compute_svd_embeddings -->
+<g id="node21" class="node">
+<title>src__heuristics__run_heuristics_eval__compute_svd_embeddings</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="7953" cy="-245.46" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="7953" y="-248.66" font-family="Times,serif" font-size="14.00" fill="#000000">compute_svd_embeddings</text>
+<text xml:space="preserve" text-anchor="middle" x="7953" y="-232.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:663)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split -->
+<g id="node22" class="node">
+<title>src__heuristics__run_heuristics_eval__evaluate_split</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="6909" cy="-245.46" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="6909" y="-248.66" font-family="Times,serif" font-size="14.00" fill="#000000">evaluate_split</text>
+<text xml:space="preserve" text-anchor="middle" x="6909" y="-232.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:683)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__CandidateStreamer -->
+<g id="edge24" class="edge">
+<title>src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__CandidateStreamer</title>
+<path fill="none" stroke="#000000" d="M6565.14,-223.57C6505.75,-220.67 6444.61,-218.11 6387,-216.47 6143.65,-209.5 4439.02,-222.81 4196,-208.47 4086.68,-202.01 3965.2,-188.5 3866.46,-175.88"/>
+<polygon fill="#000000" stroke="#000000" points="3867.01,-172.42 3856.64,-174.62 3866.12,-179.37 3867.01,-172.42"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__GraphData -->
+<g id="edge35" class="edge">
+<title>src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__GraphData</title>
+<path fill="none" stroke="#000000" d="M7252.16,-223.53C7311.77,-220.61 7373.17,-218.07 7431,-216.47 7438.13,-216.27 11533.96,-213.51 11539,-208.47 11554.46,-192.98 11554.2,-125.73 11539,-109.98 11502.43,-72.08 10936.89,-59.55 10495.83,-55.56"/>
+<polygon fill="#000000" stroke="#000000" points="10496,-52.06 10485.97,-55.47 10495.94,-59.06 10496,-52.06"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__KMetrics -->
+<g id="edge31" class="edge">
+<title>src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__KMetrics</title>
+<path fill="none" stroke="#000000" d="M7214.4,-221.77C7264.09,-217.64 7315,-213.15 7363,-208.47 7462.25,-198.78 7571.91,-186.34 7665,-175.26"/>
+<polygon fill="#000000" stroke="#000000" points="7665.25,-178.76 7674.76,-174.1 7664.42,-171.81 7665.25,-178.76"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval___ensure_dir -->
+<g id="edge32" class="edge">
+<title>src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval___ensure_dir</title>
+<path fill="none" stroke="#000000" d="M6565.84,-223.52C6506.23,-220.61 6444.83,-218.07 6387,-216.47 6148.54,-209.85 2331.14,-222.57 2093,-208.47 1985.72,-202.11 1866.55,-188.61 1769.69,-175.97"/>
+<polygon fill="#000000" stroke="#000000" points="1770.16,-172.5 1759.79,-174.67 1769.25,-179.44 1770.16,-172.5"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval___gather_from_sparse_row -->
+<g id="edge29" class="edge">
+<title>src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval___gather_from_sparse_row</title>
+<path fill="none" stroke="#000000" d="M6565.14,-223.58C6505.75,-220.67 6444.61,-218.11 6387,-216.47 6371.89,-216.03 4222.68,-218.05 4211,-208.47 4176.47,-180.14 4223.96,-140.12 4191,-109.98 4176.21,-96.46 4108,-85.46 4026.39,-76.9"/>
+<polygon fill="#000000" stroke="#000000" points="4027.13,-73.46 4016.83,-75.91 4026.42,-80.42 4027.13,-73.46"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval___load_temporal_T0 -->
+<g id="edge34" class="edge">
+<title>src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval___load_temporal_T0</title>
+<path fill="none" stroke="#000000" d="M6565.84,-223.55C6506.23,-220.64 6444.83,-218.09 6387,-216.47 6207.07,-211.42 3326.7,-218.78 3147,-208.47 3035.05,-202.04 2910.59,-188.43 2809.69,-175.74"/>
+<polygon fill="#000000" stroke="#000000" points="2810.31,-172.29 2799.95,-174.51 2809.43,-179.24 2810.31,-172.29"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__classify_twohop -->
+<g id="edge28" class="edge">
+<title>src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__classify_twohop</title>
+<path fill="none" stroke="#000000" d="M7254.98,-223.69C7313.7,-220.8 7374.08,-218.22 7431,-216.47 7647.79,-209.77 8190.52,-221.86 8407,-208.47 8514.73,-201.8 8634.39,-188.38 8731.93,-175.86"/>
+<polygon fill="#000000" stroke="#000000" points="8732.13,-179.36 8741.6,-174.61 8731.24,-172.42 8732.13,-179.36"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__classify_warm_cold -->
+<g id="edge22" class="edge">
+<title>src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__classify_warm_cold</title>
+<path fill="none" stroke="#000000" d="M7253.22,-223.57C7312.49,-220.67 7373.51,-218.12 7431,-216.47 7655.35,-210.01 9226.95,-221.85 9451,-208.47 9559.19,-202 9679.37,-188.51 9777.13,-175.91"/>
+<polygon fill="#000000" stroke="#000000" points="9777.36,-179.41 9786.83,-174.65 9776.46,-172.46 9777.36,-179.41"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__classify_warm_cold_strict -->
+<g id="edge25" class="edge">
+<title>src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__classify_warm_cold_strict</title>
+<path fill="none" stroke="#000000" d="M7252.51,-223.54C7312.01,-220.63 7373.28,-218.09 7431,-216.47 7601.16,-211.68 10325.07,-218.5 10495,-208.47 10603.3,-202.07 10723.62,-188.56 10821.43,-175.93"/>
+<polygon fill="#000000" stroke="#000000" points="10821.67,-179.43 10831.13,-174.67 10820.77,-172.49 10821.67,-179.43"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__compute_heuristics_for_source -->
+<g id="edge30" class="edge">
+<title>src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__compute_heuristics_for_source</title>
+<path fill="none" stroke="#000000" d="M6563.38,-223.66C6504.54,-220.76 6444.04,-218.2 6387,-216.47 6135.55,-208.84 5506.09,-223.86 5255,-208.47 5147.15,-201.85 5027.37,-188.41 4929.77,-175.88"/>
+<polygon fill="#000000" stroke="#000000" points="4930.46,-172.44 4920.09,-174.63 4929.56,-179.38 4930.46,-172.44"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__compute_katz_for_source -->
+<g id="edge33" class="edge">
+<title>src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__compute_katz_for_source</title>
+<path fill="none" stroke="#000000" d="M6541.34,-224.89C6467.66,-220.17 6390.82,-214.66 6319,-208.47 6213.3,-199.35 6096.28,-186.62 5998.11,-175.19"/>
+<polygon fill="#000000" stroke="#000000" points="5998.69,-171.74 5988.35,-174.05 5997.88,-178.69 5998.69,-171.74"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__sort_by_score_tiebreak -->
+<g id="node27" class="node">
+<title>src__heuristics__run_heuristics_eval__sort_by_score_tiebreak</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="6841" cy="-146.97" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="6841" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">sort_by_score_tiebreak</text>
+<text xml:space="preserve" text-anchor="middle" x="6841" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:678)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__sort_by_score_tiebreak -->
+<g id="edge23" class="edge">
+<title>src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__sort_by_score_tiebreak</title>
+<path fill="none" stroke="#000000" d="M6888.97,-216.03C6882.19,-206.41 6874.51,-195.52 6867.32,-185.32"/>
+<polygon fill="#000000" stroke="#000000" points="6870.38,-183.59 6861.76,-177.43 6864.66,-187.62 6870.38,-183.59"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__CandidateStreamer____init__ -->
+<g id="edge26" class="edge">
+<title>src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__CandidateStreamer____init__</title>
+<path fill="none" stroke="#000000" d="M7251.81,-223.52C7311.52,-220.61 7373.05,-218.06 7431,-216.47 7720.06,-208.5 12347.32,-225.26 12636,-208.47 12745.14,-202.11 12866.42,-188.57 12964.9,-175.9"/>
+<polygon fill="#000000" stroke="#000000" points="12965.21,-179.39 12974.68,-174.64 12964.31,-172.45 12965.21,-179.39"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__CandidateStreamer____iter__ -->
+<g id="edge27" class="edge">
+<title>src__heuristics__run_heuristics_eval__evaluate_split&#45;&gt;src__heuristics__run_heuristics_eval__CandidateStreamer____iter__</title>
+<path fill="none" stroke="#000000" d="M7251.81,-223.51C7311.52,-220.59 7373.05,-218.06 7431,-216.47 7604.6,-211.7 13509.63,-218.59 13683,-208.47 13791.41,-202.14 13911.87,-188.61 14009.73,-175.96"/>
+<polygon fill="#000000" stroke="#000000" points="14009.97,-179.45 14019.44,-174.69 14009.07,-172.51 14009.97,-179.45"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__fit_platt&#45;&gt;src__heuristics__run_heuristics_eval___sigmoid -->
+<g id="edge2" class="edge">
+<title>src__heuristics__run_heuristics_eval__fit_platt&#45;&gt;src__heuristics__run_heuristics_eval___sigmoid</title>
+<path fill="none" stroke="#000000" d="M537,-117.63C537,-110.11 537,-101.85 537,-93.84"/>
+<polygon fill="#000000" stroke="#000000" points="540.5,-93.92 537,-83.92 533.5,-93.92 540.5,-93.92"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__load_graphX -->
+<g id="node24" class="node">
+<title>src__heuristics__run_heuristics_eval__load_graphX</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="9539" cy="-245.46" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="9539" y="-248.66" font-family="Times,serif" font-size="14.00" fill="#000000">load_graph</text>
+<text xml:space="preserve" text-anchor="middle" x="9539" y="-232.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:232)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__load_graphX&#45;&gt;src__heuristics__run_heuristics_eval__GraphData -->
+<g id="edge10" class="edge">
+<title>src__heuristics__run_heuristics_eval__load_graphX&#45;&gt;src__heuristics__run_heuristics_eval__GraphData</title>
+<path fill="none" stroke="#000000" d="M9949.24,-227.73C10072.3,-223.32 10207.61,-219.07 10332,-216.47 10340.48,-216.29 11548.02,-214.49 11554,-208.47 11584.85,-177.41 11584.4,-141.48 11554,-109.98 11516.95,-71.59 10942.22,-59.18 10496.3,-55.35"/>
+<polygon fill="#000000" stroke="#000000" points="10496.34,-51.85 10486.31,-55.27 10496.28,-58.85 10496.34,-51.85"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval___ensure_dir -->
+<g id="edge42" class="edge">
+<title>src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval___ensure_dir</title>
+<path fill="none" stroke="#000000" d="M5869.06,-338.65C5191.89,-336.69 3968.99,-325.45 2925,-274.45 2554.5,-256.35 2462.17,-244.69 2093,-208.47 1994.58,-198.81 1885.84,-186.36 1793.58,-175.26"/>
+<polygon fill="#000000" stroke="#000000" points="1794.26,-171.82 1783.92,-174.1 1793.43,-178.77 1794.26,-171.82"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval___load_temporal_T0 -->
+<g id="edge43" class="edge">
+<title>src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval___load_temporal_T0</title>
+<path fill="none" stroke="#000000" d="M5869.38,-338.29C5118.01,-336.28 3761.82,-325.38 3275,-274.45 3084.86,-254.55 2867.84,-208.87 2734.88,-178.21"/>
+<polygon fill="#000000" stroke="#000000" points="2735.88,-174.85 2725.35,-176 2734.3,-181.67 2735.88,-174.85"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval___now_iso -->
+<g id="edge41" class="edge">
+<title>src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval___now_iso</title>
+<path fill="none" stroke="#000000" d="M5916.47,-327.08C5495.22,-316.16 4860.73,-297.88 4309,-274.45 4259.64,-272.35 4207.64,-269.87 4156.41,-267.25"/>
+<polygon fill="#000000" stroke="#000000" points="4156.82,-263.77 4146.65,-266.75 4156.46,-270.76 4156.82,-263.77"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval___set_num_threads -->
+<g id="edge39" class="edge">
+<title>src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval___set_num_threads</title>
+<path fill="none" stroke="#000000" d="M6036.19,-317.77C5782.52,-302.82 5440.87,-282.69 5185.27,-267.63"/>
+<polygon fill="#000000" stroke="#000000" points="5185.63,-264.14 5175.44,-267.05 5185.21,-271.13 5185.63,-264.14"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val -->
+<g id="edge38" class="edge">
+<title>src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval__calibrate_heuristic_on_val</title>
+<path fill="none" stroke="#000000" d="M6233.21,-311.34C6169.24,-300.07 6094.88,-286.96 6029.79,-275.5"/>
+<polygon fill="#000000" stroke="#000000" points="6030.54,-272.07 6020.09,-273.79 6029.33,-278.97 6030.54,-272.07"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval__compute_pagerank -->
+<g id="edge40" class="edge">
+<title>src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval__compute_pagerank</title>
+<path fill="none" stroke="#000000" d="M6890.71,-332.51C7598.66,-323.54 8928.25,-304.3 10061,-274.45 10179.07,-271.34 10306.99,-267.17 10424.93,-263"/>
+<polygon fill="#000000" stroke="#000000" points="10424.93,-266.51 10434.8,-262.65 10424.68,-259.51 10424.93,-266.51"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval__compute_svd_embeddings -->
+<g id="edge46" class="edge">
+<title>src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval__compute_svd_embeddings</title>
+<path fill="none" stroke="#000000" d="M6738.44,-317.8C6992.68,-302.86 7335.2,-282.74 7591.69,-267.68"/>
+<polygon fill="#000000" stroke="#000000" points="7591.78,-271.18 7601.56,-267.1 7591.37,-264.19 7591.78,-271.18"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval__evaluate_split -->
+<g id="edge37" class="edge">
+<title>src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval__evaluate_split</title>
+<path fill="none" stroke="#000000" d="M6540.79,-311.34C6604.76,-300.07 6679.12,-286.96 6744.21,-275.5"/>
+<polygon fill="#000000" stroke="#000000" points="6744.67,-278.97 6753.91,-273.79 6743.46,-272.07 6744.67,-278.97"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval__load_graphX -->
+<g id="edge44" class="edge">
+<title>src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval__load_graphX</title>
+<path fill="none" stroke="#000000" d="M6840.7,-325.2C7436.56,-307.81 8477.24,-277.44 9077.13,-259.94"/>
+<polygon fill="#000000" stroke="#000000" points="9077.16,-263.44 9087.06,-259.65 9076.96,-256.44 9077.16,-263.44"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__parse_args -->
+<g id="node26" class="node">
+<title>src__heuristics__run_heuristics_eval__parse_args</title>
+<ellipse fill="#ff6565" fill-opacity="0.698039" stroke="black" cx="12038" cy="-245.46" rx="517.78" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="12038" y="-248.66" font-family="Times,serif" font-size="14.00" fill="#000000">parse_args</text>
+<text xml:space="preserve" text-anchor="middle" x="12038" y="-232.16" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:1013)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval__parse_args -->
+<g id="edge45" class="edge">
+<title>src__heuristics__run_heuristics_eval__main&#45;&gt;src__heuristics__run_heuristics_eval__parse_args</title>
+<path fill="none" stroke="#000000" d="M6902.86,-336.82C7808.41,-332.87 9742.99,-319.44 11376,-274.45 11460.41,-272.12 11550.84,-268.83 11636.91,-265.31"/>
+<polygon fill="#000000" stroke="#000000" points="11636.84,-268.82 11646.69,-264.91 11636.55,-261.83 11636.84,-268.82"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__parse_args&#45;&gt;src__heuristics__run_heuristics_eval___bool_arg -->
+<g id="edge36" class="edge">
+<title>src__heuristics__run_heuristics_eval__parse_args&#45;&gt;src__heuristics__run_heuristics_eval___bool_arg</title>
+<path fill="none" stroke="#000000" d="M12060.98,-216.03C12068.84,-206.31 12077.74,-195.3 12086.06,-185.01"/>
+<polygon fill="#000000" stroke="#000000" points="12088.67,-187.35 12092.23,-177.37 12083.22,-182.95 12088.67,-187.35"/>
+</g>
+<!-- src__heuristics__run_heuristics_eval__KMetrics____post_init__ -->
+<g id="node30" class="node">
+<title>src__heuristics__run_heuristics_eval__KMetrics____post_init__</title>
+<ellipse fill="#ff3232" fill-opacity="0.698039" stroke="black" cx="2381" cy="-445.92" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="2381" y="-449.12" font-family="Times,serif" font-size="14.00" fill="#000000">__post_init__</text>
+<text xml:space="preserve" text-anchor="middle" x="2381" y="-432.62" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:343)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__KMetrics__to_row -->
+<g id="node31" class="node">
+<title>src__heuristics__run_heuristics_eval__KMetrics__to_row</title>
+<ellipse fill="#ff3232" fill-opacity="0.698039" stroke="black" cx="3425" cy="-445.92" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="3425" y="-449.12" font-family="Times,serif" font-size="14.00" fill="#000000">to_row</text>
+<text xml:space="preserve" text-anchor="middle" x="3425" y="-432.62" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:412)</text>
+</g>
+<!-- src__heuristics__run_heuristics_eval__KMetrics__update_from_ranking -->
+<g id="node32" class="node">
+<title>src__heuristics__run_heuristics_eval__KMetrics__update_from_ranking</title>
+<ellipse fill="#ff3232" fill-opacity="0.698039" stroke="black" cx="4469" cy="-445.92" rx="513.01" ry="28.99"/>
+<text xml:space="preserve" text-anchor="middle" x="4469" y="-449.12" font-family="Times,serif" font-size="14.00" fill="#000000">update_from_ranking</text>
+<text xml:space="preserve" text-anchor="middle" x="4469" y="-432.62" font-family="Times,serif" font-size="14.00" fill="#000000">(src/heuristics/run_heuristics_eval.py:350)</text>
+</g>
+</g>
+</svg>
+`,
+                    ready: function() {
+                        var gv = this
+                        gv.nodes().click(function () {
+                            var $set = $()
+                            $set.push(this)
+                            $set = $set.add(gv.linkedFrom(this, true))
+                            $set = $set.add(gv.linkedTo(this, true))
+                            gv.highlight($set, true)
+                            gv.bringToFront($set)
+                        })
+                        $(document).keydown(function (evt) {
+                            if (evt.keyCode == 27) {
+                                gv.highlight()
+                            }
+                        })
+                    }
+                });
+            });
+		</script>
+	</body>
+</html>

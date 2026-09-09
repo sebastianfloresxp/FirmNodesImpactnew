@@ -1,0 +1,123 @@
+snapshot: "2025-06-09"
+run_id: "ch4_v2_alpha02_supply_only"
+
+paths:
+  nodes: "artifacts/ch3/network_upstream/dod_semiconductor_nodes_top5_d99_shipping_strict.parquet"
+  edges: "artifacts/ch3/network_upstream/dod_semiconductor_edges_top5_d99_shipping_strict.parquet"
+  prime_weights: "artifacts/ch4/inputs/prime_weights.parquet"
+  out_root: "artifacts/ch4/v2"
+  tables_root: "tables/chapter4/v2"
+  figs_root: "figs/chapter4/v2"
+
+graph:
+  identity_mode: "collapse"  # collapse | zero_length_traversal
+  dedup_key: ["src_uid", "dst_uid"]
+  include_contract_seed_in_views: false
+  use_unweighted_fallback: true
+
+views:
+  disclosed:
+    include_any: ["is_disclosed"]  # A: disclosed-only supplier evidence
+  observed:
+    include_any: ["is_disclosed", "is_observed_ship"]  # A+B: disclosed + shipping
+  full:
+    include_any: ["is_disclosed", "is_observed_ship", "is_predicted"]  # A+B+C: full supplier evidence
+
+direction:
+  expected_semantics: "supplier_to_customer"
+  sanity_sample_primes: 20
+  max_sanity_hops: 6
+
+harm:
+  hop_cap_L: 10
+  shortest_path_hop_cap: 10
+  redundancy_mode: "k_shortest_proxy"  # k_shortest_proxy | disjoint_approx
+  k_paths: 3
+
+simulation:
+  removal_fracs: [0.001, 0.005, 0.01, 0.02, 0.05]
+  random_repeats: 30
+  interdiction_k: [5, 10, 25]
+  candidate_pool_top_n: 5000
+
+approximation:
+  betweenness_sample_k: 1024
+  corridor_path_samples: 20000
+
+m2:
+  seam_split_top_n_articulation: 2000
+  seam_split_top_n_bridges: 2000
+
+m2_refine:
+  top_n_export: 200
+
+m3:
+  hop_cap: null  # null/full = unlimited upstream reach
+  prime_weights_mode: "unit"  # unit | obligations
+  exclude_self_from_upstream: true
+  top_n_export: 100
+  export_nonprime_top_n: 100
+
+m3_refine:
+  exclude_edge_flags: ["is_contract_seed"]  # remove endpoint-anchoring edges for supplier-centric ranking
+  hop_cap: null  # null/full = unlimited upstream reach
+  prime_weights_mode: "unit"
+  exclude_self_from_upstream: true
+  top_n_export: 100
+  export_firm_top_n: 100
+  export_semi_top_n: 100
+
+m4:
+  hop_cap: null  # null/full = unlimited shortest-path corridor distance
+  top_n_export: 100
+  top_n_intermediary_export: 100
+  distance_validation_sample_n: 200
+  primary_view: "full"
+
+m4_refine:
+  predicted_only_edge_cost: 3.0  # full-view shortest path penalty for predicted-only edges
+  top_n_export: 100
+  top_n_intermediary_export: 100
+  lane_tolerance: 1.0e-9
+  primary_view: "full"
+
+m5:
+  use_supplier_only_entry: true
+  predicted_only_edge_cost: 3.0  # keep aligned with m4_refine unless intentionally changed
+  geodesic_tolerance: 1.0e-9
+  primary_view: "full"
+
+m6:
+  primary_view: "disclosed"
+  candidate_pool_n: 10000
+  candidate_signal_top_n: 3000
+  deep_eval_n: 1500
+  removal_fracs: [0.001, 0.005, 0.01, 0.02, 0.05]
+  random_repeats: 30
+  interdiction_k: [5, 10, 25]
+  interdiction_shortlist_n: 100
+  predicted_only_edge_cost: 3.0
+  geodesic_tolerance: 1.0e-9
+
+m6_pilot:
+  primary_view: "full"
+  candidate_pool_n: 500
+  candidate_signal_top_n: 200
+  deep_eval_n: 100
+  removal_fracs: [0.001, 0.005, 0.01]
+  random_repeats: 10
+  interdiction_k: [5, 10]
+  interdiction_shortlist_n: 50
+  predicted_only_edge_cost: 3.0
+  geodesic_tolerance: 1.0e-9
+
+boundary_sensitivity:
+  enabled: true
+  variant_a_upstream_depth: 2
+  variant_b_upstream_depth: 3
+  variant_b_selector: "top_decile_corridor_or_prime_reach"
+
+random:
+  global_seed: 7
+  numpy_seed: 7
+  python_seed: 7

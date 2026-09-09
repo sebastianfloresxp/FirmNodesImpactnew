@@ -1,0 +1,14 @@
+{
+  "firms_exported": 50,
+  "source_tables": [
+    "Table 4.2 strict observed Top-25 value-chain chokepoints",
+    "Table C.2 empirical Top-25 adjacent/uncertain candidates"
+  ],
+  "missing_from_archive": [
+    "Full 78,257-firm firm-level scenario table",
+    "Per-firm fragmentation values for Top-25 rows",
+    "Per-firm backup-capacity-loss values for Top-25 rows",
+    "Country/jurisdiction fields for Top-25 rows",
+    "Per-firm affected-prime pathway counts except illustrative local case-study context"
+  ]
+}

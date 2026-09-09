@@ -1,0 +1,313 @@
+digraph G {
+    graph [rankdir=TB, ranksep=0.5, layout=dot, clusterrank="local"];
+    subgraph "cluster_G" {
+
+        graph [style="filled,rounded", fillcolor="#80808018", label=""];
+        "src__twotower__01_twotower_hpo_optuna" [label="src.twotower.01_twotower_hpo_optuna\n(src/twotower/01_twotower_hpo_optuna.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0", tooltip="src.twotower.01_twotower_hpo_optuna\nsrc/twotower/01_twotower_hpo_optuna.py"];
+        "src__twotower__02_twotower_finalize_hpo" [label="src.twotower.02_twotower_finalize_hpo\n(src/twotower/02_twotower_finalize_hpo.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="1", tooltip="src.twotower.02_twotower_finalize_hpo\nsrc/twotower/02_twotower_finalize_hpo.py"];
+        "src__twotower__03_twotower_train_eval" [label="src.twotower.03_twotower_train_eval\n(src/twotower/03_twotower_train_eval.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="2", tooltip="src.twotower.03_twotower_train_eval\nsrc/twotower/03_twotower_train_eval.py"];
+        "src__twotower__recreate_twotower_finalize" [label="src.twotower.recreate_twotower_finalize\n(src/twotower/recreate_twotower_finalize.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="3", tooltip="src.twotower.recreate_twotower_finalize\nsrc/twotower/recreate_twotower_finalize.py"];
+        "src__twotower__run_twotower_eval" [label="src.twotower.run_twotower_eval\n(src/twotower/run_twotower_eval.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval\nsrc/twotower/run_twotower_eval.py"];
+        subgraph "cluster_src__twotower__01_twotower_hpo_optuna" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.twotower.01_twotower_hpo_optuna"];
+            "src__twotower__01_twotower_hpo_optuna__main" [label="main\n(src/twotower/01_twotower_hpo_optuna.py:177)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.twotower.01_twotower_hpo_optuna.main\nsrc/twotower/01_twotower_hpo_optuna.py:177\nfunction in src.twotower.01_twotower_hpo_optuna"];
+            "src__twotower__01_twotower_hpo_optuna__objective" [label="objective\n(src/twotower/01_twotower_hpo_optuna.py:75)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.twotower.01_twotower_hpo_optuna.objective\nsrc/twotower/01_twotower_hpo_optuna.py:75\nfunction in src.twotower.01_twotower_hpo_optuna"];
+            "src__twotower__01_twotower_hpo_optuna__parse_args" [label="parse_args\n(src/twotower/01_twotower_hpo_optuna.py:42)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.twotower.01_twotower_hpo_optuna.parse_args\nsrc/twotower/01_twotower_hpo_optuna.py:42\nfunction in src.twotower.01_twotower_hpo_optuna"];
+        }
+        subgraph "cluster_src__twotower__01_twotower_hpo_optuna__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.twotower.01_twotower_hpo_optuna.main"];
+            "src__twotower__01_twotower_hpo_optuna__main__obj" [label="obj\n(src/twotower/01_twotower_hpo_optuna.py:213)", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.twotower.01_twotower_hpo_optuna.main.obj\nsrc/twotower/01_twotower_hpo_optuna.py:213\nfunction in src.twotower.01_twotower_hpo_optuna.main"];
+        }
+        subgraph "cluster_src__twotower__01_twotower_hpo_optuna__objective" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.twotower.01_twotower_hpo_optuna.objective"];
+            "src__twotower__01_twotower_hpo_optuna__objective___progress_cb" [label="_progress_cb\n(src/twotower/01_twotower_hpo_optuna.py:119)", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.twotower.01_twotower_hpo_optuna.objective._progress_cb\nsrc/twotower/01_twotower_hpo_optuna.py:119\nfunction in src.twotower.01_twotower_hpo_optuna.objective"];
+        }
+        subgraph "cluster_src__twotower__02_twotower_finalize_hpo" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.twotower.02_twotower_finalize_hpo"];
+            "src__twotower__02_twotower_finalize_hpo__main" [label="main\n(src/twotower/02_twotower_finalize_hpo.py:70)", style="filled", fillcolor="#feff65b2", fontcolor="#000000", group="1", tooltip="src.twotower.02_twotower_finalize_hpo.main\nsrc/twotower/02_twotower_finalize_hpo.py:70\nfunction in src.twotower.02_twotower_finalize_hpo"];
+            "src__twotower__02_twotower_finalize_hpo__parse_args" [label="parse_args\n(src/twotower/02_twotower_finalize_hpo.py:23)", style="filled", fillcolor="#feff65b2", fontcolor="#000000", group="1", tooltip="src.twotower.02_twotower_finalize_hpo.parse_args\nsrc/twotower/02_twotower_finalize_hpo.py:23\nfunction in src.twotower.02_twotower_finalize_hpo"];
+            "src__twotower__02_twotower_finalize_hpo__run_cmd" [label="run_cmd\n(src/twotower/02_twotower_finalize_hpo.py:51)", style="filled", fillcolor="#feff65b2", fontcolor="#000000", group="1", tooltip="src.twotower.02_twotower_finalize_hpo.run_cmd\nsrc/twotower/02_twotower_finalize_hpo.py:51\nfunction in src.twotower.02_twotower_finalize_hpo"];
+        }
+        subgraph "cluster_src__twotower__recreate_twotower_finalize" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.twotower.recreate_twotower_finalize"];
+            "src__twotower__recreate_twotower_finalize__collect_trial_metrics" [label="collect_trial_metrics\n(src/twotower/recreate_twotower_finalize.py:65)", style="filled", fillcolor="#65feffb2", fontcolor="#000000", group="3", tooltip="src.twotower.recreate_twotower_finalize.collect_trial_metrics\nsrc/twotower/recreate_twotower_finalize.py:65\nfunction in src.twotower.recreate_twotower_finalize"];
+            "src__twotower__recreate_twotower_finalize__load_configs" [label="load_configs\n(src/twotower/recreate_twotower_finalize.py:55)", style="filled", fillcolor="#65feffb2", fontcolor="#000000", group="3", tooltip="src.twotower.recreate_twotower_finalize.load_configs\nsrc/twotower/recreate_twotower_finalize.py:55\nfunction in src.twotower.recreate_twotower_finalize"];
+            "src__twotower__recreate_twotower_finalize__main" [label="main\n(src/twotower/recreate_twotower_finalize.py:107)", style="filled", fillcolor="#65feffb2", fontcolor="#000000", group="3", tooltip="src.twotower.recreate_twotower_finalize.main\nsrc/twotower/recreate_twotower_finalize.py:107\nfunction in src.twotower.recreate_twotower_finalize"];
+            "src__twotower__recreate_twotower_finalize__parse_args" [label="parse_args\n(src/twotower/recreate_twotower_finalize.py:19)", style="filled", fillcolor="#65feffb2", fontcolor="#000000", group="3", tooltip="src.twotower.recreate_twotower_finalize.parse_args\nsrc/twotower/recreate_twotower_finalize.py:19\nfunction in src.twotower.recreate_twotower_finalize"];
+        }
+        subgraph "cluster_src__twotower__run_twotower_eval" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__AliasSampler" [label="AliasSampler\n(src/twotower/run_twotower_eval.py:571)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.AliasSampler\nsrc/twotower/run_twotower_eval.py:571\nclass in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__CandidateStreamer" [label="CandidateStreamer\n(src/twotower/run_twotower_eval.py:188)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.CandidateStreamer\nsrc/twotower/run_twotower_eval.py:188\nclass in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__Features" [label="Features\n(src/twotower/run_twotower_eval.py:376)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.Features\nsrc/twotower/run_twotower_eval.py:376\nclass in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__Graph" [label="Graph\n(src/twotower/run_twotower_eval.py:123)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.Graph\nsrc/twotower/run_twotower_eval.py:123\nclass in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__KMetrics" [label="KMetrics\n(src/twotower/run_twotower_eval.py:238)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.KMetrics\nsrc/twotower/run_twotower_eval.py:238\nclass in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__MLP" [label="MLP\n(src/twotower/run_twotower_eval.py:461)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MLP\nsrc/twotower/run_twotower_eval.py:461\nclass in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__MixV3Sampler" [label="MixV3Sampler\n(src/twotower/run_twotower_eval.py:618)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MixV3Sampler\nsrc/twotower/run_twotower_eval.py:618\nclass in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__TwoTowerEncoder" [label="TwoTowerEncoder\n(src/twotower/run_twotower_eval.py:478)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.TwoTowerEncoder\nsrc/twotower/run_twotower_eval.py:478\nclass in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__TwoTowerModel" [label="TwoTowerModel\n(src/twotower/run_twotower_eval.py:515)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.TwoTowerModel\nsrc/twotower/run_twotower_eval.py:515\nclass in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval___bool" [label="_bool\n(src/twotower/run_twotower_eval.py:46)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval._bool\nsrc/twotower/run_twotower_eval.py:46\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval___ensure_dir" [label="_ensure_dir\n(src/twotower/run_twotower_eval.py:55)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval._ensure_dir\nsrc/twotower/run_twotower_eval.py:55\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval___load_t0" [label="_load_t0\n(src/twotower/run_twotower_eval.py:161)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval._load_t0\nsrc/twotower/run_twotower_eval.py:161\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval___now_iso" [label="_now_iso\n(src/twotower/run_twotower_eval.py:59)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval._now_iso\nsrc/twotower/run_twotower_eval.py:59\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval___sigmoid" [label="_sigmoid\n(src/twotower/run_twotower_eval.py:1656)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval._sigmoid\nsrc/twotower/run_twotower_eval.py:1656\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval___zscore_cols" [label="_zscore_cols\n(src/twotower/run_twotower_eval.py:73)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval._zscore_cols\nsrc/twotower/run_twotower_eval.py:73\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__aggregate_multi_seed_results" [label="aggregate_multi_seed_results\n(src/twotower/run_twotower_eval.py:108)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.aggregate_multi_seed_results\nsrc/twotower/run_twotower_eval.py:108\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__bpr_loss" [label="bpr_loss\n(src/twotower/run_twotower_eval.py:1009)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.bpr_loss\nsrc/twotower/run_twotower_eval.py:1009\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__calculate_confidence_intervals" [label="calculate_confidence_intervals\n(src/twotower/run_twotower_eval.py:80)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.calculate_confidence_intervals\nsrc/twotower/run_twotower_eval.py:80\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__calibrate_on_val" [label="calibrate_on_val\n(src/twotower/run_twotower_eval.py:1693)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.calibrate_on_val\nsrc/twotower/run_twotower_eval.py:1693\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__classify_twohop" [label="classify_twohop\n(src/twotower/run_twotower_eval.py:344)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.classify_twohop\nsrc/twotower/run_twotower_eval.py:344\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__classify_warm_cold" [label="classify_warm_cold\n(src/twotower/run_twotower_eval.py:317)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.classify_warm_cold\nsrc/twotower/run_twotower_eval.py:317\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__classify_warm_cold_strict" [label="classify_warm_cold_strict\n(src/twotower/run_twotower_eval.py:330)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.classify_warm_cold_strict\nsrc/twotower/run_twotower_eval.py:330\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__compute_all_embeddings" [label="compute_all_embeddings\n(src/twotower/run_twotower_eval.py:1447)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.compute_all_embeddings\nsrc/twotower/run_twotower_eval.py:1447\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__evaluate_split" [label="evaluate_split\n(src/twotower/run_twotower_eval.py:1475)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.evaluate_split\nsrc/twotower/run_twotower_eval.py:1475\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__fit_platt" [label="fit_platt\n(src/twotower/run_twotower_eval.py:1666)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.fit_platt\nsrc/twotower/run_twotower_eval.py:1666\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__load_features" [label="load_features\n(src/twotower/run_twotower_eval.py:383)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.load_features\nsrc/twotower/run_twotower_eval.py:383\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__load_graphX" [label="load_graph\n(src/twotower/run_twotower_eval.py:131)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.load_graph\nsrc/twotower/run_twotower_eval.py:131\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__main" [label="main\n(src/twotower/run_twotower_eval.py:2059)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.main\nsrc/twotower/run_twotower_eval.py:2059\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__parse_args" [label="parse_args\n(src/twotower/run_twotower_eval.py:1762)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.parse_args\nsrc/twotower/run_twotower_eval.py:1762\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__run_single_seed" [label="run_single_seed\n(src/twotower/run_twotower_eval.py:1883)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.run_single_seed\nsrc/twotower/run_twotower_eval.py:1883\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__set_seed" [label="set_seed\n(src/twotower/run_twotower_eval.py:63)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.set_seed\nsrc/twotower/run_twotower_eval.py:63\nfunction in src.twotower.run_twotower_eval"];
+            "src__twotower__run_twotower_eval__train_twotower" [label="train_twotower\n(src/twotower/run_twotower_eval.py:1015)", style="filled", fillcolor="#6565ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.train_twotower\nsrc/twotower/run_twotower_eval.py:1015\nfunction in src.twotower.run_twotower_eval"];
+        }
+        subgraph "cluster_src__twotower__run_twotower_eval__AliasSampler" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.twotower.run_twotower_eval.AliasSampler"];
+            "src__twotower__run_twotower_eval__AliasSampler____init__" [label="__init__\n(src/twotower/run_twotower_eval.py:578)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.AliasSampler.__init__\nsrc/twotower/run_twotower_eval.py:578\nmethod in src.twotower.run_twotower_eval.AliasSampler"];
+            "src__twotower__run_twotower_eval__AliasSampler__sample" [label="sample\n(src/twotower/run_twotower_eval.py:607)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.AliasSampler.sample\nsrc/twotower/run_twotower_eval.py:607\nmethod in src.twotower.run_twotower_eval.AliasSampler"];
+        }
+        subgraph "cluster_src__twotower__run_twotower_eval__CandidateStreamer" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.twotower.run_twotower_eval.CandidateStreamer"];
+            "src__twotower__run_twotower_eval__CandidateStreamer____init__" [label="__init__\n(src/twotower/run_twotower_eval.py:189)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.CandidateStreamer.__init__\nsrc/twotower/run_twotower_eval.py:189\nmethod in src.twotower.run_twotower_eval.CandidateStreamer"];
+            "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [label="__iter__\n(src/twotower/run_twotower_eval.py:199)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.CandidateStreamer.__iter__\nsrc/twotower/run_twotower_eval.py:199\nmethod in src.twotower.run_twotower_eval.CandidateStreamer"];
+        }
+        subgraph "cluster_src__twotower__run_twotower_eval__KMetrics" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.twotower.run_twotower_eval.KMetrics"];
+            "src__twotower__run_twotower_eval__KMetrics____post_init__" [label="__post_init__\n(src/twotower/run_twotower_eval.py:250)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.KMetrics.__post_init__\nsrc/twotower/run_twotower_eval.py:250\nmethod in src.twotower.run_twotower_eval.KMetrics"];
+            "src__twotower__run_twotower_eval__KMetrics__to_row" [label="to_row\n(src/twotower/run_twotower_eval.py:300)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.KMetrics.to_row\nsrc/twotower/run_twotower_eval.py:300\nmethod in src.twotower.run_twotower_eval.KMetrics"];
+            "src__twotower__run_twotower_eval__KMetrics__update" [label="update\n(src/twotower/run_twotower_eval.py:257)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.KMetrics.update\nsrc/twotower/run_twotower_eval.py:257\nmethod in src.twotower.run_twotower_eval.KMetrics"];
+        }
+        subgraph "cluster_src__twotower__run_twotower_eval__MLP" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.twotower.run_twotower_eval.MLP"];
+            "src__twotower__run_twotower_eval__MLP____init__" [label="__init__\n(src/twotower/run_twotower_eval.py:462)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MLP.__init__\nsrc/twotower/run_twotower_eval.py:462\nmethod in src.twotower.run_twotower_eval.MLP"];
+            "src__twotower__run_twotower_eval__MLP__forward" [label="forward\n(src/twotower/run_twotower_eval.py:474)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MLP.forward\nsrc/twotower/run_twotower_eval.py:474\nmethod in src.twotower.run_twotower_eval.MLP"];
+        }
+        subgraph "cluster_src__twotower__run_twotower_eval__MixV3Sampler" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.twotower.run_twotower_eval.MixV3Sampler"];
+            "src__twotower__run_twotower_eval__MixV3Sampler____init__" [label="__init__\n(src/twotower/run_twotower_eval.py:619)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MixV3Sampler.__init__\nsrc/twotower/run_twotower_eval.py:619\nmethod in src.twotower.run_twotower_eval.MixV3Sampler"];
+            "src__twotower__run_twotower_eval__MixV3Sampler___build_attr_pool" [label="_build_attr_pool\n(src/twotower/run_twotower_eval.py:802)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MixV3Sampler._build_attr_pool\nsrc/twotower/run_twotower_eval.py:802\nmethod in src.twotower.run_twotower_eval.MixV3Sampler"];
+            "src__twotower__run_twotower_eval__MixV3Sampler___cache_onehop_sorted" [label="_cache_onehop_sorted\n(src/twotower/run_twotower_eval.py:659)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MixV3Sampler._cache_onehop_sorted\nsrc/twotower/run_twotower_eval.py:659\nmethod in src.twotower.run_twotower_eval.MixV3Sampler"];
+            "src__twotower__run_twotower_eval__MixV3Sampler___cache_twohop_sorted" [label="_cache_twohop_sorted\n(src/twotower/run_twotower_eval.py:679)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MixV3Sampler._cache_twohop_sorted\nsrc/twotower/run_twotower_eval.py:679\nmethod in src.twotower.run_twotower_eval.MixV3Sampler"];
+            "src__twotower__run_twotower_eval__MixV3Sampler___filter_exclusions" [label="_filter_exclusions\n(src/twotower/run_twotower_eval.py:859)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MixV3Sampler._filter_exclusions\nsrc/twotower/run_twotower_eval.py:859\nmethod in src.twotower.run_twotower_eval.MixV3Sampler"];
+            "src__twotower__run_twotower_eval__MixV3Sampler___is_onehop" [label="_is_onehop\n(src/twotower/run_twotower_eval.py:704)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MixV3Sampler._is_onehop\nsrc/twotower/run_twotower_eval.py:704\nmethod in src.twotower.run_twotower_eval.MixV3Sampler"];
+            "src__twotower__run_twotower_eval__MixV3Sampler___onehop_neighbors" [label="_onehop_neighbors\n(src/twotower/run_twotower_eval.py:701)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MixV3Sampler._onehop_neighbors\nsrc/twotower/run_twotower_eval.py:701\nmethod in src.twotower.run_twotower_eval.MixV3Sampler"];
+            "src__twotower__run_twotower_eval__MixV3Sampler__sample" [label="sample\n(src/twotower/run_twotower_eval.py:958)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MixV3Sampler.sample\nsrc/twotower/run_twotower_eval.py:958\nmethod in src.twotower.run_twotower_eval.MixV3Sampler"];
+            "src__twotower__run_twotower_eval__MixV3Sampler__sample_attr" [label="sample_attr\n(src/twotower/run_twotower_eval.py:729)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MixV3Sampler.sample_attr\nsrc/twotower/run_twotower_eval.py:729\nmethod in src.twotower.run_twotower_eval.MixV3Sampler"];
+            "src__twotower__run_twotower_eval__MixV3Sampler__sample_batch" [label="sample_batch\n(src/twotower/run_twotower_eval.py:868)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MixV3Sampler.sample_batch\nsrc/twotower/run_twotower_eval.py:868\nmethod in src.twotower.run_twotower_eval.MixV3Sampler"];
+            "src__twotower__run_twotower_eval__MixV3Sampler__sample_deg" [label="sample_deg\n(src/twotower/run_twotower_eval.py:722)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MixV3Sampler.sample_deg\nsrc/twotower/run_twotower_eval.py:722\nmethod in src.twotower.run_twotower_eval.MixV3Sampler"];
+            "src__twotower__run_twotower_eval__MixV3Sampler__sample_twohop" [label="sample_twohop\n(src/twotower/run_twotower_eval.py:714)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MixV3Sampler.sample_twohop\nsrc/twotower/run_twotower_eval.py:714\nmethod in src.twotower.run_twotower_eval.MixV3Sampler"];
+            "src__twotower__run_twotower_eval__MixV3Sampler__sample_uniform" [label="sample_uniform\n(src/twotower/run_twotower_eval.py:726)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.MixV3Sampler.sample_uniform\nsrc/twotower/run_twotower_eval.py:726\nmethod in src.twotower.run_twotower_eval.MixV3Sampler"];
+        }
+        subgraph "cluster_src__twotower__run_twotower_eval__TwoTowerEncoder" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.twotower.run_twotower_eval.TwoTowerEncoder"];
+            "src__twotower__run_twotower_eval__TwoTowerEncoder____init__" [label="__init__\n(src/twotower/run_twotower_eval.py:479)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.TwoTowerEncoder.__init__\nsrc/twotower/run_twotower_eval.py:479\nmethod in src.twotower.run_twotower_eval.TwoTowerEncoder"];
+            "src__twotower__run_twotower_eval__TwoTowerEncoder__forward" [label="forward\n(src/twotower/run_twotower_eval.py:502)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.TwoTowerEncoder.forward\nsrc/twotower/run_twotower_eval.py:502\nmethod in src.twotower.run_twotower_eval.TwoTowerEncoder"];
+        }
+        subgraph "cluster_src__twotower__run_twotower_eval__TwoTowerModel" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.twotower.run_twotower_eval.TwoTowerModel"];
+            "src__twotower__run_twotower_eval__TwoTowerModel____init__" [label="__init__\n(src/twotower/run_twotower_eval.py:516)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.TwoTowerModel.__init__\nsrc/twotower/run_twotower_eval.py:516\nmethod in src.twotower.run_twotower_eval.TwoTowerModel"];
+            "src__twotower__run_twotower_eval__TwoTowerModel__encode_nodeXs" [label="encode_nodes\n(src/twotower/run_twotower_eval.py:553)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.TwoTowerModel.encode_nodes\nsrc/twotower/run_twotower_eval.py:553\nmethod in src.twotower.run_twotower_eval.TwoTowerModel"];
+            "src__twotower__run_twotower_eval__TwoTowerModel__score" [label="score\n(src/twotower/run_twotower_eval.py:564)", style="filled", fillcolor="#3232ffb2", fontcolor="#000000", group="4", tooltip="src.twotower.run_twotower_eval.TwoTowerModel.score\nsrc/twotower/run_twotower_eval.py:564\nmethod in src.twotower.run_twotower_eval.TwoTowerModel"];
+        }
+    }
+        "src__twotower__01_twotower_hpo_optuna" -> "src__twotower__01_twotower_hpo_optuna__main" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna" -> "src__twotower__run_twotower_eval__MixV3Sampler" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna" -> "src__twotower__run_twotower_eval__TwoTowerModel" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna" -> "src__twotower__run_twotower_eval__compute_all_embeddings" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna" -> "src__twotower__run_twotower_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna" -> "src__twotower__run_twotower_eval__load_features" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna" -> "src__twotower__run_twotower_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna" -> "src__twotower__run_twotower_eval__train_twotower" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__main" -> "src__twotower__01_twotower_hpo_optuna__main__obj" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__main" -> "src__twotower__01_twotower_hpo_optuna__parse_args" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__main__obj" -> "src__twotower__01_twotower_hpo_optuna__objective" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__main__obj" -> "src__twotower__01_twotower_hpo_optuna__parse_args" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__objective" -> "src__twotower__01_twotower_hpo_optuna__objective___progress_cb" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__objective" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__objective" -> "src__twotower__run_twotower_eval__MixV3Sampler" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__objective" -> "src__twotower__run_twotower_eval__TwoTowerModel" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__objective" -> "src__twotower__run_twotower_eval__compute_all_embeddings" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__objective" -> "src__twotower__run_twotower_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__objective" -> "src__twotower__run_twotower_eval__load_features" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__objective" -> "src__twotower__run_twotower_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__objective" -> "src__twotower__run_twotower_eval__train_twotower" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__parse_args" -> "src__twotower__01_twotower_hpo_optuna__parse_args" [style="solid",  color="#000000"];
+        "src__twotower__01_twotower_hpo_optuna__parse_args" -> "src__twotower__run_twotower_eval__parse_args" [style="solid",  color="#000000"];
+        "src__twotower__02_twotower_finalize_hpo" -> "src__twotower__02_twotower_finalize_hpo__main" [style="solid",  color="#000000"];
+        "src__twotower__02_twotower_finalize_hpo__main" -> "src__twotower__02_twotower_finalize_hpo__parse_args" [style="solid",  color="#000000"];
+        "src__twotower__02_twotower_finalize_hpo__main" -> "src__twotower__02_twotower_finalize_hpo__run_cmd" [style="solid",  color="#000000"];
+        "src__twotower__02_twotower_finalize_hpo__parse_args" -> "src__twotower__02_twotower_finalize_hpo__parse_args" [style="solid",  color="#000000"];
+        "src__twotower__03_twotower_train_eval" -> "src__twotower__run_twotower_eval__main" [style="solid",  color="#000000"];
+        "src__twotower__recreate_twotower_finalize" -> "src__twotower__recreate_twotower_finalize__main" [style="solid",  color="#000000"];
+        "src__twotower__recreate_twotower_finalize__main" -> "src__twotower__recreate_twotower_finalize__collect_trial_metrics" [style="solid",  color="#000000"];
+        "src__twotower__recreate_twotower_finalize__main" -> "src__twotower__recreate_twotower_finalize__load_configs" [style="solid",  color="#000000"];
+        "src__twotower__recreate_twotower_finalize__main" -> "src__twotower__recreate_twotower_finalize__parse_args" [style="solid",  color="#000000"];
+        "src__twotower__recreate_twotower_finalize__parse_args" -> "src__twotower__recreate_twotower_finalize__parse_args" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval" -> "src__twotower__run_twotower_eval__main" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__AliasSampler____init__" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__AliasSampler__sample" -> "src__twotower__run_twotower_eval__AliasSampler" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__CandidateStreamer____iter__" -> "src__twotower__run_twotower_eval__CandidateStreamer" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__KMetrics____post_init__" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__KMetrics____post_init__" -> "src__twotower__run_twotower_eval__KMetrics" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__KMetrics__to_row" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__KMetrics__to_row" -> "src__twotower__run_twotower_eval__KMetrics" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__KMetrics__update" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__KMetrics__update" -> "src__twotower__run_twotower_eval__KMetrics" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MLP____init__" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MLP__forward" -> "src__twotower__run_twotower_eval__MLP" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler____init__" -> "src__twotower__run_twotower_eval__AliasSampler" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler____init__" -> "src__twotower__run_twotower_eval__AliasSampler____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler____init__" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler____init__" -> "src__twotower__run_twotower_eval__Features" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler____init__" -> "src__twotower__run_twotower_eval__Graph" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler___build_attr_pool" -> "src__twotower__run_twotower_eval__MixV3Sampler" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler___build_attr_pool" -> "src__twotower__run_twotower_eval__MixV3Sampler____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler___cache_onehop_sorted" -> "src__twotower__run_twotower_eval__MixV3Sampler" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler___cache_twohop_sorted" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler___cache_twohop_sorted" -> "src__twotower__run_twotower_eval__MixV3Sampler" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler___cache_twohop_sorted" -> "src__twotower__run_twotower_eval__MixV3Sampler___cache_onehop_sorted" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler___is_onehop" -> "src__twotower__run_twotower_eval__MixV3Sampler___onehop_neighbors" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler___onehop_neighbors" -> "src__twotower__run_twotower_eval__MixV3Sampler___cache_onehop_sorted" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample" -> "src__twotower__run_twotower_eval__MixV3Sampler___is_onehop" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample" -> "src__twotower__run_twotower_eval__MixV3Sampler__sample_attr" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample" -> "src__twotower__run_twotower_eval__MixV3Sampler__sample_deg" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample" -> "src__twotower__run_twotower_eval__MixV3Sampler__sample_twohop" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample" -> "src__twotower__run_twotower_eval__MixV3Sampler__sample_uniform" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_attr" -> "src__twotower__run_twotower_eval__MixV3Sampler" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_attr" -> "src__twotower__run_twotower_eval__MixV3Sampler____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_batch" -> "src__twotower__run_twotower_eval__AliasSampler__sample" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_batch" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_batch" -> "src__twotower__run_twotower_eval__MixV3Sampler" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_batch" -> "src__twotower__run_twotower_eval__MixV3Sampler____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_batch" -> "src__twotower__run_twotower_eval__MixV3Sampler___build_attr_pool" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_batch" -> "src__twotower__run_twotower_eval__MixV3Sampler___cache_twohop_sorted" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_batch" -> "src__twotower__run_twotower_eval__MixV3Sampler___filter_exclusions" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_batch" -> "src__twotower__run_twotower_eval__MixV3Sampler___onehop_neighbors" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_deg" -> "src__twotower__run_twotower_eval__AliasSampler__sample" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_deg" -> "src__twotower__run_twotower_eval__MixV3Sampler" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_twohop" -> "src__twotower__run_twotower_eval__MixV3Sampler" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_twohop" -> "src__twotower__run_twotower_eval__MixV3Sampler____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_twohop" -> "src__twotower__run_twotower_eval__MixV3Sampler___cache_twohop_sorted" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_uniform" -> "src__twotower__run_twotower_eval__MixV3Sampler" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__MixV3Sampler__sample_uniform" -> "src__twotower__run_twotower_eval__MixV3Sampler____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__TwoTowerEncoder____init__" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__TwoTowerEncoder____init__" -> "src__twotower__run_twotower_eval__MLP" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__TwoTowerEncoder____init__" -> "src__twotower__run_twotower_eval__MLP____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__TwoTowerEncoder__forward" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__TwoTowerEncoder__forward" -> "src__twotower__run_twotower_eval__MLP" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__TwoTowerEncoder__forward" -> "src__twotower__run_twotower_eval__MLP____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__TwoTowerEncoder__forward" -> "src__twotower__run_twotower_eval__TwoTowerEncoder" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__TwoTowerModel____init__" -> "src__twotower__run_twotower_eval__TwoTowerEncoder" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__TwoTowerModel____init__" -> "src__twotower__run_twotower_eval__TwoTowerEncoder____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__TwoTowerModel__encode_nodeXs" -> "src__twotower__run_twotower_eval__TwoTowerEncoder" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__TwoTowerModel__encode_nodeXs" -> "src__twotower__run_twotower_eval__TwoTowerEncoder____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__TwoTowerModel__encode_nodeXs" -> "src__twotower__run_twotower_eval__TwoTowerModel" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__aggregate_multi_seed_results" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__aggregate_multi_seed_results" -> "src__twotower__run_twotower_eval__calculate_confidence_intervals" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__calibrate_on_val" -> "src__twotower__run_twotower_eval__CandidateStreamer" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__calibrate_on_val" -> "src__twotower__run_twotower_eval__CandidateStreamer____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__calibrate_on_val" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__calibrate_on_val" -> "src__twotower__run_twotower_eval__Graph" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__calibrate_on_val" -> "src__twotower__run_twotower_eval__fit_platt" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__classify_twohop" -> "src__twotower__run_twotower_eval__Graph" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__classify_warm_cold" -> "src__twotower__run_twotower_eval__Graph" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__classify_warm_cold_strict" -> "src__twotower__run_twotower_eval__Graph" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__compute_all_embeddings" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__compute_all_embeddings" -> "src__twotower__run_twotower_eval__Features" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__compute_all_embeddings" -> "src__twotower__run_twotower_eval__TwoTowerModel" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__compute_all_embeddings" -> "src__twotower__run_twotower_eval__TwoTowerModel__encode_nodeXs" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__AliasSampler____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__CandidateStreamer" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__CandidateStreamer____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__Graph" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__KMetrics" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__KMetrics__to_row" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__KMetrics__update" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__MLP____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__MixV3Sampler____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__TwoTowerEncoder____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__TwoTowerModel____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval___load_t0" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__classify_twohop" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__classify_warm_cold" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__evaluate_split" -> "src__twotower__run_twotower_eval__classify_warm_cold_strict" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__fit_platt" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__fit_platt" -> "src__twotower__run_twotower_eval___sigmoid" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_features" -> "src__twotower__run_twotower_eval__AliasSampler____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_features" -> "src__twotower__run_twotower_eval__CandidateStreamer____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_features" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_features" -> "src__twotower__run_twotower_eval__Features" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_features" -> "src__twotower__run_twotower_eval__MLP____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_features" -> "src__twotower__run_twotower_eval__MixV3Sampler____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_features" -> "src__twotower__run_twotower_eval__TwoTowerEncoder____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_features" -> "src__twotower__run_twotower_eval__TwoTowerModel____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_features" -> "src__twotower__run_twotower_eval___zscore_cols" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_graphX" -> "src__twotower__run_twotower_eval__AliasSampler____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_graphX" -> "src__twotower__run_twotower_eval__CandidateStreamer____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_graphX" -> "src__twotower__run_twotower_eval__Graph" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_graphX" -> "src__twotower__run_twotower_eval__MLP____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_graphX" -> "src__twotower__run_twotower_eval__MixV3Sampler____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_graphX" -> "src__twotower__run_twotower_eval__TwoTowerEncoder____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__load_graphX" -> "src__twotower__run_twotower_eval__TwoTowerModel____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__main" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__main" -> "src__twotower__run_twotower_eval___ensure_dir" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__main" -> "src__twotower__run_twotower_eval___now_iso" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__main" -> "src__twotower__run_twotower_eval__aggregate_multi_seed_results" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__main" -> "src__twotower__run_twotower_eval__load_features" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__main" -> "src__twotower__run_twotower_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__main" -> "src__twotower__run_twotower_eval__parse_args" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__main" -> "src__twotower__run_twotower_eval__run_single_seed" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__main" -> "src__twotower__run_twotower_eval__set_seed" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__parse_args" -> "src__twotower__run_twotower_eval___bool" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__parse_args" -> "src__twotower__run_twotower_eval__parse_args" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__run_single_seed" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__run_single_seed" -> "src__twotower__run_twotower_eval__Features" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__run_single_seed" -> "src__twotower__run_twotower_eval__Graph" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__run_single_seed" -> "src__twotower__run_twotower_eval__MixV3Sampler" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__run_single_seed" -> "src__twotower__run_twotower_eval__MixV3Sampler____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__run_single_seed" -> "src__twotower__run_twotower_eval__TwoTowerModel" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__run_single_seed" -> "src__twotower__run_twotower_eval__TwoTowerModel____init__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__run_single_seed" -> "src__twotower__run_twotower_eval___load_t0" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__run_single_seed" -> "src__twotower__run_twotower_eval___now_iso" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__run_single_seed" -> "src__twotower__run_twotower_eval__calibrate_on_val" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__run_single_seed" -> "src__twotower__run_twotower_eval__compute_all_embeddings" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__run_single_seed" -> "src__twotower__run_twotower_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__run_single_seed" -> "src__twotower__run_twotower_eval__set_seed" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__run_single_seed" -> "src__twotower__run_twotower_eval__train_twotower" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__train_twotower" -> "src__twotower__run_twotower_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__train_twotower" -> "src__twotower__run_twotower_eval__Features" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__train_twotower" -> "src__twotower__run_twotower_eval__Graph" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__train_twotower" -> "src__twotower__run_twotower_eval__KMetrics__update" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__train_twotower" -> "src__twotower__run_twotower_eval__MixV3Sampler" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__train_twotower" -> "src__twotower__run_twotower_eval__MixV3Sampler__sample_batch" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__train_twotower" -> "src__twotower__run_twotower_eval__TwoTowerModel" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__train_twotower" -> "src__twotower__run_twotower_eval__TwoTowerModel__encode_nodeXs" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__train_twotower" -> "src__twotower__run_twotower_eval__TwoTowerModel__score" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__train_twotower" -> "src__twotower__run_twotower_eval__bpr_loss" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__train_twotower" -> "src__twotower__run_twotower_eval__compute_all_embeddings" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__train_twotower" -> "src__twotower__run_twotower_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval__train_twotower" -> "src__twotower__run_twotower_eval__train_twotower" [style="solid",  color="#000000"];
+    }

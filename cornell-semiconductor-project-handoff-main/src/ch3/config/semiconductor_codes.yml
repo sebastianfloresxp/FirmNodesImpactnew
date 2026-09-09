@@ -1,0 +1,31 @@
+rbics_core:
+  # L4s under L3 551020/551030
+  - 55102010  # Analog and Mixed Signal Semiconductors
+  - 55102015  # Discrete Semiconductors
+  - 55102020  # General Semiconductors
+  - 55102025  # Memory Semiconductors
+  - 55102030  # Processor Semiconductors
+  - 55102035  # Programmable Logic and ASIC Semiconductors
+  - 55102040  # Specialized Semiconductors
+  - 55103010  # Semiconductor Manufacturing Capital Equipment
+  - 55103015  # Semiconductor Manufacturing Services
+rbics_adjacent:
+  # Optional halo: electronic components/equipment
+  - 55101010  # Electronic Components
+  - 55102510  # Electronic Equipment Manufacturing
+# Note: Only SIC 3674 is used by build_semis_catalog_strict.py.
+# Additional codes are preserved for potential future expansion.
+sic_core:
+  - 3674  # Semiconductors and Related Devices
+  - 3671  # Electron Tubes
+  - 3677  # Electronic Coils/Transformers
+  - 3678  # Electronic Connectors
+  - 3679  # Electronic Components, NEC
+  - 3559  # Special Industry Machinery (incl. semi equipment)
+  - 3675  # Electronic Capacitors (treated as core here)
+sic_adjacent:
+  - 3672  # Printed Circuit Boards
+  - 3569  # General Industrial Machinery, NEC
+  - 3629  # Electrical Industrial Apparatus, NEC
+  - 3825  # Electrical Test Instruments
+  - 3812  # Search/Navigation/Detection (optional halo)

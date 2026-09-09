@@ -1,0 +1,18 @@
+{
+  "baseline_reachable_defense_nodes": 97,
+  "defense_nodes": 97,
+  "firms_imported": 74263,
+  "metadata_only_firms_imported": 70803,
+  "methodological_boundary": "Computed severity metrics are generated from supplied preprocessing outputs because the archive does not include the Cornell M6 node_single_removal_impacts_full.csv/parquet table. Additional named metadata firms are searchable but do not have computed scenario metrics.",
+  "missing_exact_m6_output": true,
+  "named_metadata_firms": 74263,
+  "relationships_imported": 29155,
+  "scored_firms_imported": 3460,
+  "semiconductor_nodes": 3363,
+  "source": "Semiconductor Supply Chain Cyber Security Research Project (P1-21-2330).zip",
+  "source_tables": {
+    "centrality": "Semiconductor Supply Chain Cyber Security Research Project (P1-21-2330)/Data/Preprocessing/ALL_network_centrality_measures.csv",
+    "edges": "Semiconductor Supply Chain Cyber Security Research Project (P1-21-2330)/Data/Preprocessing/RaoAnalysis/complete_semiconductor_defense_network.csv",
+    "firm_metadata": "Semiconductor Supply Chain Cyber Security Research Project (P1-21-2330)/Data/Preprocessing/firmname_entityID_L6code_country.csv"
+  }
+}

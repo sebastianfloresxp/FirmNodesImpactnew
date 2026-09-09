@@ -1,0 +1,25 @@
+# Research Repository LFS Configuration
+# Track only the most valuable files that are expensive/time-consuming to recreate
+
+# FINAL TRAINED MODELS - Most valuable, track these
+artifacts/*/best_model.pt filter=lfs diff=lfs merge=lfs -text
+artifacts/*/final_model.pt filter=lfs diff=lfs merge=lfs -text
+artifacts/*/model_checkpoint.pt filter=lfs diff=lfs merge=lfs -text
+
+# IMPORTANT PROCESSED DATASETS - Track final curated data
+data/processed/final_*.parquet filter=lfs diff=lfs merge=lfs -text
+data/processed/*_final.parquet filter=lfs diff=lfs merge=lfs -text
+data/processed/dygformer/dygformer_dataset.pt filter=lfs diff=lfs merge=lfs -text
+
+# RESEARCH OUTPUTS - Track final results and visualizations
+results/*/final_*.csv filter=lfs diff=lfs merge=lfs -text
+results/*/final_*.json filter=lfs diff=lfs merge=lfs -text
+results/*/interactive_*.html filter=lfs diff=lfs merge=lfs -text
+
+# CONFIGURATION FILES - Track best hyperparameters
+artifacts/*/best_params.json filter=lfs diff=lfs merge=lfs -text
+artifacts/*/optuna_best_params.json filter=lfs diff=lfs merge=lfs -text
+
+# DOCUMENTATION - Track important research notes
+docs/*_final.md filter=lfs diff=lfs merge=lfs -text
+docs/*_final.txt filter=lfs diff=lfs merge=lfs -text 

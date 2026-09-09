@@ -1,0 +1,35 @@
+% Auto-generated full structural slice table (Test) --- Q2/Q3 dropped; best-in-class excludes Ensemble
+% chktex-file 1   \NA macro terminated with space is correct in table cells
+\begin{tabular}{@{}l 
+  S[table-format=1.3] 
+  S[table-format=1.3] 
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]
+  S[table-format=1.3]@{}}
+\toprule
+\multicolumn{1}{c}{Model} &
+\multicolumn{1}{c}{nDCG@100 (WW)} &
+\multicolumn{1}{c}{nDCG@100 (WW3)} &
+\multicolumn{1}{c}{nDCG@100 (CW)} &
+\multicolumn{1}{c}{nDCG@100 (WC)} &
+\multicolumn{1}{c}{nDCG@100 (CC)} &
+\multicolumn{1}{c}{nDCG@100 (CC3)} &
+\multicolumn{1}{c}{nDCG@100 (Two-hop)} &
+\multicolumn{1}{c}{nDCG@100 (>2-hop)} &
+\multicolumn{1}{c}{nDCG@100 (deg Q1)} &
+\multicolumn{1}{c}{nDCG@100 (deg Q4)} \\
+\midrule
+Ensemble            & 0.487 & 0.547 & 0.252 & 0.302 & 0.084 & 0.086 & 0.500 & 0.233 & 0.157 & 0.387 \\
+TGNN                & 0.193 & \NA   & 0.063 & 0.022 & 0.019 & \NA   & 0.129 & 0.125 & 0.051 & 0.164 \\
+Node2Vec-Temporal   & 0.094 & \NA   & \bfseries 0.114 & 0.004 & 0.006 & \NA   & 0.076 & \bfseries 0.129 & \bfseries 0.093 & 0.078 \\
+Node2Vec            & \bfseries 0.214 & \bfseries 0.220 & 0.012 & 0.011 & 0.005 & 0.009 & \bfseries 0.135 & 0.098 & 0.009 & \bfseries 0.182 \\
+Two-Tower           & 0.078 & 0.082 & 0.048 & \bfseries 0.032 & 0.020 & 0.008 & 0.059 & 0.088 & 0.043 & 0.066 \\
+GraphSAGE           & 0.041 & 0.055 & 0.015 & 0.032 & \bfseries 0.021 & \bfseries 0.019 & 0.041 & 0.060 & 0.019 & 0.034 \\
+Heuristics          & 0.065 & 0.078 & 0.031 & 0.005 & 0.006 & 0.004 & 0.062 & 0.064 & 0.022 & 0.053 \\
+\bottomrule
+\end{tabular}

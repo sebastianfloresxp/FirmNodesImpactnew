@@ -1,0 +1,284 @@
+digraph G {
+    graph [rankdir=TB, ranksep=0.5, layout=dot, clusterrank="local"];
+    subgraph "cluster_G" {
+
+        graph [style="filled,rounded", fillcolor="#80808018", label=""];
+        subgraph "cluster_src__analysis__chapter2" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.analysis.chapter2"];
+            "src__analysis__chapter2__build_model_metrics" [label="build_model_metrics", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter2.build_model_metrics\nmodule in src.analysis.chapter2"];
+            "src__analysis__chapter2__eval_shipping_precision" [label="eval_shipping_precision", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter2.eval_shipping_precision\nmodule in src.analysis.chapter2"];
+            "src__analysis__chapter2__fig_01_degree_histogram" [label="fig_01_degree_histogram", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter2.fig_01_degree_histogram\nmodule in src.analysis.chapter2"];
+            "src__analysis__chapter2__fig_02_model_pr_overlay" [label="fig_02_model_pr_overlay", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter2.fig_02_model_pr_overlay\nmodule in src.analysis.chapter2"];
+            "src__analysis__chapter2__fig_03_precision_yield_frontier_val" [label="fig_03_precision_yield_frontier_val", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter2.fig_03_precision_yield_frontier_val\nmodule in src.analysis.chapter2"];
+            "src__analysis__chapter2__fig_04_topk_floor_heatmap" [label="fig_04_topk_floor_heatmap", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter2.fig_04_topk_floor_heatmap\nmodule in src.analysis.chapter2"];
+            "src__analysis__chapter2__scorecard_common" [label="scorecard_common", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter2.scorecard_common\nmodule in src.analysis.chapter2"];
+            "src__analysis__chapter2__tab_01_global_scorecard" [label="tab_01_global_scorecard", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter2.tab_01_global_scorecard\nmodule in src.analysis.chapter2"];
+            "src__analysis__chapter2__tab_02_structural_generalization" [label="tab_02_structural_generalization", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter2.tab_02_structural_generalization\nmodule in src.analysis.chapter2"];
+            "src__analysis__chapter2__tab_03_temporal_horizons" [label="tab_03_temporal_horizons", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter2.tab_03_temporal_horizons\nmodule in src.analysis.chapter2"];
+            "src__analysis__chapter2__tab_04_seed_robustness" [label="tab_04_seed_robustness", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter2.tab_04_seed_robustness\nmodule in src.analysis.chapter2"];
+            "src__analysis__chapter2__tab_05_structural_slices_test" [label="tab_05_structural_slices_test", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter2.tab_05_structural_slices_test\nmodule in src.analysis.chapter2"];
+            "src__analysis__chapter2__tab_06_structural_slices_val" [label="tab_06_structural_slices_val", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter2.tab_06_structural_slices_val\nmodule in src.analysis.chapter2"];
+            "src__analysis__chapter2__tab_07_temporal_full" [label="tab_07_temporal_full", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter2.tab_07_temporal_full\nmodule in src.analysis.chapter2"];
+        }
+        subgraph "cluster_src__analysis__chapter4" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.analysis.chapter4"];
+            "src__analysis__chapter4__ch4_common" [label="ch4_common", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.ch4_common\nmodule in src.analysis.chapter4"];
+        }
+        subgraph "cluster_src__analysis__chapter4__modules" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m0_5_code_universe" [label="m0_5_code_universe", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m0_5_code_universe\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m0_6_factset_industry_enrichment" [label="m0_6_factset_industry_enrichment", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m0_6_factset_industry_enrichment\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m0_7_semiconductor_lens" [label="m0_7_semiconductor_lens", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m0_7_semiconductor_lens\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m0_build_prime_weights" [label="m0_build_prime_weights", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m0_build_prime_weights\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m0_graphX_contract" [label="m0_graph_contract", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m0_graph_contract\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m1_topology" [label="m1_topology", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m1_topology\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m2_1_seam_refinement" [label="m2_1_seam_refinement", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m2_1_seam_refinement\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m2_2_seam_dod_harm" [label="m2_2_seam_dod_harm", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m2_2_seam_dod_harm\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m2_3_hard_chokepoints" [label="m2_3_hard_chokepoints", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m2_3_hard_chokepoints\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m2_centrality_candidates" [label="m2_centrality_candidates", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m2_centrality_candidates\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m3_1_supplier_centric_refinement" [label="m3_1_supplier_centric_refinement", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m3_1_supplier_centric_refinement\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m3_2_effective_reach" [label="m3_2_effective_reach", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m3_2_effective_reach\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m3_dod_exposure_common_mode" [label="m3_dod_exposure_common_mode", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m3_dod_exposure_common_mode\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m4_1_corridor_refinement" [label="m4_1_corridor_refinement", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m4_1_corridor_refinement\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m4_corridor_importance" [label="m4_corridor_importance", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m4_corridor_importance\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m5_redundancy_proxy" [label="m5_redundancy_proxy", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m5_redundancy_proxy\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m6_1_weighted_disruption" [label="m6_1_weighted_disruption", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m6_1_weighted_disruption\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m6_2_stratified_impact" [label="m6_2_stratified_impact", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m6_2_stratified_impact\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m6_3_candidate_guardrails" [label="m6_3_candidate_guardrails", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m6_3_candidate_guardrails\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m6_4_effective_disruption" [label="m6_4_effective_disruption", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m6_4_effective_disruption\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m6_5_prime_exposure_profiles" [label="m6_5_prime_exposure_profiles", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m6_5_prime_exposure_profiles\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m6_6_mechanism_decomposition" [label="m6_6_mechanism_decomposition", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m6_6_mechanism_decomposition\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m6_disruption" [label="m6_disruption", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m6_disruption\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m6_pilot_disruption" [label="m6_pilot_disruption", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m6_pilot_disruption\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m7_1_rank_stability_extended" [label="m7_1_rank_stability_extended", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m7_1_rank_stability_extended\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m7_stability" [label="m7_stability", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m7_stability\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m8_semi_disruption" [label="m8_semi_disruption", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m8_semi_disruption\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m9_0_semantic_lens_pipeline" [label="m9_0_semantic_lens_pipeline", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m9_0_semantic_lens_pipeline\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m9_1_code_universe" [label="m9_1_code_universe", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m9_1_code_universe\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m9_2_factset_industry_enrichment" [label="m9_2_factset_industry_enrichment", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m9_2_factset_industry_enrichment\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m9_3_semiconductor_lens" [label="m9_3_semiconductor_lens", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m9_3_semiconductor_lens\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__m9_action_matrix" [label="m9_action_matrix", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.m9_action_matrix\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__run_fix03_effective_extensions" [label="run_fix03_effective_extensions", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.run_fix03_effective_extensions\nmodule in src.analysis.chapter4.modules"];
+            "src__analysis__chapter4__modules__run_gap_extensions" [label="run_gap_extensions", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.modules.run_gap_extensions\nmodule in src.analysis.chapter4.modules"];
+        }
+        subgraph "cluster_src__analysis__chapter4__reporting" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.analysis.chapter4.reporting"];
+            "src__analysis__chapter4__reporting__export_appendix_a1_cross_view_stability" [label="export_appendix_a1_cross_view_stability", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.reporting.export_appendix_a1_cross_view_stability\nmodule in src.analysis.chapter4.reporting"];
+            "src__analysis__chapter4__reporting__export_figure_4_1_robustness_observed" [label="export_figure_4_1_robustness_observed", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.reporting.export_figure_4_1_robustness_observed\nmodule in src.analysis.chapter4.reporting"];
+            "src__analysis__chapter4__reporting__export_figure_4_2_mechanism_observed" [label="export_figure_4_2_mechanism_observed", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.reporting.export_figure_4_2_mechanism_observed\nmodule in src.analysis.chapter4.reporting"];
+            "src__analysis__chapter4__reporting__export_figure_4_3_numbers" [label="export_figure_4_3_numbers", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.reporting.export_figure_4_3_numbers\nmodule in src.analysis.chapter4.reporting"];
+            "src__analysis__chapter4__reporting__export_figure_4_4_case_study_network" [label="export_figure_4_4_case_study_network", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.reporting.export_figure_4_4_case_study_network\nmodule in src.analysis.chapter4.reporting"];
+            "src__analysis__chapter4__reporting__export_figure_4_5_schematic_corridor_vs_upstream" [label="export_figure_4_5_schematic_corridor_vs_upstream", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.reporting.export_figure_4_5_schematic_corridor_vs_upstream\nmodule in src.analysis.chapter4.reporting"];
+            "src__analysis__chapter4__reporting__export_table_4_1_interdiction_observed" [label="export_table_4_1_interdiction_observed", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.reporting.export_table_4_1_interdiction_observed\nmodule in src.analysis.chapter4.reporting"];
+            "src__analysis__chapter4__reporting__export_table_4_2_strict_top25" [label="export_table_4_2_strict_top25", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.analysis.chapter4.reporting.export_table_4_2_strict_top25\nmodule in src.analysis.chapter4.reporting"];
+        }
+        subgraph "cluster_src__ch3__analysis" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.analysis"];
+            "src__ch3__analysis__backtest_twotower_cold_v2" [label="backtest_twotower_cold_v2", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.backtest_twotower_cold_v2\nmodule in src.ch3.analysis"];
+            "src__ch3__analysis__build_ch3_tables" [label="build_ch3_tables", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.build_ch3_tables\nmodule in src.ch3.analysis"];
+            "src__ch3__analysis__build_dod_network_baseline_table" [label="build_dod_network_baseline_table", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.build_dod_network_baseline_table\nmodule in src.ch3.analysis"];
+            "src__ch3__analysis__build_evidence_overlap_delta_table" [label="build_evidence_overlap_delta_table", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.build_evidence_overlap_delta_table\nmodule in src.ch3.analysis"];
+            "src__ch3__analysis__build_semiconductor_codes_rbics_l4_table" [label="build_semiconductor_codes_rbics_l4_table", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.build_semiconductor_codes_rbics_l4_table\nmodule in src.ch3.analysis"];
+            "src__ch3__analysis__build_semiconductor_codes_sic_fallback_table" [label="build_semiconductor_codes_sic_fallback_table", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.build_semiconductor_codes_sic_fallback_table\nmodule in src.ch3.analysis"];
+            "src__ch3__analysis__build_semis_network_summary_table" [label="build_semis_network_summary_table", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.build_semis_network_summary_table\nmodule in src.ch3.analysis"];
+            "src__ch3__analysis__diagnose_twotower_cold" [label="diagnose_twotower_cold", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.diagnose_twotower_cold\nmodule in src.ch3.analysis"];
+            "src__ch3__analysis__fig_hairball_dla_ego" [label="fig_hairball_dla_ego", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.fig_hairball_dla_ego\nmodule in src.ch3.analysis"];
+            "src__ch3__analysis__fig_hairball_semis" [label="fig_hairball_semis", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.fig_hairball_semis\nmodule in src.ch3.analysis"];
+            "src__ch3__analysis__fig_tier_depth_ecdf" [label="fig_tier_depth_ecdf", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.analysis.fig_tier_depth_ecdf\nmodule in src.ch3.analysis"];
+        }
+        subgraph "cluster_src__ch3__matching" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.matching"];
+            "src__ch3__matching__match_primes" [label="match_primes", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.matching.match_primes\nmodule in src.ch3.matching"];
+        }
+        subgraph "cluster_src__ch3__network" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.network"];
+            "src__ch3__network__build_disclosed_baseline" [label="build_disclosed_baseline", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.network.build_disclosed_baseline\nmodule in src.ch3.network"];
+            "src__ch3__network__build_semiconductor_subgraphXX" [label="build_semiconductor_subgraph", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.network.build_semiconductor_subgraph\nmodule in src.ch3.network"];
+            "src__ch3__network__build_shipping_observed_layer" [label="build_shipping_observed_layer", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.network.build_shipping_observed_layer\nmodule in src.ch3.network"];
+            "src__ch3__network__compute_tiers" [label="compute_tiers", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.network.compute_tiers\nmodule in src.ch3.network"];
+            "src__ch3__network__package_dod_contract_layer" [label="package_dod_contract_layer", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.network.package_dod_contract_layer\nmodule in src.ch3.network"];
+            "src__ch3__network__package_dod_network_d99" [label="package_dod_network_d99", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.network.package_dod_network_d99\nmodule in src.ch3.network"];
+            "src__ch3__network__package_dod_network_with_shipping" [label="package_dod_network_with_shipping", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.network.package_dod_network_with_shipping\nmodule in src.ch3.network"];
+            "src__ch3__network__package_scr_layers" [label="package_scr_layers", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.network.package_scr_layers\nmodule in src.ch3.network"];
+        }
+        subgraph "cluster_src__ch3__prediction" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.prediction"];
+            "src__ch3__prediction__build_candidate_pool" [label="build_candidate_pool", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.prediction.build_candidate_pool\nmodule in src.ch3.prediction"];
+            "src__ch3__prediction__build_meta_and_select" [label="build_meta_and_select", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.prediction.build_meta_and_select\nmodule in src.ch3.prediction"];
+            "src__ch3__prediction__build_meta_zero_slices" [label="build_meta_zero_slices", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.prediction.build_meta_zero_slices\nmodule in src.ch3.prediction"];
+            "src__ch3__prediction__build_semis_catalog_strict" [label="build_semis_catalog_strict", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.prediction.build_semis_catalog_strict\nmodule in src.ch3.prediction"];
+            "src__ch3__prediction__flip_candidates" [label="flip_candidates", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.prediction.flip_candidates\nmodule in src.ch3.prediction"];
+            "src__ch3__prediction__join_meta" [label="join_meta", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.prediction.join_meta\nmodule in src.ch3.prediction"];
+            "src__ch3__prediction__join_meta_with_slices" [label="join_meta_with_slices", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.prediction.join_meta_with_slices\nmodule in src.ch3.prediction"];
+            "src__ch3__prediction__score_twotower_cold_primes" [label="score_twotower_cold_primes", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.prediction.score_twotower_cold_primes\nmodule in src.ch3.prediction"];
+            "src__ch3__prediction__select_topk" [label="select_topk", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.prediction.select_topk\nmodule in src.ch3.prediction"];
+            "src__ch3__prediction__tag_semis" [label="tag_semis", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.prediction.tag_semis\nmodule in src.ch3.prediction"];
+        }
+        subgraph "cluster_src__ch3__usaspending" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ch3.usaspending"];
+            "src__ch3__usaspending__01_build_dod_transactions" [label="01_build_dod_transactions", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.usaspending.01_build_dod_transactions\nmodule in src.ch3.usaspending"];
+            "src__ch3__usaspending__02_aggregate_primes" [label="02_aggregate_primes", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.usaspending.02_aggregate_primes\nmodule in src.ch3.usaspending"];
+            "src__ch3__usaspending__03_report_usaspending_summary" [label="03_report_usaspending_summary", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.ch3.usaspending.03_report_usaspending_summary\nmodule in src.ch3.usaspending"];
+        }
+        subgraph "cluster_src__data_processing__core" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.data_processing.core"];
+            "src__data_processing__core__00_run_core_pipeline" [label="00_run_core_pipeline", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.core.00_run_core_pipeline\nmodule in src.data_processing.core"];
+            "src__data_processing__core__01_extract_events_core" [label="01_extract_events_core", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.core.01_extract_events_core\nmodule in src.data_processing.core"];
+            "src__data_processing__core__02_build_entity_index" [label="02_build_entity_index", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.core.02_build_entity_index\nmodule in src.data_processing.core"];
+            "src__data_processing__core__03_make_temporal_splits" [label="03_make_temporal_splits", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.core.03_make_temporal_splits\nmodule in src.data_processing.core"];
+            "src__data_processing__core__04_build_train_snapshot" [label="04_build_train_snapshot", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.core.04_build_train_snapshot\nmodule in src.data_processing.core"];
+            "src__data_processing__core__05_build_candidate_pools" [label="05_build_candidate_pools", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.core.05_build_candidate_pools\nmodule in src.data_processing.core"];
+            "src__data_processing__core__06_build_features_T0" [label="06_build_features_T0", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.core.06_build_features_T0\nmodule in src.data_processing.core"];
+            "src__data_processing__core__07_validate_core_dataset" [label="07_validate_core_dataset", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.core.07_validate_core_dataset\nmodule in src.data_processing.core"];
+            "src__data_processing__core__08_freeze_dataset" [label="08_freeze_dataset", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.core.08_freeze_dataset\nmodule in src.data_processing.core"];
+            "src__data_processing__core__build_structural_scalars" [label="build_structural_scalars", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.core.build_structural_scalars\nmodule in src.data_processing.core"];
+        }
+        subgraph "cluster_src__data_processing__core___common" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.data_processing.core._common"];
+            "src__data_processing__core___common__import_helper" [label="import_helper", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.data_processing.core._common.import_helper\nmodule in src.data_processing.core._common"];
+            "src__data_processing__core___common__run_utils" [label="run_utils", style="filled", fillcolor="#ff3232b2", fontcolor="#000000", group="0", tooltip="src.data_processing.core._common.run_utils\nmodule in src.data_processing.core._common"];
+        }
+        subgraph "cluster_src__data_processing__shipping" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.data_processing.shipping"];
+            "src__data_processing__shipping__01_extract_transactions" [label="01_extract_transactions", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.shipping.01_extract_transactions\nmodule in src.data_processing.shipping"];
+            "src__data_processing__shipping__02_clean_transactions" [label="02_clean_transactions", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.shipping.02_clean_transactions\nmodule in src.data_processing.shipping"];
+            "src__data_processing__shipping__03_split_transactions" [label="03_split_transactions", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.shipping.03_split_transactions\nmodule in src.data_processing.shipping"];
+            "src__data_processing__shipping__04_rollup_parents" [label="04_rollup_parents", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.shipping.04_rollup_parents\nmodule in src.data_processing.shipping"];
+            "src__data_processing__shipping__05_split_parent_transactions" [label="05_split_parent_transactions", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.shipping.05_split_parent_transactions\nmodule in src.data_processing.shipping"];
+            "src__data_processing__shipping__common" [label="common", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.data_processing.shipping.common\nmodule in src.data_processing.shipping"];
+        }
+        subgraph "cluster_src__db_client" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.db_client"];
+            "src__db_client__cli" [label="cli", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.db_client.cli\nmodule in src.db_client"];
+            "src__db_client__connection" [label="connection", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.db_client.connection\nmodule in src.db_client"];
+            "src__db_client__export_supply_chain_edges" [label="export_supply_chain_edges", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.db_client.export_supply_chain_edges\nmodule in src.db_client"];
+            "src__db_client__query" [label="query", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.db_client.query\nmodule in src.db_client"];
+        }
+        subgraph "cluster_src__ensemble" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.ensemble"];
+            "src__ensemble__apply_meta" [label="apply_meta", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.ensemble.apply_meta\nmodule in src.ensemble"];
+            "src__ensemble__build_meta_dataset" [label="build_meta_dataset", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.ensemble.build_meta_dataset\nmodule in src.ensemble"];
+            "src__ensemble__calibration_plots" [label="calibration_plots", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.ensemble.calibration_plots\nmodule in src.ensemble"];
+            "src__ensemble__eval_selection" [label="eval_selection", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.ensemble.eval_selection\nmodule in src.ensemble"];
+            "src__ensemble__evaluate_meta" [label="evaluate_meta", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.ensemble.evaluate_meta\nmodule in src.ensemble"];
+            "src__ensemble__export_scores" [label="export_scores", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.ensemble.export_scores\nmodule in src.ensemble"];
+            "src__ensemble__threshold_eval" [label="threshold_eval", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.ensemble.threshold_eval\nmodule in src.ensemble"];
+            "src__ensemble__train_meta" [label="train_meta", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.ensemble.train_meta\nmodule in src.ensemble"];
+            "src__ensemble__utils" [label="utils", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.ensemble.utils\nmodule in src.ensemble"];
+        }
+        subgraph "cluster_src__graphXsage" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.graphsage"];
+            "src__graphXsage__01_graphXsage_hpo_optuna" [label="01_graphsage_hpo_optuna", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.graphsage.01_graphsage_hpo_optuna\nmodule in src.graphsage"];
+            "src__graphXsage__02_graphXsage_finalize_hpo" [label="02_graphsage_finalize_hpo", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.graphsage.02_graphsage_finalize_hpo\nmodule in src.graphsage"];
+            "src__graphXsage__03_graphXsage_train_eval" [label="03_graphsage_train_eval", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.graphsage.03_graphsage_train_eval\nmodule in src.graphsage"];
+            "src__graphXsage__run_graphXsage_eval" [label="run_graphsage_eval", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.graphsage.run_graphsage_eval\nmodule in src.graphsage"];
+        }
+        subgraph "cluster_src__heuristics" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.heuristics"];
+            "src__heuristics__run_heuristics_eval" [label="run_heuristics_eval", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.heuristics.run_heuristics_eval\nmodule in src.heuristics"];
+        }
+        subgraph "cluster_src__n2v_temporal" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.n2v_temporal"];
+            "src__n2v_temporal__01_n2v_temporal_hpo_optuna" [label="01_n2v_temporal_hpo_optuna", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.n2v_temporal.01_n2v_temporal_hpo_optuna\nmodule in src.n2v_temporal"];
+            "src__n2v_temporal__02_n2v_temporal_finalize_hpo" [label="02_n2v_temporal_finalize_hpo", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.n2v_temporal.02_n2v_temporal_finalize_hpo\nmodule in src.n2v_temporal"];
+            "src__n2v_temporal__03_n2v_temporal_train_eval" [label="03_n2v_temporal_train_eval", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.n2v_temporal.03_n2v_temporal_train_eval\nmodule in src.n2v_temporal"];
+            "src__n2v_temporal__04_build_n2v_embeddings" [label="04_build_n2v_embeddings", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.n2v_temporal.04_build_n2v_embeddings\nmodule in src.n2v_temporal"];
+            "src__n2v_temporal__model" [label="model", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.n2v_temporal.model\nmodule in src.n2v_temporal"];
+            "src__n2v_temporal__run_n2v_temporal_eval" [label="run_n2v_temporal_eval", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.n2v_temporal.run_n2v_temporal_eval\nmodule in src.n2v_temporal"];
+        }
+        subgraph "cluster_src__nodeX2vec" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.node2vec"];
+            "src__nodeX2vec__01_nodeX2vec_hpo_optuna" [label="01_node2vec_hpo_optuna", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.node2vec.01_node2vec_hpo_optuna\nmodule in src.node2vec"];
+            "src__nodeX2vec__run_nodeX2vec_eval" [label="run_node2vec_eval", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.node2vec.run_node2vec_eval\nmodule in src.node2vec"];
+        }
+        subgraph "cluster_src__tgnn" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn"];
+            "src__tgnn__01_tgnn_hpo_optuna" [label="01_tgnn_hpo_optuna", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.tgnn.01_tgnn_hpo_optuna\nmodule in src.tgnn"];
+            "src__tgnn__02_tgnn_finalize_hpo" [label="02_tgnn_finalize_hpo", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.tgnn.02_tgnn_finalize_hpo\nmodule in src.tgnn"];
+            "src__tgnn__03_tgnn_train_eval" [label="03_tgnn_train_eval", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.tgnn.03_tgnn_train_eval\nmodule in src.tgnn"];
+            "src__tgnn__evaluate_saved_model" [label="evaluate_saved_model", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.tgnn.evaluate_saved_model\nmodule in src.tgnn"];
+            "src__tgnn__model" [label="model", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.tgnn.model\nmodule in src.tgnn"];
+            "src__tgnn__run_tgnn_eval" [label="run_tgnn_eval", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.tgnn.run_tgnn_eval\nmodule in src.tgnn"];
+        }
+        subgraph "cluster_src__twotower" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.twotower"];
+            "src__twotower__01_twotower_hpo_optuna" [label="01_twotower_hpo_optuna", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.twotower.01_twotower_hpo_optuna\nmodule in src.twotower"];
+            "src__twotower__02_twotower_finalize_hpo" [label="02_twotower_finalize_hpo", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.twotower.02_twotower_finalize_hpo\nmodule in src.twotower"];
+            "src__twotower__03_twotower_train_eval" [label="03_twotower_train_eval", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.twotower.03_twotower_train_eval\nmodule in src.twotower"];
+            "src__twotower__recreate_twotower_finalize" [label="recreate_twotower_finalize", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.twotower.recreate_twotower_finalize\nmodule in src.twotower"];
+            "src__twotower__run_twotower_eval" [label="run_twotower_eval", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.twotower.run_twotower_eval\nmodule in src.twotower"];
+        }
+        subgraph "cluster_src__utils" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.utils"];
+            "src__utils__combine_edge_splits" [label="combine_edge_splits", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.utils.combine_edge_splits\nmodule in src.utils"];
+            "src__utils__graphXsage_utils" [label="graphsage_utils", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.utils.graphsage_utils\nmodule in src.utils"];
+            "src__utils__horizons" [label="horizons", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.utils.horizons\nmodule in src.utils"];
+            "src__utils__paths" [label="paths", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.utils.paths\nmodule in src.utils"];
+            "src__utils__scoreboard_aggregator" [label="scoreboard_aggregator", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0", tooltip="src.utils.scoreboard_aggregator\nmodule in src.utils"];
+        }
+    }
+        "src__ch3__analysis__backtest_twotower_cold_v2" -> "src__twotower__run_twotower_eval" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold" -> "src__ch3__prediction__score_twotower_cold_primes" [style="solid",  color="#000000"];
+        "src__ch3__analysis__diagnose_twotower_cold" -> "src__db_client__connection" [style="solid",  color="#000000"];
+        "src__ch3__prediction__build_semis_catalog_strict" -> "src__db_client__connection" [style="solid",  color="#000000"];
+        "src__ch3__prediction__join_meta_with_slices" -> "src__ensemble__build_meta_dataset" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes" -> "src__db_client__connection" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes" -> "src__ensemble__utils" [style="solid",  color="#000000"];
+        "src__ch3__prediction__score_twotower_cold_primes" -> "src__twotower__run_twotower_eval" [style="solid",  color="#000000"];
+        "src__data_processing__core__01_extract_events_core" -> "src__data_processing__core___common__run_utils" [style="solid",  color="#000000"];
+        "src__data_processing__core__02_build_entity_index" -> "src__data_processing__core___common__run_utils" [style="solid",  color="#000000"];
+        "src__data_processing__core__03_make_temporal_splits" -> "src__data_processing__core___common__run_utils" [style="solid",  color="#000000"];
+        "src__data_processing__core__04_build_train_snapshot" -> "src__data_processing__core___common__run_utils" [style="solid",  color="#000000"];
+        "src__data_processing__shipping__01_extract_transactions" -> "src__data_processing__shipping__common" [style="solid",  color="#000000"];
+        "src__data_processing__shipping__02_clean_transactions" -> "src__data_processing__shipping__common" [style="solid",  color="#000000"];
+        "src__data_processing__shipping__03_split_transactions" -> "src__data_processing__shipping__common" [style="solid",  color="#000000"];
+        "src__data_processing__shipping__04_rollup_parents" -> "src__data_processing__shipping__common" [style="solid",  color="#000000"];
+        "src__data_processing__shipping__05_split_parent_transactions" -> "src__data_processing__shipping__common" [style="solid",  color="#000000"];
+        "src__db_client__cli" -> "src__db_client__query" [style="solid",  color="#000000"];
+        "src__db_client__export_supply_chain_edges" -> "src__db_client__query" [style="solid",  color="#000000"];
+        "src__db_client__query" -> "src__db_client__connection" [style="solid",  color="#000000"];
+        "src__ensemble__apply_meta" -> "src__ensemble__utils" [style="solid",  color="#000000"];
+        "src__ensemble__build_meta_dataset" -> "src__ensemble__utils" [style="solid",  color="#000000"];
+        "src__ensemble__build_meta_dataset" -> "src__graphXsage__run_graphXsage_eval" [style="solid",  color="#000000"];
+        "src__ensemble__build_meta_dataset" -> "src__heuristics__run_heuristics_eval" [style="solid",  color="#000000"];
+        "src__ensemble__build_meta_dataset" -> "src__utils__horizons" [style="solid",  color="#000000"];
+        "src__ensemble__calibration_plots" -> "src__ensemble__utils" [style="solid",  color="#000000"];
+        "src__ensemble__eval_selection" -> "src__ensemble__utils" [style="solid",  color="#000000"];
+        "src__ensemble__evaluate_meta" -> "src__ensemble__utils" [style="solid",  color="#000000"];
+        "src__ensemble__evaluate_meta" -> "src__graphXsage__run_graphXsage_eval" [style="solid",  color="#000000"];
+        "src__ensemble__export_scores" -> "src__ensemble__utils" [style="solid",  color="#000000"];
+        "src__ensemble__export_scores" -> "src__graphXsage__run_graphXsage_eval" [style="solid",  color="#000000"];
+        "src__ensemble__export_scores" -> "src__heuristics__run_heuristics_eval" [style="solid",  color="#000000"];
+        "src__ensemble__export_scores" -> "src__n2v_temporal__model" [style="solid",  color="#000000"];
+        "src__ensemble__export_scores" -> "src__n2v_temporal__run_n2v_temporal_eval" [style="solid",  color="#000000"];
+        "src__ensemble__export_scores" -> "src__tgnn__model" [style="solid",  color="#000000"];
+        "src__ensemble__export_scores" -> "src__tgnn__run_tgnn_eval" [style="solid",  color="#000000"];
+        "src__ensemble__export_scores" -> "src__twotower__run_twotower_eval" [style="solid",  color="#000000"];
+        "src__ensemble__threshold_eval" -> "src__ensemble__utils" [style="solid",  color="#000000"];
+        "src__ensemble__train_meta" -> "src__ensemble__utils" [style="solid",  color="#000000"];
+        "src__graphXsage__run_graphXsage_eval" -> "src__utils__horizons" [style="solid",  color="#000000"];
+        "src__heuristics__run_heuristics_eval" -> "src__utils__horizons" [style="solid",  color="#000000"];
+        "src__nodeX2vec__run_nodeX2vec_eval" -> "src__utils__horizons" [style="solid",  color="#000000"];
+        "src__twotower__run_twotower_eval" -> "src__utils__horizons" [style="solid",  color="#000000"];
+    }

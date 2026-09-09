@@ -1,0 +1,279 @@
+digraph G {
+    graph [rankdir=TB, ranksep=0.5, layout=dot, clusterrank="local"];
+    subgraph "cluster_G" {
+
+        graph [style="filled,rounded", fillcolor="#80808018", label=""];
+        "src__tgnn__01_tgnn_hpo_optuna" [label="src.tgnn.01_tgnn_hpo_optuna\n(src/tgnn/01_tgnn_hpo_optuna.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0", tooltip="src.tgnn.01_tgnn_hpo_optuna\nsrc/tgnn/01_tgnn_hpo_optuna.py"];
+        "src__tgnn__02_tgnn_finalize_hpo" [label="src.tgnn.02_tgnn_finalize_hpo\n(src/tgnn/02_tgnn_finalize_hpo.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="1", tooltip="src.tgnn.02_tgnn_finalize_hpo\nsrc/tgnn/02_tgnn_finalize_hpo.py"];
+        "src__tgnn__03_tgnn_train_eval" [label="src.tgnn.03_tgnn_train_eval\n(src/tgnn/03_tgnn_train_eval.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="2", tooltip="src.tgnn.03_tgnn_train_eval\nsrc/tgnn/03_tgnn_train_eval.py"];
+        "src__tgnn__evaluate_saved_model" [label="src.tgnn.evaluate_saved_model\n(src/tgnn/evaluate_saved_model.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="3", tooltip="src.tgnn.evaluate_saved_model\nsrc/tgnn/evaluate_saved_model.py"];
+        "src__tgnn__model" [label="src.tgnn.model\n(src/tgnn/model.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model\nsrc/tgnn/model.py"];
+        "src__tgnn__run_tgnn_eval" [label="src.tgnn.run_tgnn_eval\n(src/tgnn/run_tgnn_eval.py)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval\nsrc/tgnn/run_tgnn_eval.py"];
+        subgraph "cluster_src__tgnn__01_tgnn_hpo_optuna" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.01_tgnn_hpo_optuna"];
+            "src__tgnn__01_tgnn_hpo_optuna__main" [label="main\n(src/tgnn/01_tgnn_hpo_optuna.py:277)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.tgnn.01_tgnn_hpo_optuna.main\nsrc/tgnn/01_tgnn_hpo_optuna.py:277\nfunction in src.tgnn.01_tgnn_hpo_optuna"];
+            "src__tgnn__01_tgnn_hpo_optuna__objective" [label="objective\n(src/tgnn/01_tgnn_hpo_optuna.py:102)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.tgnn.01_tgnn_hpo_optuna.objective\nsrc/tgnn/01_tgnn_hpo_optuna.py:102\nfunction in src.tgnn.01_tgnn_hpo_optuna"];
+            "src__tgnn__01_tgnn_hpo_optuna__parse_args" [label="parse_args\n(src/tgnn/01_tgnn_hpo_optuna.py:42)", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0", tooltip="src.tgnn.01_tgnn_hpo_optuna.parse_args\nsrc/tgnn/01_tgnn_hpo_optuna.py:42\nfunction in src.tgnn.01_tgnn_hpo_optuna"];
+        }
+        subgraph "cluster_src__tgnn__02_tgnn_finalize_hpo" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.02_tgnn_finalize_hpo"];
+            "src__tgnn__02_tgnn_finalize_hpo__TrialConfig" [label="TrialConfig\n(src/tgnn/02_tgnn_finalize_hpo.py:28)", style="filled", fillcolor="#ffe965b2", fontcolor="#000000", group="1", tooltip="src.tgnn.02_tgnn_finalize_hpo.TrialConfig\nsrc/tgnn/02_tgnn_finalize_hpo.py:28\nclass in src.tgnn.02_tgnn_finalize_hpo"];
+            "src__tgnn__02_tgnn_finalize_hpo__aggregate_seeds" [label="aggregate_seeds\n(src/tgnn/02_tgnn_finalize_hpo.py:357)", style="filled", fillcolor="#ffe965b2", fontcolor="#000000", group="1", tooltip="src.tgnn.02_tgnn_finalize_hpo.aggregate_seeds\nsrc/tgnn/02_tgnn_finalize_hpo.py:357\nfunction in src.tgnn.02_tgnn_finalize_hpo"];
+            "src__tgnn__02_tgnn_finalize_hpo__load_top_configs" [label="load_top_configs\n(src/tgnn/02_tgnn_finalize_hpo.py:119)", style="filled", fillcolor="#ffe965b2", fontcolor="#000000", group="1", tooltip="src.tgnn.02_tgnn_finalize_hpo.load_top_configs\nsrc/tgnn/02_tgnn_finalize_hpo.py:119\nfunction in src.tgnn.02_tgnn_finalize_hpo"];
+            "src__tgnn__02_tgnn_finalize_hpo__main" [label="main\n(src/tgnn/02_tgnn_finalize_hpo.py:385)", style="filled", fillcolor="#ffe965b2", fontcolor="#000000", group="1", tooltip="src.tgnn.02_tgnn_finalize_hpo.main\nsrc/tgnn/02_tgnn_finalize_hpo.py:385\nfunction in src.tgnn.02_tgnn_finalize_hpo"];
+            "src__tgnn__02_tgnn_finalize_hpo__parse_args" [label="parse_args\n(src/tgnn/02_tgnn_finalize_hpo.py:57)", style="filled", fillcolor="#ffe965b2", fontcolor="#000000", group="1", tooltip="src.tgnn.02_tgnn_finalize_hpo.parse_args\nsrc/tgnn/02_tgnn_finalize_hpo.py:57\nfunction in src.tgnn.02_tgnn_finalize_hpo"];
+            "src__tgnn__02_tgnn_finalize_hpo__run_single_seed" [label="run_single_seed\n(src/tgnn/02_tgnn_finalize_hpo.py:246)", style="filled", fillcolor="#ffe965b2", fontcolor="#000000", group="1", tooltip="src.tgnn.02_tgnn_finalize_hpo.run_single_seed\nsrc/tgnn/02_tgnn_finalize_hpo.py:246\nfunction in src.tgnn.02_tgnn_finalize_hpo"];
+        }
+        subgraph "cluster_src__tgnn__02_tgnn_finalize_hpo__TrialConfig" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.02_tgnn_finalize_hpo.TrialConfig"];
+            "src__tgnn__02_tgnn_finalize_hpo__TrialConfig__to_params_dict" [label="to_params_dict\n(src/tgnn/02_tgnn_finalize_hpo.py:42)", style="filled", fillcolor="#ffe132b2", fontcolor="#000000", group="1", tooltip="src.tgnn.02_tgnn_finalize_hpo.TrialConfig.to_params_dict\nsrc/tgnn/02_tgnn_finalize_hpo.py:42\nmethod in src.tgnn.02_tgnn_finalize_hpo.TrialConfig"];
+        }
+        subgraph "cluster_src__tgnn__evaluate_saved_model" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.evaluate_saved_model"];
+            "src__tgnn__evaluate_saved_model___parse_args" [label="_parse_args\n(src/tgnn/evaluate_saved_model.py:25)", style="filled", fillcolor="#65ffbdb2", fontcolor="#000000", group="3", tooltip="src.tgnn.evaluate_saved_model._parse_args\nsrc/tgnn/evaluate_saved_model.py:25\nfunction in src.tgnn.evaluate_saved_model"];
+            "src__tgnn__evaluate_saved_model___select_indices" [label="_select_indices\n(src/tgnn/evaluate_saved_model.py:41)", style="filled", fillcolor="#65ffbdb2", fontcolor="#000000", group="3", tooltip="src.tgnn.evaluate_saved_model._select_indices\nsrc/tgnn/evaluate_saved_model.py:41\nfunction in src.tgnn.evaluate_saved_model"];
+            "src__tgnn__evaluate_saved_model__main" [label="main\n(src/tgnn/evaluate_saved_model.py:48)", style="filled", fillcolor="#65ffbdb2", fontcolor="#000000", group="3", tooltip="src.tgnn.evaluate_saved_model.main\nsrc/tgnn/evaluate_saved_model.py:48\nfunction in src.tgnn.evaluate_saved_model"];
+        }
+        subgraph "cluster_src__tgnn__evaluate_saved_model__main" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.evaluate_saved_model.main"];
+            "src__tgnn__evaluate_saved_model__main___run_eval" [label="_run_eval\n(src/tgnn/evaluate_saved_model.py:112)", style="filled", fillcolor="#32ffa7b2", fontcolor="#000000", group="3", tooltip="src.tgnn.evaluate_saved_model.main._run_eval\nsrc/tgnn/evaluate_saved_model.py:112\nfunction in src.tgnn.evaluate_saved_model.main"];
+        }
+        subgraph "cluster_src__tgnn__model" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.model"];
+            "src__tgnn__model__TemporalGNN" [label="TemporalGNN\n(src/tgnn/model.py:34)", style="filled", fillcolor="#65bdffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model.TemporalGNN\nsrc/tgnn/model.py:34\nclass in src.tgnn.model"];
+            "src__tgnn__model__TemporalGNNIncremental" [label="TemporalGNNIncremental\n(src/tgnn/model.py:420)", style="filled", fillcolor="#65bdffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model.TemporalGNNIncremental\nsrc/tgnn/model.py:420\nclass in src.tgnn.model"];
+        }
+        subgraph "cluster_src__tgnn__model__TemporalGNN" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.model.TemporalGNN"];
+            "src__tgnn__model__TemporalGNN____init__" [label="__init__\n(src/tgnn/model.py:42)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model.TemporalGNN.__init__\nsrc/tgnn/model.py:42\nmethod in src.tgnn.model.TemporalGNN"];
+            "src__tgnn__model__TemporalGNN___run_gcn" [label="_run_gcn\n(src/tgnn/model.py:203)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model.TemporalGNN._run_gcn\nsrc/tgnn/model.py:203\nmethod in src.tgnn.model.TemporalGNN"];
+            "src__tgnn__model__TemporalGNN___should_checkpoint" [label="_should_checkpoint\n(src/tgnn/model.py:200)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model.TemporalGNN._should_checkpoint\nsrc/tgnn/model.py:200\nmethod in src.tgnn.model.TemporalGNN"];
+            "src__tgnn__model__TemporalGNN__forward" [label="forward\n(src/tgnn/model.py:212)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model.TemporalGNN.forward\nsrc/tgnn/model.py:212\nmethod in src.tgnn.model.TemporalGNN"];
+            "src__tgnn__model__TemporalGNN__gcn_forward" [label="gcn_forward\n(src/tgnn/model.py:167)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model.TemporalGNN.gcn_forward\nsrc/tgnn/model.py:167\nmethod in src.tgnn.model.TemporalGNN"];
+            "src__tgnn__model__TemporalGNN__normalize_adjacency" [label="normalize_adjacency\n(src/tgnn/model.py:140)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model.TemporalGNN.normalize_adjacency\nsrc/tgnn/model.py:140\nstaticmethod in src.tgnn.model.TemporalGNN"];
+            "src__tgnn__model__TemporalGNN__project_heads" [label="project_heads\n(src/tgnn/model.py:409)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model.TemporalGNN.project_heads\nsrc/tgnn/model.py:409\nmethod in src.tgnn.model.TemporalGNN"];
+            "src__tgnn__model__TemporalGNN__reset_parameters" [label="reset_parameters\n(src/tgnn/model.py:382)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model.TemporalGNN.reset_parameters\nsrc/tgnn/model.py:382\nmethod in src.tgnn.model.TemporalGNN"];
+        }
+        subgraph "cluster_src__tgnn__model__TemporalGNN___run_gcn" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.model.TemporalGNN._run_gcn"];
+            "src__tgnn__model__TemporalGNN___run_gcn__run" [label="run\n(src/tgnn/model.py:206)", style="filled", fillcolor="#0091ffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model.TemporalGNN._run_gcn.run\nsrc/tgnn/model.py:206\nfunction in src.tgnn.model.TemporalGNN._run_gcn"];
+        }
+        subgraph "cluster_src__tgnn__model__TemporalGNNIncremental" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.model.TemporalGNNIncremental"];
+            "src__tgnn__model__TemporalGNNIncremental____init__" [label="__init__\n(src/tgnn/model.py:428)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model.TemporalGNNIncremental.__init__\nsrc/tgnn/model.py:428\nmethod in src.tgnn.model.TemporalGNNIncremental"];
+            "src__tgnn__model__TemporalGNNIncremental__forward_incremental" [label="forward_incremental\n(src/tgnn/model.py:484)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model.TemporalGNNIncremental.forward_incremental\nsrc/tgnn/model.py:484\nmethod in src.tgnn.model.TemporalGNNIncremental"];
+            "src__tgnn__model__TemporalGNNIncremental__gcn_forward" [label="gcn_forward\n(src/tgnn/model.py:471)", style="filled", fillcolor="#32a7ffb2", fontcolor="#000000", group="4", tooltip="src.tgnn.model.TemporalGNNIncremental.gcn_forward\nsrc/tgnn/model.py:471\nmethod in src.tgnn.model.TemporalGNNIncremental"];
+        }
+        subgraph "cluster_src__tgnn__run_tgnn_eval" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval__CandidateStreamer" [label="CandidateStreamer\n(src/tgnn/run_tgnn_eval.py:815)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.CandidateStreamer\nsrc/tgnn/run_tgnn_eval.py:815\nclass in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval__Graph" [label="Graph\n(src/tgnn/run_tgnn_eval.py:108)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.Graph\nsrc/tgnn/run_tgnn_eval.py:108\nclass in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval__KM" [label="KM\n(src/tgnn/run_tgnn_eval.py:878)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.KM\nsrc/tgnn/run_tgnn_eval.py:878\nclass in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval__ScoreWriter" [label="ScoreWriter\n(src/tgnn/run_tgnn_eval.py:316)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.ScoreWriter\nsrc/tgnn/run_tgnn_eval.py:316\nclass in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval__TwoHopCache" [label="TwoHopCache\n(src/tgnn/run_tgnn_eval.py:367)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.TwoHopCache\nsrc/tgnn/run_tgnn_eval.py:367\nclass in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval___bool" [label="_bool\n(src/tgnn/run_tgnn_eval.py:75)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval._bool\nsrc/tgnn/run_tgnn_eval.py:75\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval___encode_edges" [label="_encode_edges\n(src/tgnn/run_tgnn_eval.py:532)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval._encode_edges\nsrc/tgnn/run_tgnn_eval.py:532\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval___ensure_dir" [label="_ensure_dir\n(src/tgnn/run_tgnn_eval.py:84)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval._ensure_dir\nsrc/tgnn/run_tgnn_eval.py:84\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval___is_edge" [label="_is_edge\n(src/tgnn/run_tgnn_eval.py:406)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval._is_edge\nsrc/tgnn/run_tgnn_eval.py:406\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval___load_nodeX2vec_embeddings" [label="_load_node2vec_embeddings\n(src/tgnn/run_tgnn_eval.py:140)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval._load_node2vec_embeddings\nsrc/tgnn/run_tgnn_eval.py:140\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval___load_t0" [label="_load_t0\n(src/tgnn/run_tgnn_eval.py:92)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval._load_t0\nsrc/tgnn/run_tgnn_eval.py:92\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval___now_iso" [label="_now_iso\n(src/tgnn/run_tgnn_eval.py:88)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval._now_iso\nsrc/tgnn/run_tgnn_eval.py:88\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval___prepare_temporal_tasks" [label="_prepare_temporal_tasks\n(src/tgnn/run_tgnn_eval.py:536)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval._prepare_temporal_tasks\nsrc/tgnn/run_tgnn_eval.py:536\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval__build_snapshots" [label="build_snapshots\n(src/tgnn/run_tgnn_eval.py:211)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.build_snapshots\nsrc/tgnn/run_tgnn_eval.py:211\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval__evaluate_split" [label="evaluate_split\n(src/tgnn/run_tgnn_eval.py:951)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.evaluate_split\nsrc/tgnn/run_tgnn_eval.py:951\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval__load_features" [label="load_features\n(src/tgnn/run_tgnn_eval.py:189)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.load_features\nsrc/tgnn/run_tgnn_eval.py:189\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval__load_graphX" [label="load_graph\n(src/tgnn/run_tgnn_eval.py:116)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.load_graph\nsrc/tgnn/run_tgnn_eval.py:116\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval__main" [label="main\n(src/tgnn/run_tgnn_eval.py:1202)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.main\nsrc/tgnn/run_tgnn_eval.py:1202\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval__sample_degree_negatives" [label="sample_degree_negatives\n(src/tgnn/run_tgnn_eval.py:349)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.sample_degree_negatives\nsrc/tgnn/run_tgnn_eval.py:349\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval__sample_negatives_mix_v3" [label="sample_negatives_mix_v3\n(src/tgnn/run_tgnn_eval.py:412)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.sample_negatives_mix_v3\nsrc/tgnn/run_tgnn_eval.py:412\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval__sample_negatives_uniform" [label="sample_negatives_uniform\n(src/tgnn/run_tgnn_eval.py:296)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.sample_negatives_uniform\nsrc/tgnn/run_tgnn_eval.py:296\nfunction in src.tgnn.run_tgnn_eval"];
+            "src__tgnn__run_tgnn_eval__train_temporal" [label="train_temporal\n(src/tgnn/run_tgnn_eval.py:570)", style="filled", fillcolor="#9165ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.train_temporal\nsrc/tgnn/run_tgnn_eval.py:570\nfunction in src.tgnn.run_tgnn_eval"];
+        }
+        subgraph "cluster_src__tgnn__run_tgnn_eval__CandidateStreamer" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.run_tgnn_eval.CandidateStreamer"];
+            "src__tgnn__run_tgnn_eval__CandidateStreamer____init__" [label="__init__\n(src/tgnn/run_tgnn_eval.py:818)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.CandidateStreamer.__init__\nsrc/tgnn/run_tgnn_eval.py:818\nmethod in src.tgnn.run_tgnn_eval.CandidateStreamer"];
+            "src__tgnn__run_tgnn_eval__CandidateStreamer____iter__" [label="__iter__\n(src/tgnn/run_tgnn_eval.py:828)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.CandidateStreamer.__iter__\nsrc/tgnn/run_tgnn_eval.py:828\nmethod in src.tgnn.run_tgnn_eval.CandidateStreamer"];
+        }
+        subgraph "cluster_src__tgnn__run_tgnn_eval__KM" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.run_tgnn_eval.KM"];
+            "src__tgnn__run_tgnn_eval__KM____post_init__" [label="__post_init__\n(src/tgnn/run_tgnn_eval.py:892)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.KM.__post_init__\nsrc/tgnn/run_tgnn_eval.py:892\nmethod in src.tgnn.run_tgnn_eval.KM"];
+            "src__tgnn__run_tgnn_eval__KM__row" [label="row\n(src/tgnn/run_tgnn_eval.py:935)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.KM.row\nsrc/tgnn/run_tgnn_eval.py:935\nmethod in src.tgnn.run_tgnn_eval.KM"];
+            "src__tgnn__run_tgnn_eval__KM__upd" [label="upd\n(src/tgnn/run_tgnn_eval.py:898)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.KM.upd\nsrc/tgnn/run_tgnn_eval.py:898\nmethod in src.tgnn.run_tgnn_eval.KM"];
+        }
+        subgraph "cluster_src__tgnn__run_tgnn_eval__ScoreWriter" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.run_tgnn_eval.ScoreWriter"];
+            "src__tgnn__run_tgnn_eval__ScoreWriter____init__" [label="__init__\n(src/tgnn/run_tgnn_eval.py:319)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.ScoreWriter.__init__\nsrc/tgnn/run_tgnn_eval.py:319\nmethod in src.tgnn.run_tgnn_eval.ScoreWriter"];
+            "src__tgnn__run_tgnn_eval__ScoreWriter__close" [label="close\n(src/tgnn/run_tgnn_eval.py:343)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.ScoreWriter.close\nsrc/tgnn/run_tgnn_eval.py:343\nmethod in src.tgnn.run_tgnn_eval.ScoreWriter"];
+            "src__tgnn__run_tgnn_eval__ScoreWriter__write" [label="write\n(src/tgnn/run_tgnn_eval.py:324)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.ScoreWriter.write\nsrc/tgnn/run_tgnn_eval.py:324\nmethod in src.tgnn.run_tgnn_eval.ScoreWriter"];
+        }
+        subgraph "cluster_src__tgnn__run_tgnn_eval__TwoHopCache" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.run_tgnn_eval.TwoHopCache"];
+            "src__tgnn__run_tgnn_eval__TwoHopCache____init__" [label="__init__\n(src/tgnn/run_tgnn_eval.py:368)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.TwoHopCache.__init__\nsrc/tgnn/run_tgnn_eval.py:368\nmethod in src.tgnn.run_tgnn_eval.TwoHopCache"];
+            "src__tgnn__run_tgnn_eval__TwoHopCache__get" [label="get\n(src/tgnn/run_tgnn_eval.py:375)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.TwoHopCache.get\nsrc/tgnn/run_tgnn_eval.py:375\nmethod in src.tgnn.run_tgnn_eval.TwoHopCache"];
+        }
+        subgraph "cluster_src__tgnn__run_tgnn_eval__train_temporal" {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="src.tgnn.run_tgnn_eval.train_temporal"];
+            "src__tgnn__run_tgnn_eval__train_temporal___get_normalized_adj" [label="_get_normalized_adj\n(src/tgnn/run_tgnn_eval.py:683)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.train_temporal._get_normalized_adj\nsrc/tgnn/run_tgnn_eval.py:683\nfunction in src.tgnn.run_tgnn_eval.train_temporal"];
+            "src__tgnn__run_tgnn_eval__train_temporal___select_indices" [label="_select_indices\n(src/tgnn/run_tgnn_eval.py:709)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.train_temporal._select_indices\nsrc/tgnn/run_tgnn_eval.py:709\nfunction in src.tgnn.run_tgnn_eval.train_temporal"];
+            "src__tgnn__run_tgnn_eval__train_temporal__lr_lambda" [label="lr_lambda\n(src/tgnn/run_tgnn_eval.py:629)", style="filled", fillcolor="#6d32ffb2", fontcolor="#000000", group="5", tooltip="src.tgnn.run_tgnn_eval.train_temporal.lr_lambda\nsrc/tgnn/run_tgnn_eval.py:629\nfunction in src.tgnn.run_tgnn_eval.train_temporal"];
+        }
+    }
+        "src__tgnn__01_tgnn_hpo_optuna" -> "src__tgnn__01_tgnn_hpo_optuna__main" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna" -> "src__tgnn__run_tgnn_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna" -> "src__tgnn__run_tgnn_eval__build_snapshots" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna" -> "src__tgnn__run_tgnn_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna" -> "src__tgnn__run_tgnn_eval__load_features" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna" -> "src__tgnn__run_tgnn_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna" -> "src__tgnn__run_tgnn_eval__train_temporal" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna__main" -> "src__tgnn__01_tgnn_hpo_optuna__objective" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna__main" -> "src__tgnn__01_tgnn_hpo_optuna__parse_args" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna__main" -> "src__tgnn__run_tgnn_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna__objective" -> "src__tgnn__01_tgnn_hpo_optuna__objective" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna__objective" -> "src__tgnn__run_tgnn_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna__objective" -> "src__tgnn__run_tgnn_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna__objective" -> "src__tgnn__run_tgnn_eval__build_snapshots" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna__objective" -> "src__tgnn__run_tgnn_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna__objective" -> "src__tgnn__run_tgnn_eval__load_features" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna__objective" -> "src__tgnn__run_tgnn_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna__objective" -> "src__tgnn__run_tgnn_eval__train_temporal" [style="solid",  color="#000000"];
+        "src__tgnn__01_tgnn_hpo_optuna__parse_args" -> "src__tgnn__01_tgnn_hpo_optuna__parse_args" [style="solid",  color="#000000"];
+        "src__tgnn__02_tgnn_finalize_hpo" -> "src__tgnn__02_tgnn_finalize_hpo__main" [style="solid",  color="#000000"];
+        "src__tgnn__02_tgnn_finalize_hpo__TrialConfig__to_params_dict" -> "src__tgnn__02_tgnn_finalize_hpo__TrialConfig" [style="solid",  color="#000000"];
+        "src__tgnn__02_tgnn_finalize_hpo__load_top_configs" -> "src__tgnn__02_tgnn_finalize_hpo__TrialConfig" [style="solid",  color="#000000"];
+        "src__tgnn__02_tgnn_finalize_hpo__main" -> "src__tgnn__02_tgnn_finalize_hpo__TrialConfig__to_params_dict" [style="solid",  color="#000000"];
+        "src__tgnn__02_tgnn_finalize_hpo__main" -> "src__tgnn__02_tgnn_finalize_hpo__aggregate_seeds" [style="solid",  color="#000000"];
+        "src__tgnn__02_tgnn_finalize_hpo__main" -> "src__tgnn__02_tgnn_finalize_hpo__load_top_configs" [style="solid",  color="#000000"];
+        "src__tgnn__02_tgnn_finalize_hpo__main" -> "src__tgnn__02_tgnn_finalize_hpo__parse_args" [style="solid",  color="#000000"];
+        "src__tgnn__02_tgnn_finalize_hpo__main" -> "src__tgnn__02_tgnn_finalize_hpo__run_single_seed" [style="solid",  color="#000000"];
+        "src__tgnn__02_tgnn_finalize_hpo__parse_args" -> "src__tgnn__02_tgnn_finalize_hpo__parse_args" [style="solid",  color="#000000"];
+        "src__tgnn__02_tgnn_finalize_hpo__run_single_seed" -> "src__tgnn__02_tgnn_finalize_hpo__TrialConfig" [style="solid",  color="#000000"];
+        "src__tgnn__03_tgnn_train_eval" -> "src__tgnn__run_tgnn_eval__main" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model" -> "src__tgnn__evaluate_saved_model__main" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model" -> "src__tgnn__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model" -> "src__tgnn__run_tgnn_eval__ScoreWriter" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model" -> "src__tgnn__run_tgnn_eval__build_snapshots" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model" -> "src__tgnn__run_tgnn_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model" -> "src__tgnn__run_tgnn_eval__load_features" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model" -> "src__tgnn__run_tgnn_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model__main" -> "src__tgnn__evaluate_saved_model___parse_args" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model__main" -> "src__tgnn__evaluate_saved_model___select_indices" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model__main" -> "src__tgnn__evaluate_saved_model__main___run_eval" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model__main" -> "src__tgnn__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model__main" -> "src__tgnn__model__TemporalGNN__normalize_adjacency" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model__main" -> "src__tgnn__run_tgnn_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model__main" -> "src__tgnn__run_tgnn_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model__main" -> "src__tgnn__run_tgnn_eval__build_snapshots" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model__main" -> "src__tgnn__run_tgnn_eval__load_features" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model__main" -> "src__tgnn__run_tgnn_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model__main___run_eval" -> "src__tgnn__run_tgnn_eval__ScoreWriter" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model__main___run_eval" -> "src__tgnn__run_tgnn_eval__ScoreWriter__close" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model__main___run_eval" -> "src__tgnn__run_tgnn_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__tgnn__evaluate_saved_model__main___run_eval" -> "src__tgnn__run_tgnn_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__tgnn__model" -> "src__tgnn__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__tgnn__model" -> "src__tgnn__model__TemporalGNN____init__" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNNIncremental__forward_incremental" -> "src__tgnn__model__TemporalGNNIncremental" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNNIncremental__forward_incremental" -> "src__tgnn__model__TemporalGNNIncremental__gcn_forward" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNNIncremental__gcn_forward" -> "src__tgnn__model__TemporalGNNIncremental" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNN____init__" -> "src__tgnn__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNN___run_gcn" -> "src__tgnn__model__TemporalGNN___run_gcn__run" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNN___run_gcn" -> "src__tgnn__model__TemporalGNN___should_checkpoint" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNN___run_gcn" -> "src__tgnn__model__TemporalGNN__gcn_forward" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNN___run_gcn__run" -> "src__tgnn__model__TemporalGNN__gcn_forward" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNN___should_checkpoint" -> "src__tgnn__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNN__forward" -> "src__tgnn__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNN__forward" -> "src__tgnn__model__TemporalGNN___run_gcn" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNN__forward" -> "src__tgnn__model__TemporalGNN__normalize_adjacency" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNN__gcn_forward" -> "src__tgnn__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNN__gcn_forward" -> "src__tgnn__model__TemporalGNN____init__" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNN__project_heads" -> "src__tgnn__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNN__reset_parameters" -> "src__tgnn__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__tgnn__model__TemporalGNN__reset_parameters" -> "src__tgnn__model__TemporalGNN__reset_parameters" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval" -> "src__tgnn__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval" -> "src__tgnn__run_tgnn_eval__main" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__CandidateStreamer____iter__" -> "src__tgnn__run_tgnn_eval__CandidateStreamer" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__KM____post_init__" -> "src__tgnn__run_tgnn_eval__KM" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__KM__row" -> "src__tgnn__run_tgnn_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__KM__row" -> "src__tgnn__run_tgnn_eval__KM" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__KM__upd" -> "src__tgnn__run_tgnn_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__KM__upd" -> "src__tgnn__run_tgnn_eval__KM" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__ScoreWriter__close" -> "src__tgnn__run_tgnn_eval__ScoreWriter" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__ScoreWriter__close" -> "src__tgnn__run_tgnn_eval__ScoreWriter__close" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__ScoreWriter__write" -> "src__tgnn__run_tgnn_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__ScoreWriter__write" -> "src__tgnn__run_tgnn_eval__ScoreWriter" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__TwoHopCache__get" -> "src__tgnn__run_tgnn_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__TwoHopCache__get" -> "src__tgnn__run_tgnn_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval___load_nodeX2vec_embeddings" -> "src__tgnn__run_tgnn_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval___load_t0" -> "src__tgnn__run_tgnn_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval___prepare_temporal_tasks" -> "src__tgnn__run_tgnn_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval___prepare_temporal_tasks" -> "src__tgnn__run_tgnn_eval___encode_edges" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__build_snapshots" -> "src__tgnn__run_tgnn_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__model__TemporalGNNIncremental____init__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__model__TemporalGNN____init__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__run_tgnn_eval__CandidateStreamer" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__run_tgnn_eval__CandidateStreamer____init__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__run_tgnn_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__run_tgnn_eval__Graph" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__run_tgnn_eval__KM" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__run_tgnn_eval__KM__row" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__run_tgnn_eval__KM__upd" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__run_tgnn_eval__ScoreWriter" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__run_tgnn_eval__ScoreWriter____init__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__run_tgnn_eval__ScoreWriter__write" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__run_tgnn_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__run_tgnn_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__evaluate_split" -> "src__tgnn__run_tgnn_eval___load_t0" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__load_features" -> "src__tgnn__run_tgnn_eval___load_nodeX2vec_embeddings" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__load_graphX" -> "src__tgnn__model__TemporalGNNIncremental____init__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__load_graphX" -> "src__tgnn__model__TemporalGNN____init__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__load_graphX" -> "src__tgnn__run_tgnn_eval__CandidateStreamer____init__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__load_graphX" -> "src__tgnn__run_tgnn_eval__Graph" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__load_graphX" -> "src__tgnn__run_tgnn_eval__ScoreWriter____init__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__load_graphX" -> "src__tgnn__run_tgnn_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__model__TemporalGNN__normalize_adjacency" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__run_tgnn_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__run_tgnn_eval__ScoreWriter" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__run_tgnn_eval__ScoreWriter____init__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__run_tgnn_eval__ScoreWriter__close" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__run_tgnn_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__run_tgnn_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__run_tgnn_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__run_tgnn_eval___ensure_dir" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__run_tgnn_eval__build_snapshots" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__run_tgnn_eval__evaluate_split" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__run_tgnn_eval__load_features" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__run_tgnn_eval__load_graphX" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__main" -> "src__tgnn__run_tgnn_eval__train_temporal" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__sample_negatives_mix_v3" -> "src__tgnn__run_tgnn_eval__Graph" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__sample_negatives_mix_v3" -> "src__tgnn__run_tgnn_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__sample_negatives_mix_v3" -> "src__tgnn__run_tgnn_eval__TwoHopCache__get" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__sample_negatives_mix_v3" -> "src__tgnn__run_tgnn_eval___is_edge" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__sample_negatives_mix_v3" -> "src__tgnn__run_tgnn_eval__sample_degree_negatives" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__sample_negatives_mix_v3" -> "src__tgnn__run_tgnn_eval__sample_negatives_mix_v3" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__train_temporal" -> "src__tgnn__model__TemporalGNN" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__train_temporal" -> "src__tgnn__run_tgnn_eval__CandidateStreamer____iter__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__train_temporal" -> "src__tgnn__run_tgnn_eval__Graph" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__train_temporal" -> "src__tgnn__run_tgnn_eval__TwoHopCache" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__train_temporal" -> "src__tgnn__run_tgnn_eval__TwoHopCache____init__" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__train_temporal" -> "src__tgnn__run_tgnn_eval___prepare_temporal_tasks" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__train_temporal" -> "src__tgnn__run_tgnn_eval__sample_negatives_mix_v3" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__train_temporal" -> "src__tgnn__run_tgnn_eval__train_temporal___get_normalized_adj" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__train_temporal" -> "src__tgnn__run_tgnn_eval__train_temporal___select_indices" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__train_temporal" -> "src__tgnn__run_tgnn_eval__train_temporal__lr_lambda" [style="solid",  color="#000000"];
+        "src__tgnn__run_tgnn_eval__train_temporal___get_normalized_adj" -> "src__tgnn__model__TemporalGNN__normalize_adjacency" [style="solid",  color="#000000"];
+    }
